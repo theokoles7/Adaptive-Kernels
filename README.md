@@ -29,4 +29,4 @@ python3 main.py --dataset <DATASET> --alg <MODEL> --data <PATH_TO_DATA> --kernel
 
 For example, to train a ResNet on CIFAR10 basen on Kernel Type 1 and the data is saved in ./data/, we can run:
 
-python3 main.py --dataset cifar10 --alg res --data ./data/ --kernel_Type 1
+python3 main.py --dataset cifar10 --alg res --data ./data/ --kernel_type 1

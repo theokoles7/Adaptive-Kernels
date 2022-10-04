@@ -28,7 +28,7 @@ def get_args():
 
 
     #2Kernel Set ARGS
-    parser.add_argument('--kernel_type', default=1, type=int)
+    parser.add_argument('--kernel_type', default=13, type=int)
 
     args = parser.parse_args()
 

@@ -1,7 +1,7 @@
-Impact of Convoluted Data Distribution in Kernel Space
+Adaptive Kernel Selection for Convolutional Neural Network
 #Paper Under Review ICLR 2023
 
-The official PyTorch implementation of Impact of Convoluted Data Distribution in Kernel Space (ICLR 2023 #Paper Under Review#).
+The official PyTorch implementation of Adaptive Kernel Selection for Convolutional Neural Networke (ICLR 2023 #Paper Under Review#).
 
 Required Packages:
 

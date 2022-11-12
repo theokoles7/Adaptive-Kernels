@@ -1,7 +1,7 @@
 Adaptive Kernel Selection for Convolutional Neural Network
-#Paper Under Review ICLR 2023
+#Paper Under Review CVPR 2023
 
-The official PyTorch implementation of Adaptive Kernel Selection for Convolutional Neural Networke (ICLR 2023 #Paper Under Review#).
+The official PyTorch implementation of Adaptive Kernel Selection for Convolutional Neural Networke (CVPR 2023 #Paper Under Review#).
 
 Required Packages:
 

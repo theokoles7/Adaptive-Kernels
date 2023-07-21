@@ -15,11 +15,13 @@ Work based on *Adaptive Kernel Selection* (Dr. Sahan Ahmad)
 | scikit-learn  | N/A       |
 | tqdm          | N/A       |
 
+To install the packages required for this application, run the following command(s) from the project's root directory: `conda env create -f hilo_env.yaml && conda activate hilo`
+
 ## USAGE: 
 Running the application is as simple as:
 
-`python3 main.py --dataset <DATASET> --alg <MODEL> --data <PATH_TO_DATA> --kernel_type <Kernel_Type>`
+`python main.py --dataset <DATASET> --alg <MODEL> --data <PATH_TO_DATA> --kernel_type <Kernel_Type>`
 
 For example, to train a ResNet on CIFAR10 basen on Kernel Type 1 and the data is saved in ./data/, we can run:
 
-`python3 main.py --dataset cifar10 --alg res --data ./data/ --kernel_type 1`
+`python main.py --dataset cifar10 --alg res --data ./data/ --kernel_type 1`

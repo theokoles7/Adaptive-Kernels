@@ -30,7 +30,7 @@ def get_data(args):
         args.in_dim = 28*28 
     elif args.dataset == 'cifar10':
         transform = transforms.Compose([
-                transforms.Scale(32),
+                transforms.Resize(32),
                 transforms.ToTensor(),
                 transforms.Normalize((0.5, 0.5, 0.5,), (0.5, 0.5, 0.5,))]
         )
@@ -51,7 +51,7 @@ def get_data(args):
         args.in_dim = 3
     elif args.dataset == 'cifar100':
         transform = transforms.Compose([
-                transforms.Scale(32),
+                transforms.Resize(32),
                 transforms.ToTensor(),
                 transforms.Normalize((0.5, 0.5, 0.5,), (0.5, 0.5, 0.5,))]
         )
@@ -72,7 +72,7 @@ def get_data(args):
         args.in_dim = 3
     elif args.dataset == 'imagenet':
         transform = transforms.Compose([
-                transforms.Scale(32),
+                transforms.Resize(32),
                 transforms.ToTensor(),
                 transforms.Normalize((0.5, 0.5, 0.5,), (0.5, 0.5, 0.5,))]
         )
@@ -88,7 +88,7 @@ def get_data(args):
         args.in_dim = 3
     elif args.dataset == 'svhn':      
         transform = transforms.Compose([
-                transforms.Scale(32),
+                transforms.Resize(32),
                 transforms.ToTensor(),
                 transforms.Normalize((0.5, 0.5, 0.5,), (0.5, 0.5, 0.5,))]
         )
@@ -111,13 +111,13 @@ def get_data(args):
         args.num_classes = 101
         transform = transforms.Compose([
                 transforms.CenterCrop(128),
-                transforms.Scale(64),
+                transforms.Resize(64),
                 transforms.ToTensor(),
                 transforms.Normalize((0.5, 0.5, 0.5,), (0.5, 0.5, 0.5,))]
         )
         test_transform = transforms.Compose([
                 transforms.CenterCrop(128),
-                transforms.Scale(64),
+                transforms.Resize(64),
                 transforms.ToTensor(),
                 transforms.Lambda(lambda x: x.repeat(3, 1, 1)),
             ]

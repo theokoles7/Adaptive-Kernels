@@ -19,7 +19,7 @@ class BaseSolver(metaclass=abc.ABCMeta):
         self.train_data, self.test_data, self.args = get_data(args)
         self.cuda = torch.cuda.is_available()
 
-        if self.args.alg == 'normal':
+        if self.args.model == 'normal':
             self.model = CNNNormal(
                     nc=self.args.in_dim,
                     num_classes=self.args.num_classes,
@@ -27,15 +27,15 @@ class BaseSolver(metaclass=abc.ABCMeta):
                     dataset= args.dataset,
                     kernel_type= args.kernel_type,
             )
-        elif self.args.alg == 'vgg':
+        elif self.args.model == 'vgg':
             self.model = VGG16_conv(
                     self.args.num_classes,
                     args=args,
 
             )
-        elif self.args.alg == 'res':
+        elif self.args.model == 'res':
             self.model = ResNet18(self.args)
-        elif self.args.alg == 'wrn':
+        elif self.args.model == 'wrn':
             self.model = wide_resnet.Wide_ResNet(52, 2, 0.3, self.args.num_classes, args)
 
         self.optim = optim.SGD(

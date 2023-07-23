@@ -19,7 +19,7 @@ class CBSSolver(BaseSolver):
     def __init__(self, args):
         super().__init__(args)
 
-        self.decay_epoch = 50 if self.args.alg == 'vgg' else 30
+        self.decay_epoch = 50 if self.args.model == 'vgg' else 30
         self.stop_decay_epoch = self.decay_epoch * 3 + 1
 
     def solve(self):
@@ -42,12 +42,12 @@ class CBSSolver(BaseSolver):
                 break
 
 
-            if self.args.alg == 'normal':
+            if self.args.model == 'normal':
                 column_name = ['layer1', 'layer2', 'layer3', 'layer4']
                 with open(filename, mode='w') as write_obj:
                     csvwriter = csv.writer(write_obj)
                     csvwriter.writerow(column_name)
-            elif self.args.alg == 'res':
+            elif self.args.model == 'res':
                 column_name = ['layer1', 'layer5', 'layer9', 'layer13','layer18']
                 with open(filename, mode='w') as write_obj:
                     csvwriter = csv.writer(write_obj)
@@ -98,7 +98,7 @@ class CBSSolver(BaseSolver):
 
 
             df = pd.read_csv(filename)
-            if self.args.alg == 'normal':
+            if self.args.model == 'normal':
                 column_name = ['layer1', 'layer2', 'layer3', 'layer4']
                 if epoch_count == 0:
                     pl1 = df['layer1'].mean().round(decimals=self.args.precision_point)
@@ -125,7 +125,7 @@ class CBSSolver(BaseSolver):
                                     self.args.epoch_limit = epoch_count + 1
 
                     pl1,pl2,pl3,pl4 = l1,l2,l3,l4
-            elif self.args.alg == 'res':
+            elif self.args.model == 'res':
                 column_name = ['layer1', 'layer5', 'layer9', 'layer13','layer18']
                 if epoch_count == 0:
                     pl1 = df['layer1'].mean().round(decimals=self.args.precision_point)

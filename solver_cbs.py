@@ -1,26 +1,16 @@
-import torch
-import copy
-import os
-import torch.optim as optim
-import torch.utils.data as data
-import math
-from sklearn.metrics import accuracy_score
-from arguments import get_args
-import csv
-import pandas as pd
-import sys
-from termcolor import colored, cprint
-import math
+import copy, csv, math, os
 
-#from models_gX5 import *
-from data import get_data
+import pandas as pd
+from termcolor import cprint
+
 from solver_base import BaseSolver
+
 
 class CBSSolver(BaseSolver):
     def __init__(self, args):
         super().__init__(args)
 
-        self.decay_epoch = 50 if self.args.alg == 'vgg' else 30
+        self.decay_epoch = 50 if self.args.model == 'vgg' else 30
         self.stop_decay_epoch = self.decay_epoch * 3 + 1
 
     def trainValError(self,alg):
@@ -91,18 +81,18 @@ class CBSSolver(BaseSolver):
         current_working_dir = os.getcwd()
         filename = os.path.join(current_working_dir, self.cfile)
 
-        if self.args.alg == 'normal':
+        if self.args.model == 'normal':
             column_name = ['layer1', 'layer2', 'layer3', 'layer4']
             with open(filename, mode='w') as write_obj:
                 csvwriter = csv.writer(write_obj)
                 csvwriter.writerow(column_name)
 
-        elif self.args.alg == 'res':
+        elif self.args.model == 'res':
             column_name = ['layer1', 'layer5', 'layer9', 'layer13', 'layer18']
             with open(filename, mode='w') as write_obj:
                 csvwriter = csv.writer(write_obj)
                 csvwriter.writerow(column_name)
-        elif self.args.alg == 'vgg':
+        elif self.args.model == 'vgg':
             column_name = ['layer3', 'layer6', 'layer9', 'layer12', 'layer16']
             with open(filename, mode='w') as write_obj:
                 csvwriter = csv.writer(write_obj)
@@ -116,8 +106,8 @@ class CBSSolver(BaseSolver):
         num_iter = 0
 
 
-        meanFile = self.meanCSV(self.args.alg)
-        train_valFile = self.trainValError(self.args.alg)
+        meanFile = self.meanCSV(self.args.model)
+        train_valFile = self.trainValError(self.args.model)
 
 
         for epoch_count in range(self.args.num_epochs):
@@ -182,7 +172,7 @@ class CBSSolver(BaseSolver):
                 csvwriter.writerow(row)
 
 
-            if self.args.alg == 'normal':
+            if self.args.model == 'normal':
 
                 if epoch_count < 5:
                     pl1 = df['layer1'].mean().round(decimals=self.args.precision_point)
@@ -245,7 +235,7 @@ class CBSSolver(BaseSolver):
 
 
 
-            elif self.args.alg == 'res':
+            elif self.args.model == 'res':
                 if epoch_count < 5:
                     pl1 = df['layer1'].mean().round(decimals=self.args.precision_point)
                     pl2 = df['layer5'].mean().round(decimals=self.args.precision_point)
@@ -307,7 +297,7 @@ class CBSSolver(BaseSolver):
                     pl1, pl2, pl3, pl4,pl5 = l1, l2, l3, l4,l5
 
 
-            elif self.args.alg == 'vgg':
+            elif self.args.model == 'vgg':
                 if epoch_count < 5:
                     pl1 = df['layer3'].mean().round(decimals=self.args.precision_point)
                     pl2 = df['layer6'].mean().round(decimals=self.args.precision_point)

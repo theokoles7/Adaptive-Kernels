@@ -1,4 +1,4 @@
-import copy, csv, math, os
+import copy, csv, math, pathlib, os
 
 import pandas as pd
 from termcolor import cprint
@@ -21,6 +21,10 @@ class CBSSolver(BaseSolver):
         current_working_dir = os.getcwd()
         filename = os.path.join(current_working_dir, self.cfile)
         print(filename)
+
+        if not pathlib.Path(directory).exists():
+            os.makedirs(directory)
+
         with open(filename, mode='w') as write_obj:
             csvwriter = csv.writer(write_obj)
             csvwriter.writerow(column_name)
@@ -89,6 +93,10 @@ class CBSSolver(BaseSolver):
 
         elif self.args.model == 'res':
             column_name = ['layer1', 'layer5', 'layer9', 'layer13', 'layer18']
+
+            if not pathlib.Path(directory).exists():
+                os.makedirs(directory)
+                
             with open(filename, mode='w') as write_obj:
                 csvwriter = csv.writer(write_obj)
                 csvwriter.writerow(column_name)

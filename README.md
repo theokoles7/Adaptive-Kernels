@@ -1,7 +1,7 @@
 # Efficacy of Probability Distributions Against High/Low Resolution Images
 Work based on *Adaptive Kernel Selection* (Dr. Sahan Ahmad)
 
-## Required packages:
+## Prerequisites:
 | Package       | Version   |
 |---------------|-----------|
 | python        | >= 3.6.3  |
@@ -25,3 +25,13 @@ Running the application is as simple as:
 For example, to train a ResNet on CIFAR10 basen on Kernel Type 1 and the data is saved in ./data/, we can run:
 
 `python main.py --dataset cifar10 --alg res --data ./data/ --kernel_type 1`
+
+# Background & Related Work
+
+## Distributions Studied
+
+### Gaussian (Normal) Distribution
+
+### Poisson Distribution
+
+### LaPlace Distribution

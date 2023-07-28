@@ -57,8 +57,7 @@ def get_args() -> argparse.Namespace:
 
     parser.add_argument(
         '--no-cuda',
-        type =      bool,
-        action =    'store_true',
+        action = 'store_true',
         help = 'opt out of running on GPU'
         )
 
@@ -130,7 +129,7 @@ def get_args() -> argparse.Namespace:
         help = 'kernel size (square)'
     )
 
-    # OUR ARGS
+    # DADL ARGS
     parser.add_argument(
         '--epoch_limit',
         type=int,

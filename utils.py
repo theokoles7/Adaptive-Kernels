@@ -1,120 +1,36 @@
-import math
-import random
+"""Wrapper methods and commonly used functions."""
+
+import arguments, math, random
 import torch
 import torch.nn as nn
-from termcolor import colored,cprint
-import math
-import  arguments
 
+from termcolor import cprint
 
+from kernel_configs import kernel_config
 
-def get_gaussian_filter(epoch_number,mean =1, kernel_size=3, sigma=2, channels=3):
-    # Create a x, y coordinate grid of shape (kernel_size, kernel_size, 2)
-    parameter = arguments.get_args()
+def get_gaussian_filter(epoch_number: int, mean: int = 1, kernel_size: int = 3, sigma: int = 2, channels: int = 3) -> nn.Conv2d:
+    """Create an (x, y) coordinate grid of shape (kernel_size, kernel_size, 2).
 
-    kernel_number = parameter.kernel_type
-    #filter_list = ['topLeft', 'topRight', 'bottomLeft', 'bottomRight']
-    if kernel_number == 1:
-        filter_list = ['topLeft', 'bottomRight']
-        print ("Kernel Type 1: top-left, bottom-right")
+    Args:
+        epoch_number (int): Number of epochs.
+        mean (int, optional): Mu; Distribution mean. Defaults to 1.
+        sigma (int, optional): Sigma: Distribution standard deviation. Defaults to 2.
+        kernel_size (int, optional): Kernel dimension. Defaults to 3.
+        channels (int, optional): Input channels. Defaults to 3.
 
-    elif kernel_number == 2:
-        filter_list = ['bottomLeft', 'topRight']
-        print("Kernel Type 2: bottom-left, top-right")
+    Returns:
+        nn.Conv2d: Gaussian distribution-based kernel.
+    """
+    # Verify integrity of mean and sigma data types
+    if math.isnan(mean): raise ValueError(f"Mean expected to be of type int; Got {type(mean)}")
+    if math.isnan(sigma): raise ValueError(f"Sigma expected to be of type int; Got {type(sigma)}")
 
-    elif kernel_number == 3:
-        filter_list = ['topLeft', 'bottomLeft']
-        print ("Kernel Type 3: top-left, bottom-left")
+    # Parse arguments
+    args = arguments.get_args()
 
-    elif kernel_number == 4:
-        filter_list = ['topRight', 'bottomRight']
-        print ("kernel Type 4: top-right, bottom-right")
-    elif kernel_number == 5:
-        filter_list = ['topLeft', 'topRight']
-        print ("Kernel Type 5: top-left, top-right")
-    elif kernel_number == 6:
-        filter_list = ['bottomLeft', 'bottomRight']
-        print ("Kernel Type 6: bottom-left, bottom-right")
-    elif kernel_number == 7:
-        filter_list = ['topLeft', 'bottomRight','static']
-        print ("Kernel Type 7: top-left, bottom-right","static")
-    elif kernel_number == 8:
-        filter_list = ['bottomLeft', 'topRight','static']
-        print("Kernel Type 8: bottom-left, top-right","static")
-    elif kernel_number== 9:
-        filter_list = ['topLeft', 'bottomLeft','static']
-        print ("Kernel Type 9: top-left, bottom-left","static")
-    elif kernel_number == 10:
-        filter_list = ['topRight', 'bottomRight','static']
-        print ("kernel Type 10: top-right, bottom-right","static")
-    elif kernel_number == 11:
-        filter_list = ['topLeft', 'topRight','static']
-        print ("Kernel Type 11: top-left, top-right","static")
-    elif kernel_number == 12:
-        filter_list = ['bottomLeft', 'bottomRight','static']
-        print ("Kernel Type 12: bottom-left, bottom-right","static")
-    elif kernel_number == 13:
-        filter_list = ['topLeft', 'bottomRight','bottomLeft', 'topRight']
-        print ("Kernel Type 13: top-left, bottom-right ,bottom-left, top-right")
-    elif kernel_number == 14:
-        filter_list = ['topLeft', 'bottomRight','bottomLeft', 'topRight','static']
-        print ("Kernel Type 14: top-left, bottom-right ,bottom-left, top-right, static")
-
-
-
-
-
-    if math.isnan(mean) or math.isnan(sigma):
-        mean = 1
-        sigma = 1
-
-    '''
-    kernel_type Description
-    
-    1 = top left bottom right
-    2 = bottom left top right
-    
-    3 = top left bottom left
-    4 = top right bottom right
-    
-    5 = top left top right
-    6 = bottom left bottom right
-    
-    7 = top left bottom right static
-    8 = bottom left top right static
-    
-    9 = top left bottom left static
-    10 = top right bottom right static
-    
-    11 = top left top right static
-    12 = bottom left bottom right static
-    
-    13 = top left bottom right bottom left top right
-    14 = top left bottom right bottom left top right
-    '''
-
-
-
-
-     #Exp 2 , 3 and 4 Kernel
-
-    #filter_list = ['topLeft', 'bottomRight'] #Exp 2
-    #filter_list = ['topLeft', 'forceG'] #Exp 3
-    #filter_list = ['bottomRight', 'forceG'] #Exp 4
-
-
-    #filter_list = ['topLeft'] #Exp 5
-    #filter_list = ['bottomRight'] #Exp 6
-    #filter_list = ['forceG']  # Exp 7
-
-    #filter_list = ['topLeft', 'topRight', 'bottomLeft', 'bottomRight', 'middle-left', 'middle-right', 'middle-top', 'middle-bottom']  # Exp 8
-
-    #filter_name = filter_list[random.randint(0, 4)] # Exp 1
-    #filter_name = filter_list[random.randint(0, 1)] # Exp 2 Kernel Set
-    #filter_name = filter_list[0] # Exp 5~7
-    #filter_name = filter_list[random.randint(0, 3)] #Exp 4 Kernel
-    #filter_name = filter_list[random.randint(0, 7)] # Exp 8 kernel
-
+    # Fetch corresponding filter list for kernel type provided
+    filter_list = kernel_config[args.kernel_type]
+    print(f"Kernel Type {args.kernel_type}: {filter_list}")
 
     filter_name = filter_list[random.randint(0,len(filter_list)-1)]
     x_coord = torch.arange(kernel_size)
@@ -122,16 +38,12 @@ def get_gaussian_filter(epoch_number,mean =1, kernel_size=3, sigma=2, channels=3
     y_grid = x_grid.t()
     xy_grid = torch.stack([x_grid, y_grid], dim=-1).float()
 
-    if filter_name == 'static':
-        mean = 1
-        sigma = 1
-    else:
-        mean = mean
-        sigma = sigma
+    mean = (1 if filter_name == 'static' else mean)
+    sigma = (1 if filter_name == 'static' else sigma)
 
     variance = sigma**2.
 
-    cprint("Sigma: " + str(sigma) + " --Variance: " + str(variance) + " --mean: " + str(mean), "red", "on_white")
+    cprint(f"Sigma: {sigma} --Variance: {variance} --mean: {mean}", "red", "on_white")
 
     # Calculate the 2-dimensional gaussian kernel which is
     # the product of two gaussian distributions for two different

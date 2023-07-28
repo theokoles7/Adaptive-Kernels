@@ -1,17 +1,24 @@
+"""Drive application."""
+
 from arguments import get_args
 from solver_cbs import CBSSolver
-from solver_base import BaseSolver
+
 def main():
+    """Initiate main process.
+    """
+    # Parse arguments.
     args = get_args()
 
+    # Initialize model.
     solver = CBSSolver(args)
 
-    print('training!')
+    # Initiate operations.
     solver.solve()
-    print('done')
 
-
+    # If argument was passed...
     if args.save_model:
+
+        # Save model parameters.
         solver.save_model()
 
 if __name__ == '__main__':

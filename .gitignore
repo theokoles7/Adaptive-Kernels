@@ -1,4 +1,9 @@
+# BUILD FILES
 __pycache__/*
-CSV_Data/*
-data/*
 *.egg-info
+
+# RUN TIME OUTPUT
+output/*
+
+# DATASETS (TOO LARGE TO BE WORTH SOURCING)
+data/*

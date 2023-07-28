@@ -25,10 +25,7 @@ def get_args() -> argparse.Namespace:
     parser.add_argument(
         '--dataset',
         type = str,
-        choices = [
-            'mnist', 'cifar10', 'cifar100', 
-            'imagenet', 'svhn', 'caltech'
-        ],
+        choices = ['caltech', 'cifar10', 'cifar100', 'imagenet', 'mnist', 'svhn'],
         default = 'cifar10',
         help = 'target dataset'
     )

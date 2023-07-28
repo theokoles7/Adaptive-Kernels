@@ -35,3 +35,7 @@ For example, to train a ResNet on CIFAR10 basen on Kernel Type 1 and the data is
 ### Poisson Distribution
 
 ### LaPlace Distribution
+
+### Cauchy Distribution
+
+### Gumbel Distribution

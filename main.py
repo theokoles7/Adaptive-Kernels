@@ -1,25 +1,24 @@
-"""Drive application."""
+"""Drive operations of HI/LO Machine Learning application."""
 
-from arguments import get_args
-from solver_cbs import CBSSolver
+from globals import *
 
-def main():
-    """Initiate main process.
+def config_banner() -> None:
+    LOGGER.info(
+        f"DATASET: {ARGS.dataset} BATCH_SIZE: {ARGS.batch_size} | MODEL: {ARGS.model} LR: {ARGS.learning_rate} | DISTRO: {ARGS.distribution} {distro_params(ARGS.distribution)}"
+    )
+
+def distro_params(distro: str) -> str:
+    """Provide distribution parameters.
+
+    Args:
+        distro (str): Distribution argument
+
+    Returns:
+        str: Distributino parameters
     """
-    # Parse arguments.
-    args = get_args()
-
-    # Initialize model.
-    solver = CBSSolver(args)
-
-    # Initiate operations.
-    solver.solve()
-
-    # If argument was passed...
-    if args.save_model:
-
-        # Save model parameters.
-        solver.save_model()
+    if distro == 'poisson': return f"RATE: {ARGS.rate}"
+    return f"LOC: {ARGS.location} SCALE: {ARGS.scale}"
 
 if __name__ == '__main__':
-    main()
+    # Log run time configuration
+    config_banner()

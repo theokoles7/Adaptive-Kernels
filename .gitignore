@@ -1,9 +1,11 @@
 # BUILD FILES
-__pycache__/*
+build/
+__pycache__/
 *.egg-info
 
 # RUN TIME OUTPUT
-output/*
+OUTPUT/*
+LOGS/*
 
 # DATASETS (TOO LARGE TO BE WORTH SOURCING)
-data/*
+DATA/*

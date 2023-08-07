@@ -41,6 +41,13 @@ class Arguments():
         )
 
         dataset.add_argument(
+            '--dataset_path',
+            type=str,
+            default='DATA',
+            help='path to dataset pool'
+        )
+
+        dataset.add_argument(
             '--batch_size', '-bs',
             type=int,
             default=64,

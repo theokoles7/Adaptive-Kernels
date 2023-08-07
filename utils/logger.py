@@ -5,7 +5,7 @@ import datetime, logging, os, sys
 class Logger():
     """Logger class."""
 
-    def __init__(self, path: str, to_file: bool = True):
+    def __init__(self, path: str):
         """Initialize Logger.
 
         Args:
@@ -23,15 +23,14 @@ class Logger():
         stdout_handler.setFormatter(logging.Formatter('%(asctime)s | %(levelname)s | %(message)s'))
         self._logger.addHandler(stdout_handler)
 
-        if to_file:
-            # Verify that path exists
-            if not os.path.exists(path): os.makedirs(path)
+        # # Verify that path exists
+        # if not os.path.exists(path): os.makedirs(path)
 
-            # Define file handler
-            file_handler = logging.FileHandler(f"{path}/{datetime.datetime.now().strftime('%Y_%m_%d_%H_%M_%S')}.log")
-            file_handler.setLevel(logging.DEBUG)
-            file_handler.setFormatter(logging.Formatter('%(asctime)s | %(levelname)s | %(message)s'))
-            self._logger.addHandler(file_handler)
+        # # Define file handler
+        # file_handler = logging.FileHandler(f"{path}/{datetime.datetime.now().strftime('%Y_%m_%d_%H_%M_%S')}.log")
+        # file_handler.setLevel(logging.DEBUG)
+        # file_handler.setFormatter(logging.Formatter('%(asctime)s | %(levelname)s | %(message)s'))
+        # self._logger.addHandler(file_handler)
 
     def get_logger(self) -> logging.Logger:
         """Provide logger.

@@ -1,24 +1,41 @@
 """VGG16 model."""
 
+import pandas as pd
 import torch, torch.nn as nn
+
+from kernels.accessor import get_kernel
+from utils.globals import ARGS
 
 class VGG(nn.Module):
     """VGG16 model."""
 
-    def __init__(self, channels_out: int):
+    model_data = pd.DataFrame(columns=[
+        'Data Mean', 'Data STD',
+        'Layer 3 Mean', 'Layer 3 STD',
+        'Layer 6 Mean', 'Layer 6 STD',
+        'Layer 9 Mean', 'Layer 9 STD',
+        'Layer 12 Mean', 'Layer 12 STD',
+        'Layer 16 Mean', 'Layer 16 STD'
+    ])
+
+    std1 = std2 = std3 = std4 = std5 = 1
+    mean1 = mean2 = mean3 = mean4 = mean5 = 1
+
+    def __init__(self, channels_in: int, channels_out: int):
         """Initialize VGG model.
 
         Args:
-            channels_out (int): Output channels
+            channels_out (int): Input channels (Likely 1 if images are B&W, 3 if colored)
+            channels_out (int): Output channels (number of classes in dataset)
         """
         super(VGG, self).__init__()
 
         # Convolving layers
-        self.conv1 = nn.Sequential(nn.Conv2d(  3,  64, 3, padding=1), nn.ReLU(), nn.Conv2d( 64,  64, 3, padding=1))
-        self.conv2 = nn.Sequential(nn.Conv2d( 64, 128, 3, padding=1), nn.ReLU(), nn.Conv2d(128, 128, 3, padding=1))
-        self.conv3 = nn.Sequential(nn.Conv2d(128, 256, 3, padding=1), nn.ReLU(), nn.Conv2d(256, 256, 3, padding=1))
-        self.conv4 = nn.Sequential(nn.Conv2d(256, 512, 3, padding=1), nn.ReLU(), nn.Conv2d(512, 512, 3, padding=1))
-        self.conv5 = nn.Sequential(nn.Conv2d(512, 512, 3, padding=1), nn.ReLU(), nn.Conv2d(512, 512, 3, padding=1))
+        self.conv1 = nn.Sequential(nn.Conv2d(channels_in,  64, 3, padding=1), nn.ReLU(), nn.Conv2d( 64,  64, 3, padding=1))
+        self.conv2 = nn.Sequential(nn.Conv2d(         64, 128, 3, padding=1), nn.ReLU(), nn.Conv2d(128, 128, 3, padding=1))
+        self.conv3 = nn.Sequential(nn.Conv2d(        128, 256, 3, padding=1), nn.ReLU(), nn.Conv2d(256, 256, 3, padding=1))
+        self.conv4 = nn.Sequential(nn.Conv2d(        256, 512, 3, padding=1), nn.ReLU(), nn.Conv2d(512, 512, 3, padding=1))
+        self.conv5 = nn.Sequential(nn.Conv2d(        512, 512, 3, padding=1), nn.ReLU(), nn.Conv2d(512, 512, 3, padding=1))
 
         # Pooling layers
         self.pool1 = nn.Sequential(nn.ReLU(), nn.MaxPool2d(2, stride=2))
@@ -52,7 +69,7 @@ class VGG(nn.Module):
          self.std1 = torch.std(y).item()
          self.mean1 = torch.mean(y).item()
          
-        x1 = self.post1(self.kernel1(x1))
+        x1 = self.pool1(self.kernel1(x1))
 
         x2 = self.conv2(x1)
         with torch.no_grad():
@@ -60,7 +77,7 @@ class VGG(nn.Module):
          self.std2 = torch.std(y).item()
          self.mean2 = torch.mean(y).item()
          
-        x2 = self.post2(self.kernel2(x2))
+        x2 = self.pool2(self.kernel2(x2))
 
         x3 = self.conv3(x2)
         with torch.no_grad():
@@ -68,7 +85,7 @@ class VGG(nn.Module):
          self.std3 = torch.std(y).item()
          self.mean3 = torch.mean(y).item()
          
-        x3 = self.post3(self.kernel3(x3))
+        x3 = self.pool3(self.kernel3(x3))
 
         x4 = self.conv4(x3)
         with torch.no_grad():
@@ -76,7 +93,7 @@ class VGG(nn.Module):
          self.std4 = torch.std(y).item()
          self.mean4 = torch.mean(y).item()
          
-        x4 = self.post4(self.kernel4(x4))
+        x4 = self.pool4(self.kernel4(x4))
 
         x5 = self.conv5(x4)
         with torch.no_grad():
@@ -89,12 +106,55 @@ class VGG(nn.Module):
         if return_intermediate:
             return x5.view(x5.size(0), -1)
 
-        x5 = self.post5(x5)
+        x5 = self.pool5(x5)
 
-        if self.modelStatus:
-            self.get_std(X, x1, x2, x3, x4, x5)
+        if self.training: self.record_params(X, x1, x2, x3, x4, x5)
 
         return self.classifier(x5.view(x5.size(0), -1))
+    
+    def update_kernels(self, epoch: int) -> None:
+        """Update kernels.
+
+        Args:
+            epoch (int): Current epoch
+        """
+        if epoch % 5 == 0: 
+            if ARGS.distribution != 'poisson':
+                ARGS.scale *= 0.9
+            else:
+                ARGS.rate *= 0.9
+
+        self.kernel1 = get_kernel( 64)
+        self.kernel2 = get_kernel(128)
+        self.kernel3 = get_kernel(256)
+        self.kernel4 = get_kernel(512)
+        self.kernel5 = get_kernel(512)
+
+    def record_params(self, x, x1, x2, x3, x4, x5):
+        """Record model's location and scale parameters.
+
+        Args:
+            x (torch.Tensor): Intermediate tensor
+            x1 (torch.Tensor): Intermediate tensor
+            x2 (torch.Tensor): Intermediate tensor
+            x3 (torch.Tensor): Intermediate tensor
+            x4 (torch.Tensor): Intermediate tensor
+        """
+        with torch.no_grad():
+            self.model_data.loc[len(self.model_data)] = [
+                round(torch.mean(  x.float()).item(), 3),
+                round(torch.std(   x.float()).item(), 3),
+                round(torch.mean( x1.float()).item(), 3),
+                round(torch.std(  x1.float()).item(), 3),
+                round(torch.mean( x2.float()).item(), 3),
+                round(torch.std(  x2.float()).item(), 3),
+                round(torch.mean( x3.float()).item(), 3),
+                round(torch.std(  x3.float()).item(), 3),
+                round(torch.mean( x4.float()).item(), 3),
+                round(torch.std(  x4.float()).item(), 3),
+                round(torch.mean( x5.float()).item(), 3),
+                round(torch.std(  x5.float()).item(), 3)
+            ]
 
     def _initialize_weights(self) -> None:
         """Initialize weights of model layers.
@@ -116,3 +176,11 @@ class VGG(nn.Module):
             elif isinstance(m, nn.Linear):
                 nn.init.normal_(m.weight, 0, 0.01)
                 nn.init.constant_(m.bias, 0)
+
+    def to_csv(self, file_path: str) -> None:
+        """Dump all data to CSV file.
+
+        Args:
+            file_path (str): Path at which model data will be saved
+        """
+        self.model_data.to_csv(file_path)

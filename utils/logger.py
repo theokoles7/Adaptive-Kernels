@@ -23,14 +23,14 @@ class Logger():
         stdout_handler.setFormatter(logging.Formatter('%(asctime)s | %(levelname)s | %(message)s'))
         self._logger.addHandler(stdout_handler)
 
-        # # Verify that path exists
-        # if not os.path.exists(path): os.makedirs(path)
+        # Verify that path exists
+        if not os.path.exists(path): os.makedirs(path)
 
-        # # Define file handler
-        # file_handler = logging.FileHandler(f"{path}/{datetime.datetime.now().strftime('%Y_%m_%d_%H_%M_%S')}.log")
-        # file_handler.setLevel(logging.DEBUG)
-        # file_handler.setFormatter(logging.Formatter('%(asctime)s | %(levelname)s | %(message)s'))
-        # self._logger.addHandler(file_handler)
+        # Define file handler
+        file_handler = logging.FileHandler(f"{path}/{datetime.datetime.now().strftime('%Y_%m_%d_%H_%M_%S')}.log")
+        file_handler.setLevel(logging.DEBUG)
+        file_handler.setFormatter(logging.Formatter('%(asctime)s | %(levelname)s | %(message)s'))
+        self._logger.addHandler(file_handler)
 
     def get_logger(self) -> logging.Logger:
         """Provide logger.

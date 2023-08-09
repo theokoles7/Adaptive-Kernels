@@ -17,12 +17,6 @@ class Arguments():
 
         # Universal Arguments -----------------------
         self.parser.add_argument(
-            '--verbose',
-            action='store_true',
-            help='log all steps'
-        )
-
-        self.parser.add_argument(
             '--debug',
             action='store_true',
             help='log variables'
@@ -36,7 +30,6 @@ class Arguments():
             type=str,
             choices=['caltech', 'cifar10', 'cifar100', 'imagenet', 'mnist', 'svhn'],
             default='cifar10',
-            nargs=1,
             help='choice of dataset'
         )
 
@@ -62,7 +55,6 @@ class Arguments():
             type=str,
             choices=['normal', 'resnet', 'vgg'],
             default='resnet',
-            nargs=1,
             help='choice of CNN model'
         )
 
@@ -100,10 +92,10 @@ class Arguments():
             help='save model parameters'
         )
 
-        # Distribution Arguments --------------------
-        distro = self.parser.add_argument_group("Distribution")
+        # Kernel Arguments --------------------
+        kernel = self.parser.add_argument_group("Kernel")
 
-        distro.add_argument(
+        kernel.add_argument(
             '--distribution', '-D',
             type=str,
             choices=['cauchy', 'gaussian', 'gumbel', 'laplace', 'poisson'],
@@ -112,7 +104,7 @@ class Arguments():
         )
 
         # Univariate
-        distro.add_argument(
+        kernel.add_argument(
             '--rate',
             type=float,
             default=0,
@@ -120,25 +112,31 @@ class Arguments():
         )
 
         # Bivariate
-        distro.add_argument(
+        kernel.add_argument(
             '--location',
             type=float,
             default=0,
             help='distribution location parameter for a bivariate distribution (Gaussian, Cauchy, Gumbel, Laplace)'
         )
 
-        distro.add_argument(
+        kernel.add_argument(
             '--scale',
             type=self._check_scale,
             default=1,
             help='distribution scale parameter for a bivariate distribution (Gaussian, Cauchy, Gumbel, Laplace) (greater than zero)'
         )
 
-        distro.add_argument(
+        kernel.add_argument(
             '--kernel_type',
             type=int,
             default=13,
             help='kernel configuration type'
+        )
+
+        kernel.add_argument(
+            '--no_kernel',
+            action='store_true',
+            help='turns off adaptive kernels'
         )
 
         # Logger Arguments --------------------------
@@ -193,7 +191,7 @@ class Arguments():
         Returns:
             str: String format
         """
-        arg_string = "ARGUMENTS"
+        arg_string = "ARGUMENTS:"
 
         for arg in vars(self.get_args()):
             arg_string += f"\n\t{arg:<20}{(vars(self.get_args())[arg]):>20}"

@@ -39,14 +39,14 @@ class CalTech():
         # Organize training data
         train_data = datasets.Caltech101(
             root=ARGS.dataset_path,
-            download=False,
+            download=True,
             transform=train_transform
         )
 
         # Organize testing data
         test_data = datasets.Caltech101(
             root=ARGS.dataset_path,
-            download=False,
+            download=True,
             transform=test_transform
         )
 
@@ -70,8 +70,9 @@ class CalTech():
             drop_last=False,
         )
 
-        # Record number of classes in dataset
+        # Dataset parameters
         self.num_classes = 101
+        self.channels_in =   3
 
     def get_loaders(self) -> typing.Tuple[data.DataLoader, data.DataLoader]:
         """Fetch data loaders.
@@ -80,3 +81,11 @@ class CalTech():
             typing.Tuple[data.DataLoader, data.DataLoader]: Train loader, test loader
         """
         return self.train_loader, self.test_loader
+    
+    def __str__(self) -> str:
+        """Provide str format of class.
+
+        Returns:
+            str: String format of Caltech dataset.
+        """
+        return f"Caltech dataset ({self.num_classes} classes)"

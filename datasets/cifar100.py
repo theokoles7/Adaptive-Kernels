@@ -64,7 +64,7 @@ class Cifar100():
             drop_last=False,
         )
 
-        # Record number of classes in dataset and number of input channels
+        # Dataset parameters
         self.num_classes = 100
         self.channels_in =   3
 
@@ -75,3 +75,11 @@ class Cifar100():
             typing.Tuple[data.DataLoader, data.DataLoader]: Train loader, test loader
         """
         return self.train_loader, self.test_loader
+    
+    def __str__(self) -> str:
+        """Provide str format of class.
+
+        Returns:
+            str: String format of Cifar100 dataset.
+        """
+        return f"Cifar100 dataset ({self.num_classes} classes)"

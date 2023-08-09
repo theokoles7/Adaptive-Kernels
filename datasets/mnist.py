@@ -61,9 +61,9 @@ class MNIST():
             drop_last=False,
         )
 
-        # Record number of classes in dataset and number of input channels
+        # Dataset parameters
         self.num_classes = 200
-        self.channels_in =   3
+        self.channels_in =   1
 
     def get_loaders(self) -> typing.Tuple[data.DataLoader, data.DataLoader]:
         """Fetch data loaders.
@@ -72,3 +72,11 @@ class MNIST():
             typing.Tuple[data.DataLoader, data.DataLoader]: Train loader, test loader
         """
         return self.train_loader, self.test_loader
+    
+    def __str__(self) -> str:
+        """Provide str format of class.
+
+        Returns:
+            str: String format of MNIST dataset.
+        """
+        return f"MNIST dataset ({self.num_classes} classes)"

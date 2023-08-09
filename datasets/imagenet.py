@@ -59,7 +59,7 @@ class ImageNet():
             drop_last=False,
         )
 
-        # Record number of classes in dataset and number of input channels
+        # Dataset parameters
         self.num_classes = 200
         self.channels_in =   3
 
@@ -70,3 +70,11 @@ class ImageNet():
             typing.Tuple[data.DataLoader, data.DataLoader]: Train loader, test loader
         """
         return self.train_loader, self.test_loader
+    
+    def __str__(self) -> str:
+        """Provide str format of class.
+
+        Returns:
+            str: String format of ImageNet dataset.
+        """
+        return f"ImageNet dataset ({self.num_classes} classes)"

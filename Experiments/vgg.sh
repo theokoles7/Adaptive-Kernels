@@ -1,8 +1,8 @@
 #!/bin/bash
 
-##################################################################
-# RUN NORMALL CNN ON EACH DATASET, DISTRIBUTION, AND KERNEL TYPE #
-##################################################################
+#############################################################
+# RUN VGG 16 ON EACH DATASET, DISTRIBUTION, AND KERNEL TYPE #
+#############################################################
 
 # For each dataset, ...
 for dataset in cifar10 cifar100 mnist svhn

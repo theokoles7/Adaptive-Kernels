@@ -1,0 +1,14 @@
+# BUILD FILES
+build/
+__pycache__/
+*.egg-info
+
+# RUN TIME OUTPUT
+OUTPUT/*
+LOGS/*
+
+# DATASETS (TOO LARGE TO BE WORTH SOURCING)
+DATA/*
+
+# RESEARCH DATA
+*Leader_Boards*

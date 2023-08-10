@@ -35,7 +35,6 @@ class GaussianKernel(nn.Conv2d):
 
         # Set ARGS.location & ARGS.scale to 1 if kernel is static (center)
         if filter_name == 'static': ARGS.location = ARGS.scale = 1
-        if ARGS.debug: LOGGER.debug(f"MU (LOCATION): {ARGS.location} | SIGMA (SCALE): {ARGS.scale} | VARIANCE: {ARGS.scale**2}")
 
         # Create tensors of variables
         seeds = torch.arange(ARGS.kernel_size)
@@ -64,6 +63,7 @@ class GaussianKernel(nn.Conv2d):
                 (0 if filter_name == 'bottom-left' else 1), 
                 torch.LongTensor([2, 1, 0]))
             
+        LOGGER.info(f"MU (LOCATION): {ARGS.location} | SIGMA (SCALE): {ARGS.scale} | VARIANCE: {ARGS.scale**2}")
         LOGGER.info(f"{filter_name.upper()}:\n{gaussian_kernel}")
 
         # Reshape kernel

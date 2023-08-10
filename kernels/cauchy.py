@@ -35,7 +35,6 @@ class CauchyKernel(nn.Conv2d):
 
         # Set location & scale to 1 if kernel is static (center)
         if filter_name == 'static': ARGS.location = ARGS.scale = 1
-        if ARGS.debug: LOGGER.debug(f"CHI (LOCATION): {ARGS.location} | GAMMA (SCALE): {ARGS.scale}")
 
         # Create tensors of variables
         seeds =     torch.arange(ARGS.kernel_size)
@@ -64,6 +63,7 @@ class CauchyKernel(nn.Conv2d):
                 (0 if filter_name == 'bottom-left' else 1), 
                 torch.LongTensor([2, 1, 0]))
             
+        LOGGER.info(f"CHI (LOCATION): {ARGS.location} | GAMMA (SCALE): {ARGS.scale}")
         LOGGER.info(f"{filter_name.upper()}:\n{cauchy_kernel}")
 
         # Reshape kernel

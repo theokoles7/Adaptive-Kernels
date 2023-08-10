@@ -35,7 +35,6 @@ class PoissonKernel(nn.Conv2d):
 
         # Set ARGS.rate & beta to 1 if kernel is static (center)
         if filter_name == 'static': ARGS.rate = beta = 1
-        if ARGS.debug: LOGGER.debug(f"LAMBDA (RATE): {ARGS.rate}")
 
         # Create tensors of variables
         seeds = torch.arange(ARGS.kernel_size)
@@ -62,6 +61,7 @@ class PoissonKernel(nn.Conv2d):
                 (0 if filter_name == 'bottom-left' else 1), 
                 torch.LongTensor([2, 1, 0]))
             
+        LOGGER.info(f"LAMBDA (RATE): {ARGS.rate}")
         LOGGER.info(f"{filter_name.upper()}:\n{poisson_kernel}")
 
         # Reshape kernel

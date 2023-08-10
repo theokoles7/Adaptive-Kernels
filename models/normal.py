@@ -12,12 +12,13 @@ class NormalCNN(nn.Module):
     model_data = pd.DataFrame(columns=['Data_Std',  'CNN_Layer_1_Std',  'CNN_Layer_2_Std',  'CNN_Layer_3_Std',  'CNN_Layer_4_Std',
                                        'Data_Mean', 'CNN_Layer_1_Mean', 'CNN_Layer_2_Mean', 'CNN_Layer_3_Mean', 'CNN_Layer_4_Mean'])
 
-    def __init__(self, channels_in: int, channels_out: int):
+    def __init__(self, channels_in: int, channels_out: int, dim: int):
         """Initialize Normal CNN model.
 
         Args:
             channels_out (int): Input channels (Likely 1 if images are B&W, 3 if colored)
             channels_out (int): Output channels (number of classes in dataset)
+            dim (int): Dimension of image (relevant for reshaping, post-convolution)
         """
         super(NormalCNN, self).__init__()
 
@@ -34,7 +35,7 @@ class NormalCNN(nn.Module):
         self.max4 = nn.MaxPool2d(kernel_size=2, stride=2)
 
         # Fully connected layer
-        self.fc = nn.Linear(256 * 2 * 2, 256 * 2 * 2)
+        self.fc = nn.Linear(dim**2, 256 * 2 * 2)
 
         # Classifier
         self.classifier = nn.Linear(256 * 2 * 2, channels_out)
@@ -52,6 +53,14 @@ class NormalCNN(nn.Module):
         x2 = F.relu(self.max2(self.conv2(x1)))
         x3 = F.relu(self.max3(self.conv3(x2)))
         x4 = F.relu(self.max4(self.conv4(x3)))
+
+        if ARGS.debug: LOGGER.debug(
+                f"\nX: {X.shape}"
+                f"\nX1: {x1.shape}"
+                f"\nX2: {x2.shape}"
+                f"\nX3: {x3.shape}"
+                f"\nX4: {x4.shape}"
+            )
 
         if self.training: self.record_params(X, x1, x2, x3, x4)
 

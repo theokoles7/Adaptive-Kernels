@@ -63,6 +63,7 @@ class Cifar10():
         # Dataset parameters
         self.num_classes =  10
         self.channels_in =   3
+        self.dim =          32
 
     def get_loaders(self) -> typing.Tuple[data.DataLoader, data.DataLoader]:
         """Fetch data loaders.

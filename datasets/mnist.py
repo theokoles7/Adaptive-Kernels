@@ -64,6 +64,7 @@ class MNIST():
         # Dataset parameters
         self.num_classes = 200
         self.channels_in =   1
+        self.dim =          16
 
     def get_loaders(self) -> typing.Tuple[data.DataLoader, data.DataLoader]:
         """Fetch data loaders.

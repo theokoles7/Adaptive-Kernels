@@ -73,6 +73,7 @@ class CalTech():
         # Dataset parameters
         self.num_classes = 101
         self.channels_in =   3
+        self.dim =          64
 
     def get_loaders(self) -> typing.Tuple[data.DataLoader, data.DataLoader]:
         """Fetch data loaders.

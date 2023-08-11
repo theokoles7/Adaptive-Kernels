@@ -34,7 +34,7 @@ class PoissonKernel(nn.Conv2d):
         filter_name = filter_list[random.randint(0, len(filter_list) - 1)]
 
         # Set ARGS.rate & beta to 1 if kernel is static (center)
-        if filter_name == 'static': ARGS.rate = beta = 1
+        if filter_name == 'static': ARGS.rate = 1
 
         # Create tensors of variables
         seeds = torch.arange(ARGS.kernel_size)

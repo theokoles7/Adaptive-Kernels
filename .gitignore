@@ -4,8 +4,8 @@ __pycache__/
 *.egg-info
 
 # RUN TIME OUTPUT
-OUTPUT/*
-LOGS/*
+output/*
+logs/*
 
 # DATASETS (TOO LARGE TO BE WORTH SOURCING)
 DATA/*

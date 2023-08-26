@@ -30,6 +30,11 @@ class VGG(nn.Module):
         """
         super(VGG, self).__init__()
 
+        # Initialize distribution parameters
+        self.locations =    [ARGS.location]*5
+        self.scales =       [ARGS.scale]*5
+        self.rates =        [ARGS.rate]*5
+
         # Convolving layers
         self.conv1 = nn.Sequential(nn.Conv2d(channels_in,  64, 3, padding=1), nn.ReLU(), nn.Conv2d( 64,  64, 3, padding=1))
         self.conv2 = nn.Sequential(nn.Conv2d(         64, 128, 3, padding=1), nn.ReLU(), nn.Conv2d(128, 128, 3, padding=1))
@@ -66,42 +71,47 @@ class VGG(nn.Module):
         x1 = self.conv1(X)
         with torch.no_grad():
          y = x1.float()
-         self.std1 = torch.std(y).item()
-         self.mean1 = torch.mean(y).item()
+         self.scales[0] = torch.std(y).item()
+         self.locations[0] = torch.mean(y).item()
+         self.rates[0] = torch.mean(y).item()
          
-        x1 = self.pool1(self.kernel1(x1))
+        x1 = self.pool1(self.kernel1(x1) if ARGS.distribution else x1)
 
         x2 = self.conv2(x1)
         with torch.no_grad():
          y = x2.float()
-         self.std2 = torch.std(y).item()
-         self.mean2 = torch.mean(y).item()
+         self.scales[1] = torch.std(y).item()
+         self.locations[1] = torch.mean(y).item()
+         self.rates[1] = torch.mean(y).item()
          
-        x2 = self.pool2(self.kernel2(x2))
+        x2 = self.pool2(self.kernel2(x2) if ARGS.distribution else x2)
 
         x3 = self.conv3(x2)
         with torch.no_grad():
          y = x3.float()
-         self.std3 = torch.std(y).item()
-         self.mean3 = torch.mean(y).item()
+         self.scales[2] = torch.std(y).item()
+         self.locations[2] = torch.mean(y).item()
+         self.rates[2] = torch.mean(y).item()
          
-        x3 = self.pool3(self.kernel3(x3))
+        x3 = self.pool3(self.kernel3(x3) if ARGS.distribution else x3)
 
         x4 = self.conv4(x3)
         with torch.no_grad():
          y = x4.float()
-         self.std4 = torch.std(y).item()
-         self.mean4 = torch.mean(y).item()
+         self.scales[3] = torch.std(y).item()
+         self.locations[3] = torch.mean(y).item()
+         self.rates[3] = torch.mean(y).item()
          
-        x4 = self.pool4(self.kernel4(x4))
+        x4 = self.pool4(self.kernel4(x4) if ARGS.distribution else x4)
 
         x5 = self.conv5(x4)
         with torch.no_grad():
          y = x5.float()
-         self.std5 = torch.std(y).item()
-         self.mean5 = torch.mean(y).item()
+         self.scales[4] = torch.std(y).item()
+         self.locations[4] = torch.mean(y).item()
+         self.rates[4] = torch.mean(y).item()
          
-        x5 = self.kernel5(x5)
+        x5 = self.kernel5(x5) if ARGS.distribution else x5
 
         if return_intermediate:
             return x5.view(x5.size(0), -1)
@@ -124,11 +134,11 @@ class VGG(nn.Module):
             else:
                 ARGS.rate *= 0.9
 
-        self.kernel1 = get_kernel( 64)
-        self.kernel2 = get_kernel(128)
-        self.kernel3 = get_kernel(256)
-        self.kernel4 = get_kernel(512)
-        self.kernel5 = get_kernel(512)
+        self.kernel1 = get_kernel(location=self.locations[0], scale=self.scales[0], rate=self.rates[0], channels=64)
+        self.kernel2 = get_kernel(location=self.locations[1], scale=self.scales[1], rate=self.rates[1], channels=128)
+        self.kernel3 = get_kernel(location=self.locations[2], scale=self.scales[2], rate=self.rates[2], channels=256)
+        self.kernel4 = get_kernel(location=self.locations[3], scale=self.scales[3], rate=self.rates[3], channels=512)
+        self.kernel5 = get_kernel(location=self.locations[4], scale=self.scales[4], rate=self.rates[4], channels=512)
 
     def record_params(self, x, x1, x2, x3, x4, x5):
         """Record model's location and scale parameters.

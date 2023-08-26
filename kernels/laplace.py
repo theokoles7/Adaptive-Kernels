@@ -9,10 +9,12 @@ from kernels.config import kernel_config
 
 class LaplaceKernel(nn.Conv2d):
 
-    def __init__(self, channels: int = 3):
+    def __init__(self, location: float = 0, scale: float = 1, channels: int = 3):
         """Create an (x, y) coordinate grid of shape (ARGS.kernel_size, ARGS.kernel_size, 2).
 
         Args:
+            location(float, optional): Location parameter (mu) of Laplace distribution. Defaults to 0.
+            scale (float, optional): Scale parameter (beta) of Laplace distribution. Defaults to 1.
             channels (int, optional): Input channels. Defaults to 3.
         """
         # Initialize Conv2d object
@@ -32,8 +34,8 @@ class LaplaceKernel(nn.Conv2d):
         # Randomly select primary filter from list
         filter_name = filter_list[random.randint(0, len(filter_list) - 1)]
 
-        # Set ARGS.location & ARGS.scale to 1 if kernel is static (center)
-        if filter_name == 'static': ARGS.location = ARGS.scale = 1
+        # Set location & scale to 1 if kernel is static (center)
+        if filter_name == 'static': location = scale = 1
 
         # Create tensors of variables
         seeds = torch.arange(ARGS.kernel_size)
@@ -45,9 +47,9 @@ class LaplaceKernel(nn.Conv2d):
         # This will be the PRODUCT of two Laplace distributions based
         # on variables defind in x_grid and y_grid
 
-        laplace_kernel = (1. / (2. * ARGS.scale)) * (
+        laplace_kernel = (1. / (2. * scale)) * (
             torch.exp(
-                -abs(torch.sum(xy_grid, dim=-1) - ARGS.location) / ARGS.scale
+                -abs(torch.sum(xy_grid, dim=-1) - location) / scale
             )
         )
 
@@ -65,7 +67,7 @@ class LaplaceKernel(nn.Conv2d):
                 (0 if filter_name == 'bottom-left' else 1), 
                 torch.LongTensor([2, 1, 0]))
             
-        LOGGER.info(f"MU (LOCATION): {ARGS.location} | BETA (SCALE): {ARGS.scale}")
+        LOGGER.info(f"MU (LOCATION): {location} | BETA (SCALE): {scale}")
         LOGGER.info(f"{filter_name.upper()}:\n{laplace_kernel}")
 
         # Reshape kernel

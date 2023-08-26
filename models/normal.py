@@ -22,6 +22,11 @@ class NormalCNN(nn.Module):
         """
         super(NormalCNN, self).__init__()
 
+        # Initialize distribution parameters
+        self.locations =    [ARGS.location]*4
+        self.scales =       [ARGS.scale]*4
+        self.rates =        [ARGS.rate]*4
+
         # Concolving layers
         self.conv1 = nn.Conv2d(  channels_in,  32, kernel_size=3, padding=1)
         self.conv2 = nn.Conv2d(           32,  64, kernel_size=3, padding=1)
@@ -49,18 +54,45 @@ class NormalCNN(nn.Module):
         Returns:
             torch.Tensor: Output tensor
         """
-        x1 = F.relu(self.max1(self.conv1(X)))
-        x2 = F.relu(self.max2(self.conv2(x1)))
-        x3 = F.relu(self.max3(self.conv3(x2)))
-        x4 = F.relu(self.max4(self.conv4(x3)))
+        if ARGS.debug: LOGGER.debug(f"Input shape: {X.shape}")
 
-        if ARGS.debug: LOGGER.debug(
-                f"\nX: {X.shape}"
-                f"\nX1: {x1.shape}"
-                f"\nX2: {x2.shape}"
-                f"\nX3: {x3.shape}"
-                f"\nX4: {x4.shape}"
-            )
+        x1 = self.conv1(X)
+
+        if ARGS.debug: LOGGER.debug(f"x1 shape: {x1.shape}")
+
+        with torch.no_grad():
+            y = x1.float()
+            self.rates[0] = torch.mean(y).item()
+            self.locations[0], self.scales[0] = torch.mean(y).item(), torch.std(y).item()
+
+        x2 = self.conv2(F.relu(self.max1(self.kernel1(x1) if ARGS.distribution else x1)))
+
+        if ARGS.debug: LOGGER.debug(f"x2 shape: {x2.shape}")
+
+        with torch.no_grad():
+            y = x2.float()
+            self.rates[1] = torch.mean(y).item()
+            self.locations[1], self.scales[1] = torch.mean(y).item(), torch.std(y).item()
+
+        x3 = self.conv3(F.relu(self.max2(self.kernel2(x2) if ARGS.distribution else x2)))
+
+        if ARGS.debug: LOGGER.debug(f"x3 shape: {x3.shape}")
+
+        with torch.no_grad():
+            y = x3.float()
+            self.rates[2] = torch.mean(y).item()
+            self.locations[2], self.scales[2] = torch.mean(y).item(), torch.std(y).item()
+
+        x4 = self.conv4(F.relu(self.max3(self.kernel3(x3) if ARGS.distribution else x3)))
+
+        if ARGS.debug: LOGGER.debug(f"x4 shape: {x4.shape}")
+
+        with torch.no_grad():
+            y = x3.float()
+            self.rates[3] = torch.mean(y).item()
+            self.locations[3], self.scales[3] = torch.mean(y).item(), torch.std(y).item()
+
+        x4 = F.relu(self.max4(self.kernel4(x4) if ARGS.distribution else x4))
 
         if self.training: self.record_params(X, x1, x2, x3, x4)
 
@@ -72,25 +104,23 @@ class NormalCNN(nn.Module):
         Args:
             epoch (int): Current epoch
         """
-        # For every 10 epochs, administer decay
-        if epoch % 10 == 0:
-            if ARGS.distribution != 'poisson':
-                ARGS.scale *= 0.925
-            else:
-                ARGS.rate *= 0.925
+        if ARGS.debug:
+            LOGGER.debug(f"EPOCH {epoch} locations: {self.locations}")
+            LOGGER.debug(f"EPOCH {epoch} scales: {self.scales}")
 
         # Update kernels
-        self.kernel0 = get_kernel(channels=  3)
-        self.kernel1 = get_kernel(channels= 32)
-        self.kernel2 = get_kernel(channels= 64)
-        self.kernel3 = get_kernel(channels=128)
-        self.kernel4 = get_kernel(channels=256)
+        # @NOTE: Though all 3 parameters are being passed to the kernel accessor, only one set 
+        # (univariate/bivariate) is actually going to be used to initialize the new kernels.
+        self.kernel1 = get_kernel(location=self.locations[0], scale=self.scales[0], rate=self.rates[0], channels= 32)
+        self.kernel2 = get_kernel(location=self.locations[1], scale=self.scales[1], rate=self.rates[1], channels= 64)
+        self.kernel3 = get_kernel(location=self.locations[2], scale=self.scales[2], rate=self.rates[2], channels=128)
+        self.kernel4 = get_kernel(location=self.locations[3], scale=self.scales[3], rate=self.rates[3], channels=256)
 
     def record_params(self, x, x1, x2, x3, x4):
         """Record model's location and scale parameters.
 
         Args:
-            x (torch.Tensor): Intermediate tensor
+            x  (torch.Tensor): Intermediate tensor
             x1 (torch.Tensor): Intermediate tensor
             x2 (torch.Tensor): Intermediate tensor
             x3 (torch.Tensor): Intermediate tensor

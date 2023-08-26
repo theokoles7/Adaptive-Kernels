@@ -9,10 +9,12 @@ from kernels.config import kernel_config
 
 class GaussianKernel(nn.Conv2d):
 
-    def __init__(self, channels: int = 3):
+    def __init__(self, location: float = 0, scale: float = 1, channels: int = 3):
         """Create an (x, y) coordinate grid of shape (ARGS.kernel_size, ARGS.kernel_size, 2).
 
         Args:
+            location (float, optional): Location parameter (mu) of Gaussian distribution. Defaults to 0.
+            scale (float, optional): Scale parameter (sigma) of Gaussian distribution. Defaults to 1.
             channels (int, optional): Input channels. Defaults to 3.
         """
         # Initialize Conv2d object
@@ -33,8 +35,8 @@ class GaussianKernel(nn.Conv2d):
         filter_name = filter_list[random.randint(0, len(filter_list) - 1)]
         if ARGS.debug: LOGGER.debug(f"FILTER NAME: {filter_name}")
 
-        # Set ARGS.location & ARGS.scale to 1 if kernel is static (center)
-        if filter_name == 'static': ARGS.location = ARGS.scale = 1
+        # Set location & scale to 1 if kernel is static (center)
+        if filter_name == 'static': location = scale = 1
 
         # Create tensors of variables
         seeds = torch.arange(ARGS.kernel_size)
@@ -46,7 +48,7 @@ class GaussianKernel(nn.Conv2d):
         # This will be the PRODUCT of two Gaussian distributions based
         # on variables defind in x_grid and y_grid
         gaussian_kernel = (
-            (1. / (ARGS.scale * math.sqrt(2 * math.pi))) * torch.exp(-0.5 * ((torch.sum(xy_grid, dim=-1) - ARGS.location) / ARGS.scale)**2)
+            (1. / (scale * math.sqrt(2 * math.pi))) * torch.exp(-0.5 * ((torch.sum(xy_grid, dim=-1) - location) / scale)**2)
         )
 
         # Ensure sum of distribution is 1
@@ -63,7 +65,7 @@ class GaussianKernel(nn.Conv2d):
                 (0 if filter_name == 'bottom-left' else 1), 
                 torch.LongTensor([2, 1, 0]))
             
-        LOGGER.info(f"MU (LOCATION): {ARGS.location} | SIGMA (SCALE): {ARGS.scale} | VARIANCE: {ARGS.scale**2}")
+        LOGGER.info(f"MU (LOCATION): {location} | SIGMA (SCALE): {scale} | VARIANCE: {scale**2}")
         LOGGER.info(f"{filter_name.upper()}:\n{gaussian_kernel}")
 
         # Reshape kernel

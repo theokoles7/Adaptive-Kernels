@@ -11,10 +11,10 @@ class Resnet(nn.Module):
     """ResNet 18 model."""
 
     model_data = pd.DataFrame(columns=[
-        'Data Mean', 'Data STD',
-        'Layer 1 Mean', 'Layer 1 STD',
-        'Layer 5 Mean', 'Layer 5 STD',
-        'Layer 9 Mean', 'Layer 9 STD',
+        'Data Mean',     'Data STD',
+        'Layer 1 Mean',  'Layer 1 STD',
+        'Layer 5 Mean',  'Layer 5 STD',
+        'Layer 9 Mean',  'Layer 9 STD',
         'Layer 13 Mean', 'Layer 13 STD',
         'Layer 18 Mean', 'Layer 18 STD'
     ])
@@ -28,10 +28,11 @@ class Resnet(nn.Module):
         """
         super(Resnet, self).__init__()
 
-        # Initialize attributes
-        self.std0 = self.std1 = (ARGS.scale if ARGS.distribution != 'poisson' else ARGS.rate)
-        self.mean1 = 1
-        self.planes_in = 64
+        # Initialize distribution parameters
+        self.planes_in =  64
+        self.location =    1
+        self.scale =       1
+        self.rate =        1
 
         # Batch normalization layers
         self.bn1 = nn.BatchNorm2d(64)
@@ -63,10 +64,10 @@ class Resnet(nn.Module):
 
         with torch.no_grad():
             y = x1.float()
-            self.std1 = torch.std(y).item()
-            self.mean1 = torch.mean(y).item()
+            self.location = self.rate = torch.mean(y).item()
+            self.scale = torch.std(y).item()
 
-        x1 = F.relu(self.bn1(self.kernel1(x1)))
+        x1 = F.relu(self.bn1(self.kernel1(x1) if ARGS.distribution else x1))
 
         if ARGS.debug: LOGGER.debug(f"RESNET X1: {x1.shape}")
 
@@ -91,7 +92,7 @@ class Resnet(nn.Module):
         Args:
             epoch (int): Current epoch
         """
-        self.kernel1 = get_kernel(64)
+        self.kernel1 = get_kernel(location=self.location, scale=self.scale, rate=self.rate, channels=64)
 
         for layer in [self.layer1, self.layer2, self.layer3, self.layer4]:
             for child in layer:

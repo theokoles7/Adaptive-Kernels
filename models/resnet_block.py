@@ -18,6 +18,11 @@ class ResnetBlock(nn.Module):
         """
         super(ResnetBlock, self).__init__()
 
+        # Initialize distribution parameters
+        self.locations =    [ARGS.location]*2
+        self.scales =       [ARGS.scale]*2
+        self.rates =        [ARGS.rate]*2
+
         self.channels_out = channels_out
 
         # Batch Normalization Layers
@@ -51,20 +56,22 @@ class ResnetBlock(nn.Module):
         if ARGS.debug: LOGGER.debug(f"RESNET_BLOCK step 2: {X.shape}")
         with torch.no_grad():
             y = X.float()
-            self.std2 = torch.std(y).item()
-            self.mean2 = torch.mean(y).item()
+            self.rates[0] = torch.mean(y).item()
+            self.locations[0] = torch.mean(y).item()
+            self.scales[0] = torch.std(y).item()
 
         if ARGS.debug: LOGGER.debug(f"RESNET_BLOCK step 3: {X.shape}")
-        X = self.conv2(F.relu(self.bn1(self.kernel1(X))))
+        X = self.conv2(F.relu(self.bn1(self.kernel1(X) if ARGS.distribution else X)))
 
         if ARGS.debug: LOGGER.debug(f"RESNET_BLOCK step 4: {X.shape}")
         with torch.no_grad():
             y = X.float()
-            self.std3 = torch.std(y).item()
-            self.mean3 = torch.mean(y).item()
+            self.rates[1] = torch.mean(y).item()
+            self.locations[1] = torch.mean(y).item()
+            self.scales[1] = torch.std(y).item()
 
         if ARGS.debug: LOGGER.debug(f"RESNET_BLOCK step 5: {X.shape}")
-        X = self.bn2(self.kernel2(X))
+        X = self.bn2(self.kernel2(X) if ARGS.distribution else X)
 
         if ARGS.debug: LOGGER.debug(f"RESNET_BLOCK step 6: {X.shape}")
         X += self.shortcut(X)
@@ -74,5 +81,5 @@ class ResnetBlock(nn.Module):
     def update_kernels(self) -> None:
         """Update kernels.
         """
-        self.kernel1 = get_kernel(self.channels_out)
-        self.kernel2 = get_kernel(self.channels_out)
+        self.kernel1 = get_kernel(location=self.locations[0], scale=self.scales[0], rate=self.rates[0], channels=self.channels_out)
+        self.kernel2 = get_kernel(location=self.locations[0], scale=self.scales[0], rate=self.rates[0], channels=self.channels_out)

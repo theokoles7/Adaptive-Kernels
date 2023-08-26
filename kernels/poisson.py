@@ -10,10 +10,11 @@ from kernels.config import kernel_config
 
 class PoissonKernel(nn.Conv2d):
 
-    def __init__(self, channels: int = 3):
+    def __init__(self, rate: float = 1, channels: int = 3):
         """Create an (x, y) coordinate grid of shape (ARGS.kernel_size, ARGS.kernel_size, 2).
 
         Args:
+            rate (float, optional): Rate parameter (lambda) of Poisson distribution. Defaults to 0.
             channels (int, optional): Input channels. Defaults to 3.
         """
         # Initialize Conv2d object
@@ -33,8 +34,8 @@ class PoissonKernel(nn.Conv2d):
         # Randomly select primary filter from list
         filter_name = filter_list[random.randint(0, len(filter_list) - 1)]
 
-        # Set ARGS.rate & beta to 1 if kernel is static (center)
-        if filter_name == 'static': ARGS.rate = 1
+        # Set rate & beta to 1 if kernel is static (center)
+        if filter_name == 'static': rate = 1
 
         # Create tensors of variables
         seeds = torch.arange(ARGS.kernel_size)
@@ -45,7 +46,7 @@ class PoissonKernel(nn.Conv2d):
         # Calculate 2D Laplace Kernel:
         # This will be the PRODUCT of two Laplace distributions based
         # on variables defind in x_grid and y_grid
-        poisson_kernel = ((ARGS.rate**torch.sum(xy_grid, dim=-1)) / (special.factorial(torch.sum(xy_grid, dim=-1)) * (math.e**(ARGS.rate))))
+        poisson_kernel = ((rate**torch.sum(xy_grid, dim=-1)) / (special.factorial(torch.sum(xy_grid, dim=-1)) * (math.e**(rate))))
 
         # Ensure sum of distribution is 1
         poisson_kernel /= torch.sum(poisson_kernel)
@@ -61,7 +62,7 @@ class PoissonKernel(nn.Conv2d):
                 (0 if filter_name == 'bottom-left' else 1), 
                 torch.LongTensor([2, 1, 0]))
             
-        LOGGER.info(f"LAMBDA (RATE): {ARGS.rate}")
+        LOGGER.info(f"LAMBDA (RATE): {rate}")
         LOGGER.info(f"{filter_name.upper()}:\n{poisson_kernel}")
 
         # Reshape kernel

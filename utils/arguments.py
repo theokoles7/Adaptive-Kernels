@@ -96,10 +96,10 @@ class Arguments():
         kernel = self.parser.add_argument_group("Kernel")
 
         kernel.add_argument(
-            '--distribution', '-D',
+            '--distribution',
             type=str,
             choices=['cauchy', 'gaussian', 'gumbel', 'laplace', 'poisson'],
-            default='gaussian',
+            default=None,
             help='choice of probability distribution'
         )
 
@@ -133,19 +133,13 @@ class Arguments():
             help='kernel configuration type'
         )
 
-        kernel.add_argument(
-            '--no_kernel',
-            action='store_true',
-            help='turns off adaptive kernels'
-        )
-
         # Logger Arguments --------------------------
         logger = self.parser.add_argument_group('Logger')
 
         logger.add_argument(
             '--logger_path',
             type=str,
-            default='LOGS',
+            default='logs',
             help='specify log output path'
         )
 
@@ -155,7 +149,7 @@ class Arguments():
         output.add_argument(
             '--output_path',
             type=str,
-            default='OUTPUT',
+            default='output',
             help='specify output data path'
         )
 

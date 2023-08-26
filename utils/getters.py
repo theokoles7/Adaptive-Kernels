@@ -8,7 +8,7 @@ def get_args_banner() -> None:
     return (
         f"DATASET: {ARGS.dataset} BATCH_SIZE: {ARGS.batch_size} "
         f"| MODEL: {ARGS.model} LR: {ARGS.learning_rate} "
-        f"| DISTRO: {ARGS.distribution} {get_distro_params()} KERNEL TYPE: {ARGS.kernel_type}"
+        f"| DISTRO: {ARGS.distribution} {get_distro_params()} KERNEL TYPE: {ARGS.kernel_type}" if ARGS.distribution else ''
     )
 
 def get_distro_params() -> str:

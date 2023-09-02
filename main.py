@@ -47,7 +47,8 @@ if __name__ == '__main__':
         if ARGS.debug: LOGGER.debug(f"MODEL:\n{model}")
 
         # Run model from CUDA if available
-        if torch.cuda.is_available(): model.cuda()
+        if torch.cuda.is_available(): model = model.cuda()
+        LOGGER.info(f"Using device: {torch.cuda.get_device_name()}")
 
         # Initialize optimizer and decay parameters
         optimizer = optim.SGD(model.parameters(), lr=ARGS.learning_rate, weight_decay=5e-4, momentum=0.9)
@@ -74,7 +75,9 @@ if __name__ == '__main__':
             epoch_best_acc = 0
 
             # Update model kernels
-            if ARGS.distribution: model.update_kernels(epoch)
+            if ARGS.distribution: 
+                model.update_kernels(epoch)
+                if torch.cuda.is_available(): model = model.cuda()
 
             # If ARGS.epoch_limit is reached, end training
             if epoch - 1 == ARGS.epoch_limit:
@@ -133,7 +136,7 @@ if __name__ == '__main__':
                         predictions = model(images)
                         predictions = torch.argmax(predictions, dim=1).cpu().numpy()
 
-                        correct += accuracy_score(labels, predictions, normalize=False)
+                        correct += accuracy_score(labels.cpu(), predictions, normalize=False)
                         total += images.size(0)
 
                         acc = round((correct / total) * 100, 2)
@@ -179,7 +182,7 @@ if __name__ == '__main__':
                     predictions = model(images)
                     predictions = torch.argmax(predictions, dim=1).cpu().numpy()
 
-                    correct += accuracy_score(labels, predictions, normalize=False)
+                    correct += accuracy_score(labels.cpu(), predictions, normalize=False)
                     total += images.size(0)
 
                     acc = (correct / total) * 100

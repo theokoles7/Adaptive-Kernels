@@ -1,7 +1,4 @@
-__all__ = ['arguments', 'getters', 'globals', 'logger']
+__all__ = ['arguments', 'logger']
 
 from utils.arguments import Arguments
 from utils.logger import Logger
-
-from utils.getters import *
-from utils.globals import *

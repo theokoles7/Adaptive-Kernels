@@ -8,7 +8,7 @@ output/*
 logs/*
 
 # DATASETS (TOO LARGE TO BE WORTH SOURCING)
-DATA/*
+data/*
 
 # RESEARCH DATA
 *results*

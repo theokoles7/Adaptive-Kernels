@@ -1,5 +1,6 @@
 name: hilo
 channels:
+  - nvidia
   - defaults
 dependencies:
   - _libgcc_mutex=0.1=main
@@ -17,10 +18,49 @@ dependencies:
   - charset-normalizer=2.0.4=pyhd3eb1b0_0
   - contourpy=1.0.5=py311hdb19cb5_0
   - cryptography=41.0.2=py311h22a60cf_0
+  - cuda=12.2.2=0
+  - cuda-cccl=12.2.140=0
+  - cuda-command-line-tools=12.2.2=0
+  - cuda-compiler=12.2.2=0
+  - cuda-cudart=12.2.140=0
+  - cuda-cudart-dev=12.2.140=0
+  - cuda-cudart-static=12.2.140=0
+  - cuda-cuobjdump=12.2.140=0
+  - cuda-cupti=12.2.142=0
+  - cuda-cupti-static=12.2.142=0
+  - cuda-cuxxfilt=12.2.140=0
+  - cuda-demo-suite=12.2.140=0
+  - cuda-documentation=12.2.140=0
+  - cuda-driver-dev=12.2.140=0
+  - cuda-gdb=12.2.140=0
+  - cuda-libraries=12.2.2=0
+  - cuda-libraries-dev=12.2.2=0
+  - cuda-libraries-static=12.2.2=0
+  - cuda-nsight=12.2.144=0
+  - cuda-nsight-compute=12.2.2=0
+  - cuda-nvcc=12.2.140=0
+  - cuda-nvdisasm=12.2.140=0
+  - cuda-nvml-dev=12.2.140=0
+  - cuda-nvprof=12.2.142=0
+  - cuda-nvprune=12.2.140=0
+  - cuda-nvrtc=12.2.140=0
+  - cuda-nvrtc-dev=12.2.140=0
+  - cuda-nvrtc-static=12.2.140=0
+  - cuda-nvtx=12.2.140=0
+  - cuda-nvvp=12.2.142=0
+  - cuda-opencl=12.2.140=0
+  - cuda-opencl-dev=12.2.140=0
+  - cuda-profiler-api=12.2.140=0
+  - cuda-runtime=12.2.2=0
+  - cuda-sanitizer-api=12.2.140=0
+  - cuda-toolkit=12.2.2=0
+  - cuda-tools=12.2.2=0
+  - cuda-visual-tools=12.2.2=0
   - cycler=0.11.0=pyhd3eb1b0_0
   - filelock=3.9.0=py311h06a4308_0
   - fonttools=4.25.0=pyhd3eb1b0_0
   - freetype=2.12.1=h4a9f257_0
+  - gds-tools=1.7.2.10=0
   - giflib=5.2.1=h5eee18b_3
   - gmp=6.2.1=h295c915_3
   - gmpy2=2.1.2=py311hc9b5ff0_0
@@ -36,12 +76,38 @@ dependencies:
   - libbrotlicommon=1.0.9=h5eee18b_7
   - libbrotlidec=1.0.9=h5eee18b_7
   - libbrotlienc=1.0.9=h5eee18b_7
+  - libcublas=12.2.5.6=0
+  - libcublas-dev=12.2.5.6=0
+  - libcublas-static=12.2.5.6=0
+  - libcufft=11.0.8.103=0
+  - libcufft-dev=11.0.8.103=0
+  - libcufft-static=11.0.8.103=0
+  - libcufile=1.7.2.10=0
+  - libcufile-dev=1.7.2.10=0
+  - libcufile-static=1.7.2.10=0
+  - libcurand=10.3.3.141=0
+  - libcurand-dev=10.3.3.141=0
+  - libcurand-static=10.3.3.141=0
+  - libcusolver=11.5.2.141=0
+  - libcusolver-dev=11.5.2.141=0
+  - libcusolver-static=11.5.2.141=0
+  - libcusparse=12.1.2.141=0
+  - libcusparse-dev=12.1.2.141=0
+  - libcusparse-static=12.1.2.141=0
   - libdeflate=1.17=h5eee18b_0
   - libffi=3.4.4=h6a678d5_0
   - libgcc-ng=11.2.0=h1234567_1
   - libgfortran-ng=11.2.0=h00389a5_1
   - libgfortran5=11.2.0=h1234567_1
   - libgomp=11.2.0=h1234567_1
+  - libnpp=12.2.1.4=0
+  - libnpp-dev=12.2.1.4=0
+  - libnpp-static=12.2.1.4=0
+  - libnvjitlink=12.2.140=0
+  - libnvjitlink-dev=12.2.140=0
+  - libnvjpeg=12.2.2.4=0
+  - libnvjpeg-dev=12.2.2.4=0
+  - libnvjpeg-static=12.2.2.4=0
   - libpng=1.6.39=h5eee18b_0
   - libprotobuf=3.20.3=he621ea3_0
   - libstdcxx-ng=11.2.0=h1234567_1
@@ -64,10 +130,11 @@ dependencies:
   - networkx=2.8.4=py311h06a4308_1
   - ninja=1.10.2=h06a4308_5
   - ninja-base=1.10.2=hd09550d_5
+  - nsight-compute=2023.2.2.3=0
   - numexpr=2.8.4=py311h65dcdc2_1
   - numpy=1.25.0=py311h08b1b3b_0
   - numpy-base=1.25.0=py311hf175353_0
-  - openssl=3.0.9=h7f8727e_0
+  - openssl=3.0.10=h7f8727e_2
   - packaging=23.0=py311h06a4308_0
   - pandas=1.5.3=py311hba01205_0
   - pillow=9.4.0=py311h6a678d5_0
@@ -105,5 +172,18 @@ dependencies:
   - zlib=1.2.13=h5eee18b_0
   - zstd=1.5.5=hc292b87_0
   - pip:
-    - hi-lo==1.0.0
-prefix: /home/theokoles/anaconda3/envs/hilo
+      - cmake==3.27.2
+      - lit==16.0.6
+      - nvidia-cublas-cu11==11.10.3.66
+      - nvidia-cuda-cupti-cu11==11.7.101
+      - nvidia-cuda-nvrtc-cu11==11.7.99
+      - nvidia-cuda-runtime-cu11==11.7.99
+      - nvidia-cudnn-cu11==8.5.0.96
+      - nvidia-cufft-cu11==10.9.0.58
+      - nvidia-curand-cu11==10.2.10.91
+      - nvidia-cusolver-cu11==11.4.0.1
+      - nvidia-cusparse-cu11==11.7.4.91
+      - nvidia-nccl-cu11==2.14.3
+      - nvidia-nvtx-cu11==11.7.91
+      - triton==2.0.0
+prefix: /home/theokoles/miniconda3/envs/hilo

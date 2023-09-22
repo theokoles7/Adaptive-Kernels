@@ -1,4 +1,4 @@
-"""Command line arguments utilities."""
+"""Command line argument utilities."""
 
 import argparse
 
@@ -6,188 +6,157 @@ class Arguments():
     """Command line argument parser."""
 
     def __init__(self):
-        """Initalize arguments self.parser and define arguments."""
-        # Initialize self.parser
-        self.parser = argparse.ArgumentParser(
-            prog='hi-lo',
-            description='Fork of KernelSet, intended for studying efficacy of models on high or low resolution images'
+        """Initialize argument parser and define arguments."""
+        # Initialize parser
+        self._parser = argparse.ArgumentParser(
+            prog =          'hi-lo',
+            description =   (
+                            'For of KernelSet, inteded for studying '
+                            'the efficacy of models on high and low '
+                            'resolution images, using various '
+                            'probability distributions as kernels.'
+                            )
         )
 
-        # BEGIN ARGUMENTS =============================================================================
+        # BEGIN ARGUMENTS =========================================================================
 
-        # Universal Arguments -----------------------
-        self.parser.add_argument(
-            '--debug',
-            action='store_true',
-            help='log variables'
-        )
+        # Universal -----------------------------
 
-        # Dataset Arguments -------------------------
-        dataset = self.parser.add_argument_group('Dataset')
+        # Dataset -------------------------------
+        dataset = self._parser.add_argument_group('Dataset')
 
         dataset.add_argument(
             '--dataset',
-            type=str,
-            choices=['caltech', 'cifar10', 'cifar100', 'imagenet', 'mnist', 'svhn'],
-            default='cifar10',
-            help='choice of dataset'
+            type =      str,
+            choices =   ['cifar10', 'cifar100', 'mnist', 'svhn'],
+            default =   'cifar10',
+            help =      'choice of dataset (defaults to cifar10)'
         )
 
         dataset.add_argument(
             '--dataset_path',
-            type=str,
-            default='DATA',
-            help='path to dataset pool'
+            type =      str,
+            default =   'data',
+            help =      'path at which dataset will be downloaded/loaded (defaults to ./data/)'
         )
 
         dataset.add_argument(
-            '--batch_size', '-bs',
-            type=int,
-            default=64,
-            help='specify batch size (defaults to 64)'
+            '--batch_size',
+            type =      int,
+            default =   64,
+            help =      'specify batch size (defaults to 64)'
         )
 
-        # Model Arguments ---------------------------
-        model = self.parser.add_argument_group('Model')
+        # Model ---------------------------------
+        model = self._parser.add_argument_group('Model')
 
         model.add_argument(
             '--model', '-M',
-            type=str,
-            choices=['normal', 'resnet', 'vgg'],
-            default='resnet',
-            help='choice of CNN model'
+            type =      str,
+            choices =   ['normal', 'resnet', 'vgg'],
+            default =   'normal',
+            help =      'choice of CNN model (defaults to Normal CNN)'
         )
 
         model.add_argument(
             '--epochs', '-e',
-            type=int,
-            default=200,
-            help='specify number of epochs (defaults to 200)'
+            type =      int,
+            default =   200,
+            help =      'specify number of epochs (defaults to 200)'
         )
 
         model.add_argument(
             '--epoch_limit',
-            type=int,
-            default=200,
-            help='epoch limit'
+            type =      int,
+            default =   200,
+            help =      'epoch limit (defaults to 200)'
         )
 
         model.add_argument(
             '--learning_rate', '-lr',
-            type=int,
-            default=1e-1,
-            help='specify learning rate (defaults to 0.1)'
+            type =      int,
+            default =   1e-1,
+            help =      'specify learning rate (defaults to 0.1)'
         )
-        
+
         model.add_argument(
-            '--kernel_size', 
-            type=int,
-            default=3,
-            help='kernel size (square)'
+            '--kernel_size',
+            type =      int,
+            default =   3,
+            help =      'kernel size (square) (defaults to 3)'
         )
 
         model.add_argument(
             '--save_params',
-            action='store_true',
-            help='save model parameters'
+            action =    'store_true',
+            help =      'save model parameters'
         )
 
-        # Kernel Arguments --------------------
-        kernel = self.parser.add_argument_group("Kernel")
+        # Kernel --------------------------------
+        kernel = self._parser.add_argument_group('Kernel')
 
         kernel.add_argument(
             '--distribution',
-            type=str,
-            choices=['cauchy', 'gaussian', 'gumbel', 'laplace', 'poisson'],
-            default=None,
-            help='choice of probability distribution'
+            type =      str,
+            choices =   ['cauchy', 'gaussian', 'gumbel', 'laplace', 'poisson'],
+            default =   None,
+            help =      'choice of probability distribution (defaults to None)'
         )
 
-        # Univariate
         kernel.add_argument(
             '--rate',
-            type=float,
-            default=0,
-            help='distribution rate parameter for a univariate distribution (Poisson)'
+            type =      float,
+            default =   0.,
+            help =      'distribution rate parameter (Poisson) (defaults to 0)'
         )
 
-        # Bivariate
         kernel.add_argument(
             '--location',
-            type=float,
-            default=0,
-            help='distribution location parameter for a bivariate distribution (Gaussian, Cauchy, Gumbel, Laplace)'
+            type =      float,
+            default =   0.,
+            help =      'distribution location parameter (Cauchy, Gaussian, Gumbel, Laplace) (defaults to 0)'
         )
 
         kernel.add_argument(
             '--scale',
-            type=self._check_scale,
-            default=1,
-            help='distribution scale parameter for a bivariate distribution (Gaussian, Cauchy, Gumbel, Laplace) (greater than zero)'
+            type =      float,
+            default =   1.,
+            help =      'distribution scale parameter (Cauchy, Gaussian, Gumbel, Laplace) (defaults to 1)'
         )
 
         kernel.add_argument(
             '--kernel_type',
-            type=int,
-            default=13,
-            help='kernel configuration type'
+            type =      int,
+            default =   13,
+            help =      'kernel configuration type (defaults to 13)'
         )
 
-        # Logger Arguments --------------------------
-        logger = self.parser.add_argument_group('Logger')
+        # Logging -------------------------------
+        logging = self._parser.add_argument_group('Logging')
 
-        logger.add_argument(
+        logging.add_argument(
             '--logger_path',
-            type=str,
-            default='logs',
-            help='specify log output path'
+            type =      str,
+            default =   'logs',
+            help =      'specify log output path (defaults to ./logs/)'
         )
 
-        # Output Arguments --------------------------
-        output = self.parser.add_argument_group('Output')
+        # Output --------------------------------
+        output = self._parser.add_argument_group('Output')
 
         output.add_argument(
             '--output_path',
-            type=str,
-            default='output',
-            help='specify output data path'
+            type =      str,
+            default =   'output',
+            help =      'specify output data path (defaults to ./output/)'
         )
 
-        # END ARGUMENTS ===============================================================================
+        # END ARGUMENTS ===========================================================================
 
     def get_args(self) -> argparse.Namespace:
-        """Parse command line arguments and provide values.
+        """Parse command line arguments and provide values in a NameSpace.
 
         Returns:
-            argparse.Namespace: Argparse NameSpace of arguments values
+            argparse.Namespace: Argparse NameSpace of argument values
         """
-        # Return argument values
-        return self.parser.parse_args()
-
-    def _check_scale(self, scale: str) -> float:
-        """Verify that provided scale argument is within range [0, inifinity)
-
-        Args:
-            scale (str): Provided scale
-
-        Returns:
-            float: Float value of scale
-
-        Raises:
-            argparse.ArgumentTypeError: If scale is less than or equal to zero
-        """
-        if float(scale) <= 0: raise argparse.ArgumentTypeError('Scale must be greater than zero')
-        return float(scale)
-    
-    def __str__(self) -> str:
-        """Provide string format of Arguments object.
-
-        Returns:
-            str: String format
-        """
-        arg_string = "ARGUMENTS:"
-
-        for arg in vars(self.get_args()):
-            arg_string += f"\n\t{arg:<20}{(vars(self.get_args())[arg]):>20}"
-
-        return arg_string
+        return self._parser.parse_args()

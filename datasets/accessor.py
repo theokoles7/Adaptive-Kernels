@@ -19,10 +19,10 @@ def get_dataset(dataset: str, path: str, batch_size: int) -> Cifar10 | Cifar100 
         Cifar10 | Cifar100 | MNIST | SVHN: Selected dataset
     """
     match dataset:
-        case 'cifar10':     return Cifar10( path, batch_size)
-        case 'cifar100':    return Cifar100(path, batch_size)
-        case 'mnist':       return MNIST(   path, batch_size)
-        case 'svhn':        return SVHN(    path, batch_size)
+        case 'cifar10':     return Cifar10(  path, batch_size)
+        case 'cifar100':    return Cifar100( path, batch_size)
+        case 'mnist':       return MNIST(    path, batch_size)
+        case 'svhn':        return SVHN(     path, batch_size)
 
         case _:
             raise NotImplementedError(

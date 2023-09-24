@@ -33,17 +33,17 @@ if __name__ == '__main__':
     "Test dataset accessor."
 
     # Access Cifar10 dataset
-    print(f"{colored('Access Cifar10:', 'green')}: {get_dataset('cifar10', './data', 64)}")
+    print(f"\n{colored('Access Cifar10:', 'green')}: {get_dataset('cifar10', './data', 64)}")
 
     # Access Cifar100 dataset
-    print(f"{colored('Access Cifar100:', 'green')}: {get_dataset('cifar100', './data', 64)}")
+    print(f"\n{colored('Access Cifar100:', 'green')}: {get_dataset('cifar100', './data', 64)}")
 
     # Access MNIST dataset
-    print(f"{colored('Access MNIST:', 'green')}: {get_dataset('mnist', './data', 64)}")
+    print(f"\n{colored('Access MNIST:', 'green')}: {get_dataset('mnist', './data', 64)}")
 
     # Access SVHN dataset
-    print(f"{colored('Access SVHN:', 'green')}: {get_dataset('svhn', './data', 64)}")
+    print(f"\n{colored('Access SVHN:', 'green')}: {get_dataset('svhn', './data', 64)}")
 
     # Access unsupported dataset
-    print(colored("Stack trace should follow this line, reporting that \'bogus_dataset\' is not supported.", 'red'))
+    print(colored("\nStack trace should follow this line, reporting that \'bogus_dataset\' is not supported.", 'red'))
     get_dataset('bogus_dataset', './data', 64)

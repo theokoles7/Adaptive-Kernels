@@ -2,8 +2,6 @@
 
 import datetime, logging, os, sys
 
-from utils.arguments import Arguments
-
 class Logger():
     """Logger class."""
 
@@ -42,3 +40,15 @@ class Logger():
             logging.Logger: Logger object
         """
         return self._logger
+    
+if __name__ == '__main__':
+    """Test logger."""
+    # Initialize logger
+    logger = Logger('test', 'test').get_logger()
+
+    # Test logging
+    logger.info("This is an info message.")
+    logger.debug("This is a debug message.")
+    logger.warning("This is a warning message.")
+    logger.error("This is an error message.")
+    logger.critical("This is a critical message.")

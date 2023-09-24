@@ -2,10 +2,15 @@
 
 from termcolor import colored
 
+from utils.logger import LOGGER
+
 from datasets.cifar10   import Cifar10
 from datasets.cifar100  import Cifar100
 from datasets.mnist     import MNIST
 from datasets.svhn      import SVHN
+
+# Initialize dataset accessor logger
+logger = LOGGER.getChild('dataset-accessor')
 
 def get_dataset(dataset: str, path: str, batch_size: int) -> Cifar10 | Cifar100 | MNIST | SVHN:
     """Provide appropriate dataset.
@@ -18,6 +23,8 @@ def get_dataset(dataset: str, path: str, batch_size: int) -> Cifar10 | Cifar100 
     Returns:
         Cifar10 | Cifar100 | MNIST | SVHN: Selected dataset
     """
+    logger.info(f"Fetching dataset: {dataset}")
+    
     match dataset:
         case 'cifar10':     return Cifar10(  path, batch_size)
         case 'cifar100':    return Cifar100( path, batch_size)

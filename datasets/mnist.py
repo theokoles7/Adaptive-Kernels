@@ -6,6 +6,8 @@ from termcolor import colored
 import torch.utils.data as data
 from torchvision import transforms, datasets
 
+from utils.logger import LOGGER
+
 class MNIST():
     """The MNIST (http://yann.lecun.com/exdb/mnist/) database of 
     handwritten digits, available from this page, has a training set of 
@@ -13,6 +15,8 @@ class MNIST():
     subset of a larger set available from NIST. The digits have been 
     size-normalized and centered in a fixed-size image.
     """
+    # Initialize logger
+    logger = LOGGER.getChild('mnist-dataset')
 
     def __init__(self, path: str, batch_size: int):
         """Initialize MNIST dataset object.
@@ -22,12 +26,14 @@ class MNIST():
             batch_size (int): Dataset batch size
         """
         # Create transform for loaders
+        self.logger.info("Initializing transform.")
         transform = transforms.Compose([
             transforms.ToTensor(),
             transforms.Normalize((0.5,), (0.5,))
         ])
 
         # Verify train data
+        self.logger.info("Verifying/downloading train data.")
         train_data = datasets.MNIST(
             root =          path,
             download =      True,
@@ -36,6 +42,7 @@ class MNIST():
         )
 
         # Verify test data
+        self.logger.info("Verifying/downloading test data.")
         test_data = datasets.MNIST(
             root =          path,
             download =      True,
@@ -44,6 +51,7 @@ class MNIST():
         )
 
         # Create training loader
+        self.logger.info("Creating train data loader.")
         self.train_loader = data.DataLoader(
             train_data,
             batch_size =    batch_size,
@@ -54,6 +62,7 @@ class MNIST():
         )
 
         # Create testing loader
+        self.logger.info("Creating test data loader.")
         self.test_loader = data.DataLoader(
             test_data,
             batch_size =    batch_size,

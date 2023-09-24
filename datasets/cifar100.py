@@ -6,6 +6,8 @@ from termcolor import colored
 import torch.utils.data as data
 from torchvision import transforms, datasets
 
+from utils.logger import LOGGER
+
 class Cifar100():
     """This dataset is just like the CIFAR-10 
     (https://www.cs.toronto.edu/~kriz/cifar.html), except it has 100 
@@ -15,6 +17,8 @@ class Cifar100():
     label (the class to which it belongs) and a "coarse" label (the 
     superclass to which it belongs). 
     """
+    # Initialize logger
+    logger = LOGGER.getChild('cifar100-dataset')
 
     def __init__(self, path: str, batch_size: int):
         """Initialize Cifar10 dataset object.
@@ -24,6 +28,7 @@ class Cifar100():
             batch_size (int): Dataset batch size
         """
         # Create transform for loaders
+        self.logger.info("Initializing transform.")
         transform = transforms.Compose([
             transforms.Resize(32),
             transforms.ToTensor(),
@@ -31,6 +36,7 @@ class Cifar100():
         ])
 
         # Verify train data
+        self.logger.info("Verifying/downloading train data.")
         train_data = datasets.CIFAR10(
             root =          path,
             download =      True,
@@ -39,6 +45,7 @@ class Cifar100():
         )
 
         # Verify test data
+        self.logger.info("Verifying/downloading test data.")
         test_data = datasets.CIFAR10(
             root =          path,
             download =      True,
@@ -47,6 +54,7 @@ class Cifar100():
         )
 
         # Create training loader
+        self.logger.info("Creating train data loader.")
         self.train_loader = data.DataLoader(
             train_data,
             batch_size =    batch_size,
@@ -57,6 +65,7 @@ class Cifar100():
         )
 
         # Create testing loader
+        self.logger.info("Creating test data loader.")
         self.test_loader = data.DataLoader(
             test_data,
             batch_size =    batch_size,

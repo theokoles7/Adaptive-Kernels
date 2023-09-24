@@ -6,6 +6,8 @@ from termcolor import colored
 import torch.utils.data as data
 from torchvision import transforms, datasets
 
+from utils.logger import LOGGER
+
 class SVHN():
     """SVHN (http://ufldl.stanford.edu/housenumbers/) is a real-world 
     image dataset for developing machine learning and object recognition 
@@ -17,6 +19,8 @@ class SVHN():
     in natural scene images). SVHN is obtained from house numbers in 
     Google Street View images.
     """
+    # Initialize logger
+    logger = LOGGER.getChild('svhn-dataset')
 
     def __init__(self, path: str, batch_size: int):
         """Initialize SVHN dataset object.
@@ -26,6 +30,7 @@ class SVHN():
             batch_size (int): Dataset batch size
         """
         # Create transform for loaders
+        self.logger.info("Initializing transform.")
         transform = transforms.Compose([
             transforms.Resize(32),
             transforms.ToTensor(),
@@ -33,6 +38,7 @@ class SVHN():
         ])
 
         # Verify training data
+        self.logger.info("Verifying/downloading train data.")
         train_data = datasets.SVHN(
             root =          path,
             download =      True,
@@ -41,6 +47,7 @@ class SVHN():
         )
 
         # Verify testing data
+        self.logger.info("Verifying/downloading test data.")
         test_data = datasets.SVHN(
             root =          path,
             download =      True,
@@ -49,6 +56,7 @@ class SVHN():
         )
 
         # Create training loader
+        self.logger.info("Creating train data loader.")
         self.train_loader = data.DataLoader(
             train_data,
             batch_size =    batch_size,
@@ -59,6 +67,7 @@ class SVHN():
         )
 
         # Create testing loader
+        self.logger.info("Creating test data loader.")
         self.test_loader = data.DataLoader(
             test_data,
             batch_size =    batch_size,

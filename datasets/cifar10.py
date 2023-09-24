@@ -6,11 +6,15 @@ from termcolor import colored
 import torch.utils.data as data
 from torchvision import transforms, datasets
 
+from utils.logger import LOGGER
+
 class Cifar10():
     """The CIFAR-10 dataset (https://www.cs.toronto.edu/~kriz/cifar.html) consists 
     of 60000 32x32 colour images in 10 classes, with 6000 images 
     per class. There are 50000 training images and 10000 test images.
     """
+    # Initialize logger
+    logger = LOGGER.getChild('cifar10-dataset')
 
     def __init__(self, path: str, batch_size: int):
         """Initialize Cifar10 dataset object.
@@ -20,6 +24,7 @@ class Cifar10():
             batch_size (int): Dataset batch size
         """
         # Create transform for loaders
+        self.logger.info("Initializing transform.")
         transform = transforms.Compose([
             transforms.Resize(32),
             transforms.ToTensor(),
@@ -27,6 +32,7 @@ class Cifar10():
         ])
 
         # Verify train data
+        self.logger.info("Verifying/downloading train data.")
         train_data = datasets.CIFAR10(
             root =          path,
             download =      True,
@@ -35,6 +41,7 @@ class Cifar10():
         )
 
         # Verify test data
+        self.logger.info("Verifying/downloading test data.")
         test_data = datasets.CIFAR10(
             root =          path,
             download =      True,
@@ -43,6 +50,7 @@ class Cifar10():
         )
 
         # Create training loader
+        self.logger.info("Creating train data loader.")
         self.train_loader = data.DataLoader(
             train_data,
             batch_size =    batch_size,
@@ -53,6 +61,7 @@ class Cifar10():
         )
 
         # Create testing loader
+        self.logger.info("Creating test data loader.")
         self.test_loader = data.DataLoader(
             test_data,
             batch_size =    batch_size,
@@ -90,7 +99,7 @@ if __name__ == '__main__':
     dataset = Cifar10('./data', 64)
 
     # Print dataset __str__
-    print(f"{colored('DATASET', 'magenta')}: \n{dataset}")
+    print(f"\n{colored('DATASET', 'magenta')}: \n{dataset}")
 
     # Print train loader
     print(f"\n{colored('TRAIN LOADER', 'magenta')}: \n{vars(dataset.train_loader)}")

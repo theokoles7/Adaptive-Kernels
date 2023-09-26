@@ -6,7 +6,7 @@ from termcolor import colored
 import torch.utils.data as data
 from torchvision import transforms, datasets
 
-from utils.logger import LOGGER
+from utils import ARGS, LOGGER
 
 class Cifar100():
     """This dataset is just like the CIFAR-10 
@@ -79,6 +79,12 @@ class Cifar100():
         self.num_classes =  100
         self.channels_in =    3
         self.dim =           32
+
+        if ARGS.debug:
+            self.logger.debug(f"DATASET: {self}")
+            self.logger.debug(f"TRAIN LOADER: \n{vars(self.train_loader)}")
+            self.logger.debug(f"TEST LOADER: \n{vars(self.test_loader)}")
+            self.logger.debug(f"CLASSES: {self.num_classes}, CHANNELS: {self.channels_in}, DIM: {self.dim}")
 
     def get_loaders(self) -> typing.Tuple[data.DataLoader, data.DataLoader]:
         """Fetch data loaders.

@@ -6,7 +6,7 @@ from termcolor import colored
 import torch.utils.data as data
 from torchvision import transforms, datasets
 
-from utils.logger import LOGGER
+from utils import ARGS, LOGGER
 
 class SVHN():
     """SVHN (http://ufldl.stanford.edu/housenumbers/) is a real-world 

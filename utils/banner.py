@@ -1,8 +1,6 @@
 """Logging banners."""
 
-from utils.arguments import Arguments
-
-ARGS = Arguments().get_args()
+from utils.arguments import ARGS
 
 def get_distro_params() -> str:
     """Provide distribution parameters.
@@ -10,8 +8,6 @@ def get_distro_params() -> str:
     Returns:
         str: Distribution parameters
     """
-    ARGS = Arguments().get_args()
-
     if ARGS.distribution == 'poisson': return f"RATE: {ARGS.rate}"
     return f"LOC: {ARGS.location} SCALE: {ARGS.scale}"
 

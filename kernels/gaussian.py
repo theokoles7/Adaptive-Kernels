@@ -77,7 +77,7 @@ class GaussianKernel(nn.Conv2d):
                 torch.LongTensor([2, 1, 0])
             )
 
-        self.logger.info(f"MU (LOCATION): {location} | SIGMA (SCALE): {scale} | VAIRANCE: {scale**2}")
+        self.logger.info(f"MU (LOCATION): {location} | SIGMA (SCALE): {scale} | VARIANCE: {scale**2}")
         self.logger.info(f"{filter_name.upper()}\n{gaussian_kernel}")
 
         # Reshape kernel

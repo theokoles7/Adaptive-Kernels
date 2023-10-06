@@ -62,7 +62,7 @@ class NormalCNN(nn.Module):
         if ARGS.debug: self.logger.debug(f"Input shape: {X.shape}")
 
         with torch.no_grad():
-            y = x1.float()
+            y = X.float()
             self.location[0] =  torch.mean(y).item()
             self.scale[0] =     torch.std(y).item()
             self.rate[0] =      torch.mean(y).item()
@@ -111,7 +111,7 @@ class NormalCNN(nn.Module):
 
         if ARGS.debug: self.logger.debug(f"X5 shape: {x5.shape}")
 
-        if self.training: self.record_params(X, x1, x2, x3, x4)
+        if self.training: self.record_params()
 
         return self.classifier(F.relu(self.fc(x5.view(x5.size(0), -1))))
     

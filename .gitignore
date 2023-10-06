@@ -9,6 +9,3 @@ logs/*
 
 # DATASETS (TOO LARGE TO BE WORTH SOURCING)
 data/*
-
-# RESEARCH DATA
-*results*

@@ -2,43 +2,25 @@
 
 import datetime, logging, os, sys
 
-from utils.arguments import Arguments
+from utils.arguments import ARGS
 
-class Logger():
-    """Logger class."""
+# Initialize logger
+LOGGER = logging.getLogger('hi-lo')
 
-    def __init__(self, name: str, path: str):
-        """Initialize Logger object.
+# Set logging level
+LOGGER.setLevel(logging.DEBUG)
 
-        self.ARGS:
-            name (str): Logger name
-            path (str): Logger output path
-        """
-        # Initialize logger
-        self._logger = logging.getLogger(name)
+# Ensure that output ARGS.logger_path exists
+os.makedirs(ARGS.logger_path, exist_ok=True)
 
-        # Set logging level
-        self._logger.setLevel(logging.DEBUG)
+# Define console handler
+stdout_handler = logging.StreamHandler(sys.stdout)
+stdout_handler.setLevel(logging.DEBUG)
+stdout_handler.setFormatter(logging.Formatter('%(asctime)s | %(levelname)s | %(name)s : %(message)s'))
+LOGGER.addHandler(stdout_handler)
 
-        # Ensure that output path exists
-        os.makedirs(path, exist_ok=True)
-
-        # Define console handler
-        stdout_handler = logging.StreamHandler(sys.stdout)
-        stdout_handler.setLevel(logging.DEBUG)
-        stdout_handler.setFormatter(logging.Formatter('%(asctime)s | %(levelname)s | %(name)s : %(message)s'))
-        self._logger.addHandler(stdout_handler)
-
-        # Define file handler
-        file_handler = logging.FileHandler(f"{path}/{datetime.datetime.now().strftime('%Y_%m_%d_%H_%M_%S')}.log")
-        file_handler.setLevel(logging.DEBUG)
-        file_handler.setFormatter(logging.Formatter('%(asctime)s | %(levelname)s | %(name)s : %(message)s'))
-        self._logger.addHandler(file_handler)
-
-    def get_logger(self) -> logging.Logger:
-        """Provide logger.
-
-        Returns:
-            logging.Logger: Logger object
-        """
-        return self._logger
+# Define file handler
+file_handler = logging.FileHandler(f"{ARGS.logger_path}/{datetime.datetime.now().strftime('%Y_%m_%d_%H_%M_%S')}.log")
+file_handler.setLevel(logging.DEBUG)
+file_handler.setFormatter(logging.Formatter('%(asctime)s | %(levelname)s | %(name)s : %(message)s'))
+LOGGER.addHandler(file_handler)

@@ -1,0 +1,1009 @@
+MODEL,DATASET,DISTRIBUTION,KERNEL TYPE,BEST ACCURACY,@ EPOCH
+Normal CNN,Cifar 10,None,1,--,--
+Normal CNN,Cifar 10,None,2,--,--
+Normal CNN,Cifar 10,None,3,--,--
+Normal CNN,Cifar 10,None,4,--,--
+Normal CNN,Cifar 10,None,5,--,--
+Normal CNN,Cifar 10,None,6,--,--
+Normal CNN,Cifar 10,None,7,--,--
+Normal CNN,Cifar 10,None,8,--,--
+Normal CNN,Cifar 10,None,9,--,--
+Normal CNN,Cifar 10,None,10,--,--
+Normal CNN,Cifar 10,None,11,--,--
+Normal CNN,Cifar 10,None,12,--,--
+Normal CNN,Cifar 10,None,13,--,--
+Normal CNN,Cifar 10,None,14,--,--
+Normal CNN,Cifar 10,Cauchy,1,--,--
+Normal CNN,Cifar 10,Cauchy,2,--,--
+Normal CNN,Cifar 10,Cauchy,3,--,--
+Normal CNN,Cifar 10,Cauchy,4,--,--
+Normal CNN,Cifar 10,Cauchy,5,--,--
+Normal CNN,Cifar 10,Cauchy,6,--,--
+Normal CNN,Cifar 10,Cauchy,7,--,--
+Normal CNN,Cifar 10,Cauchy,8,--,--
+Normal CNN,Cifar 10,Cauchy,9,--,--
+Normal CNN,Cifar 10,Cauchy,10,--,--
+Normal CNN,Cifar 10,Cauchy,11,--,--
+Normal CNN,Cifar 10,Cauchy,12,--,--
+Normal CNN,Cifar 10,Cauchy,13,--,--
+Normal CNN,Cifar 10,Cauchy,14,--,--
+Normal CNN,Cifar 10,Gaussian,1,--,--
+Normal CNN,Cifar 10,Gaussian,2,--,--
+Normal CNN,Cifar 10,Gaussian,3,--,--
+Normal CNN,Cifar 10,Gaussian,4,--,--
+Normal CNN,Cifar 10,Gaussian,5,--,--
+Normal CNN,Cifar 10,Gaussian,6,--,--
+Normal CNN,Cifar 10,Gaussian,7,--,--
+Normal CNN,Cifar 10,Gaussian,8,--,--
+Normal CNN,Cifar 10,Gaussian,9,--,--
+Normal CNN,Cifar 10,Gaussian,10,--,--
+Normal CNN,Cifar 10,Gaussian,11,--,--
+Normal CNN,Cifar 10,Gaussian,12,--,--
+Normal CNN,Cifar 10,Gaussian,13,--,--
+Normal CNN,Cifar 10,Gaussian,14,--,--
+Normal CNN,Cifar 10,Gumbel,1,--,--
+Normal CNN,Cifar 10,Gumbel,2,--,--
+Normal CNN,Cifar 10,Gumbel,3,--,--
+Normal CNN,Cifar 10,Gumbel,4,--,--
+Normal CNN,Cifar 10,Gumbel,5,--,--
+Normal CNN,Cifar 10,Gumbel,6,--,--
+Normal CNN,Cifar 10,Gumbel,7,--,--
+Normal CNN,Cifar 10,Gumbel,8,--,--
+Normal CNN,Cifar 10,Gumbel,9,--,--
+Normal CNN,Cifar 10,Gumbel,10,--,--
+Normal CNN,Cifar 10,Gumbel,11,--,--
+Normal CNN,Cifar 10,Gumbel,12,--,--
+Normal CNN,Cifar 10,Gumbel,13,--,--
+Normal CNN,Cifar 10,Gumbel,14,--,--
+Normal CNN,Cifar 10,Laplace,1,--,--
+Normal CNN,Cifar 10,Laplace,2,--,--
+Normal CNN,Cifar 10,Laplace,3,--,--
+Normal CNN,Cifar 10,Laplace,4,--,--
+Normal CNN,Cifar 10,Laplace,5,--,--
+Normal CNN,Cifar 10,Laplace,6,--,--
+Normal CNN,Cifar 10,Laplace,7,--,--
+Normal CNN,Cifar 10,Laplace,8,--,--
+Normal CNN,Cifar 10,Laplace,9,--,--
+Normal CNN,Cifar 10,Laplace,10,--,--
+Normal CNN,Cifar 10,Laplace,11,--,--
+Normal CNN,Cifar 10,Laplace,12,--,--
+Normal CNN,Cifar 10,Laplace,13,--,--
+Normal CNN,Cifar 10,Laplace,14,--,--
+Normal CNN,Cifar 10,Poisson,1,--,--
+Normal CNN,Cifar 10,Poisson,2,--,--
+Normal CNN,Cifar 10,Poisson,3,--,--
+Normal CNN,Cifar 10,Poisson,4,--,--
+Normal CNN,Cifar 10,Poisson,5,--,--
+Normal CNN,Cifar 10,Poisson,6,--,--
+Normal CNN,Cifar 10,Poisson,7,--,--
+Normal CNN,Cifar 10,Poisson,8,--,--
+Normal CNN,Cifar 10,Poisson,9,--,--
+Normal CNN,Cifar 10,Poisson,10,--,--
+Normal CNN,Cifar 10,Poisson,11,--,--
+Normal CNN,Cifar 10,Poisson,12,--,--
+Normal CNN,Cifar 10,Poisson,13,--,--
+Normal CNN,Cifar 10,Poisson,14,--,--
+Normal CNN,Cifar 100,None,1,--,--
+Normal CNN,Cifar 100,None,2,--,--
+Normal CNN,Cifar 100,None,3,--,--
+Normal CNN,Cifar 100,None,4,--,--
+Normal CNN,Cifar 100,None,5,--,--
+Normal CNN,Cifar 100,None,6,--,--
+Normal CNN,Cifar 100,None,7,--,--
+Normal CNN,Cifar 100,None,8,--,--
+Normal CNN,Cifar 100,None,9,--,--
+Normal CNN,Cifar 100,None,10,--,--
+Normal CNN,Cifar 100,None,11,--,--
+Normal CNN,Cifar 100,None,12,--,--
+Normal CNN,Cifar 100,None,13,--,--
+Normal CNN,Cifar 100,None,14,--,--
+Normal CNN,Cifar 100,Cauchy,1,--,--
+Normal CNN,Cifar 100,Cauchy,2,--,--
+Normal CNN,Cifar 100,Cauchy,3,--,--
+Normal CNN,Cifar 100,Cauchy,4,--,--
+Normal CNN,Cifar 100,Cauchy,5,--,--
+Normal CNN,Cifar 100,Cauchy,6,--,--
+Normal CNN,Cifar 100,Cauchy,7,--,--
+Normal CNN,Cifar 100,Cauchy,8,--,--
+Normal CNN,Cifar 100,Cauchy,9,--,--
+Normal CNN,Cifar 100,Cauchy,10,--,--
+Normal CNN,Cifar 100,Cauchy,11,--,--
+Normal CNN,Cifar 100,Cauchy,12,--,--
+Normal CNN,Cifar 100,Cauchy,13,--,--
+Normal CNN,Cifar 100,Cauchy,14,--,--
+Normal CNN,Cifar 100,Gaussian,1,--,--
+Normal CNN,Cifar 100,Gaussian,2,--,--
+Normal CNN,Cifar 100,Gaussian,3,--,--
+Normal CNN,Cifar 100,Gaussian,4,--,--
+Normal CNN,Cifar 100,Gaussian,5,--,--
+Normal CNN,Cifar 100,Gaussian,6,--,--
+Normal CNN,Cifar 100,Gaussian,7,--,--
+Normal CNN,Cifar 100,Gaussian,8,--,--
+Normal CNN,Cifar 100,Gaussian,9,--,--
+Normal CNN,Cifar 100,Gaussian,10,--,--
+Normal CNN,Cifar 100,Gaussian,11,--,--
+Normal CNN,Cifar 100,Gaussian,12,--,--
+Normal CNN,Cifar 100,Gaussian,13,--,--
+Normal CNN,Cifar 100,Gaussian,14,--,--
+Normal CNN,Cifar 100,Gumbel,1,--,--
+Normal CNN,Cifar 100,Gumbel,2,--,--
+Normal CNN,Cifar 100,Gumbel,3,--,--
+Normal CNN,Cifar 100,Gumbel,4,--,--
+Normal CNN,Cifar 100,Gumbel,5,--,--
+Normal CNN,Cifar 100,Gumbel,6,--,--
+Normal CNN,Cifar 100,Gumbel,7,--,--
+Normal CNN,Cifar 100,Gumbel,8,--,--
+Normal CNN,Cifar 100,Gumbel,9,--,--
+Normal CNN,Cifar 100,Gumbel,10,--,--
+Normal CNN,Cifar 100,Gumbel,11,--,--
+Normal CNN,Cifar 100,Gumbel,12,--,--
+Normal CNN,Cifar 100,Gumbel,13,--,--
+Normal CNN,Cifar 100,Gumbel,14,--,--
+Normal CNN,Cifar 100,Laplace,1,--,--
+Normal CNN,Cifar 100,Laplace,2,--,--
+Normal CNN,Cifar 100,Laplace,3,--,--
+Normal CNN,Cifar 100,Laplace,4,--,--
+Normal CNN,Cifar 100,Laplace,5,--,--
+Normal CNN,Cifar 100,Laplace,6,--,--
+Normal CNN,Cifar 100,Laplace,7,--,--
+Normal CNN,Cifar 100,Laplace,8,--,--
+Normal CNN,Cifar 100,Laplace,9,--,--
+Normal CNN,Cifar 100,Laplace,10,--,--
+Normal CNN,Cifar 100,Laplace,11,--,--
+Normal CNN,Cifar 100,Laplace,12,--,--
+Normal CNN,Cifar 100,Laplace,13,--,--
+Normal CNN,Cifar 100,Laplace,14,--,--
+Normal CNN,Cifar 100,Poisson,1,--,--
+Normal CNN,Cifar 100,Poisson,2,--,--
+Normal CNN,Cifar 100,Poisson,3,--,--
+Normal CNN,Cifar 100,Poisson,4,--,--
+Normal CNN,Cifar 100,Poisson,5,--,--
+Normal CNN,Cifar 100,Poisson,6,--,--
+Normal CNN,Cifar 100,Poisson,7,--,--
+Normal CNN,Cifar 100,Poisson,8,--,--
+Normal CNN,Cifar 100,Poisson,9,--,--
+Normal CNN,Cifar 100,Poisson,10,--,--
+Normal CNN,Cifar 100,Poisson,11,--,--
+Normal CNN,Cifar 100,Poisson,12,--,--
+Normal CNN,Cifar 100,Poisson,13,--,--
+Normal CNN,Cifar 100,Poisson,14,--,--
+Normal CNN,MNIST,None,1,--,--
+Normal CNN,MNIST,None,2,--,--
+Normal CNN,MNIST,None,3,--,--
+Normal CNN,MNIST,None,4,--,--
+Normal CNN,MNIST,None,5,--,--
+Normal CNN,MNIST,None,6,--,--
+Normal CNN,MNIST,None,7,--,--
+Normal CNN,MNIST,None,8,--,--
+Normal CNN,MNIST,None,9,--,--
+Normal CNN,MNIST,None,10,--,--
+Normal CNN,MNIST,None,11,--,--
+Normal CNN,MNIST,None,12,--,--
+Normal CNN,MNIST,None,13,--,--
+Normal CNN,MNIST,None,14,--,--
+Normal CNN,MNIST,Cauchy,1,--,--
+Normal CNN,MNIST,Cauchy,2,--,--
+Normal CNN,MNIST,Cauchy,3,--,--
+Normal CNN,MNIST,Cauchy,4,--,--
+Normal CNN,MNIST,Cauchy,5,--,--
+Normal CNN,MNIST,Cauchy,6,--,--
+Normal CNN,MNIST,Cauchy,7,--,--
+Normal CNN,MNIST,Cauchy,8,--,--
+Normal CNN,MNIST,Cauchy,9,--,--
+Normal CNN,MNIST,Cauchy,10,--,--
+Normal CNN,MNIST,Cauchy,11,--,--
+Normal CNN,MNIST,Cauchy,12,--,--
+Normal CNN,MNIST,Cauchy,13,--,--
+Normal CNN,MNIST,Cauchy,14,--,--
+Normal CNN,MNIST,Gaussian,1,--,--
+Normal CNN,MNIST,Gaussian,2,--,--
+Normal CNN,MNIST,Gaussian,3,--,--
+Normal CNN,MNIST,Gaussian,4,--,--
+Normal CNN,MNIST,Gaussian,5,--,--
+Normal CNN,MNIST,Gaussian,6,--,--
+Normal CNN,MNIST,Gaussian,7,--,--
+Normal CNN,MNIST,Gaussian,8,--,--
+Normal CNN,MNIST,Gaussian,9,--,--
+Normal CNN,MNIST,Gaussian,10,--,--
+Normal CNN,MNIST,Gaussian,11,--,--
+Normal CNN,MNIST,Gaussian,12,--,--
+Normal CNN,MNIST,Gaussian,13,--,--
+Normal CNN,MNIST,Gaussian,14,--,--
+Normal CNN,MNIST,Gumbel,1,--,--
+Normal CNN,MNIST,Gumbel,2,--,--
+Normal CNN,MNIST,Gumbel,3,--,--
+Normal CNN,MNIST,Gumbel,4,--,--
+Normal CNN,MNIST,Gumbel,5,--,--
+Normal CNN,MNIST,Gumbel,6,--,--
+Normal CNN,MNIST,Gumbel,7,--,--
+Normal CNN,MNIST,Gumbel,8,--,--
+Normal CNN,MNIST,Gumbel,9,--,--
+Normal CNN,MNIST,Gumbel,10,--,--
+Normal CNN,MNIST,Gumbel,11,--,--
+Normal CNN,MNIST,Gumbel,12,--,--
+Normal CNN,MNIST,Gumbel,13,--,--
+Normal CNN,MNIST,Gumbel,14,--,--
+Normal CNN,MNIST,Laplace,1,--,--
+Normal CNN,MNIST,Laplace,2,--,--
+Normal CNN,MNIST,Laplace,3,--,--
+Normal CNN,MNIST,Laplace,4,--,--
+Normal CNN,MNIST,Laplace,5,--,--
+Normal CNN,MNIST,Laplace,6,--,--
+Normal CNN,MNIST,Laplace,7,--,--
+Normal CNN,MNIST,Laplace,8,--,--
+Normal CNN,MNIST,Laplace,9,--,--
+Normal CNN,MNIST,Laplace,10,--,--
+Normal CNN,MNIST,Laplace,11,--,--
+Normal CNN,MNIST,Laplace,12,--,--
+Normal CNN,MNIST,Laplace,13,--,--
+Normal CNN,MNIST,Laplace,14,--,--
+Normal CNN,MNIST,Poisson,1,--,--
+Normal CNN,MNIST,Poisson,2,--,--
+Normal CNN,MNIST,Poisson,3,--,--
+Normal CNN,MNIST,Poisson,4,--,--
+Normal CNN,MNIST,Poisson,5,--,--
+Normal CNN,MNIST,Poisson,6,--,--
+Normal CNN,MNIST,Poisson,7,--,--
+Normal CNN,MNIST,Poisson,8,--,--
+Normal CNN,MNIST,Poisson,9,--,--
+Normal CNN,MNIST,Poisson,10,--,--
+Normal CNN,MNIST,Poisson,11,--,--
+Normal CNN,MNIST,Poisson,12,--,--
+Normal CNN,MNIST,Poisson,13,--,--
+Normal CNN,MNIST,Poisson,14,--,--
+Normal CNN,SVHN,None,1,--,--
+Normal CNN,SVHN,None,2,--,--
+Normal CNN,SVHN,None,3,--,--
+Normal CNN,SVHN,None,4,--,--
+Normal CNN,SVHN,None,5,--,--
+Normal CNN,SVHN,None,6,--,--
+Normal CNN,SVHN,None,7,--,--
+Normal CNN,SVHN,None,8,--,--
+Normal CNN,SVHN,None,9,--,--
+Normal CNN,SVHN,None,10,--,--
+Normal CNN,SVHN,None,11,--,--
+Normal CNN,SVHN,None,12,--,--
+Normal CNN,SVHN,None,13,--,--
+Normal CNN,SVHN,None,14,--,--
+Normal CNN,SVHN,Cauchy,1,--,--
+Normal CNN,SVHN,Cauchy,2,--,--
+Normal CNN,SVHN,Cauchy,3,--,--
+Normal CNN,SVHN,Cauchy,4,--,--
+Normal CNN,SVHN,Cauchy,5,--,--
+Normal CNN,SVHN,Cauchy,6,--,--
+Normal CNN,SVHN,Cauchy,7,--,--
+Normal CNN,SVHN,Cauchy,8,--,--
+Normal CNN,SVHN,Cauchy,9,--,--
+Normal CNN,SVHN,Cauchy,10,--,--
+Normal CNN,SVHN,Cauchy,11,--,--
+Normal CNN,SVHN,Cauchy,12,--,--
+Normal CNN,SVHN,Cauchy,13,--,--
+Normal CNN,SVHN,Cauchy,14,--,--
+Normal CNN,SVHN,Gaussian,1,--,--
+Normal CNN,SVHN,Gaussian,2,--,--
+Normal CNN,SVHN,Gaussian,3,--,--
+Normal CNN,SVHN,Gaussian,4,--,--
+Normal CNN,SVHN,Gaussian,5,--,--
+Normal CNN,SVHN,Gaussian,6,--,--
+Normal CNN,SVHN,Gaussian,7,--,--
+Normal CNN,SVHN,Gaussian,8,--,--
+Normal CNN,SVHN,Gaussian,9,--,--
+Normal CNN,SVHN,Gaussian,10,--,--
+Normal CNN,SVHN,Gaussian,11,--,--
+Normal CNN,SVHN,Gaussian,12,--,--
+Normal CNN,SVHN,Gaussian,13,--,--
+Normal CNN,SVHN,Gaussian,14,--,--
+Normal CNN,SVHN,Gumbel,1,--,--
+Normal CNN,SVHN,Gumbel,2,--,--
+Normal CNN,SVHN,Gumbel,3,--,--
+Normal CNN,SVHN,Gumbel,4,--,--
+Normal CNN,SVHN,Gumbel,5,--,--
+Normal CNN,SVHN,Gumbel,6,--,--
+Normal CNN,SVHN,Gumbel,7,--,--
+Normal CNN,SVHN,Gumbel,8,--,--
+Normal CNN,SVHN,Gumbel,9,--,--
+Normal CNN,SVHN,Gumbel,10,--,--
+Normal CNN,SVHN,Gumbel,11,--,--
+Normal CNN,SVHN,Gumbel,12,--,--
+Normal CNN,SVHN,Gumbel,13,--,--
+Normal CNN,SVHN,Gumbel,14,--,--
+Normal CNN,SVHN,Laplace,1,--,--
+Normal CNN,SVHN,Laplace,2,--,--
+Normal CNN,SVHN,Laplace,3,--,--
+Normal CNN,SVHN,Laplace,4,--,--
+Normal CNN,SVHN,Laplace,5,--,--
+Normal CNN,SVHN,Laplace,6,--,--
+Normal CNN,SVHN,Laplace,7,--,--
+Normal CNN,SVHN,Laplace,8,--,--
+Normal CNN,SVHN,Laplace,9,--,--
+Normal CNN,SVHN,Laplace,10,--,--
+Normal CNN,SVHN,Laplace,11,--,--
+Normal CNN,SVHN,Laplace,12,--,--
+Normal CNN,SVHN,Laplace,13,--,--
+Normal CNN,SVHN,Laplace,14,--,--
+Normal CNN,SVHN,Poisson,1,--,--
+Normal CNN,SVHN,Poisson,2,--,--
+Normal CNN,SVHN,Poisson,3,--,--
+Normal CNN,SVHN,Poisson,4,--,--
+Normal CNN,SVHN,Poisson,5,--,--
+Normal CNN,SVHN,Poisson,6,--,--
+Normal CNN,SVHN,Poisson,7,--,--
+Normal CNN,SVHN,Poisson,8,--,--
+Normal CNN,SVHN,Poisson,9,--,--
+Normal CNN,SVHN,Poisson,10,--,--
+Normal CNN,SVHN,Poisson,11,--,--
+Normal CNN,SVHN,Poisson,12,--,--
+Normal CNN,SVHN,Poisson,13,--,--
+Normal CNN,SVHN,Poisson,14,--,--
+Resnet 18,Cifar 10,None,1,--,--
+Resnet 18,Cifar 10,None,2,--,--
+Resnet 18,Cifar 10,None,3,--,--
+Resnet 18,Cifar 10,None,4,--,--
+Resnet 18,Cifar 10,None,5,--,--
+Resnet 18,Cifar 10,None,6,--,--
+Resnet 18,Cifar 10,None,7,--,--
+Resnet 18,Cifar 10,None,8,--,--
+Resnet 18,Cifar 10,None,9,--,--
+Resnet 18,Cifar 10,None,10,--,--
+Resnet 18,Cifar 10,None,11,--,--
+Resnet 18,Cifar 10,None,12,--,--
+Resnet 18,Cifar 10,None,13,--,--
+Resnet 18,Cifar 10,None,14,--,--
+Resnet 18,Cifar 10,Cauchy,1,--,--
+Resnet 18,Cifar 10,Cauchy,2,--,--
+Resnet 18,Cifar 10,Cauchy,3,--,--
+Resnet 18,Cifar 10,Cauchy,4,--,--
+Resnet 18,Cifar 10,Cauchy,5,--,--
+Resnet 18,Cifar 10,Cauchy,6,--,--
+Resnet 18,Cifar 10,Cauchy,7,--,--
+Resnet 18,Cifar 10,Cauchy,8,--,--
+Resnet 18,Cifar 10,Cauchy,9,--,--
+Resnet 18,Cifar 10,Cauchy,10,--,--
+Resnet 18,Cifar 10,Cauchy,11,--,--
+Resnet 18,Cifar 10,Cauchy,12,--,--
+Resnet 18,Cifar 10,Cauchy,13,--,--
+Resnet 18,Cifar 10,Cauchy,14,--,--
+Resnet 18,Cifar 10,Gaussian,1,--,--
+Resnet 18,Cifar 10,Gaussian,2,--,--
+Resnet 18,Cifar 10,Gaussian,3,--,--
+Resnet 18,Cifar 10,Gaussian,4,--,--
+Resnet 18,Cifar 10,Gaussian,5,--,--
+Resnet 18,Cifar 10,Gaussian,6,--,--
+Resnet 18,Cifar 10,Gaussian,7,--,--
+Resnet 18,Cifar 10,Gaussian,8,--,--
+Resnet 18,Cifar 10,Gaussian,9,--,--
+Resnet 18,Cifar 10,Gaussian,10,--,--
+Resnet 18,Cifar 10,Gaussian,11,--,--
+Resnet 18,Cifar 10,Gaussian,12,--,--
+Resnet 18,Cifar 10,Gaussian,13,--,--
+Resnet 18,Cifar 10,Gaussian,14,--,--
+Resnet 18,Cifar 10,Gumbel,1,--,--
+Resnet 18,Cifar 10,Gumbel,2,--,--
+Resnet 18,Cifar 10,Gumbel,3,--,--
+Resnet 18,Cifar 10,Gumbel,4,--,--
+Resnet 18,Cifar 10,Gumbel,5,--,--
+Resnet 18,Cifar 10,Gumbel,6,--,--
+Resnet 18,Cifar 10,Gumbel,7,--,--
+Resnet 18,Cifar 10,Gumbel,8,--,--
+Resnet 18,Cifar 10,Gumbel,9,--,--
+Resnet 18,Cifar 10,Gumbel,10,--,--
+Resnet 18,Cifar 10,Gumbel,11,--,--
+Resnet 18,Cifar 10,Gumbel,12,--,--
+Resnet 18,Cifar 10,Gumbel,13,--,--
+Resnet 18,Cifar 10,Gumbel,14,--,--
+Resnet 18,Cifar 10,Laplace,1,--,--
+Resnet 18,Cifar 10,Laplace,2,--,--
+Resnet 18,Cifar 10,Laplace,3,--,--
+Resnet 18,Cifar 10,Laplace,4,--,--
+Resnet 18,Cifar 10,Laplace,5,--,--
+Resnet 18,Cifar 10,Laplace,6,--,--
+Resnet 18,Cifar 10,Laplace,7,--,--
+Resnet 18,Cifar 10,Laplace,8,--,--
+Resnet 18,Cifar 10,Laplace,9,--,--
+Resnet 18,Cifar 10,Laplace,10,--,--
+Resnet 18,Cifar 10,Laplace,11,--,--
+Resnet 18,Cifar 10,Laplace,12,--,--
+Resnet 18,Cifar 10,Laplace,13,--,--
+Resnet 18,Cifar 10,Laplace,14,--,--
+Resnet 18,Cifar 10,Poisson,1,--,--
+Resnet 18,Cifar 10,Poisson,2,--,--
+Resnet 18,Cifar 10,Poisson,3,--,--
+Resnet 18,Cifar 10,Poisson,4,--,--
+Resnet 18,Cifar 10,Poisson,5,--,--
+Resnet 18,Cifar 10,Poisson,6,--,--
+Resnet 18,Cifar 10,Poisson,7,--,--
+Resnet 18,Cifar 10,Poisson,8,--,--
+Resnet 18,Cifar 10,Poisson,9,--,--
+Resnet 18,Cifar 10,Poisson,10,--,--
+Resnet 18,Cifar 10,Poisson,11,--,--
+Resnet 18,Cifar 10,Poisson,12,--,--
+Resnet 18,Cifar 10,Poisson,13,--,--
+Resnet 18,Cifar 10,Poisson,14,--,--
+Resnet 18,Cifar 100,None,1,--,--
+Resnet 18,Cifar 100,None,2,--,--
+Resnet 18,Cifar 100,None,3,--,--
+Resnet 18,Cifar 100,None,4,--,--
+Resnet 18,Cifar 100,None,5,--,--
+Resnet 18,Cifar 100,None,6,--,--
+Resnet 18,Cifar 100,None,7,--,--
+Resnet 18,Cifar 100,None,8,--,--
+Resnet 18,Cifar 100,None,9,--,--
+Resnet 18,Cifar 100,None,10,--,--
+Resnet 18,Cifar 100,None,11,--,--
+Resnet 18,Cifar 100,None,12,--,--
+Resnet 18,Cifar 100,None,13,--,--
+Resnet 18,Cifar 100,None,14,--,--
+Resnet 18,Cifar 100,Cauchy,1,--,--
+Resnet 18,Cifar 100,Cauchy,2,--,--
+Resnet 18,Cifar 100,Cauchy,3,--,--
+Resnet 18,Cifar 100,Cauchy,4,--,--
+Resnet 18,Cifar 100,Cauchy,5,--,--
+Resnet 18,Cifar 100,Cauchy,6,--,--
+Resnet 18,Cifar 100,Cauchy,7,--,--
+Resnet 18,Cifar 100,Cauchy,8,--,--
+Resnet 18,Cifar 100,Cauchy,9,--,--
+Resnet 18,Cifar 100,Cauchy,10,--,--
+Resnet 18,Cifar 100,Cauchy,11,--,--
+Resnet 18,Cifar 100,Cauchy,12,--,--
+Resnet 18,Cifar 100,Cauchy,13,--,--
+Resnet 18,Cifar 100,Cauchy,14,--,--
+Resnet 18,Cifar 100,Gaussian,1,--,--
+Resnet 18,Cifar 100,Gaussian,2,--,--
+Resnet 18,Cifar 100,Gaussian,3,--,--
+Resnet 18,Cifar 100,Gaussian,4,--,--
+Resnet 18,Cifar 100,Gaussian,5,--,--
+Resnet 18,Cifar 100,Gaussian,6,--,--
+Resnet 18,Cifar 100,Gaussian,7,--,--
+Resnet 18,Cifar 100,Gaussian,8,--,--
+Resnet 18,Cifar 100,Gaussian,9,--,--
+Resnet 18,Cifar 100,Gaussian,10,--,--
+Resnet 18,Cifar 100,Gaussian,11,--,--
+Resnet 18,Cifar 100,Gaussian,12,--,--
+Resnet 18,Cifar 100,Gaussian,13,--,--
+Resnet 18,Cifar 100,Gaussian,14,--,--
+Resnet 18,Cifar 100,Gumbel,1,--,--
+Resnet 18,Cifar 100,Gumbel,2,--,--
+Resnet 18,Cifar 100,Gumbel,3,--,--
+Resnet 18,Cifar 100,Gumbel,4,--,--
+Resnet 18,Cifar 100,Gumbel,5,--,--
+Resnet 18,Cifar 100,Gumbel,6,--,--
+Resnet 18,Cifar 100,Gumbel,7,--,--
+Resnet 18,Cifar 100,Gumbel,8,--,--
+Resnet 18,Cifar 100,Gumbel,9,--,--
+Resnet 18,Cifar 100,Gumbel,10,--,--
+Resnet 18,Cifar 100,Gumbel,11,--,--
+Resnet 18,Cifar 100,Gumbel,12,--,--
+Resnet 18,Cifar 100,Gumbel,13,--,--
+Resnet 18,Cifar 100,Gumbel,14,--,--
+Resnet 18,Cifar 100,Laplace,1,--,--
+Resnet 18,Cifar 100,Laplace,2,--,--
+Resnet 18,Cifar 100,Laplace,3,--,--
+Resnet 18,Cifar 100,Laplace,4,--,--
+Resnet 18,Cifar 100,Laplace,5,--,--
+Resnet 18,Cifar 100,Laplace,6,--,--
+Resnet 18,Cifar 100,Laplace,7,--,--
+Resnet 18,Cifar 100,Laplace,8,--,--
+Resnet 18,Cifar 100,Laplace,9,--,--
+Resnet 18,Cifar 100,Laplace,10,--,--
+Resnet 18,Cifar 100,Laplace,11,--,--
+Resnet 18,Cifar 100,Laplace,12,--,--
+Resnet 18,Cifar 100,Laplace,13,--,--
+Resnet 18,Cifar 100,Laplace,14,--,--
+Resnet 18,Cifar 100,Poisson,1,--,--
+Resnet 18,Cifar 100,Poisson,2,--,--
+Resnet 18,Cifar 100,Poisson,3,--,--
+Resnet 18,Cifar 100,Poisson,4,--,--
+Resnet 18,Cifar 100,Poisson,5,--,--
+Resnet 18,Cifar 100,Poisson,6,--,--
+Resnet 18,Cifar 100,Poisson,7,--,--
+Resnet 18,Cifar 100,Poisson,8,--,--
+Resnet 18,Cifar 100,Poisson,9,--,--
+Resnet 18,Cifar 100,Poisson,10,--,--
+Resnet 18,Cifar 100,Poisson,11,--,--
+Resnet 18,Cifar 100,Poisson,12,--,--
+Resnet 18,Cifar 100,Poisson,13,--,--
+Resnet 18,Cifar 100,Poisson,14,--,--
+Resnet 18,MNIST,None,1,--,--
+Resnet 18,MNIST,None,2,--,--
+Resnet 18,MNIST,None,3,--,--
+Resnet 18,MNIST,None,4,--,--
+Resnet 18,MNIST,None,5,--,--
+Resnet 18,MNIST,None,6,--,--
+Resnet 18,MNIST,None,7,--,--
+Resnet 18,MNIST,None,8,--,--
+Resnet 18,MNIST,None,9,--,--
+Resnet 18,MNIST,None,10,--,--
+Resnet 18,MNIST,None,11,--,--
+Resnet 18,MNIST,None,12,--,--
+Resnet 18,MNIST,None,13,--,--
+Resnet 18,MNIST,None,14,--,--
+Resnet 18,MNIST,Cauchy,1,--,--
+Resnet 18,MNIST,Cauchy,2,--,--
+Resnet 18,MNIST,Cauchy,3,--,--
+Resnet 18,MNIST,Cauchy,4,--,--
+Resnet 18,MNIST,Cauchy,5,--,--
+Resnet 18,MNIST,Cauchy,6,--,--
+Resnet 18,MNIST,Cauchy,7,--,--
+Resnet 18,MNIST,Cauchy,8,--,--
+Resnet 18,MNIST,Cauchy,9,--,--
+Resnet 18,MNIST,Cauchy,10,--,--
+Resnet 18,MNIST,Cauchy,11,--,--
+Resnet 18,MNIST,Cauchy,12,--,--
+Resnet 18,MNIST,Cauchy,13,--,--
+Resnet 18,MNIST,Cauchy,14,--,--
+Resnet 18,MNIST,Gaussian,1,--,--
+Resnet 18,MNIST,Gaussian,2,--,--
+Resnet 18,MNIST,Gaussian,3,--,--
+Resnet 18,MNIST,Gaussian,4,--,--
+Resnet 18,MNIST,Gaussian,5,--,--
+Resnet 18,MNIST,Gaussian,6,--,--
+Resnet 18,MNIST,Gaussian,7,--,--
+Resnet 18,MNIST,Gaussian,8,--,--
+Resnet 18,MNIST,Gaussian,9,--,--
+Resnet 18,MNIST,Gaussian,10,--,--
+Resnet 18,MNIST,Gaussian,11,--,--
+Resnet 18,MNIST,Gaussian,12,--,--
+Resnet 18,MNIST,Gaussian,13,--,--
+Resnet 18,MNIST,Gaussian,14,--,--
+Resnet 18,MNIST,Gumbel,1,--,--
+Resnet 18,MNIST,Gumbel,2,--,--
+Resnet 18,MNIST,Gumbel,3,--,--
+Resnet 18,MNIST,Gumbel,4,--,--
+Resnet 18,MNIST,Gumbel,5,--,--
+Resnet 18,MNIST,Gumbel,6,--,--
+Resnet 18,MNIST,Gumbel,7,--,--
+Resnet 18,MNIST,Gumbel,8,--,--
+Resnet 18,MNIST,Gumbel,9,--,--
+Resnet 18,MNIST,Gumbel,10,--,--
+Resnet 18,MNIST,Gumbel,11,--,--
+Resnet 18,MNIST,Gumbel,12,--,--
+Resnet 18,MNIST,Gumbel,13,--,--
+Resnet 18,MNIST,Gumbel,14,--,--
+Resnet 18,MNIST,Laplace,1,--,--
+Resnet 18,MNIST,Laplace,2,--,--
+Resnet 18,MNIST,Laplace,3,--,--
+Resnet 18,MNIST,Laplace,4,--,--
+Resnet 18,MNIST,Laplace,5,--,--
+Resnet 18,MNIST,Laplace,6,--,--
+Resnet 18,MNIST,Laplace,7,--,--
+Resnet 18,MNIST,Laplace,8,--,--
+Resnet 18,MNIST,Laplace,9,--,--
+Resnet 18,MNIST,Laplace,10,--,--
+Resnet 18,MNIST,Laplace,11,--,--
+Resnet 18,MNIST,Laplace,12,--,--
+Resnet 18,MNIST,Laplace,13,--,--
+Resnet 18,MNIST,Laplace,14,--,--
+Resnet 18,MNIST,Poisson,1,--,--
+Resnet 18,MNIST,Poisson,2,--,--
+Resnet 18,MNIST,Poisson,3,--,--
+Resnet 18,MNIST,Poisson,4,--,--
+Resnet 18,MNIST,Poisson,5,--,--
+Resnet 18,MNIST,Poisson,6,--,--
+Resnet 18,MNIST,Poisson,7,--,--
+Resnet 18,MNIST,Poisson,8,--,--
+Resnet 18,MNIST,Poisson,9,--,--
+Resnet 18,MNIST,Poisson,10,--,--
+Resnet 18,MNIST,Poisson,11,--,--
+Resnet 18,MNIST,Poisson,12,--,--
+Resnet 18,MNIST,Poisson,13,--,--
+Resnet 18,MNIST,Poisson,14,--,--
+Resnet 18,SVHN,None,1,--,--
+Resnet 18,SVHN,None,2,--,--
+Resnet 18,SVHN,None,3,--,--
+Resnet 18,SVHN,None,4,--,--
+Resnet 18,SVHN,None,5,--,--
+Resnet 18,SVHN,None,6,--,--
+Resnet 18,SVHN,None,7,--,--
+Resnet 18,SVHN,None,8,--,--
+Resnet 18,SVHN,None,9,--,--
+Resnet 18,SVHN,None,10,--,--
+Resnet 18,SVHN,None,11,--,--
+Resnet 18,SVHN,None,12,--,--
+Resnet 18,SVHN,None,13,--,--
+Resnet 18,SVHN,None,14,--,--
+Resnet 18,SVHN,Cauchy,1,--,--
+Resnet 18,SVHN,Cauchy,2,--,--
+Resnet 18,SVHN,Cauchy,3,--,--
+Resnet 18,SVHN,Cauchy,4,--,--
+Resnet 18,SVHN,Cauchy,5,--,--
+Resnet 18,SVHN,Cauchy,6,--,--
+Resnet 18,SVHN,Cauchy,7,--,--
+Resnet 18,SVHN,Cauchy,8,--,--
+Resnet 18,SVHN,Cauchy,9,--,--
+Resnet 18,SVHN,Cauchy,10,--,--
+Resnet 18,SVHN,Cauchy,11,--,--
+Resnet 18,SVHN,Cauchy,12,--,--
+Resnet 18,SVHN,Cauchy,13,--,--
+Resnet 18,SVHN,Cauchy,14,--,--
+Resnet 18,SVHN,Gaussian,1,--,--
+Resnet 18,SVHN,Gaussian,2,--,--
+Resnet 18,SVHN,Gaussian,3,--,--
+Resnet 18,SVHN,Gaussian,4,--,--
+Resnet 18,SVHN,Gaussian,5,--,--
+Resnet 18,SVHN,Gaussian,6,--,--
+Resnet 18,SVHN,Gaussian,7,--,--
+Resnet 18,SVHN,Gaussian,8,--,--
+Resnet 18,SVHN,Gaussian,9,--,--
+Resnet 18,SVHN,Gaussian,10,--,--
+Resnet 18,SVHN,Gaussian,11,--,--
+Resnet 18,SVHN,Gaussian,12,--,--
+Resnet 18,SVHN,Gaussian,13,--,--
+Resnet 18,SVHN,Gaussian,14,--,--
+Resnet 18,SVHN,Gumbel,1,--,--
+Resnet 18,SVHN,Gumbel,2,--,--
+Resnet 18,SVHN,Gumbel,3,--,--
+Resnet 18,SVHN,Gumbel,4,--,--
+Resnet 18,SVHN,Gumbel,5,--,--
+Resnet 18,SVHN,Gumbel,6,--,--
+Resnet 18,SVHN,Gumbel,7,--,--
+Resnet 18,SVHN,Gumbel,8,--,--
+Resnet 18,SVHN,Gumbel,9,--,--
+Resnet 18,SVHN,Gumbel,10,--,--
+Resnet 18,SVHN,Gumbel,11,--,--
+Resnet 18,SVHN,Gumbel,12,--,--
+Resnet 18,SVHN,Gumbel,13,--,--
+Resnet 18,SVHN,Gumbel,14,--,--
+Resnet 18,SVHN,Laplace,1,--,--
+Resnet 18,SVHN,Laplace,2,--,--
+Resnet 18,SVHN,Laplace,3,--,--
+Resnet 18,SVHN,Laplace,4,--,--
+Resnet 18,SVHN,Laplace,5,--,--
+Resnet 18,SVHN,Laplace,6,--,--
+Resnet 18,SVHN,Laplace,7,--,--
+Resnet 18,SVHN,Laplace,8,--,--
+Resnet 18,SVHN,Laplace,9,--,--
+Resnet 18,SVHN,Laplace,10,--,--
+Resnet 18,SVHN,Laplace,11,--,--
+Resnet 18,SVHN,Laplace,12,--,--
+Resnet 18,SVHN,Laplace,13,--,--
+Resnet 18,SVHN,Laplace,14,--,--
+Resnet 18,SVHN,Poisson,1,--,--
+Resnet 18,SVHN,Poisson,2,--,--
+Resnet 18,SVHN,Poisson,3,--,--
+Resnet 18,SVHN,Poisson,4,--,--
+Resnet 18,SVHN,Poisson,5,--,--
+Resnet 18,SVHN,Poisson,6,--,--
+Resnet 18,SVHN,Poisson,7,--,--
+Resnet 18,SVHN,Poisson,8,--,--
+Resnet 18,SVHN,Poisson,9,--,--
+Resnet 18,SVHN,Poisson,10,--,--
+Resnet 18,SVHN,Poisson,11,--,--
+Resnet 18,SVHN,Poisson,12,--,--
+Resnet 18,SVHN,Poisson,13,--,--
+Resnet 18,SVHN,Poisson,14,--,--
+VGG 16,Cifar 10,None,1,--,--
+VGG 16,Cifar 10,None,2,--,--
+VGG 16,Cifar 10,None,3,--,--
+VGG 16,Cifar 10,None,4,--,--
+VGG 16,Cifar 10,None,5,--,--
+VGG 16,Cifar 10,None,6,--,--
+VGG 16,Cifar 10,None,7,--,--
+VGG 16,Cifar 10,None,8,--,--
+VGG 16,Cifar 10,None,9,--,--
+VGG 16,Cifar 10,None,10,--,--
+VGG 16,Cifar 10,None,11,--,--
+VGG 16,Cifar 10,None,12,--,--
+VGG 16,Cifar 10,None,13,--,--
+VGG 16,Cifar 10,None,14,--,--
+VGG 16,Cifar 10,Cauchy,1,--,--
+VGG 16,Cifar 10,Cauchy,2,--,--
+VGG 16,Cifar 10,Cauchy,3,--,--
+VGG 16,Cifar 10,Cauchy,4,--,--
+VGG 16,Cifar 10,Cauchy,5,--,--
+VGG 16,Cifar 10,Cauchy,6,--,--
+VGG 16,Cifar 10,Cauchy,7,--,--
+VGG 16,Cifar 10,Cauchy,8,--,--
+VGG 16,Cifar 10,Cauchy,9,--,--
+VGG 16,Cifar 10,Cauchy,10,--,--
+VGG 16,Cifar 10,Cauchy,11,--,--
+VGG 16,Cifar 10,Cauchy,12,--,--
+VGG 16,Cifar 10,Cauchy,13,--,--
+VGG 16,Cifar 10,Cauchy,14,--,--
+VGG 16,Cifar 10,Gaussian,1,--,--
+VGG 16,Cifar 10,Gaussian,2,--,--
+VGG 16,Cifar 10,Gaussian,3,--,--
+VGG 16,Cifar 10,Gaussian,4,--,--
+VGG 16,Cifar 10,Gaussian,5,--,--
+VGG 16,Cifar 10,Gaussian,6,--,--
+VGG 16,Cifar 10,Gaussian,7,--,--
+VGG 16,Cifar 10,Gaussian,8,--,--
+VGG 16,Cifar 10,Gaussian,9,--,--
+VGG 16,Cifar 10,Gaussian,10,--,--
+VGG 16,Cifar 10,Gaussian,11,--,--
+VGG 16,Cifar 10,Gaussian,12,--,--
+VGG 16,Cifar 10,Gaussian,13,--,--
+VGG 16,Cifar 10,Gaussian,14,--,--
+VGG 16,Cifar 10,Gumbel,1,--,--
+VGG 16,Cifar 10,Gumbel,2,--,--
+VGG 16,Cifar 10,Gumbel,3,--,--
+VGG 16,Cifar 10,Gumbel,4,--,--
+VGG 16,Cifar 10,Gumbel,5,--,--
+VGG 16,Cifar 10,Gumbel,6,--,--
+VGG 16,Cifar 10,Gumbel,7,--,--
+VGG 16,Cifar 10,Gumbel,8,--,--
+VGG 16,Cifar 10,Gumbel,9,--,--
+VGG 16,Cifar 10,Gumbel,10,--,--
+VGG 16,Cifar 10,Gumbel,11,--,--
+VGG 16,Cifar 10,Gumbel,12,--,--
+VGG 16,Cifar 10,Gumbel,13,--,--
+VGG 16,Cifar 10,Gumbel,14,--,--
+VGG 16,Cifar 10,Laplace,1,--,--
+VGG 16,Cifar 10,Laplace,2,--,--
+VGG 16,Cifar 10,Laplace,3,--,--
+VGG 16,Cifar 10,Laplace,4,--,--
+VGG 16,Cifar 10,Laplace,5,--,--
+VGG 16,Cifar 10,Laplace,6,--,--
+VGG 16,Cifar 10,Laplace,7,--,--
+VGG 16,Cifar 10,Laplace,8,--,--
+VGG 16,Cifar 10,Laplace,9,--,--
+VGG 16,Cifar 10,Laplace,10,--,--
+VGG 16,Cifar 10,Laplace,11,--,--
+VGG 16,Cifar 10,Laplace,12,--,--
+VGG 16,Cifar 10,Laplace,13,--,--
+VGG 16,Cifar 10,Laplace,14,--,--
+VGG 16,Cifar 10,Poisson,1,--,--
+VGG 16,Cifar 10,Poisson,2,--,--
+VGG 16,Cifar 10,Poisson,3,--,--
+VGG 16,Cifar 10,Poisson,4,--,--
+VGG 16,Cifar 10,Poisson,5,--,--
+VGG 16,Cifar 10,Poisson,6,--,--
+VGG 16,Cifar 10,Poisson,7,--,--
+VGG 16,Cifar 10,Poisson,8,--,--
+VGG 16,Cifar 10,Poisson,9,--,--
+VGG 16,Cifar 10,Poisson,10,--,--
+VGG 16,Cifar 10,Poisson,11,--,--
+VGG 16,Cifar 10,Poisson,12,--,--
+VGG 16,Cifar 10,Poisson,13,--,--
+VGG 16,Cifar 10,Poisson,14,--,--
+VGG 16,Cifar 100,None,1,--,--
+VGG 16,Cifar 100,None,2,--,--
+VGG 16,Cifar 100,None,3,--,--
+VGG 16,Cifar 100,None,4,--,--
+VGG 16,Cifar 100,None,5,--,--
+VGG 16,Cifar 100,None,6,--,--
+VGG 16,Cifar 100,None,7,--,--
+VGG 16,Cifar 100,None,8,--,--
+VGG 16,Cifar 100,None,9,--,--
+VGG 16,Cifar 100,None,10,--,--
+VGG 16,Cifar 100,None,11,--,--
+VGG 16,Cifar 100,None,12,--,--
+VGG 16,Cifar 100,None,13,--,--
+VGG 16,Cifar 100,None,14,--,--
+VGG 16,Cifar 100,Cauchy,1,--,--
+VGG 16,Cifar 100,Cauchy,2,--,--
+VGG 16,Cifar 100,Cauchy,3,--,--
+VGG 16,Cifar 100,Cauchy,4,--,--
+VGG 16,Cifar 100,Cauchy,5,--,--
+VGG 16,Cifar 100,Cauchy,6,--,--
+VGG 16,Cifar 100,Cauchy,7,--,--
+VGG 16,Cifar 100,Cauchy,8,--,--
+VGG 16,Cifar 100,Cauchy,9,--,--
+VGG 16,Cifar 100,Cauchy,10,--,--
+VGG 16,Cifar 100,Cauchy,11,--,--
+VGG 16,Cifar 100,Cauchy,12,--,--
+VGG 16,Cifar 100,Cauchy,13,--,--
+VGG 16,Cifar 100,Cauchy,14,--,--
+VGG 16,Cifar 100,Gaussian,1,--,--
+VGG 16,Cifar 100,Gaussian,2,--,--
+VGG 16,Cifar 100,Gaussian,3,--,--
+VGG 16,Cifar 100,Gaussian,4,--,--
+VGG 16,Cifar 100,Gaussian,5,--,--
+VGG 16,Cifar 100,Gaussian,6,--,--
+VGG 16,Cifar 100,Gaussian,7,--,--
+VGG 16,Cifar 100,Gaussian,8,--,--
+VGG 16,Cifar 100,Gaussian,9,--,--
+VGG 16,Cifar 100,Gaussian,10,--,--
+VGG 16,Cifar 100,Gaussian,11,--,--
+VGG 16,Cifar 100,Gaussian,12,--,--
+VGG 16,Cifar 100,Gaussian,13,--,--
+VGG 16,Cifar 100,Gaussian,14,--,--
+VGG 16,Cifar 100,Gumbel,1,--,--
+VGG 16,Cifar 100,Gumbel,2,--,--
+VGG 16,Cifar 100,Gumbel,3,--,--
+VGG 16,Cifar 100,Gumbel,4,--,--
+VGG 16,Cifar 100,Gumbel,5,--,--
+VGG 16,Cifar 100,Gumbel,6,--,--
+VGG 16,Cifar 100,Gumbel,7,--,--
+VGG 16,Cifar 100,Gumbel,8,--,--
+VGG 16,Cifar 100,Gumbel,9,--,--
+VGG 16,Cifar 100,Gumbel,10,--,--
+VGG 16,Cifar 100,Gumbel,11,--,--
+VGG 16,Cifar 100,Gumbel,12,--,--
+VGG 16,Cifar 100,Gumbel,13,--,--
+VGG 16,Cifar 100,Gumbel,14,--,--
+VGG 16,Cifar 100,Laplace,1,--,--
+VGG 16,Cifar 100,Laplace,2,--,--
+VGG 16,Cifar 100,Laplace,3,--,--
+VGG 16,Cifar 100,Laplace,4,--,--
+VGG 16,Cifar 100,Laplace,5,--,--
+VGG 16,Cifar 100,Laplace,6,--,--
+VGG 16,Cifar 100,Laplace,7,--,--
+VGG 16,Cifar 100,Laplace,8,--,--
+VGG 16,Cifar 100,Laplace,9,--,--
+VGG 16,Cifar 100,Laplace,10,--,--
+VGG 16,Cifar 100,Laplace,11,--,--
+VGG 16,Cifar 100,Laplace,12,--,--
+VGG 16,Cifar 100,Laplace,13,--,--
+VGG 16,Cifar 100,Laplace,14,--,--
+VGG 16,Cifar 100,Poisson,1,--,--
+VGG 16,Cifar 100,Poisson,2,--,--
+VGG 16,Cifar 100,Poisson,3,--,--
+VGG 16,Cifar 100,Poisson,4,--,--
+VGG 16,Cifar 100,Poisson,5,--,--
+VGG 16,Cifar 100,Poisson,6,--,--
+VGG 16,Cifar 100,Poisson,7,--,--
+VGG 16,Cifar 100,Poisson,8,--,--
+VGG 16,Cifar 100,Poisson,9,--,--
+VGG 16,Cifar 100,Poisson,10,--,--
+VGG 16,Cifar 100,Poisson,11,--,--
+VGG 16,Cifar 100,Poisson,12,--,--
+VGG 16,Cifar 100,Poisson,13,--,--
+VGG 16,Cifar 100,Poisson,14,--,--
+VGG 16,MNIST,None,1,--,--
+VGG 16,MNIST,None,2,--,--
+VGG 16,MNIST,None,3,--,--
+VGG 16,MNIST,None,4,--,--
+VGG 16,MNIST,None,5,--,--
+VGG 16,MNIST,None,6,--,--
+VGG 16,MNIST,None,7,--,--
+VGG 16,MNIST,None,8,--,--
+VGG 16,MNIST,None,9,--,--
+VGG 16,MNIST,None,10,--,--
+VGG 16,MNIST,None,11,--,--
+VGG 16,MNIST,None,12,--,--
+VGG 16,MNIST,None,13,--,--
+VGG 16,MNIST,None,14,--,--
+VGG 16,MNIST,Cauchy,1,--,--
+VGG 16,MNIST,Cauchy,2,--,--
+VGG 16,MNIST,Cauchy,3,--,--
+VGG 16,MNIST,Cauchy,4,--,--
+VGG 16,MNIST,Cauchy,5,--,--
+VGG 16,MNIST,Cauchy,6,--,--
+VGG 16,MNIST,Cauchy,7,--,--
+VGG 16,MNIST,Cauchy,8,--,--
+VGG 16,MNIST,Cauchy,9,--,--
+VGG 16,MNIST,Cauchy,10,--,--
+VGG 16,MNIST,Cauchy,11,--,--
+VGG 16,MNIST,Cauchy,12,--,--
+VGG 16,MNIST,Cauchy,13,--,--
+VGG 16,MNIST,Cauchy,14,--,--
+VGG 16,MNIST,Gaussian,1,--,--
+VGG 16,MNIST,Gaussian,2,--,--
+VGG 16,MNIST,Gaussian,3,--,--
+VGG 16,MNIST,Gaussian,4,--,--
+VGG 16,MNIST,Gaussian,5,--,--
+VGG 16,MNIST,Gaussian,6,--,--
+VGG 16,MNIST,Gaussian,7,--,--
+VGG 16,MNIST,Gaussian,8,--,--
+VGG 16,MNIST,Gaussian,9,--,--
+VGG 16,MNIST,Gaussian,10,--,--
+VGG 16,MNIST,Gaussian,11,--,--
+VGG 16,MNIST,Gaussian,12,--,--
+VGG 16,MNIST,Gaussian,13,--,--
+VGG 16,MNIST,Gaussian,14,--,--
+VGG 16,MNIST,Gumbel,1,--,--
+VGG 16,MNIST,Gumbel,2,--,--
+VGG 16,MNIST,Gumbel,3,--,--
+VGG 16,MNIST,Gumbel,4,--,--
+VGG 16,MNIST,Gumbel,5,--,--
+VGG 16,MNIST,Gumbel,6,--,--
+VGG 16,MNIST,Gumbel,7,--,--
+VGG 16,MNIST,Gumbel,8,--,--
+VGG 16,MNIST,Gumbel,9,--,--
+VGG 16,MNIST,Gumbel,10,--,--
+VGG 16,MNIST,Gumbel,11,--,--
+VGG 16,MNIST,Gumbel,12,--,--
+VGG 16,MNIST,Gumbel,13,--,--
+VGG 16,MNIST,Gumbel,14,--,--
+VGG 16,MNIST,Laplace,1,--,--
+VGG 16,MNIST,Laplace,2,--,--
+VGG 16,MNIST,Laplace,3,--,--
+VGG 16,MNIST,Laplace,4,--,--
+VGG 16,MNIST,Laplace,5,--,--
+VGG 16,MNIST,Laplace,6,--,--
+VGG 16,MNIST,Laplace,7,--,--
+VGG 16,MNIST,Laplace,8,--,--
+VGG 16,MNIST,Laplace,9,--,--
+VGG 16,MNIST,Laplace,10,--,--
+VGG 16,MNIST,Laplace,11,--,--
+VGG 16,MNIST,Laplace,12,--,--
+VGG 16,MNIST,Laplace,13,--,--
+VGG 16,MNIST,Laplace,14,--,--
+VGG 16,MNIST,Poisson,1,--,--
+VGG 16,MNIST,Poisson,2,--,--
+VGG 16,MNIST,Poisson,3,--,--
+VGG 16,MNIST,Poisson,4,--,--
+VGG 16,MNIST,Poisson,5,--,--
+VGG 16,MNIST,Poisson,6,--,--
+VGG 16,MNIST,Poisson,7,--,--
+VGG 16,MNIST,Poisson,8,--,--
+VGG 16,MNIST,Poisson,9,--,--
+VGG 16,MNIST,Poisson,10,--,--
+VGG 16,MNIST,Poisson,11,--,--
+VGG 16,MNIST,Poisson,12,--,--
+VGG 16,MNIST,Poisson,13,--,--
+VGG 16,MNIST,Poisson,14,--,--
+VGG 16,SVHN,None,1,--,--
+VGG 16,SVHN,None,2,--,--
+VGG 16,SVHN,None,3,--,--
+VGG 16,SVHN,None,4,--,--
+VGG 16,SVHN,None,5,--,--
+VGG 16,SVHN,None,6,--,--
+VGG 16,SVHN,None,7,--,--
+VGG 16,SVHN,None,8,--,--
+VGG 16,SVHN,None,9,--,--
+VGG 16,SVHN,None,10,--,--
+VGG 16,SVHN,None,11,--,--
+VGG 16,SVHN,None,12,--,--
+VGG 16,SVHN,None,13,--,--
+VGG 16,SVHN,None,14,--,--
+VGG 16,SVHN,Cauchy,1,--,--
+VGG 16,SVHN,Cauchy,2,--,--
+VGG 16,SVHN,Cauchy,3,--,--
+VGG 16,SVHN,Cauchy,4,--,--
+VGG 16,SVHN,Cauchy,5,--,--
+VGG 16,SVHN,Cauchy,6,--,--
+VGG 16,SVHN,Cauchy,7,--,--
+VGG 16,SVHN,Cauchy,8,--,--
+VGG 16,SVHN,Cauchy,9,--,--
+VGG 16,SVHN,Cauchy,10,--,--
+VGG 16,SVHN,Cauchy,11,--,--
+VGG 16,SVHN,Cauchy,12,--,--
+VGG 16,SVHN,Cauchy,13,--,--
+VGG 16,SVHN,Cauchy,14,--,--
+VGG 16,SVHN,Gaussian,1,--,--
+VGG 16,SVHN,Gaussian,2,--,--
+VGG 16,SVHN,Gaussian,3,--,--
+VGG 16,SVHN,Gaussian,4,--,--
+VGG 16,SVHN,Gaussian,5,--,--
+VGG 16,SVHN,Gaussian,6,--,--
+VGG 16,SVHN,Gaussian,7,--,--
+VGG 16,SVHN,Gaussian,8,--,--
+VGG 16,SVHN,Gaussian,9,--,--
+VGG 16,SVHN,Gaussian,10,--,--
+VGG 16,SVHN,Gaussian,11,--,--
+VGG 16,SVHN,Gaussian,12,--,--
+VGG 16,SVHN,Gaussian,13,--,--
+VGG 16,SVHN,Gaussian,14,--,--
+VGG 16,SVHN,Gumbel,1,--,--
+VGG 16,SVHN,Gumbel,2,--,--
+VGG 16,SVHN,Gumbel,3,--,--
+VGG 16,SVHN,Gumbel,4,--,--
+VGG 16,SVHN,Gumbel,5,--,--
+VGG 16,SVHN,Gumbel,6,--,--
+VGG 16,SVHN,Gumbel,7,--,--
+VGG 16,SVHN,Gumbel,8,--,--
+VGG 16,SVHN,Gumbel,9,--,--
+VGG 16,SVHN,Gumbel,10,--,--
+VGG 16,SVHN,Gumbel,11,--,--
+VGG 16,SVHN,Gumbel,12,--,--
+VGG 16,SVHN,Gumbel,13,--,--
+VGG 16,SVHN,Gumbel,14,--,--
+VGG 16,SVHN,Laplace,1,--,--
+VGG 16,SVHN,Laplace,2,--,--
+VGG 16,SVHN,Laplace,3,--,--
+VGG 16,SVHN,Laplace,4,--,--
+VGG 16,SVHN,Laplace,5,--,--
+VGG 16,SVHN,Laplace,6,--,--
+VGG 16,SVHN,Laplace,7,--,--
+VGG 16,SVHN,Laplace,8,--,--
+VGG 16,SVHN,Laplace,9,--,--
+VGG 16,SVHN,Laplace,10,--,--
+VGG 16,SVHN,Laplace,11,--,--
+VGG 16,SVHN,Laplace,12,--,--
+VGG 16,SVHN,Laplace,13,--,--
+VGG 16,SVHN,Laplace,14,--,--
+VGG 16,SVHN,Poisson,1,--,--
+VGG 16,SVHN,Poisson,2,--,--
+VGG 16,SVHN,Poisson,3,--,--
+VGG 16,SVHN,Poisson,4,--,--
+VGG 16,SVHN,Poisson,5,--,--
+VGG 16,SVHN,Poisson,6,--,--
+VGG 16,SVHN,Poisson,7,--,--
+VGG 16,SVHN,Poisson,8,--,--
+VGG 16,SVHN,Poisson,9,--,--
+VGG 16,SVHN,Poisson,10,--,--
+VGG 16,SVHN,Poisson,11,--,--
+VGG 16,SVHN,Poisson,12,--,--
+VGG 16,SVHN,Poisson,13,--,--
+VGG 16,SVHN,Poisson,14,--,--

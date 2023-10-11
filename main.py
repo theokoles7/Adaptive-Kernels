@@ -151,8 +151,6 @@ if __name__ == '__main__':
 
             LOGGER.info(f"END EPOCH: {epoch:>3} | ACCURACY: {accs[-1]} | LOSS: {losses[-1]}")
 
-        LOGGER.info(f"Highest accuracy of {best_acc}% @ epoch {best_epoch}")
-
         # TESTING =================================================================================
         LOGGER.info("Commencing testing phase...")
 
@@ -192,9 +190,22 @@ if __name__ == '__main__':
         training_report.loc[ARGS.epochs + 1] = ['Test', acc, '']
         training_report.loc[ARGS.epochs + 2] = ['Best', best_acc, f'@ epoch {best_epoch}']
 
+        LOGGER.info(f"Highest accuracy of {best_acc}% @ epoch {best_epoch}")
+
+        # Record results
+        LOGGER.info("Recording results")
+        results_file = pd.read_csv('experiments/results.csv')
+        results_file.loc[
+            (results_file['MODEL']==ARGS.model) & 
+            (results_file['DATASET']==ARGS.dataset) & 
+            (results_file['DISTRIBUTION']==ARGS.distribution) & 
+            (results_file['KERNEL TYPE']==ARGS.kernel_type), 
+            ['BEST ACCURACY', '@ EPOCH']] = best_acc, best_epoch
+        results_file.to_csv('experiments/results.csv', index=False)
+
         # Save performance report and graph
         plt.plot(accs, label='Accuracy (%)')
-        plt.plt(losses, label='loss')
+        plt.plot(losses, label='loss')
         plt.title(
             f"MODEL: {ARGS.model} | DATASET: {ARGS.dataset}"
             f"DISTRIBUTION: {ARGS.distribution} | KERNEL TYPE: {ARGS.kernel_type}"
@@ -205,7 +216,7 @@ if __name__ == '__main__':
         plt.savefig(f"{output_dir}/training_graph.jpg")
         LOGGER.info("Saved plotted graph to {f'{output_dir}/training_graph.jpg'}")
 
-        training_report.to_csv(f"{output_dir}/training_report.csv")
+        training_report.to_csv(f"{output_dir}/training_report.csv", index=False)
         LOGGER.info(f"Saved training report to {output_dir}/training_report.csv")
 
         # Save model data

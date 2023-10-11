@@ -78,7 +78,7 @@ normal,cifar10,poisson,6,57.81,1
 normal,cifar10,poisson,7,44.1,1
 normal,cifar10,poisson,8,55.31,1
 normal,cifar10,poisson,9,49.52,1
-normal,cifar10,poisson,10,--,--
+normal,cifar10,poisson,10,49.22,1
 normal,cifar10,poisson,11,--,--
 normal,cifar10,poisson,12,--,--
 normal,cifar10,poisson,13,--,--

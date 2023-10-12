@@ -139,7 +139,7 @@ normal,cifar100,gumbel,11,95.31,155
 normal,cifar100,gumbel,12,92.19,142
 normal,cifar100,gumbel,13,20.31,68
 normal,cifar100,gumbel,14,96.88,124
-normal,cifar100,laplace,1,--,--
+normal,cifar100,laplace,1,92.19,65
 normal,cifar100,laplace,2,--,--
 normal,cifar100,laplace,3,--,--
 normal,cifar100,laplace,4,--,--

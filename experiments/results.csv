@@ -121,7 +121,7 @@ normal,cifar100,gaussian,7,26.56,147
 normal,cifar100,gaussian,8,93.75,192
 normal,cifar100,gaussian,9,95.31,119
 normal,cifar100,gaussian,10,21.88,151
-normal,cifar100,gaussian,11,--,--
+normal,cifar100,gaussian,11,20.31,147
 normal,cifar100,gaussian,12,--,--
 normal,cifar100,gaussian,13,--,--
 normal,cifar100,gaussian,14,--,--

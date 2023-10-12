@@ -134,7 +134,7 @@ normal,cifar100,gumbel,6,92.19,136
 normal,cifar100,gumbel,7,95.31,149
 normal,cifar100,gumbel,8,18.75,16
 normal,cifar100,gumbel,9,92.19,123
-normal,cifar100,gumbel,10,--,--
+normal,cifar100,gumbel,10,95.31,78
 normal,cifar100,gumbel,11,--,--
 normal,cifar100,gumbel,12,--,--
 normal,cifar100,gumbel,13,--,--

@@ -82,7 +82,7 @@ normal,cifar10,poisson,10,49.22,1
 normal,cifar10,poisson,11,51.56,1
 normal,cifar10,poisson,12,51.31,1
 normal,cifar10,poisson,13,50.0,1
-normal,cifar10,poisson,14,--,--
+normal,cifar10,poisson,14,45.31,1
 normal,cifar100,none,1,--,--
 normal,cifar100,none,2,--,--
 normal,cifar100,none,3,--,--

@@ -156,7 +156,7 @@ normal,cifar100,laplace,14,--,--
 normal,cifar100,poisson,1,20.31,52
 normal,cifar100,poisson,2,32.81,1
 normal,cifar100,poisson,3,25.12,2
-normal,cifar100,poisson,4,--,--
+normal,cifar100,poisson,4,42.71,1
 normal,cifar100,poisson,5,--,--
 normal,cifar100,poisson,6,--,--
 normal,cifar100,poisson,7,--,--

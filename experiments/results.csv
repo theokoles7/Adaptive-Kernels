@@ -123,7 +123,7 @@ normal,cifar100,gaussian,9,95.31,119
 normal,cifar100,gaussian,10,21.88,151
 normal,cifar100,gaussian,11,20.31,147
 normal,cifar100,gaussian,12,92.19,86
-normal,cifar100,gaussian,13,--,--
+normal,cifar100,gaussian,13,23.44,181
 normal,cifar100,gaussian,14,--,--
 normal,cifar100,gumbel,1,--,--
 normal,cifar100,gumbel,2,--,--

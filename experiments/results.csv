@@ -207,7 +207,7 @@ normal,mnist,gaussian,9,100.0,26
 normal,mnist,gaussian,10,100.0,5
 normal,mnist,gaussian,11,99.61,10
 normal,mnist,gaussian,12,100.0,17
-normal,mnist,gaussian,13,--,--
+normal,mnist,gaussian,13,100.0,4
 normal,mnist,gaussian,14,--,--
 normal,mnist,gumbel,1,--,--
 normal,mnist,gumbel,2,--,--

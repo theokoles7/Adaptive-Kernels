@@ -199,7 +199,7 @@ normal,mnist,gaussian,1,100.0,5
 normal,mnist,gaussian,2,100.0,7
 normal,mnist,gaussian,3,100.0,5
 normal,mnist,gaussian,4,100.0,5
-normal,mnist,gaussian,5,--,--
+normal,mnist,gaussian,5,100.0,6
 normal,mnist,gaussian,6,--,--
 normal,mnist,gaussian,7,--,--
 normal,mnist,gaussian,8,--,--

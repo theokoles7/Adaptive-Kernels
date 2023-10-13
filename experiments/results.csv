@@ -148,7 +148,7 @@ normal,cifar100,laplace,6,23.44,42
 normal,cifar100,laplace,7,90.62,87
 normal,cifar100,laplace,8,21.88,135
 normal,cifar100,laplace,9,90.62,97
-normal,cifar100,laplace,10,--,--
+normal,cifar100,laplace,10,90.62,69
 normal,cifar100,laplace,11,--,--
 normal,cifar100,laplace,12,--,--
 normal,cifar100,laplace,13,--,--

@@ -150,7 +150,7 @@ normal,cifar100,laplace,8,21.88,135
 normal,cifar100,laplace,9,90.62,97
 normal,cifar100,laplace,10,90.62,69
 normal,cifar100,laplace,11,18.75,20
-normal,cifar100,laplace,12,--,--
+normal,cifar100,laplace,12,90.62,92
 normal,cifar100,laplace,13,--,--
 normal,cifar100,laplace,14,--,--
 normal,cifar100,poisson,1,20.31,52

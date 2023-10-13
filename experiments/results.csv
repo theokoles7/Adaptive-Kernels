@@ -165,7 +165,7 @@ normal,cifar100,poisson,9,27.0,1
 normal,cifar100,poisson,10,29.3,2
 normal,cifar100,poisson,11,35.38,1
 normal,cifar100,poisson,12,35.94,1
-normal,cifar100,poisson,13,--,--
+normal,cifar100,poisson,13,38.67,1
 normal,cifar100,poisson,14,--,--
 normal,mnist,none,1,--,--
 normal,mnist,none,2,--,--

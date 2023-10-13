@@ -196,7 +196,7 @@ normal,mnist,cauchy,12,--,--
 normal,mnist,cauchy,13,--,--
 normal,mnist,cauchy,14,--,--
 normal,mnist,gaussian,1,100.0,5
-normal,mnist,gaussian,2,--,--
+normal,mnist,gaussian,2,100.0,7
 normal,mnist,gaussian,3,--,--
 normal,mnist,gaussian,4,--,--
 normal,mnist,gaussian,5,--,--

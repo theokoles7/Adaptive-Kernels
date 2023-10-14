@@ -222,7 +222,7 @@ normal,mnist,gumbel,10,100.0,5
 normal,mnist,gumbel,11,100.0,5
 normal,mnist,gumbel,12,95.21,1
 normal,mnist,gumbel,13,100.0,3
-normal,mnist,gumbel,14,--,--
+normal,mnist,gumbel,14,94.92,1
 normal,mnist,laplace,1,--,--
 normal,mnist,laplace,2,--,--
 normal,mnist,laplace,3,--,--

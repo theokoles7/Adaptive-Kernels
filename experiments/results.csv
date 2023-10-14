@@ -238,7 +238,7 @@ normal,mnist,laplace,12,100.0,1
 normal,mnist,laplace,13,100.0,8
 normal,mnist,laplace,14,100.0,5
 normal,mnist,poisson,1,100.0,1
-normal,mnist,poisson,2,--,--
+normal,mnist,poisson,2,98.72,1
 normal,mnist,poisson,3,--,--
 normal,mnist,poisson,4,--,--
 normal,mnist,poisson,5,--,--

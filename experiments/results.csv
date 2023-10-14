@@ -216,7 +216,7 @@ normal,mnist,gumbel,4,25.0,95
 normal,mnist,gumbel,5,100.0,10
 normal,mnist,gumbel,6,100.0,1
 normal,mnist,gumbel,7,100.0,2
-normal,mnist,gumbel,8,--,--
+normal,mnist,gumbel,8,100.0,5
 normal,mnist,gumbel,9,--,--
 normal,mnist,gumbel,10,--,--
 normal,mnist,gumbel,11,--,--

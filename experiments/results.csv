@@ -232,7 +232,7 @@ normal,mnist,laplace,6,100.0,2
 normal,mnist,laplace,7,100.0,2
 normal,mnist,laplace,8,100.0,4
 normal,mnist,laplace,9,100.0,4
-normal,mnist,laplace,10,--,--
+normal,mnist,laplace,10,100.0,3
 normal,mnist,laplace,11,--,--
 normal,mnist,laplace,12,--,--
 normal,mnist,laplace,13,--,--

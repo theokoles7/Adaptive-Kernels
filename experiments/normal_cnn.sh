@@ -1,8 +1,8 @@
 #!/bin/bash
 
-##############################################################################
-# RUN EXPERIMENTS ON ALL DATASETS USING THE NORMAL CNN MODEL & CAUCHY KERNEL #
-##############################################################################
+################################################################################
+# RUN EXPERIMENTS ON ALL DATASETS AND DISTRIBUTIONS USING THE NORMAL CNN MODEL #
+################################################################################
 # This will run the experiments with the following default arguments:
 #   - Batch size:      64
 #   - Epochs:         200
@@ -15,7 +15,7 @@
 for dataset in cifar10 cifar100 mnist
 do
     # distribution...
-    for distribution in gaussian gumbel laplace poisson
+    for distribution in cauchy gaussian gumbel laplace poisson
     do
         # and kernel type, ...
         for kernel_type in $(seq 1 14);

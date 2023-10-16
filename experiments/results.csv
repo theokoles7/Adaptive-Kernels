@@ -6,12 +6,12 @@ normal,cifar10,cauchy,3,92.19,197
 normal,cifar10,cauchy,4,90.62,66
 normal,cifar10,cauchy,5,92.19,142
 normal,cifar10,cauchy,6,92.19,89
-normal,cifar10,cauchy,7,21.88,148
+normal,cifar10,cauchy,7,999,999
 normal,cifar10,cauchy,8,18.75,2
 normal,cifar10,cauchy,9,23.44,31
 normal,cifar10,cauchy,10,18.75,92
 normal,cifar10,cauchy,11,25.0,21
-normal,cifar10,cauchy,12,21.88,107
+normal,cifar10,cauchy,12,40.62,1
 normal,cifar10,cauchy,13,90.62,122
 normal,cifar10,cauchy,14,25.0,41
 normal,cifar10,gaussian,1,93.75,86

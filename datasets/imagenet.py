@@ -1,6 +1,6 @@
 """ImageNet utilities."""
 
-import typing
+import os, typing
 
 from termcolor import colored
 import torch.utils.data as data
@@ -35,19 +35,15 @@ class ImageNet():
 
         # Verify train data
         self.logger.info("Verifying/downloading train data.")
-        train_data = datasets.ImageNet(
-            root =          path,
-            download =      True,
-            split =         'train',
+        train_data = datasets.ImageFolder(
+            root =          os.path.join(path, 'tiny-imagenet-200', 'train'),
             transform =     transform
         )
 
         # Verify test data
         self.logger.info("Verifying/downloading test data.")
-        test_data = datasets.ImageNet(
-            root =          path,
-            download =      True,
-            train =         False,
+        test_data = datasets.ImageFolder(
+            root =          os.path.join(path, 'tiny-imagenet-200', 'val'),
             transform =     transform
         )
 

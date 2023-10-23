@@ -6,13 +6,14 @@ from utils.logger import LOGGER
 
 from datasets.cifar10   import Cifar10
 from datasets.cifar100  import Cifar100
+from datasets.imagenet  import ImageNet
 from datasets.mnist     import MNIST
 from datasets.svhn      import SVHN
 
 # Initialize dataset accessor logger
 logger = LOGGER.getChild('dataset-accessor')
 
-def get_dataset(dataset: str, path: str, batch_size: int) -> Cifar10 | Cifar100 | MNIST | SVHN:
+def get_dataset(dataset: str, path: str, batch_size: int) -> Cifar10 | Cifar100 | ImageNet | MNIST | SVHN:
     """Provide appropriate dataset.
 
     Args:
@@ -21,13 +22,14 @@ def get_dataset(dataset: str, path: str, batch_size: int) -> Cifar10 | Cifar100 
         batch_size (int): Dataset batch size
 
     Returns:
-        Cifar10 | Cifar100 | MNIST | SVHN: Selected dataset
+        Cifar10 | Cifar100 | ImageNet | MNIST | SVHN: Selected dataset
     """
     logger.info(f"Fetching dataset: {dataset}")
     
     match dataset:
         case 'cifar10':     return Cifar10(  path, batch_size)
         case 'cifar100':    return Cifar100( path, batch_size)
+        case 'imagenet':    return ImageNet( path, batch_size)
         case 'mnist':       return MNIST(    path, batch_size)
         case 'svhn':        return SVHN(     path, batch_size)
 

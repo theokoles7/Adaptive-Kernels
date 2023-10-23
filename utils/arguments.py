@@ -28,7 +28,7 @@ dataset = parser.add_argument_group('Dataset')
 dataset.add_argument(
     '--dataset',
     type =      str,
-    choices =   ['cifar10', 'cifar100', 'mnist', 'svhn'],
+    choices =   ['cifar10', 'cifar100', 'imagenet', 'mnist', 'svhn'],
     default =   'cifar10',
     help =      'choice of dataset (defaults to cifar10)'
 )

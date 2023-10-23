@@ -12,7 +12,7 @@
 #   - Scale:            1
 
 # For each dataset...
-for dataset in cifar10 cifar100 mnist
+for dataset in cifar10 cifar100 imagenet mnist
 do
     # distribution...
     for distribution in gaussian gumbel laplace poisson

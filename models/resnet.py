@@ -70,14 +70,14 @@ class Resnet(nn.Module):
             self.location[0] = self.rate[0] = torch.mean(y).item()
             self.scale[0] =    torch.std(y)
 
-        X1 = self.conv1(X)
+        X1 = self.conv(X)
 
         with torch.no_grad():
             y = X1.float()
             self.location[1] = self.rate[1] = torch.mean(y).item()
             self.scale[1] =    torch.std(y)
 
-        X1 = F.relu(self.bn1(self.kernel1(X1) if ARGS.distribution else X1))
+        X1 = F.relu(self.bn(self.kernel1(X1) if ARGS.distribution else X1))
         if ARGS.debug: self.logger.debug(f"X1 shape: {X1.shape}")
 
         X2 = self.layer1(X1)

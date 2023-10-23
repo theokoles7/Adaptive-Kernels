@@ -20,6 +20,9 @@ do
         # and kernel type, ...
         for kernel_type in $(seq 1 14);
         do
+            # Clear terminal screen
+            clear
+
             # run an experiment with the normal CNN model.
             python main.py \
                 --model resnet \

@@ -1,0 +1,133 @@
+2023-10-23 16:17:29,619 | INFO | hi-lo : 
++=========================================================================+
+|  ______     ______   ______    ___         ___        ______   _______  |
+| /| ___ \  // ____ \ /| ___ \  /| |        /| |      // ____ \ /| ___  \ |
+| /| |//\ \ /| |//| | /| |//\ \ /| |        /| |      /| |//| | /| |//| | |
+| /| | /| | /| ____ | /| | /| | /| |        /| |      /| ____ | /| ___  / |
+| /| |_// / /| |//| | /| |_// / /| |____    /| |____  /| |//| | /| |//\ \ |
+| /|_____/  /|_| /|_| /|_____/  /|______|   /|______| /|_| /|_| /|______/ |
+| ///////   ///  ///  //////    ////////    ////////  ///  ///  ////////  |
++=========================================================================+
+|                  Hi-Lo Resolution Image Classification                  |
+|                  -------------------------------------                  |
+|                            Gabriel C. Trahan                            |
+|                               Sahan Ahmad                               |
+|                            MD  Aminual Islam                            |
++=========================================================================+
+| MODEL:                      resnet | LR:                            0.1 |
+| DISTRO:                   gaussian | KERNEL TYPE:                     2 |
+| DATASET:                   cifar10 | BATCH SIZE:                     64 |
++=========================================================================+
+2023-10-23 16:17:29,619 | INFO | hi-lo : Output directory: output/gaussian//2/resnet/cifar10/20231023_161729
+2023-10-23 16:17:29,619 | INFO | hi-lo.dataset-accessor : Fetching dataset: cifar10
+2023-10-23 16:17:29,619 | INFO | hi-lo.cifar10-dataset : Initializing transform.
+2023-10-23 16:17:29,620 | INFO | hi-lo.cifar10-dataset : Verifying/downloading train data.
+2023-10-23 16:17:30,219 | INFO | hi-lo.cifar10-dataset : Verifying/downloading test data.
+2023-10-23 16:17:30,704 | INFO | hi-lo.cifar10-dataset : Creating train data loader.
+2023-10-23 16:17:30,705 | INFO | hi-lo.cifar10-dataset : Creating test data loader.
+2023-10-23 16:17:31,747 | INFO | hi-lo : Using device: NVIDIA GeForce GTX 1060 6GB
+2023-10-23 16:17:31,747 | INFO | hi-lo : Commencing training phase...
+2023-10-23 16:17:31,748 | INFO | hi-lo : BEGIN EPOCH 1 =========================================================================
+2023-10-23 16:17:31,748 | INFO | hi-lo.kernel-accessor : Fetching kernel: gaussian
+2023-10-23 16:17:31,749 | INFO | hi-lo.gaussian-kernel : MU (LOCATION): 1 | SIGMA (SCALE): 1 | VARIANCE: 1
+2023-10-23 16:17:31,750 | INFO | hi-lo.gaussian-kernel : TOP-RIGHT
+tensor([[0.0751, 0.1238, 0.0751],
+        [0.1238, 0.2042, 0.1238],
+        [0.0751, 0.1238, 0.0751]])
+2023-10-23 16:17:31,750 | INFO | hi-lo.kernel-accessor : Fetching kernel: gaussian
+2023-10-23 16:17:31,750 | INFO | hi-lo.gaussian-kernel : MU (LOCATION): 0.0 | SIGMA (SCALE): 1.0 | VARIANCE: 1.0
+2023-10-23 16:17:31,750 | INFO | hi-lo.gaussian-kernel : TOP-RIGHT
+tensor([[0.0446, 0.1999, 0.3296],
+        [0.0271, 0.1212, 0.1999],
+        [0.0060, 0.0271, 0.0446]])
+2023-10-23 16:17:31,750 | INFO | hi-lo.kernel-accessor : Fetching kernel: gaussian
+2023-10-23 16:17:31,750 | INFO | hi-lo.gaussian-kernel : MU (LOCATION): 0.0 | SIGMA (SCALE): 1.0 | VARIANCE: 1.0
+2023-10-23 16:17:31,751 | INFO | hi-lo.gaussian-kernel : BOTTOM-LEFT
+tensor([[0.0446, 0.0271, 0.0060],
+        [0.1999, 0.1212, 0.0271],
+        [0.3296, 0.1999, 0.0446]])
+2023-10-23 16:17:31,751 | INFO | hi-lo.kernel-accessor : Fetching kernel: gaussian
+2023-10-23 16:17:31,751 | INFO | hi-lo.gaussian-kernel : MU (LOCATION): 0.0 | SIGMA (SCALE): 1.0 | VARIANCE: 1.0
+2023-10-23 16:17:31,751 | INFO | hi-lo.gaussian-kernel : TOP-RIGHT
+tensor([[0.0446, 0.1999, 0.3296],
+        [0.0271, 0.1212, 0.1999],
+        [0.0060, 0.0271, 0.0446]])
+2023-10-23 16:17:31,751 | INFO | hi-lo.kernel-accessor : Fetching kernel: gaussian
+2023-10-23 16:17:31,751 | INFO | hi-lo.gaussian-kernel : MU (LOCATION): 0.0 | SIGMA (SCALE): 1.0 | VARIANCE: 1.0
+2023-10-23 16:17:31,752 | INFO | hi-lo.gaussian-kernel : TOP-RIGHT
+tensor([[0.0446, 0.1999, 0.3296],
+        [0.0271, 0.1212, 0.1999],
+        [0.0060, 0.0271, 0.0446]])
+2023-10-23 16:17:31,752 | INFO | hi-lo.kernel-accessor : Fetching kernel: gaussian
+2023-10-23 16:17:31,752 | INFO | hi-lo.gaussian-kernel : MU (LOCATION): 0.0 | SIGMA (SCALE): 1.0 | VARIANCE: 1.0
+2023-10-23 16:17:31,752 | INFO | hi-lo.gaussian-kernel : BOTTOM-LEFT
+tensor([[0.0446, 0.0271, 0.0060],
+        [0.1999, 0.1212, 0.0271],
+        [0.3296, 0.1999, 0.0446]])
+2023-10-23 16:17:31,752 | INFO | hi-lo.kernel-accessor : Fetching kernel: gaussian
+2023-10-23 16:17:31,752 | INFO | hi-lo.gaussian-kernel : MU (LOCATION): 0.0 | SIGMA (SCALE): 1.0 | VARIANCE: 1.0
+2023-10-23 16:17:31,753 | INFO | hi-lo.gaussian-kernel : TOP-RIGHT
+tensor([[0.0446, 0.1999, 0.3296],
+        [0.0271, 0.1212, 0.1999],
+        [0.0060, 0.0271, 0.0446]])
+2023-10-23 16:17:31,753 | INFO | hi-lo.kernel-accessor : Fetching kernel: gaussian
+2023-10-23 16:17:31,753 | INFO | hi-lo.gaussian-kernel : MU (LOCATION): 0.0 | SIGMA (SCALE): 1.0 | VARIANCE: 1.0
+2023-10-23 16:17:31,753 | INFO | hi-lo.gaussian-kernel : BOTTOM-LEFT
+tensor([[0.0446, 0.0271, 0.0060],
+        [0.1999, 0.1212, 0.0271],
+        [0.3296, 0.1999, 0.0446]])
+2023-10-23 16:17:31,753 | INFO | hi-lo.kernel-accessor : Fetching kernel: gaussian
+2023-10-23 16:17:31,753 | INFO | hi-lo.gaussian-kernel : MU (LOCATION): 0.0 | SIGMA (SCALE): 1.0 | VARIANCE: 1.0
+2023-10-23 16:17:31,754 | INFO | hi-lo.gaussian-kernel : TOP-RIGHT
+tensor([[0.0446, 0.1999, 0.3296],
+        [0.0271, 0.1212, 0.1999],
+        [0.0060, 0.0271, 0.0446]])
+2023-10-23 16:17:31,754 | INFO | hi-lo.kernel-accessor : Fetching kernel: gaussian
+2023-10-23 16:17:31,754 | INFO | hi-lo.gaussian-kernel : MU (LOCATION): 0.0 | SIGMA (SCALE): 1.0 | VARIANCE: 1.0
+2023-10-23 16:17:31,754 | INFO | hi-lo.gaussian-kernel : TOP-RIGHT
+tensor([[0.0446, 0.1999, 0.3296],
+        [0.0271, 0.1212, 0.1999],
+        [0.0060, 0.0271, 0.0446]])
+2023-10-23 16:17:31,754 | INFO | hi-lo.kernel-accessor : Fetching kernel: gaussian
+2023-10-23 16:17:31,754 | INFO | hi-lo.gaussian-kernel : MU (LOCATION): 0.0 | SIGMA (SCALE): 1.0 | VARIANCE: 1.0
+2023-10-23 16:17:31,755 | INFO | hi-lo.gaussian-kernel : BOTTOM-LEFT
+tensor([[0.0446, 0.0271, 0.0060],
+        [0.1999, 0.1212, 0.0271],
+        [0.3296, 0.1999, 0.0446]])
+2023-10-23 16:17:31,755 | INFO | hi-lo.kernel-accessor : Fetching kernel: gaussian
+2023-10-23 16:17:31,755 | INFO | hi-lo.gaussian-kernel : MU (LOCATION): 0.0 | SIGMA (SCALE): 1.0 | VARIANCE: 1.0
+2023-10-23 16:17:31,755 | INFO | hi-lo.gaussian-kernel : TOP-RIGHT
+tensor([[0.0446, 0.1999, 0.3296],
+        [0.0271, 0.1212, 0.1999],
+        [0.0060, 0.0271, 0.0446]])
+2023-10-23 16:17:31,755 | INFO | hi-lo.kernel-accessor : Fetching kernel: gaussian
+2023-10-23 16:17:31,755 | INFO | hi-lo.gaussian-kernel : MU (LOCATION): 0.0 | SIGMA (SCALE): 1.0 | VARIANCE: 1.0
+2023-10-23 16:17:31,756 | INFO | hi-lo.gaussian-kernel : BOTTOM-LEFT
+tensor([[0.0446, 0.0271, 0.0060],
+        [0.1999, 0.1212, 0.0271],
+        [0.3296, 0.1999, 0.0446]])
+2023-10-23 16:17:31,756 | INFO | hi-lo.kernel-accessor : Fetching kernel: gaussian
+2023-10-23 16:17:31,756 | INFO | hi-lo.gaussian-kernel : MU (LOCATION): 0.0 | SIGMA (SCALE): 1.0 | VARIANCE: 1.0
+2023-10-23 16:17:31,756 | INFO | hi-lo.gaussian-kernel : TOP-RIGHT
+tensor([[0.0446, 0.1999, 0.3296],
+        [0.0271, 0.1212, 0.1999],
+        [0.0060, 0.0271, 0.0446]])
+2023-10-23 16:17:31,756 | INFO | hi-lo.kernel-accessor : Fetching kernel: gaussian
+2023-10-23 16:17:31,756 | INFO | hi-lo.gaussian-kernel : MU (LOCATION): 0.0 | SIGMA (SCALE): 1.0 | VARIANCE: 1.0
+2023-10-23 16:17:31,757 | INFO | hi-lo.gaussian-kernel : TOP-RIGHT
+tensor([[0.0446, 0.1999, 0.3296],
+        [0.0271, 0.1212, 0.1999],
+        [0.0060, 0.0271, 0.0446]])
+2023-10-23 16:17:31,757 | INFO | hi-lo.kernel-accessor : Fetching kernel: gaussian
+2023-10-23 16:17:31,757 | INFO | hi-lo.gaussian-kernel : MU (LOCATION): 0.0 | SIGMA (SCALE): 1.0 | VARIANCE: 1.0
+2023-10-23 16:17:31,757 | INFO | hi-lo.gaussian-kernel : TOP-RIGHT
+tensor([[0.0446, 0.1999, 0.3296],
+        [0.0271, 0.1212, 0.1999],
+        [0.0060, 0.0271, 0.0446]])
+2023-10-23 16:17:31,757 | INFO | hi-lo.kernel-accessor : Fetching kernel: gaussian
+2023-10-23 16:17:31,757 | INFO | hi-lo.gaussian-kernel : MU (LOCATION): 0.0 | SIGMA (SCALE): 1.0 | VARIANCE: 1.0
+2023-10-23 16:17:31,758 | INFO | hi-lo.gaussian-kernel : TOP-RIGHT
+tensor([[0.0446, 0.1999, 0.3296],
+        [0.0271, 0.1212, 0.1999],
+        [0.0060, 0.0271, 0.0446]])
+2023-10-23 16:17:32,099 | ERROR | hi-lo : An error occurred: 'Resnet' object has no attribute 'conv1'

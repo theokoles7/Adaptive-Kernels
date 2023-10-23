@@ -1,0 +1,55 @@
+2023-10-11 11:59:17,972 | INFO | hi-lo : 
++=========================================================================+
+|  ______     ______   ______    ___         ___        ______   _______  |
+| /| ___ \  // ____ \ /| ___ \  /| |        /| |      // ____ \ /| ___  \ |
+| /| |//\ \ /| |//| | /| |//\ \ /| |        /| |      /| |//| | /| |//| | |
+| /| | /| | /| ____ | /| | /| | /| |        /| |      /| ____ | /| ___  / |
+| /| |_// / /| |//| | /| |_// / /| |____    /| |____  /| |//| | /| |//\ \ |
+| /|_____/  /|_| /|_| /|_____/  /|______|   /|______| /|_| /|_| /|______/ |
+| ///////   ///  ///  //////    ////////    ////////  ///  ///  ////////  |
++=========================================================================+
+|                  Hi-Lo Resolution Image Classification                  |
+|                  -------------------------------------                  |
+|                            Gabriel C. Trahan                            |
+|                               Sahan Ahmad                               |
+|                            MD  Aminual Islam                            |
++=========================================================================+
+| MODEL:                      normal | LR:                            0.1 |
+| DISTRO:                    poisson | KERNEL TYPE:                     1 |
+| DATASET:                   cifar10 | BATCH SIZE:                     64 |
++=========================================================================+
+2023-10-11 11:59:17,972 | INFO | hi-lo : Output directory: output/poisson//1/normal/cifar10/20231011_115917
+2023-10-11 11:59:17,972 | INFO | hi-lo.dataset-accessor : Fetching dataset: cifar10
+2023-10-11 11:59:17,972 | INFO | hi-lo.cifar10-dataset : Initializing transform.
+2023-10-11 11:59:17,973 | INFO | hi-lo.cifar10-dataset : Verifying/downloading train data.
+2023-10-11 11:59:18,594 | INFO | hi-lo.cifar10-dataset : Verifying/downloading test data.
+2023-10-11 11:59:19,089 | INFO | hi-lo.cifar10-dataset : Creating train data loader.
+2023-10-11 11:59:19,089 | INFO | hi-lo.cifar10-dataset : Creating test data loader.
+2023-10-11 11:59:20,116 | INFO | hi-lo : Using device: NVIDIA GeForce GTX 1060 6GB
+2023-10-11 11:59:20,116 | INFO | hi-lo : Commencing training phase...
+2023-10-11 11:59:20,117 | INFO | hi-lo : BEGIN EPOCH 1 =========================================================================
+2023-10-11 11:59:20,117 | INFO | hi-lo.kernel-accessor : Fetching kernel: poisson
+2023-10-11 11:59:20,119 | INFO | hi-lo.poisson-kernel : LAMBDA (RATE): 0.0
+2023-10-11 11:59:20,119 | INFO | hi-lo.poisson-kernel : TOP-LEFT
+tensor([[1., 0., 0.],
+        [0., 0., 0.],
+        [0., 0., 0.]])
+2023-10-11 11:59:20,119 | INFO | hi-lo.kernel-accessor : Fetching kernel: poisson
+2023-10-11 11:59:20,120 | INFO | hi-lo.poisson-kernel : LAMBDA (RATE): 0.0
+2023-10-11 11:59:20,120 | INFO | hi-lo.poisson-kernel : TOP-LEFT
+tensor([[1., 0., 0.],
+        [0., 0., 0.],
+        [0., 0., 0.]])
+2023-10-11 11:59:20,120 | INFO | hi-lo.kernel-accessor : Fetching kernel: poisson
+2023-10-11 11:59:20,120 | INFO | hi-lo.poisson-kernel : LAMBDA (RATE): 0.0
+2023-10-11 11:59:20,121 | INFO | hi-lo.poisson-kernel : BOTTOM-RIGHT
+tensor([[0., 0., 0.],
+        [0., 0., 0.],
+        [0., 0., 1.]])
+2023-10-11 11:59:20,121 | INFO | hi-lo.kernel-accessor : Fetching kernel: poisson
+2023-10-11 11:59:20,121 | INFO | hi-lo.poisson-kernel : LAMBDA (RATE): 0.0
+2023-10-11 11:59:20,121 | INFO | hi-lo.poisson-kernel : TOP-LEFT
+tensor([[1., 0., 0.],
+        [0., 0., 0.],
+        [0., 0., 0.]])
+2023-10-11 11:59:27,881 | INFO | hi-lo : Keyboard interrupt detected. Aborting operations...

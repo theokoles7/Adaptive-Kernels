@@ -28,6 +28,8 @@ do
                 --dataset $dataset
 
             git add ./experiments/results.csv
+            git add ./logs/*
+            git add ./output/*
             git commit -m "$(date +'%F %T'): Normal CNN | $distribution | $kernel_type | $dataset"
             git push origin main
         done

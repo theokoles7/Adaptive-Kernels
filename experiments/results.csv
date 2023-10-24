@@ -128,7 +128,7 @@ normal,cifar100,poisson,12,35.94,1
 normal,cifar100,poisson,13,38.67,1
 normal,cifar100,poisson,14,42.19,1
 normal,imagenet,none,--,--,--
-normal,imagenet,cauchy,1,--,--
+normal,imagenet,cauchy,1,7.81,7
 normal,imagenet,cauchy,2,--,--
 normal,imagenet,cauchy,3,--,--
 normal,imagenet,cauchy,4,--,--

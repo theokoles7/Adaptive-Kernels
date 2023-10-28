@@ -1,0 +1,136 @@
+2023-10-28 12:52:50,094 | INFO | hi-lo : 
++=========================================================================+
+|  ______     ______   ______    ___         ___        ______   _______  |
+| /| ___ \  // ____ \ /| ___ \  /| |        /| |      // ____ \ /| ___  \ |
+| /| |//\ \ /| |//| | /| |//\ \ /| |        /| |      /| |//| | /| |//| | |
+| /| | /| | /| ____ | /| | /| | /| |        /| |      /| ____ | /| ___  / |
+| /| |_// / /| |//| | /| |_// / /| |____    /| |____  /| |//| | /| |//\ \ |
+| /|_____/  /|_| /|_| /|_____/  /|______|   /|______| /|_| /|_| /|______/ |
+| ///////   ///  ///  //////    ////////    ////////  ///  ///  ////////  |
++=========================================================================+
+|                  Hi-Lo Resolution Image Classification                  |
+|                  -------------------------------------                  |
+|                            Gabriel C. Trahan                            |
+|                               Sahan Ahmad                               |
+|                            MD  Aminual Islam                            |
++=========================================================================+
+| MODEL:                      resnet | LR:                            0.1 |
+| DISTRO:                     cauchy | KERNEL TYPE:                     2 |
+| DATASET:                   cifar10 | BATCH SIZE:                     64 |
++=========================================================================+
+2023-10-28 12:52:50,094 | INFO | hi-lo : Output directory: output/resnet/cauchy/2/cifar10/20231028_125250
+2023-10-28 12:52:50,094 | INFO | hi-lo.dataset-accessor : Fetching dataset: cifar10
+2023-10-28 12:52:50,094 | INFO | hi-lo.cifar10-dataset : Initializing transform.
+2023-10-28 12:52:50,094 | INFO | hi-lo.cifar10-dataset : Verifying/downloading train data.
+2023-10-28 12:52:50,706 | INFO | hi-lo.cifar10-dataset : Verifying/downloading test data.
+2023-10-28 12:52:51,197 | INFO | hi-lo.cifar10-dataset : Creating train data loader.
+2023-10-28 12:52:51,197 | INFO | hi-lo.cifar10-dataset : Creating test data loader.
+2023-10-28 12:52:52,233 | INFO | hi-lo : Using device: NVIDIA GeForce GTX 1060 6GB
+2023-10-28 12:52:52,234 | INFO | hi-lo : Commencing training phase...
+2023-10-28 12:52:52,234 | INFO | hi-lo : BEGIN EPOCH 1 =========================================================================
+2023-10-28 12:52:52,236 | INFO | hi-lo.kernel-accessor : Fetching kernel: cauchy
+2023-10-28 12:52:52,236 | INFO | hi-lo.cauchy-kernel : CHI (LOCATION): 1 | GAMMA (SCALE): 1 | VAIRANCE: 1
+2023-10-28 12:52:52,237 | INFO | hi-lo.cauchy-kernel : BOTTOM-LEFT
+tensor([[0., 0., 0.],
+        [0., 0., 0.],
+        [nan, 0., 0.]])
+2023-10-28 12:52:52,237 | INFO | hi-lo.kernel-accessor : Fetching kernel: cauchy
+2023-10-28 12:52:52,237 | INFO | hi-lo.cauchy-kernel : CHI (LOCATION): 0.0 | GAMMA (SCALE): 1.0 | VAIRANCE: 1.0
+2023-10-28 12:52:52,237 | INFO | hi-lo.cauchy-kernel : BOTTOM-LEFT
+tensor([[0.0901, 0.0676, 0.0541],
+        [0.1351, 0.0901, 0.0676],
+        [0.2703, 0.1351, 0.0901]])
+2023-10-28 12:52:52,237 | INFO | hi-lo.kernel-accessor : Fetching kernel: cauchy
+2023-10-28 12:52:52,238 | INFO | hi-lo.cauchy-kernel : CHI (LOCATION): 0.0 | GAMMA (SCALE): 1.0 | VAIRANCE: 1.0
+2023-10-28 12:52:52,238 | INFO | hi-lo.cauchy-kernel : TOP-RIGHT
+tensor([[0.0901, 0.1351, 0.2703],
+        [0.0676, 0.0901, 0.1351],
+        [0.0541, 0.0676, 0.0901]])
+2023-10-28 12:52:52,238 | INFO | hi-lo.kernel-accessor : Fetching kernel: cauchy
+2023-10-28 12:52:52,238 | INFO | hi-lo.cauchy-kernel : CHI (LOCATION): 0.0 | GAMMA (SCALE): 1.0 | VAIRANCE: 1.0
+2023-10-28 12:52:52,238 | INFO | hi-lo.cauchy-kernel : BOTTOM-LEFT
+tensor([[0.0901, 0.0676, 0.0541],
+        [0.1351, 0.0901, 0.0676],
+        [0.2703, 0.1351, 0.0901]])
+2023-10-28 12:52:52,238 | INFO | hi-lo.kernel-accessor : Fetching kernel: cauchy
+2023-10-28 12:52:52,239 | INFO | hi-lo.cauchy-kernel : CHI (LOCATION): 0.0 | GAMMA (SCALE): 1.0 | VAIRANCE: 1.0
+2023-10-28 12:52:52,239 | INFO | hi-lo.cauchy-kernel : TOP-RIGHT
+tensor([[0.0901, 0.1351, 0.2703],
+        [0.0676, 0.0901, 0.1351],
+        [0.0541, 0.0676, 0.0901]])
+2023-10-28 12:52:52,239 | INFO | hi-lo.kernel-accessor : Fetching kernel: cauchy
+2023-10-28 12:52:52,239 | INFO | hi-lo.cauchy-kernel : CHI (LOCATION): 0.0 | GAMMA (SCALE): 1.0 | VAIRANCE: 1.0
+2023-10-28 12:52:52,239 | INFO | hi-lo.cauchy-kernel : TOP-RIGHT
+tensor([[0.0901, 0.1351, 0.2703],
+        [0.0676, 0.0901, 0.1351],
+        [0.0541, 0.0676, 0.0901]])
+2023-10-28 12:52:52,239 | INFO | hi-lo.kernel-accessor : Fetching kernel: cauchy
+2023-10-28 12:52:52,240 | INFO | hi-lo.cauchy-kernel : CHI (LOCATION): 0.0 | GAMMA (SCALE): 1.0 | VAIRANCE: 1.0
+2023-10-28 12:52:52,240 | INFO | hi-lo.cauchy-kernel : BOTTOM-LEFT
+tensor([[0.0901, 0.0676, 0.0541],
+        [0.1351, 0.0901, 0.0676],
+        [0.2703, 0.1351, 0.0901]])
+2023-10-28 12:52:52,240 | INFO | hi-lo.kernel-accessor : Fetching kernel: cauchy
+2023-10-28 12:52:52,240 | INFO | hi-lo.cauchy-kernel : CHI (LOCATION): 0.0 | GAMMA (SCALE): 1.0 | VAIRANCE: 1.0
+2023-10-28 12:52:52,240 | INFO | hi-lo.cauchy-kernel : BOTTOM-LEFT
+tensor([[0.0901, 0.0676, 0.0541],
+        [0.1351, 0.0901, 0.0676],
+        [0.2703, 0.1351, 0.0901]])
+2023-10-28 12:52:52,240 | INFO | hi-lo.kernel-accessor : Fetching kernel: cauchy
+2023-10-28 12:52:52,241 | INFO | hi-lo.cauchy-kernel : CHI (LOCATION): 0.0 | GAMMA (SCALE): 1.0 | VAIRANCE: 1.0
+2023-10-28 12:52:52,241 | INFO | hi-lo.cauchy-kernel : TOP-RIGHT
+tensor([[0.0901, 0.1351, 0.2703],
+        [0.0676, 0.0901, 0.1351],
+        [0.0541, 0.0676, 0.0901]])
+2023-10-28 12:52:52,241 | INFO | hi-lo.kernel-accessor : Fetching kernel: cauchy
+2023-10-28 12:52:52,241 | INFO | hi-lo.cauchy-kernel : CHI (LOCATION): 0.0 | GAMMA (SCALE): 1.0 | VAIRANCE: 1.0
+2023-10-28 12:52:52,241 | INFO | hi-lo.cauchy-kernel : BOTTOM-LEFT
+tensor([[0.0901, 0.0676, 0.0541],
+        [0.1351, 0.0901, 0.0676],
+        [0.2703, 0.1351, 0.0901]])
+2023-10-28 12:52:52,241 | INFO | hi-lo.kernel-accessor : Fetching kernel: cauchy
+2023-10-28 12:52:52,242 | INFO | hi-lo.cauchy-kernel : CHI (LOCATION): 0.0 | GAMMA (SCALE): 1.0 | VAIRANCE: 1.0
+2023-10-28 12:52:52,242 | INFO | hi-lo.cauchy-kernel : BOTTOM-LEFT
+tensor([[0.0901, 0.0676, 0.0541],
+        [0.1351, 0.0901, 0.0676],
+        [0.2703, 0.1351, 0.0901]])
+2023-10-28 12:52:52,242 | INFO | hi-lo.kernel-accessor : Fetching kernel: cauchy
+2023-10-28 12:52:52,242 | INFO | hi-lo.cauchy-kernel : CHI (LOCATION): 0.0 | GAMMA (SCALE): 1.0 | VAIRANCE: 1.0
+2023-10-28 12:52:52,242 | INFO | hi-lo.cauchy-kernel : BOTTOM-LEFT
+tensor([[0.0901, 0.0676, 0.0541],
+        [0.1351, 0.0901, 0.0676],
+        [0.2703, 0.1351, 0.0901]])
+2023-10-28 12:52:52,242 | INFO | hi-lo.kernel-accessor : Fetching kernel: cauchy
+2023-10-28 12:52:52,243 | INFO | hi-lo.cauchy-kernel : CHI (LOCATION): 0.0 | GAMMA (SCALE): 1.0 | VAIRANCE: 1.0
+2023-10-28 12:52:52,243 | INFO | hi-lo.cauchy-kernel : BOTTOM-LEFT
+tensor([[0.0901, 0.0676, 0.0541],
+        [0.1351, 0.0901, 0.0676],
+        [0.2703, 0.1351, 0.0901]])
+2023-10-28 12:52:52,243 | INFO | hi-lo.kernel-accessor : Fetching kernel: cauchy
+2023-10-28 12:52:52,243 | INFO | hi-lo.cauchy-kernel : CHI (LOCATION): 0.0 | GAMMA (SCALE): 1.0 | VAIRANCE: 1.0
+2023-10-28 12:52:52,243 | INFO | hi-lo.cauchy-kernel : TOP-RIGHT
+tensor([[0.0901, 0.1351, 0.2703],
+        [0.0676, 0.0901, 0.1351],
+        [0.0541, 0.0676, 0.0901]])
+2023-10-28 12:52:52,243 | INFO | hi-lo.kernel-accessor : Fetching kernel: cauchy
+2023-10-28 12:52:52,244 | INFO | hi-lo.cauchy-kernel : CHI (LOCATION): 0.0 | GAMMA (SCALE): 1.0 | VAIRANCE: 1.0
+2023-10-28 12:52:52,244 | INFO | hi-lo.cauchy-kernel : TOP-RIGHT
+tensor([[0.0901, 0.1351, 0.2703],
+        [0.0676, 0.0901, 0.1351],
+        [0.0541, 0.0676, 0.0901]])
+2023-10-28 12:52:52,244 | INFO | hi-lo.kernel-accessor : Fetching kernel: cauchy
+2023-10-28 12:52:52,244 | INFO | hi-lo.cauchy-kernel : CHI (LOCATION): 0.0 | GAMMA (SCALE): 1.0 | VAIRANCE: 1.0
+2023-10-28 12:52:52,244 | INFO | hi-lo.cauchy-kernel : BOTTOM-LEFT
+tensor([[0.0901, 0.0676, 0.0541],
+        [0.1351, 0.0901, 0.0676],
+        [0.2703, 0.1351, 0.0901]])
+2023-10-28 12:52:52,244 | INFO | hi-lo.kernel-accessor : Fetching kernel: cauchy
+2023-10-28 12:52:52,245 | INFO | hi-lo.cauchy-kernel : CHI (LOCATION): 0.0 | GAMMA (SCALE): 1.0 | VAIRANCE: 1.0
+2023-10-28 12:52:52,245 | INFO | hi-lo.cauchy-kernel : TOP-RIGHT
+tensor([[0.0901, 0.1351, 0.2703],
+        [0.0676, 0.0901, 0.1351],
+        [0.0541, 0.0676, 0.0901]])
+2023-10-28 12:54:16,490 | INFO | hi-lo : END EPOCH:   1 | ACCURACY: 14.84 | LOSS: nan
+2023-10-28 12:54:16,490 | INFO | hi-lo : BEGIN EPOCH 2 =========================================================================
+2023-10-28 12:54:16,493 | INFO | hi-lo.kernel-accessor : Fetching kernel: cauchy
+2023-10-28 12:54:16,498 | ERROR | hi-lo : An error occurred: Expected all tensors to be on the same device, but found at least two devices, cuda:0 and cpu!

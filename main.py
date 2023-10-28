@@ -208,7 +208,7 @@ if __name__ == '__main__':
         plt.plot(losses, label='loss')
         plt.title(
             f"MODEL: {ARGS.model} | DATASET: {ARGS.dataset}"
-            f"DISTRIBUTION: {ARGS.distribution} | KERNEL TYPE: {ARGS.kernel_type}"
+            (f"\nDISTRIBUTION: {ARGS.distribution} | KERNEL TYPE: {ARGS.kernel_type}" if ARGS.distribution else '')
         )
         plt.xlabel('Epoch')
         plt.legend()

@@ -11,7 +11,7 @@ LOGGER = logging.getLogger('hi-lo')
 LOGGER.setLevel(logging.DEBUG)
 
 # Ensure that output ARGS.logger_path exists
-os.makedirs(f"{ARGS.logger_path}/{ARGS.distribution}{f'/{ARGS.kernel_type}' if ARGS.distribution else ''}/{ARGS.dataset}", exist_ok=True)
+os.makedirs(f"{ARGS.logger_path}/{ARGS.model}/{ARGS.distribution}{f'/{ARGS.kernel_type}' if ARGS.distribution else ''}/{ARGS.dataset}", exist_ok=True)
 
 # Define console handler
 stdout_handler = logging.StreamHandler(sys.stdout)

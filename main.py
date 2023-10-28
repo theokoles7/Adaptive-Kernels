@@ -24,7 +24,7 @@ if __name__ == '__main__':
         LOGGER.info(lab_banner + arg_banner)
 
         # Ensure output directory exists
-        output_dir = f"{ARGS.output_path}/{ARGS.distribution}/{f'/{ARGS.kernel_type}' if ARGS.distribution else ''}/{ARGS.model}/{ARGS.dataset}/{datetime.datetime.now().strftime('%Y%m%d_%H%M%S')}"
+        output_dir = f"{ARGS.output_path}/{ARGS.model}/{ARGS.distribution}{f'/{ARGS.kernel_type}' if ARGS.distribution else ''}/{ARGS.dataset}/{datetime.datetime.now().strftime('%Y%m%d_%H%M%S')}"
         os.makedirs(output_dir, exist_ok=True)
         LOGGER.info(f"Output directory: {output_dir}")
 

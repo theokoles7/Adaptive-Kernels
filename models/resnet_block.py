@@ -34,8 +34,8 @@ class ResnetBlock(nn.Module):
         self.bn2 =          nn.BatchNorm2d(channels_out)
 
         # Convolving layers
-        self.conv1 =        nn.Conv2d(channels_in,  channels_out, kernel_size=3, stride=stride)
-        self.conv2 =        nn.Conv2d(channels_out, channels_out, kernel_size=3, stride=1)
+        self.conv1 =        nn.Conv2d(channels_in,  channels_out, kernel_size=3, stride=stride, padding=1, bias=False)
+        self.conv2 =        nn.Conv2d(channels_out, channels_out, kernel_size=3, stride=1,      padding=1, bias=False)
 
         self.shortcut =     nn.Sequential()
         # if stride != 1 or channels_in != (channels_out * self.expansion):

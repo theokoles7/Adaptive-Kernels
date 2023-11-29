@@ -1,0 +1,627 @@
+2023-11-29 17:32:59,636 | INFO | hi-lo : 
++==============================================================+
+|                                                              |
+| ██████╗  █████╗ ██████╗ ██╗         ██╗      █████╗ ██████╗  |
+| ██╔══██╗██╔══██╗██╔══██╗██║         ██║     ██╔══██╗██╔══██╗ |
+| ██║  ██║███████║██║  ██║██║         ██║     ███████║██████╔╝ |
+| ██║  ██║██╔══██║██║  ██║██║         ██║     ██╔══██║██╔══██╗ |
+| ██████╔╝██║  ██║██████╔╝███████╗    ███████╗██║  ██║██████╔╝ |
+| ╚═════╝ ╚═╝  ╚═╝╚═════╝ ╚══════╝    ╚══════╝╚═╝  ╚═╝╚═════╝  |
+|                                                              |
++==============================================================+
+|             Hi-Lo Resolution Image Classification            |
+|             -------------------------------------            |
+|                       Gabriel C. Trahan                      |
+|                          Sahan Ahmad                         |
+|                       MD  Aminual Islam                      |
++==============================================================+
+| MODEL:                 normal | LR:                      0.1 |
+| DISTRO:                cauchy | KERNEL TYPE:               3 |
+| DATASET:              cifar10 | BATCH SIZE:               64 |
++=========================================================================+
+2023-11-29 17:32:59,637 | INFO | hi-lo : Output directory: output/normal/cauchy/3/cifar10/20231129_173259
+2023-11-29 17:32:59,637 | INFO | hi-lo.dataset-accessor : Fetching dataset: cifar10
+2023-11-29 17:32:59,637 | INFO | hi-lo.cifar10-dataset : Initializing transform.
+2023-11-29 17:32:59,637 | INFO | hi-lo.cifar10-dataset : Verifying/downloading train data.
+2023-11-29 17:33:00,249 | INFO | hi-lo.cifar10-dataset : Verifying/downloading test data.
+2023-11-29 17:33:00,741 | INFO | hi-lo.cifar10-dataset : Creating train data loader.
+2023-11-29 17:33:00,742 | INFO | hi-lo.cifar10-dataset : Creating test data loader.
+2023-11-29 17:33:01,721 | INFO | hi-lo : Using device: NVIDIA GeForce GTX 1060 6GB
+2023-11-29 17:33:01,721 | INFO | hi-lo : Commencing training phase...
+2023-11-29 17:33:01,722 | INFO | hi-lo : BEGIN EPOCH 1 =========================================================================
+2023-11-29 17:33:01,722 | INFO | hi-lo.kernel-accessor : Fetching kernel: cauchy
+2023-11-29 17:33:01,723 | INFO | hi-lo.cauchy-kernel : CHI (LOCATION): 0.0 | GAMMA (SCALE): 1.0 | VAIRANCE: 1.0
+2023-11-29 17:33:01,724 | INFO | hi-lo.cauchy-kernel : BOTTOM-LEFT
+tensor([[0.0700, 0.0350, 0.0206],
+        [0.1749, 0.0700, 0.0350],
+        [0.3498, 0.1749, 0.0700]])
+2023-11-29 17:33:01,724 | INFO | hi-lo.kernel-accessor : Fetching kernel: cauchy
+2023-11-29 17:33:01,724 | INFO | hi-lo.cauchy-kernel : CHI (LOCATION): 0.0 | GAMMA (SCALE): 1.0 | VAIRANCE: 1.0
+2023-11-29 17:33:01,724 | INFO | hi-lo.cauchy-kernel : TOP-LEFT
+tensor([[0.3498, 0.1749, 0.0700],
+        [0.1749, 0.0700, 0.0350],
+        [0.0700, 0.0350, 0.0206]])
+2023-11-29 17:33:01,724 | INFO | hi-lo.kernel-accessor : Fetching kernel: cauchy
+2023-11-29 17:33:01,724 | INFO | hi-lo.cauchy-kernel : CHI (LOCATION): 0.0 | GAMMA (SCALE): 1.0 | VAIRANCE: 1.0
+2023-11-29 17:33:01,725 | INFO | hi-lo.cauchy-kernel : BOTTOM-LEFT
+tensor([[0.0700, 0.0350, 0.0206],
+        [0.1749, 0.0700, 0.0350],
+        [0.3498, 0.1749, 0.0700]])
+2023-11-29 17:33:01,725 | INFO | hi-lo.kernel-accessor : Fetching kernel: cauchy
+2023-11-29 17:33:01,725 | INFO | hi-lo.cauchy-kernel : CHI (LOCATION): 0.0 | GAMMA (SCALE): 1.0 | VAIRANCE: 1.0
+2023-11-29 17:33:01,725 | INFO | hi-lo.cauchy-kernel : TOP-LEFT
+tensor([[0.3498, 0.1749, 0.0700],
+        [0.1749, 0.0700, 0.0350],
+        [0.0700, 0.0350, 0.0206]])
+2023-11-29 17:33:11,003 | INFO | hi-lo : END EPOCH:   1 | ACCURACY: 46.88 | LOSS: 1.7381551265716553
+2023-11-29 17:33:11,003 | INFO | hi-lo : BEGIN EPOCH 2 =========================================================================
+2023-11-29 17:33:11,004 | INFO | hi-lo.kernel-accessor : Fetching kernel: cauchy
+2023-11-29 17:33:11,004 | INFO | hi-lo.cauchy-kernel : CHI (LOCATION): -0.02238081954419613 | GAMMA (SCALE): 0.5290705561637878 | VAIRANCE: 0.2799156533994598
+2023-11-29 17:33:11,005 | INFO | hi-lo.cauchy-kernel : TOP-LEFT
+tensor([[0.5909, 0.1250, 0.0379],
+        [0.1250, 0.0379, 0.0176],
+        [0.0379, 0.0176, 0.0101]])
+2023-11-29 17:33:11,005 | INFO | hi-lo.kernel-accessor : Fetching kernel: cauchy
+2023-11-29 17:33:11,006 | INFO | hi-lo.cauchy-kernel : CHI (LOCATION): -0.37692588567733765 | GAMMA (SCALE): 0.7796441316604614 | VAIRANCE: 0.6078449720325949
+2023-11-29 17:33:11,006 | INFO | hi-lo.cauchy-kernel : BOTTOM-LEFT
+tensor([[0.0565, 0.0294, 0.0179],
+        [0.1412, 0.0565, 0.0294],
+        [0.4714, 0.1412, 0.0565]])
+2023-11-29 17:33:11,006 | INFO | hi-lo.kernel-accessor : Fetching kernel: cauchy
+2023-11-29 17:33:11,007 | INFO | hi-lo.cauchy-kernel : CHI (LOCATION): -0.7912263870239258 | GAMMA (SCALE): 1.2094014883041382 | VAIRANCE: 1.4626519599122645
+2023-11-29 17:33:11,007 | INFO | hi-lo.cauchy-kernel : TOP-LEFT
+tensor([[0.3424, 0.1531, 0.0773],
+        [0.1531, 0.0773, 0.0452],
+        [0.0773, 0.0452, 0.0293]])
+2023-11-29 17:33:11,007 | INFO | hi-lo.kernel-accessor : Fetching kernel: cauchy
+2023-11-29 17:33:11,008 | INFO | hi-lo.cauchy-kernel : CHI (LOCATION): -0.33860957622528076 | GAMMA (SCALE): 0.7011624574661255 | VAIRANCE: 0.49162879175993623
+2023-11-29 17:33:11,008 | INFO | hi-lo.cauchy-kernel : TOP-LEFT
+tensor([[0.5072, 0.1347, 0.0516],
+        [0.1347, 0.0516, 0.0264],
+        [0.0516, 0.0264, 0.0159]])
+2023-11-29 17:33:19,557 | INFO | hi-lo : END EPOCH:   2 | ACCURACY: 48.05 | LOSS: 1.2333316802978516
+2023-11-29 17:33:19,557 | INFO | hi-lo : BEGIN EPOCH 3 =========================================================================
+2023-11-29 17:33:19,558 | INFO | hi-lo.kernel-accessor : Fetching kernel: cauchy
+2023-11-29 17:33:19,558 | INFO | hi-lo.cauchy-kernel : CHI (LOCATION): -0.04967062920331955 | GAMMA (SCALE): 0.45603033900260925 | VAIRANCE: 0.20796367009083472
+2023-11-29 17:33:19,559 | INFO | hi-lo.cauchy-kernel : TOP-LEFT
+tensor([[0.6573, 0.1056, 0.0314],
+        [0.1056, 0.0314, 0.0145],
+        [0.0314, 0.0145, 0.0083]])
+2023-11-29 17:33:19,559 | INFO | hi-lo.kernel-accessor : Fetching kernel: cauchy
+2023-11-29 17:33:19,560 | INFO | hi-lo.cauchy-kernel : CHI (LOCATION): -0.42087438702583313 | GAMMA (SCALE): 0.8183383345603943 | VAIRANCE: 0.6696776298110798
+2023-11-29 17:33:19,560 | INFO | hi-lo.cauchy-kernel : BOTTOM-LEFT
+tensor([[0.0590, 0.0311, 0.0191],
+        [0.1433, 0.0590, 0.0311],
+        [0.4550, 0.1433, 0.0590]])
+2023-11-29 17:33:19,560 | INFO | hi-lo.kernel-accessor : Fetching kernel: cauchy
+2023-11-29 17:33:19,561 | INFO | hi-lo.cauchy-kernel : CHI (LOCATION): -1.3418934345245361 | GAMMA (SCALE): 2.009249448776245 | VAIRANCE: 4.037083347407645
+2023-11-29 17:33:19,561 | INFO | hi-lo.cauchy-kernel : TOP-LEFT
+tensor([[0.2459, 0.1507, 0.0944],
+        [0.1507, 0.0944, 0.0627],
+        [0.0944, 0.0627, 0.0441]])
+2023-11-29 17:33:19,562 | INFO | hi-lo.kernel-accessor : Fetching kernel: cauchy
+2023-11-29 17:33:19,562 | INFO | hi-lo.cauchy-kernel : CHI (LOCATION): -0.5499725937843323 | GAMMA (SCALE): 1.1720378398895264 | VAIRANCE: 1.373672698132907
+2023-11-29 17:33:19,562 | INFO | hi-lo.cauchy-kernel : TOP-LEFT
+tensor([[0.3519, 0.1562, 0.0749],
+        [0.1562, 0.0749, 0.0422],
+        [0.0749, 0.0422, 0.0267]])
+2023-11-29 17:33:27,920 | INFO | hi-lo : END EPOCH:   3 | ACCURACY: 53.91 | LOSS: 1.3207335472106934
+2023-11-29 17:33:27,920 | INFO | hi-lo : BEGIN EPOCH 4 =========================================================================
+2023-11-29 17:33:27,920 | INFO | hi-lo.kernel-accessor : Fetching kernel: cauchy
+2023-11-29 17:33:27,921 | INFO | hi-lo.cauchy-kernel : CHI (LOCATION): -0.04428262636065483 | GAMMA (SCALE): 0.573314368724823 | VAIRANCE: 0.3286893653863423
+2023-11-29 17:33:27,921 | INFO | hi-lo.cauchy-kernel : TOP-LEFT
+tensor([[0.5635, 0.1313, 0.0413],
+        [0.1313, 0.0413, 0.0194],
+        [0.0413, 0.0194, 0.0112]])
+2023-11-29 17:33:27,921 | INFO | hi-lo.kernel-accessor : Fetching kernel: cauchy
+2023-11-29 17:33:27,922 | INFO | hi-lo.cauchy-kernel : CHI (LOCATION): -0.4794074296951294 | GAMMA (SCALE): 0.9456996917724609 | VAIRANCE: 0.8943479070185276
+2023-11-29 17:33:27,922 | INFO | hi-lo.cauchy-kernel : TOP-LEFT
+tensor([[0.4107, 0.1498, 0.0656],
+        [0.1498, 0.0656, 0.0355],
+        [0.0656, 0.0355, 0.0220]])
+2023-11-29 17:33:27,922 | INFO | hi-lo.kernel-accessor : Fetching kernel: cauchy
+2023-11-29 17:33:27,922 | INFO | hi-lo.cauchy-kernel : CHI (LOCATION): -1.5859780311584473 | GAMMA (SCALE): 2.3628952503204346 | VAIRANCE: 5.583273963986869
+2023-11-29 17:33:27,923 | INFO | hi-lo.cauchy-kernel : BOTTOM-LEFT
+tensor([[0.0983, 0.0681, 0.0493],
+        [0.1478, 0.0983, 0.0681],
+        [0.2239, 0.1478, 0.0983]])
+2023-11-29 17:33:27,923 | INFO | hi-lo.kernel-accessor : Fetching kernel: cauchy
+2023-11-29 17:33:27,923 | INFO | hi-lo.cauchy-kernel : CHI (LOCATION): -0.8264455795288086 | GAMMA (SCALE): 1.495300054550171 | VAIRANCE: 2.235922253137744
+2023-11-29 17:33:27,924 | INFO | hi-lo.cauchy-kernel : BOTTOM-LEFT
+tensor([[0.0849, 0.0514, 0.0340],
+        [0.1557, 0.0849, 0.0514],
+        [0.2972, 0.1557, 0.0849]])
+2023-11-29 17:33:36,427 | INFO | hi-lo : END EPOCH:   4 | ACCURACY: 68.75 | LOSS: 1.2674819231033325
+2023-11-29 17:33:36,427 | INFO | hi-lo : BEGIN EPOCH 5 =========================================================================
+2023-11-29 17:33:36,427 | INFO | hi-lo.kernel-accessor : Fetching kernel: cauchy
+2023-11-29 17:33:36,428 | INFO | hi-lo.cauchy-kernel : CHI (LOCATION): -0.025960585102438927 | GAMMA (SCALE): 0.46930649876594543 | VAIRANCE: 0.22024858978395034
+2023-11-29 17:33:36,429 | INFO | hi-lo.cauchy-kernel : TOP-LEFT
+tensor([[0.6406, 0.1112, 0.0327],
+        [0.1112, 0.0327, 0.0151],
+        [0.0327, 0.0151, 0.0086]])
+2023-11-29 17:33:36,429 | INFO | hi-lo.kernel-accessor : Fetching kernel: cauchy
+2023-11-29 17:33:36,429 | INFO | hi-lo.cauchy-kernel : CHI (LOCATION): -0.6006596088409424 | GAMMA (SCALE): 0.9458451271057129 | VAIRANCE: 0.8946230044696222
+2023-11-29 17:33:36,430 | INFO | hi-lo.cauchy-kernel : BOTTOM-LEFT
+tensor([[0.0667, 0.0369, 0.0232],
+        [0.1479, 0.0667, 0.0369],
+        [0.4071, 0.1479, 0.0667]])
+2023-11-29 17:33:36,430 | INFO | hi-lo.kernel-accessor : Fetching kernel: cauchy
+2023-11-29 17:33:36,430 | INFO | hi-lo.cauchy-kernel : CHI (LOCATION): -1.3713977336883545 | GAMMA (SCALE): 2.28137469291687 | VAIRANCE: 5.204670489481543
+2023-11-29 17:33:36,431 | INFO | hi-lo.cauchy-kernel : TOP-LEFT
+tensor([[0.2282, 0.1493, 0.0976],
+        [0.1493, 0.0976, 0.0665],
+        [0.0976, 0.0665, 0.0475]])
+2023-11-29 17:33:36,431 | INFO | hi-lo.kernel-accessor : Fetching kernel: cauchy
+2023-11-29 17:33:36,432 | INFO | hi-lo.cauchy-kernel : CHI (LOCATION): -1.0478339195251465 | GAMMA (SCALE): 1.9827756881713867 | VAIRANCE: 3.931399429603516
+2023-11-29 17:33:36,432 | INFO | hi-lo.cauchy-kernel : BOTTOM-LEFT
+tensor([[0.0940, 0.0612, 0.0423],
+        [0.1530, 0.0940, 0.0612],
+        [0.2472, 0.1530, 0.0940]])
+2023-11-29 17:33:44,890 | INFO | hi-lo : END EPOCH:   5 | ACCURACY: 71.88 | LOSS: 0.980067253112793
+2023-11-29 17:33:44,891 | INFO | hi-lo : BEGIN EPOCH 6 =========================================================================
+2023-11-29 17:33:44,891 | INFO | hi-lo.kernel-accessor : Fetching kernel: cauchy
+2023-11-29 17:33:44,891 | INFO | hi-lo.cauchy-kernel : CHI (LOCATION): -0.02985646389424801 | GAMMA (SCALE): 0.46819353103637695 | VAIRANCE: 0.21920518250431087
+2023-11-29 17:33:44,892 | INFO | hi-lo.cauchy-kernel : TOP-LEFT
+tensor([[0.6425, 0.1105, 0.0326],
+        [0.1105, 0.0326, 0.0150],
+        [0.0326, 0.0150, 0.0086]])
+2023-11-29 17:33:44,892 | INFO | hi-lo.kernel-accessor : Fetching kernel: cauchy
+2023-11-29 17:33:44,893 | INFO | hi-lo.cauchy-kernel : CHI (LOCATION): -0.5357417464256287 | GAMMA (SCALE): 0.9426883459091187 | VAIRANCE: 0.8886613175128701
+2023-11-29 17:33:44,893 | INFO | hi-lo.cauchy-kernel : TOP-LEFT
+tensor([[0.4104, 0.1486, 0.0659],
+        [0.1486, 0.0659, 0.0360],
+        [0.0659, 0.0360, 0.0225]])
+2023-11-29 17:33:44,894 | INFO | hi-lo.kernel-accessor : Fetching kernel: cauchy
+2023-11-29 17:33:44,894 | INFO | hi-lo.cauchy-kernel : CHI (LOCATION): -1.5943152904510498 | GAMMA (SCALE): 2.626338243484497 | VAIRANCE: 6.897652569189233
+2023-11-29 17:33:44,895 | INFO | hi-lo.cauchy-kernel : BOTTOM-LEFT
+tensor([[0.1006, 0.0712, 0.0522],
+        [0.1463, 0.1006, 0.0712],
+        [0.2112, 0.1463, 0.1006]])
+2023-11-29 17:33:44,895 | INFO | hi-lo.kernel-accessor : Fetching kernel: cauchy
+2023-11-29 17:33:44,895 | INFO | hi-lo.cauchy-kernel : CHI (LOCATION): -1.4102506637573242 | GAMMA (SCALE): 2.508999824523926 | VAIRANCE: 6.29508011946109
+2023-11-29 17:33:44,896 | INFO | hi-lo.cauchy-kernel : TOP-LEFT
+tensor([[0.2159, 0.1478, 0.0998],
+        [0.1478, 0.0998, 0.0695],
+        [0.0998, 0.0695, 0.0503]])
+2023-11-29 17:33:53,420 | INFO | hi-lo : END EPOCH:   6 | ACCURACY: 67.19 | LOSS: 1.289691686630249
+2023-11-29 17:33:53,420 | INFO | hi-lo : BEGIN EPOCH 7 =========================================================================
+2023-11-29 17:33:53,420 | INFO | hi-lo.kernel-accessor : Fetching kernel: cauchy
+2023-11-29 17:33:53,421 | INFO | hi-lo.cauchy-kernel : CHI (LOCATION): -0.04074801504611969 | GAMMA (SCALE): 0.5192291140556335 | VAIRANCE: 0.2695988728829981
+2023-11-29 17:33:53,421 | INFO | hi-lo.cauchy-kernel : TOP-LEFT
+tensor([[0.6032, 0.1209, 0.0369],
+        [0.1209, 0.0369, 0.0172],
+        [0.0369, 0.0172, 0.0099]])
+2023-11-29 17:33:53,421 | INFO | hi-lo.kernel-accessor : Fetching kernel: cauchy
+2023-11-29 17:33:53,422 | INFO | hi-lo.cauchy-kernel : CHI (LOCATION): -0.6287380456924438 | GAMMA (SCALE): 0.9655025005340576 | VAIRANCE: 0.9321950785375179
+2023-11-29 17:33:53,422 | INFO | hi-lo.cauchy-kernel : BOTTOM-LEFT
+tensor([[0.0678, 0.0377, 0.0238],
+        [0.1484, 0.0678, 0.0377],
+        [0.4006, 0.1484, 0.0678]])
+2023-11-29 17:33:53,423 | INFO | hi-lo.kernel-accessor : Fetching kernel: cauchy
+2023-11-29 17:33:53,423 | INFO | hi-lo.cauchy-kernel : CHI (LOCATION): -1.4859977960586548 | GAMMA (SCALE): 2.4017131328582764 | VAIRANCE: 5.768225972543917
+2023-11-29 17:33:53,423 | INFO | hi-lo.cauchy-kernel : TOP-LEFT
+tensor([[0.2218, 0.1481, 0.0987],
+        [0.1481, 0.0987, 0.0683],
+        [0.0987, 0.0683, 0.0493]])
+2023-11-29 17:33:53,424 | INFO | hi-lo.kernel-accessor : Fetching kernel: cauchy
+2023-11-29 17:33:53,424 | INFO | hi-lo.cauchy-kernel : CHI (LOCATION): -1.045555591583252 | GAMMA (SCALE): 2.055727005004883 | VAIRANCE: 4.2260135191063455
+2023-11-29 17:33:53,424 | INFO | hi-lo.cauchy-kernel : TOP-LEFT
+tensor([[0.2414, 0.1527, 0.0951],
+        [0.1527, 0.0951, 0.0624],
+        [0.0951, 0.0624, 0.0433]])
+2023-11-29 17:34:01,969 | INFO | hi-lo : END EPOCH:   7 | ACCURACY: 60.64 | LOSS: 1.2202141284942627
+2023-11-29 17:34:01,969 | INFO | hi-lo : BEGIN EPOCH 8 =========================================================================
+2023-11-29 17:34:01,969 | INFO | hi-lo.kernel-accessor : Fetching kernel: cauchy
+2023-11-29 17:34:01,970 | INFO | hi-lo.cauchy-kernel : CHI (LOCATION): 0.030172288417816162 | GAMMA (SCALE): 0.4850689470767975 | VAIRANCE: 0.23529188341819296
+2023-11-29 17:34:01,971 | INFO | hi-lo.cauchy-kernel : BOTTOM-LEFT
+tensor([[0.0350, 0.0159, 0.0090],
+        [0.1224, 0.0350, 0.0159],
+        [0.6094, 0.1224, 0.0350]])
+2023-11-29 17:34:01,971 | INFO | hi-lo.kernel-accessor : Fetching kernel: cauchy
+2023-11-29 17:34:01,972 | INFO | hi-lo.cauchy-kernel : CHI (LOCATION): -0.5589779019355774 | GAMMA (SCALE): 0.9936420321464539 | VAIRANCE: 0.9873244880481344
+2023-11-29 17:34:01,972 | INFO | hi-lo.cauchy-kernel : TOP-LEFT
+tensor([[0.3955, 0.1504, 0.0682],
+        [0.1504, 0.0682, 0.0377],
+        [0.0682, 0.0377, 0.0236]])
+2023-11-29 17:34:01,972 | INFO | hi-lo.kernel-accessor : Fetching kernel: cauchy
+2023-11-29 17:34:01,973 | INFO | hi-lo.cauchy-kernel : CHI (LOCATION): -1.56673002243042 | GAMMA (SCALE): 2.5323898792266846 | VAIRANCE: 6.412998500409742
+2023-11-29 17:34:01,973 | INFO | hi-lo.cauchy-kernel : BOTTOM-LEFT
+tensor([[0.0998, 0.0701, 0.0511],
+        [0.1469, 0.0998, 0.0701],
+        [0.2154, 0.1469, 0.0998]])
+2023-11-29 17:34:01,973 | INFO | hi-lo.kernel-accessor : Fetching kernel: cauchy
+2023-11-29 17:34:01,974 | INFO | hi-lo.cauchy-kernel : CHI (LOCATION): -1.318513035774231 | GAMMA (SCALE): 2.2698400020599365 | VAIRANCE: 5.152173634951453
+2023-11-29 17:34:01,975 | INFO | hi-lo.cauchy-kernel : TOP-LEFT
+tensor([[0.2287, 0.1497, 0.0975],
+        [0.1497, 0.0975, 0.0662],
+        [0.0975, 0.0662, 0.0471]])
+2023-11-29 17:34:10,453 | INFO | hi-lo : END EPOCH:   8 | ACCURACY: 63.28 | LOSS: 0.85288405418396
+2023-11-29 17:34:10,453 | INFO | hi-lo : BEGIN EPOCH 9 =========================================================================
+2023-11-29 17:34:10,453 | INFO | hi-lo.kernel-accessor : Fetching kernel: cauchy
+2023-11-29 17:34:10,454 | INFO | hi-lo.cauchy-kernel : CHI (LOCATION): -0.20289552211761475 | GAMMA (SCALE): 0.49913492798805237 | VAIRANCE: 0.24913567633763822
+2023-11-29 17:34:10,455 | INFO | hi-lo.cauchy-kernel : BOTTOM-LEFT
+tensor([[0.0359, 0.0174, 0.0102],
+        [0.1080, 0.0359, 0.0174],
+        [0.6311, 0.1080, 0.0359]])
+2023-11-29 17:34:10,455 | INFO | hi-lo.kernel-accessor : Fetching kernel: cauchy
+2023-11-29 17:34:10,455 | INFO | hi-lo.cauchy-kernel : CHI (LOCATION): -0.6115862727165222 | GAMMA (SCALE): 1.0269932746887207 | VAIRANCE: 1.0547151862558621
+2023-11-29 17:34:10,456 | INFO | hi-lo.cauchy-kernel : BOTTOM-LEFT
+tensor([[0.0700, 0.0391, 0.0247],
+        [0.1509, 0.0700, 0.0391],
+        [0.3856, 0.1509, 0.0700]])
+2023-11-29 17:34:10,456 | INFO | hi-lo.kernel-accessor : Fetching kernel: cauchy
+2023-11-29 17:34:10,456 | INFO | hi-lo.cauchy-kernel : CHI (LOCATION): -1.5806758403778076 | GAMMA (SCALE): 2.601008176803589 | VAIRANCE: 6.765243535799129
+2023-11-29 17:34:10,457 | INFO | hi-lo.cauchy-kernel : TOP-LEFT
+tensor([[0.2123, 0.1465, 0.1004],
+        [0.1465, 0.1004, 0.0709],
+        [0.1004, 0.0709, 0.0519]])
+2023-11-29 17:34:10,457 | INFO | hi-lo.kernel-accessor : Fetching kernel: cauchy
+2023-11-29 17:34:10,457 | INFO | hi-lo.cauchy-kernel : CHI (LOCATION): -1.3968095779418945 | GAMMA (SCALE): 2.4302613735198975 | VAIRANCE: 5.906170343622819
+2023-11-29 17:34:10,458 | INFO | hi-lo.cauchy-kernel : TOP-LEFT
+tensor([[0.2199, 0.1483, 0.0991],
+        [0.1483, 0.0991, 0.0685],
+        [0.0991, 0.0685, 0.0493]])
+2023-11-29 17:34:18,969 | INFO | hi-lo : END EPOCH:   9 | ACCURACY: 64.06 | LOSS: 0.7561252117156982
+2023-11-29 17:34:18,969 | INFO | hi-lo : BEGIN EPOCH 10 =========================================================================
+2023-11-29 17:34:18,969 | INFO | hi-lo.kernel-accessor : Fetching kernel: cauchy
+2023-11-29 17:34:18,970 | INFO | hi-lo.cauchy-kernel : CHI (LOCATION): -0.09126341342926025 | GAMMA (SCALE): 0.5000872611999512 | VAIRANCE: 0.2500872688144682
+2023-11-29 17:34:18,971 | INFO | hi-lo.cauchy-kernel : TOP-LEFT
+tensor([[0.6272, 0.1125, 0.0351],
+        [0.1125, 0.0351, 0.0165],
+        [0.0351, 0.0165, 0.0095]])
+2023-11-29 17:34:18,971 | INFO | hi-lo.kernel-accessor : Fetching kernel: cauchy
+2023-11-29 17:34:18,971 | INFO | hi-lo.cauchy-kernel : CHI (LOCATION): -0.6054484844207764 | GAMMA (SCALE): 1.045418620109558 | VAIRANCE: 1.0929000912717726
+2023-11-29 17:34:18,972 | INFO | hi-lo.cauchy-kernel : TOP-LEFT
+tensor([[0.3812, 0.1516, 0.0706],
+        [0.1516, 0.0706, 0.0395],
+        [0.0706, 0.0395, 0.0249]])
+2023-11-29 17:34:18,972 | INFO | hi-lo.kernel-accessor : Fetching kernel: cauchy
+2023-11-29 17:34:18,972 | INFO | hi-lo.cauchy-kernel : CHI (LOCATION): -1.6170523166656494 | GAMMA (SCALE): 2.6465840339660645 | VAIRANCE: 7.004407048844087
+2023-11-29 17:34:18,973 | INFO | hi-lo.cauchy-kernel : TOP-LEFT
+tensor([[0.2103, 0.1461, 0.1007],
+        [0.1461, 0.1007, 0.0714],
+        [0.1007, 0.0714, 0.0525]])
+2023-11-29 17:34:18,973 | INFO | hi-lo.kernel-accessor : Fetching kernel: cauchy
+2023-11-29 17:34:18,974 | INFO | hi-lo.cauchy-kernel : CHI (LOCATION): -1.426084041595459 | GAMMA (SCALE): 2.5915935039520264 | VAIRANCE: 6.716356889726342
+2023-11-29 17:34:18,974 | INFO | hi-lo.cauchy-kernel : BOTTOM-LEFT
+tensor([[0.1005, 0.0705, 0.0513],
+        [0.1472, 0.1005, 0.0705],
+        [0.2119, 0.1472, 0.1005]])
+2023-11-29 17:34:27,498 | INFO | hi-lo : END EPOCH:  10 | ACCURACY: 61.88 | LOSS: 1.2747617959976196
+2023-11-29 17:34:27,498 | INFO | hi-lo : BEGIN EPOCH 11 =========================================================================
+2023-11-29 17:34:27,498 | INFO | hi-lo.kernel-accessor : Fetching kernel: cauchy
+2023-11-29 17:34:27,499 | INFO | hi-lo.cauchy-kernel : CHI (LOCATION): -0.029278986155986786 | GAMMA (SCALE): 0.5225028395652771 | VAIRANCE: 0.2730092173537777
+2023-11-29 17:34:27,500 | INFO | hi-lo.cauchy-kernel : TOP-LEFT
+tensor([[0.5978, 0.1229, 0.0373],
+        [0.1229, 0.0373, 0.0173],
+        [0.0373, 0.0173, 0.0099]])
+2023-11-29 17:34:27,500 | INFO | hi-lo.kernel-accessor : Fetching kernel: cauchy
+2023-11-29 17:34:27,500 | INFO | hi-lo.cauchy-kernel : CHI (LOCATION): -0.5942955017089844 | GAMMA (SCALE): 1.0490546226501465 | VAIRANCE: 1.1005156013036412
+2023-11-29 17:34:27,501 | INFO | hi-lo.cauchy-kernel : BOTTOM-LEFT
+tensor([[0.0706, 0.0395, 0.0249],
+        [0.1519, 0.0706, 0.0395],
+        [0.3805, 0.1519, 0.0706]])
+2023-11-29 17:34:27,501 | INFO | hi-lo.kernel-accessor : Fetching kernel: cauchy
+2023-11-29 17:34:27,502 | INFO | hi-lo.cauchy-kernel : CHI (LOCATION): -1.6876851320266724 | GAMMA (SCALE): 2.732332944869995 | VAIRANCE: 7.46564332162194
+2023-11-29 17:34:27,502 | INFO | hi-lo.cauchy-kernel : TOP-LEFT
+tensor([[0.2069, 0.1453, 0.1013],
+        [0.1453, 0.1013, 0.0725],
+        [0.1013, 0.0725, 0.0536]])
+2023-11-29 17:34:27,502 | INFO | hi-lo.kernel-accessor : Fetching kernel: cauchy
+2023-11-29 17:34:27,503 | INFO | hi-lo.cauchy-kernel : CHI (LOCATION): -1.1958266496658325 | GAMMA (SCALE): 2.3948071002960205 | VAIRANCE: 5.735101047628234
+2023-11-29 17:34:27,503 | INFO | hi-lo.cauchy-kernel : TOP-LEFT
+tensor([[0.2204, 0.1496, 0.0990],
+        [0.1496, 0.0990, 0.0676],
+        [0.0990, 0.0676, 0.0482]])
+2023-11-29 17:34:35,971 | INFO | hi-lo : END EPOCH:  11 | ACCURACY: 70.31 | LOSS: 1.0423234701156616
+2023-11-29 17:34:35,971 | INFO | hi-lo : BEGIN EPOCH 12 =========================================================================
+2023-11-29 17:34:35,971 | INFO | hi-lo.kernel-accessor : Fetching kernel: cauchy
+2023-11-29 17:34:35,972 | INFO | hi-lo.cauchy-kernel : CHI (LOCATION): 0.028649363666772842 | GAMMA (SCALE): 0.479402631521225 | VAIRANCE: 0.2298268831094754
+2023-11-29 17:34:35,973 | INFO | hi-lo.cauchy-kernel : BOTTOM-LEFT
+tensor([[0.0345, 0.0157, 0.0089],
+        [0.1208, 0.0345, 0.0157],
+        [0.6148, 0.1208, 0.0345]])
+2023-11-29 17:34:35,973 | INFO | hi-lo.kernel-accessor : Fetching kernel: cauchy
+2023-11-29 17:34:35,974 | INFO | hi-lo.cauchy-kernel : CHI (LOCATION): -0.6095385551452637 | GAMMA (SCALE): 1.0227104425430298 | VAIRANCE: 1.0459366492865598
+2023-11-29 17:34:35,974 | INFO | hi-lo.cauchy-kernel : BOTTOM-LEFT
+tensor([[0.0698, 0.0389, 0.0246],
+        [0.1507, 0.0698, 0.0389],
+        [0.3867, 0.1507, 0.0698]])
+2023-11-29 17:34:35,974 | INFO | hi-lo.kernel-accessor : Fetching kernel: cauchy
+2023-11-29 17:34:35,975 | INFO | hi-lo.cauchy-kernel : CHI (LOCATION): -1.6509815454483032 | GAMMA (SCALE): 2.5965070724487305 | VAIRANCE: 6.741848977276277
+2023-11-29 17:34:35,975 | INFO | hi-lo.cauchy-kernel : BOTTOM-LEFT
+tensor([[0.1003, 0.0710, 0.0521],
+        [0.1462, 0.1003, 0.0710],
+        [0.2127, 0.1462, 0.1003]])
+2023-11-29 17:34:35,975 | INFO | hi-lo.kernel-accessor : Fetching kernel: cauchy
+2023-11-29 17:34:35,976 | INFO | hi-lo.cauchy-kernel : CHI (LOCATION): -1.1952402591705322 | GAMMA (SCALE): 2.1809628009796143 | VAIRANCE: 4.7565987392568445
+2023-11-29 17:34:35,976 | INFO | hi-lo.cauchy-kernel : BOTTOM-LEFT
+tensor([[0.0966, 0.0646, 0.0455],
+        [0.1509, 0.0966, 0.0646],
+        [0.2337, 0.1509, 0.0966]])
+2023-11-29 17:34:44,476 | INFO | hi-lo : END EPOCH:  12 | ACCURACY: 62.28 | LOSS: 1.074988603591919
+2023-11-29 17:34:44,476 | INFO | hi-lo : BEGIN EPOCH 13 =========================================================================
+2023-11-29 17:34:44,476 | INFO | hi-lo.kernel-accessor : Fetching kernel: cauchy
+2023-11-29 17:34:44,477 | INFO | hi-lo.cauchy-kernel : CHI (LOCATION): -0.1158512532711029 | GAMMA (SCALE): 0.462677925825119 | VAIRANCE: 0.21407086304583434
+2023-11-29 17:34:44,478 | INFO | hi-lo.cauchy-kernel : TOP-LEFT
+tensor([[0.6595, 0.1028, 0.0320],
+        [0.1028, 0.0320, 0.0151],
+        [0.0320, 0.0151, 0.0087]])
+2023-11-29 17:34:44,478 | INFO | hi-lo.kernel-accessor : Fetching kernel: cauchy
+2023-11-29 17:34:44,478 | INFO | hi-lo.cauchy-kernel : CHI (LOCATION): -0.5740106701850891 | GAMMA (SCALE): 0.9562738537788391 | VAIRANCE: 0.9144596834210326
+2023-11-29 17:34:44,479 | INFO | hi-lo.cauchy-kernel : TOP-LEFT
+tensor([[0.4053, 0.1486, 0.0669],
+        [0.1486, 0.0669, 0.0368],
+        [0.0669, 0.0368, 0.0231]])
+2023-11-29 17:34:44,479 | INFO | hi-lo.kernel-accessor : Fetching kernel: cauchy
+2023-11-29 17:34:44,479 | INFO | hi-lo.cauchy-kernel : CHI (LOCATION): -1.4851865768432617 | GAMMA (SCALE): 2.437263250350952 | VAIRANCE: 5.940252151511288
+2023-11-29 17:34:44,480 | INFO | hi-lo.cauchy-kernel : BOTTOM-LEFT
+tensor([[0.0990, 0.0688, 0.0497],
+        [0.1479, 0.0990, 0.0688],
+        [0.2199, 0.1479, 0.0990]])
+2023-11-29 17:34:44,480 | INFO | hi-lo.kernel-accessor : Fetching kernel: cauchy
+2023-11-29 17:34:44,481 | INFO | hi-lo.cauchy-kernel : CHI (LOCATION): -1.0662349462509155 | GAMMA (SCALE): 1.908974289894104 | VAIRANCE: 3.6441828394766986
+2023-11-29 17:34:44,481 | INFO | hi-lo.cauchy-kernel : TOP-LEFT
+tensor([[0.2535, 0.1532, 0.0929],
+        [0.1532, 0.0929, 0.0601],
+        [0.0929, 0.0601, 0.0413]])
+2023-11-29 17:34:53,040 | INFO | hi-lo : END EPOCH:  13 | ACCURACY: 67.05 | LOSS: 0.9347371459007263
+2023-11-29 17:34:53,040 | INFO | hi-lo : BEGIN EPOCH 14 =========================================================================
+2023-11-29 17:34:53,041 | INFO | hi-lo.kernel-accessor : Fetching kernel: cauchy
+2023-11-29 17:34:53,042 | INFO | hi-lo.cauchy-kernel : CHI (LOCATION): -0.006140518002212048 | GAMMA (SCALE): 0.479653000831604 | VAIRANCE: 0.2300670012067627
+2023-11-29 17:34:53,043 | INFO | hi-lo.cauchy-kernel : BOTTOM-LEFT
+tensor([[0.0339, 0.0156, 0.0089],
+        [0.1160, 0.0339, 0.0156],
+        [0.6264, 0.1160, 0.0339]])
+2023-11-29 17:34:53,043 | INFO | hi-lo.kernel-accessor : Fetching kernel: cauchy
+2023-11-29 17:34:53,043 | INFO | hi-lo.cauchy-kernel : CHI (LOCATION): -0.5922064781188965 | GAMMA (SCALE): 1.0125794410705566 | VAIRANCE: 1.0253171244787609
+2023-11-29 17:34:53,044 | INFO | hi-lo.cauchy-kernel : BOTTOM-LEFT
+tensor([[0.0692, 0.0385, 0.0243],
+        [0.1506, 0.0692, 0.0385],
+        [0.3897, 0.1506, 0.0692]])
+2023-11-29 17:34:53,044 | INFO | hi-lo.kernel-accessor : Fetching kernel: cauchy
+2023-11-29 17:34:53,045 | INFO | hi-lo.cauchy-kernel : CHI (LOCATION): -1.7011533975601196 | GAMMA (SCALE): 2.698887586593628 | VAIRANCE: 7.2839942050691775
+2023-11-29 17:34:53,045 | INFO | hi-lo.cauchy-kernel : TOP-LEFT
+tensor([[0.2083, 0.1454, 0.1011],
+        [0.1454, 0.1011, 0.0722],
+        [0.1011, 0.0722, 0.0533]])
+2023-11-29 17:34:53,045 | INFO | hi-lo.kernel-accessor : Fetching kernel: cauchy
+2023-11-29 17:34:53,046 | INFO | hi-lo.cauchy-kernel : CHI (LOCATION): -1.3019912242889404 | GAMMA (SCALE): 2.350327968597412 | VAIRANCE: 5.524041559971238
+2023-11-29 17:34:53,046 | INFO | hi-lo.cauchy-kernel : TOP-LEFT
+tensor([[0.2238, 0.1493, 0.0984],
+        [0.1493, 0.0984, 0.0672],
+        [0.0984, 0.0672, 0.0480]])
+2023-11-29 17:35:01,566 | INFO | hi-lo : END EPOCH:  14 | ACCURACY: 68.23 | LOSS: 0.9541338682174683
+2023-11-29 17:35:01,566 | INFO | hi-lo : BEGIN EPOCH 15 =========================================================================
+2023-11-29 17:35:01,566 | INFO | hi-lo.kernel-accessor : Fetching kernel: cauchy
+2023-11-29 17:35:01,567 | INFO | hi-lo.cauchy-kernel : CHI (LOCATION): -0.17439329624176025 | GAMMA (SCALE): 0.5104305148124695 | VAIRANCE: 0.2605393104517226
+2023-11-29 17:35:01,568 | INFO | hi-lo.cauchy-kernel : BOTTOM-LEFT
+tensor([[0.0364, 0.0176, 0.0103],
+        [0.1107, 0.0364, 0.0176],
+        [0.6240, 0.1107, 0.0364]])
+2023-11-29 17:35:01,568 | INFO | hi-lo.kernel-accessor : Fetching kernel: cauchy
+2023-11-29 17:35:01,569 | INFO | hi-lo.cauchy-kernel : CHI (LOCATION): -0.6017946004867554 | GAMMA (SCALE): 1.006910800933838 | VAIRANCE: 1.013869361037223
+2023-11-29 17:35:01,569 | INFO | hi-lo.cauchy-kernel : TOP-LEFT
+tensor([[0.3909, 0.1503, 0.0691],
+        [0.1503, 0.0691, 0.0385],
+        [0.0691, 0.0385, 0.0242]])
+2023-11-29 17:35:01,569 | INFO | hi-lo.kernel-accessor : Fetching kernel: cauchy
+2023-11-29 17:35:01,570 | INFO | hi-lo.cauchy-kernel : CHI (LOCATION): -1.5750668048858643 | GAMMA (SCALE): 2.8263490200042725 | VAIRANCE: 7.988248782879111
+2023-11-29 17:35:01,570 | INFO | hi-lo.cauchy-kernel : TOP-LEFT
+tensor([[0.2026, 0.1451, 0.1021],
+        [0.1451, 0.1021, 0.0733],
+        [0.1021, 0.0733, 0.0543]])
+2023-11-29 17:35:01,570 | INFO | hi-lo.kernel-accessor : Fetching kernel: cauchy
+2023-11-29 17:35:01,571 | INFO | hi-lo.cauchy-kernel : CHI (LOCATION): -1.492201566696167 | GAMMA (SCALE): 2.463867664337158 | VAIRANCE: 6.070643867366243
+2023-11-29 17:35:01,571 | INFO | hi-lo.cauchy-kernel : TOP-LEFT
+tensor([[0.2186, 0.1477, 0.0993],
+        [0.1477, 0.0993, 0.0691],
+        [0.0993, 0.0691, 0.0501]])
+2023-11-29 17:35:10,121 | INFO | hi-lo : END EPOCH:  15 | ACCURACY: 64.26 | LOSS: 0.9938340187072754
+2023-11-29 17:35:10,121 | INFO | hi-lo : BEGIN EPOCH 16 =========================================================================
+2023-11-29 17:35:10,121 | INFO | hi-lo.kernel-accessor : Fetching kernel: cauchy
+2023-11-29 17:35:10,122 | INFO | hi-lo.cauchy-kernel : CHI (LOCATION): -0.0802193284034729 | GAMMA (SCALE): 0.4835021197795868 | VAIRANCE: 0.2337742998313539
+2023-11-29 17:35:10,123 | INFO | hi-lo.cauchy-kernel : BOTTOM-LEFT
+tensor([[0.0337, 0.0158, 0.0091],
+        [0.1096, 0.0337, 0.0158],
+        [0.6391, 0.1096, 0.0337]])
+2023-11-29 17:35:10,123 | INFO | hi-lo.kernel-accessor : Fetching kernel: cauchy
+2023-11-29 17:35:10,123 | INFO | hi-lo.cauchy-kernel : CHI (LOCATION): -0.6523842811584473 | GAMMA (SCALE): 0.9354978799819946 | VAIRANCE: 0.8751562834508064
+2023-11-29 17:35:10,124 | INFO | hi-lo.cauchy-kernel : TOP-LEFT
+tensor([[0.4072, 0.1469, 0.0670],
+        [0.1469, 0.0670, 0.0373],
+        [0.0670, 0.0373, 0.0235]])
+2023-11-29 17:35:10,124 | INFO | hi-lo.kernel-accessor : Fetching kernel: cauchy
+2023-11-29 17:35:10,125 | INFO | hi-lo.cauchy-kernel : CHI (LOCATION): -1.2281721830368042 | GAMMA (SCALE): 2.126469850540161 | VAIRANCE: 4.521874025256295
+2023-11-29 17:35:10,125 | INFO | hi-lo.cauchy-kernel : BOTTOM-LEFT
+tensor([[0.0959, 0.0640, 0.0450],
+        [0.1510, 0.0959, 0.0640],
+        [0.2375, 0.1510, 0.0959]])
+2023-11-29 17:35:10,125 | INFO | hi-lo.kernel-accessor : Fetching kernel: cauchy
+2023-11-29 17:35:10,126 | INFO | hi-lo.cauchy-kernel : CHI (LOCATION): -1.1712491512298584 | GAMMA (SCALE): 2.037621021270752 | VAIRANCE: 4.151899426324462
+2023-11-29 17:35:10,126 | INFO | hi-lo.cauchy-kernel : BOTTOM-LEFT
+tensor([[0.0947, 0.0625, 0.0436],
+        [0.1518, 0.0947, 0.0625],
+        [0.2437, 0.1518, 0.0947]])
+2023-11-29 17:35:18,774 | INFO | hi-lo : END EPOCH:  16 | ACCURACY: 65.55 | LOSS: 1.2888237237930298
+2023-11-29 17:35:18,774 | INFO | hi-lo : BEGIN EPOCH 17 =========================================================================
+2023-11-29 17:35:18,774 | INFO | hi-lo.kernel-accessor : Fetching kernel: cauchy
+2023-11-29 17:35:18,775 | INFO | hi-lo.cauchy-kernel : CHI (LOCATION): -0.07992668449878693 | GAMMA (SCALE): 0.512412428855896 | VAIRANCE: 0.2625664972459987
+2023-11-29 17:35:18,776 | INFO | hi-lo.cauchy-kernel : BOTTOM-LEFT
+tensor([[0.0361, 0.0170, 0.0098],
+        [0.1160, 0.0361, 0.0170],
+        [0.6160, 0.1160, 0.0361]])
+2023-11-29 17:35:18,776 | INFO | hi-lo.kernel-accessor : Fetching kernel: cauchy
+2023-11-29 17:35:18,776 | INFO | hi-lo.cauchy-kernel : CHI (LOCATION): -0.5939305424690247 | GAMMA (SCALE): 1.074796199798584 | VAIRANCE: 1.1551868711014777
+2023-11-29 17:35:18,777 | INFO | hi-lo.cauchy-kernel : TOP-LEFT
+tensor([[0.3743, 0.1527, 0.0716],
+        [0.1527, 0.0716, 0.0401],
+        [0.0716, 0.0401, 0.0254]])
+2023-11-29 17:35:18,777 | INFO | hi-lo.kernel-accessor : Fetching kernel: cauchy
+2023-11-29 17:35:18,777 | INFO | hi-lo.cauchy-kernel : CHI (LOCATION): -1.8279560804367065 | GAMMA (SCALE): 2.8632407188415527 | VAIRANCE: 8.198147414032292
+2023-11-29 17:35:18,778 | INFO | hi-lo.cauchy-kernel : TOP-LEFT
+tensor([[0.2022, 0.1441, 0.1021],
+        [0.1441, 0.1021, 0.0740],
+        [0.1021, 0.0740, 0.0553]])
+2023-11-29 17:35:18,778 | INFO | hi-lo.kernel-accessor : Fetching kernel: cauchy
+2023-11-29 17:35:18,778 | INFO | hi-lo.cauchy-kernel : CHI (LOCATION): -1.3932840824127197 | GAMMA (SCALE): 2.3493995666503906 | VAIRANCE: 5.519678323777043
+2023-11-29 17:35:18,779 | INFO | hi-lo.cauchy-kernel : BOTTOM-LEFT
+tensor([[0.0983, 0.0674, 0.0484],
+        [0.1488, 0.0983, 0.0674],
+        [0.2243, 0.1488, 0.0983]])
+2023-11-29 17:35:27,431 | INFO | hi-lo : END EPOCH:  17 | ACCURACY: 64.06 | LOSS: 1.0135817527770996
+2023-11-29 17:35:27,431 | INFO | hi-lo : BEGIN EPOCH 18 =========================================================================
+2023-11-29 17:35:27,431 | INFO | hi-lo.kernel-accessor : Fetching kernel: cauchy
+2023-11-29 17:35:27,432 | INFO | hi-lo.cauchy-kernel : CHI (LOCATION): -0.16301891207695007 | GAMMA (SCALE): 0.4777661859989166 | VAIRANCE: 0.2282605284839514
+2023-11-29 17:35:27,433 | INFO | hi-lo.cauchy-kernel : BOTTOM-LEFT
+tensor([[0.0337, 0.0161, 0.0094],
+        [0.1045, 0.0337, 0.0161],
+        [0.6483, 0.1045, 0.0337]])
+2023-11-29 17:35:27,433 | INFO | hi-lo.kernel-accessor : Fetching kernel: cauchy
+2023-11-29 17:35:27,433 | INFO | hi-lo.cauchy-kernel : CHI (LOCATION): -0.6824719905853271 | GAMMA (SCALE): 1.0320417881011963 | VAIRANCE: 1.0651102523871145
+2023-11-29 17:35:27,434 | INFO | hi-lo.cauchy-kernel : TOP-LEFT
+tensor([[0.3820, 0.1501, 0.0708],
+        [0.1501, 0.0708, 0.0400],
+        [0.0708, 0.0400, 0.0254]])
+2023-11-29 17:35:27,434 | INFO | hi-lo.kernel-accessor : Fetching kernel: cauchy
+2023-11-29 17:35:27,434 | INFO | hi-lo.cauchy-kernel : CHI (LOCATION): -1.568002462387085 | GAMMA (SCALE): 2.7334184646606445 | VAIRANCE: 7.471576502947755
+2023-11-29 17:35:27,435 | INFO | hi-lo.cauchy-kernel : TOP-LEFT
+tensor([[0.2064, 0.1457, 0.1014],
+        [0.1457, 0.1014, 0.0723],
+        [0.1014, 0.0723, 0.0533]])
+2023-11-29 17:35:27,435 | INFO | hi-lo.kernel-accessor : Fetching kernel: cauchy
+2023-11-29 17:35:27,436 | INFO | hi-lo.cauchy-kernel : CHI (LOCATION): -1.4560898542404175 | GAMMA (SCALE): 2.3903393745422363 | VAIRANCE: 5.71372232548697
+2023-11-29 17:35:27,436 | INFO | hi-lo.cauchy-kernel : BOTTOM-LEFT
+tensor([[0.0986, 0.0681, 0.0491],
+        [0.1483, 0.0986, 0.0681],
+        [0.2223, 0.1483, 0.0986]])
+2023-11-29 17:35:35,945 | INFO | hi-lo : END EPOCH:  18 | ACCURACY: 70.31 | LOSS: 0.8379100561141968
+2023-11-29 17:35:35,945 | INFO | hi-lo : BEGIN EPOCH 19 =========================================================================
+2023-11-29 17:35:35,945 | INFO | hi-lo.kernel-accessor : Fetching kernel: cauchy
+2023-11-29 17:35:35,946 | INFO | hi-lo.cauchy-kernel : CHI (LOCATION): -0.06186777353286743 | GAMMA (SCALE): 0.5093124508857727 | VAIRANCE: 0.25939917262727263
+2023-11-29 17:35:35,947 | INFO | hi-lo.cauchy-kernel : TOP-LEFT
+tensor([[0.6154, 0.1168, 0.0359],
+        [0.1168, 0.0359, 0.0168],
+        [0.0359, 0.0168, 0.0097]])
+2023-11-29 17:35:35,947 | INFO | hi-lo.kernel-accessor : Fetching kernel: cauchy
+2023-11-29 17:35:35,947 | INFO | hi-lo.cauchy-kernel : CHI (LOCATION): -0.5982495546340942 | GAMMA (SCALE): 1.0199768543243408 | VAIRANCE: 1.0403527833573776
+2023-11-29 17:35:35,948 | INFO | hi-lo.cauchy-kernel : BOTTOM-LEFT
+tensor([[0.0696, 0.0388, 0.0244],
+        [0.1508, 0.0696, 0.0388],
+        [0.3877, 0.1508, 0.0696]])
+2023-11-29 17:35:35,948 | INFO | hi-lo.kernel-accessor : Fetching kernel: cauchy
+2023-11-29 17:35:35,948 | INFO | hi-lo.cauchy-kernel : CHI (LOCATION): -1.6837455034255981 | GAMMA (SCALE): 2.8142242431640625 | VAIRANCE: 7.91985809081234
+2023-11-29 17:35:35,949 | INFO | hi-lo.cauchy-kernel : TOP-LEFT
+tensor([[0.2036, 0.1448, 0.1019],
+        [0.1448, 0.1019, 0.0733],
+        [0.1019, 0.0733, 0.0544]])
+2023-11-29 17:35:35,949 | INFO | hi-lo.kernel-accessor : Fetching kernel: cauchy
+2023-11-29 17:35:35,949 | INFO | hi-lo.cauchy-kernel : CHI (LOCATION): -1.3790216445922852 | GAMMA (SCALE): 2.421844959259033 | VAIRANCE: 5.865333006688388
+2023-11-29 17:35:35,950 | INFO | hi-lo.cauchy-kernel : TOP-LEFT
+tensor([[0.2203, 0.1485, 0.0990],
+        [0.1485, 0.0990, 0.0683],
+        [0.0990, 0.0683, 0.0492]])
+2023-11-29 17:35:44,603 | INFO | hi-lo : END EPOCH:  19 | ACCURACY: 66.0 | LOSS: 1.0970128774642944
+2023-11-29 17:35:44,603 | INFO | hi-lo : BEGIN EPOCH 20 =========================================================================
+2023-11-29 17:35:44,603 | INFO | hi-lo.kernel-accessor : Fetching kernel: cauchy
+2023-11-29 17:35:44,604 | INFO | hi-lo.cauchy-kernel : CHI (LOCATION): -0.04266315698623657 | GAMMA (SCALE): 0.5070905685424805 | VAIRANCE: 0.2571408447047361
+2023-11-29 17:35:44,605 | INFO | hi-lo.cauchy-kernel : BOTTOM-LEFT
+tensor([[0.0359, 0.0167, 0.0096],
+        [0.1181, 0.0359, 0.0167],
+        [0.6132, 0.1181, 0.0359]])
+2023-11-29 17:35:44,605 | INFO | hi-lo.kernel-accessor : Fetching kernel: cauchy
+2023-11-29 17:35:44,605 | INFO | hi-lo.cauchy-kernel : CHI (LOCATION): -0.5760728120803833 | GAMMA (SCALE): 0.9506822228431702 | VAIRANCE: 0.9037966888300311
+2023-11-29 17:35:44,606 | INFO | hi-lo.cauchy-kernel : BOTTOM-LEFT
+tensor([[0.0667, 0.0367, 0.0230],
+        [0.1484, 0.0667, 0.0367],
+        [0.4068, 0.1484, 0.0667]])
+2023-11-29 17:35:44,606 | INFO | hi-lo.kernel-accessor : Fetching kernel: cauchy
+2023-11-29 17:35:44,607 | INFO | hi-lo.cauchy-kernel : CHI (LOCATION): -1.538008451461792 | GAMMA (SCALE): 2.4750943183898926 | VAIRANCE: 6.126091884925927
+2023-11-29 17:35:44,607 | INFO | hi-lo.cauchy-kernel : TOP-LEFT
+tensor([[0.2181, 0.1474, 0.0994],
+        [0.1474, 0.0994, 0.0693],
+        [0.0994, 0.0693, 0.0503]])
+2023-11-29 17:35:44,607 | INFO | hi-lo.kernel-accessor : Fetching kernel: cauchy
+2023-11-29 17:35:44,608 | INFO | hi-lo.cauchy-kernel : CHI (LOCATION): -1.168708086013794 | GAMMA (SCALE): 2.2342090606689453 | VAIRANCE: 4.991690126775211
+2023-11-29 17:35:44,609 | INFO | hi-lo.cauchy-kernel : BOTTOM-LEFT
+tensor([[0.0972, 0.0653, 0.0461],
+        [0.1508, 0.0972, 0.0653],
+        [0.2299, 0.1508, 0.0972]])
+2023-11-29 17:35:53,157 | INFO | hi-lo : END EPOCH:  20 | ACCURACY: 63.28 | LOSS: 1.1242808103561401
+2023-11-29 17:35:53,157 | INFO | hi-lo : BEGIN EPOCH 21 =========================================================================
+2023-11-29 17:35:53,157 | INFO | hi-lo.kernel-accessor : Fetching kernel: cauchy
+2023-11-29 17:35:53,158 | INFO | hi-lo.cauchy-kernel : CHI (LOCATION): -0.04408363997936249 | GAMMA (SCALE): 0.5481094717979431 | VAIRANCE: 0.3004239930746202
+2023-11-29 17:35:53,158 | INFO | hi-lo.cauchy-kernel : BOTTOM-LEFT
+tensor([[0.0393, 0.0184, 0.0106],
+        [0.1265, 0.0393, 0.0184],
+        [0.5818, 0.1265, 0.0393]])
+2023-11-29 17:35:53,159 | INFO | hi-lo.kernel-accessor : Fetching kernel: cauchy
+2023-11-29 17:35:53,159 | INFO | hi-lo.cauchy-kernel : CHI (LOCATION): -0.6105806827545166 | GAMMA (SCALE): 1.0835107564926147 | VAIRANCE: 1.1739955594351983
+2023-11-29 17:35:53,160 | INFO | hi-lo.cauchy-kernel : TOP-LEFT
+tensor([[0.3720, 0.1527, 0.0720],
+        [0.1527, 0.0720, 0.0405],
+        [0.0720, 0.0405, 0.0256]])
+2023-11-29 17:35:53,160 | INFO | hi-lo.kernel-accessor : Fetching kernel: cauchy
+2023-11-29 17:35:53,160 | INFO | hi-lo.cauchy-kernel : CHI (LOCATION): -1.696962833404541 | GAMMA (SCALE): 2.7920401096343994 | VAIRANCE: 7.795487973807269
+2023-11-29 17:35:53,161 | INFO | hi-lo.cauchy-kernel : TOP-LEFT
+tensor([[0.2045, 0.1449, 0.1017],
+        [0.1449, 0.1017, 0.0731],
+        [0.1017, 0.0731, 0.0542]])
+2023-11-29 17:35:53,161 | INFO | hi-lo.kernel-accessor : Fetching kernel: cauchy
+2023-11-29 17:35:53,161 | INFO | hi-lo.cauchy-kernel : CHI (LOCATION): -1.6938531398773193 | GAMMA (SCALE): 2.785088539123535 | VAIRANCE: 7.756718170757267
+2023-11-29 17:35:53,162 | INFO | hi-lo.cauchy-kernel : TOP-LEFT
+tensor([[0.2048, 0.1449, 0.1017],
+        [0.1449, 0.1017, 0.0731],
+        [0.1017, 0.0731, 0.0542]])
+2023-11-29 17:36:01,853 | INFO | hi-lo : END EPOCH:  21 | ACCURACY: 62.89 | LOSS: 1.1259382963180542
+2023-11-29 17:36:01,853 | INFO | hi-lo : BEGIN EPOCH 22 =========================================================================
+2023-11-29 17:36:01,854 | INFO | hi-lo.kernel-accessor : Fetching kernel: cauchy
+2023-11-29 17:36:01,854 | INFO | hi-lo.cauchy-kernel : CHI (LOCATION): -0.00445898063480854 | GAMMA (SCALE): 0.5169646143913269 | VAIRANCE: 0.2672524125327733
+2023-11-29 17:36:01,855 | INFO | hi-lo.cauchy-kernel : TOP-LEFT
+tensor([[0.5953, 0.1247, 0.0371],
+        [0.1247, 0.0371, 0.0171],
+        [0.0371, 0.0171, 0.0098]])
+2023-11-29 17:36:01,855 | INFO | hi-lo.kernel-accessor : Fetching kernel: cauchy
+2023-11-29 17:36:01,856 | INFO | hi-lo.cauchy-kernel : CHI (LOCATION): -0.6571093201637268 | GAMMA (SCALE): 1.0551952123641968 | VAIRANCE: 1.1134369361963223
+2023-11-29 17:36:01,856 | INFO | hi-lo.cauchy-kernel : TOP-LEFT
+tensor([[0.3775, 0.1511, 0.0714],
+        [0.1511, 0.0714, 0.0403],
+        [0.0714, 0.0403, 0.0256]])
+2023-11-29 17:36:01,856 | INFO | hi-lo.kernel-accessor : Fetching kernel: cauchy
+2023-11-29 17:36:01,857 | INFO | hi-lo.cauchy-kernel : CHI (LOCATION): -1.6064788103103638 | GAMMA (SCALE): 2.803360939025879 | VAIRANCE: 7.8588325544560576
+2023-11-29 17:36:01,857 | INFO | hi-lo.cauchy-kernel : TOP-LEFT
+tensor([[0.2037, 0.1451, 0.1019],
+        [0.1451, 0.1019, 0.0731],
+        [0.1019, 0.0731, 0.0541]])
+2023-11-29 17:36:01,857 | INFO | hi-lo.kernel-accessor : Fetching kernel: cauchy
+2023-11-29 17:36:01,858 | INFO | hi-lo.cauchy-kernel : CHI (LOCATION): -1.647818684577942 | GAMMA (SCALE): 2.7811636924743652 | VAIRANCE: 7.734871484337646
+2023-11-29 17:36:01,858 | INFO | hi-lo.cauchy-kernel : BOTTOM-LEFT
+tensor([[0.1017, 0.0729, 0.0540],
+        [0.1451, 0.1017, 0.0729],
+        [0.2048, 0.1451, 0.1017]])
+2023-11-29 17:36:10,454 | INFO | hi-lo : END EPOCH:  22 | ACCURACY: 64.06 | LOSS: 0.9887076020240784
+2023-11-29 17:36:10,454 | INFO | hi-lo : BEGIN EPOCH 23 =========================================================================
+2023-11-29 17:36:10,454 | INFO | hi-lo.kernel-accessor : Fetching kernel: cauchy
+2023-11-29 17:36:10,455 | INFO | hi-lo.cauchy-kernel : CHI (LOCATION): -0.1274530589580536 | GAMMA (SCALE): 0.46396833658218384 | VAIRANCE: 0.21526661735083863
+2023-11-29 17:36:10,456 | INFO | hi-lo.cauchy-kernel : BOTTOM-LEFT
+tensor([[0.0322, 0.0153, 0.0088],
+        [0.1026, 0.0322, 0.0153],
+        [0.6589, 0.1026, 0.0322]])
+2023-11-29 17:36:10,456 | INFO | hi-lo.kernel-accessor : Fetching kernel: cauchy
+2023-11-29 17:36:10,456 | INFO | hi-lo.cauchy-kernel : CHI (LOCATION): -0.5949671864509583 | GAMMA (SCALE): 0.9746505618095398 | VAIRANCE: 0.9499437176356516
+2023-11-29 17:36:10,457 | INFO | hi-lo.cauchy-kernel : TOP-LEFT
+tensor([[0.3996, 0.1491, 0.0678],
+        [0.1491, 0.0678, 0.0376],
+        [0.0678, 0.0376, 0.0236]])
+2023-11-29 17:36:10,457 | INFO | hi-lo.kernel-accessor : Fetching kernel: cauchy
+2023-11-29 17:36:10,457 | INFO | hi-lo.cauchy-kernel : CHI (LOCATION): -1.626407504081726 | GAMMA (SCALE): 2.612295150756836 | VAIRANCE: 6.82408595466768
+2023-11-29 17:36:10,458 | INFO | hi-lo.cauchy-kernel : BOTTOM-LEFT
+tensor([[0.1005, 0.0711, 0.0521],
+        [0.1462, 0.1005, 0.0711],
+        [0.2119, 0.1462, 0.1005]])
+2023-11-29 17:36:10,458 | INFO | hi-lo.kernel-accessor : Fetching kernel: cauchy
+2023-11-29 17:36:10,459 | INFO | hi-lo.cauchy-kernel : CHI (LOCATION): -1.6373095512390137 | GAMMA (SCALE): 2.5597035884857178 | VAIRANCE: 6.552082460906661
+2023-11-29 17:36:10,459 | INFO | hi-lo.cauchy-kernel : TOP-LEFT
+tensor([[0.2143, 0.1465, 0.1000],
+        [0.1465, 0.1000, 0.0705],
+        [0.1000, 0.0705, 0.0516]])

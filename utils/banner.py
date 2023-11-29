@@ -14,8 +14,8 @@ def get_distro_params() -> str:
 lab_banner = open('utils/lab_banner.txt', 'r').read()
 
 arg_banner = (
-    f"\n| {'MODEL:':<17}{ARGS.model:>17} | {'LR:':<17}{ARGS.learning_rate:>17} |" +
-    (f"\n| {'DISTRO:':<17}{ARGS.distribution:>17} | {'KERNEL TYPE:':<17}{ARGS.kernel_type:>17} |" if ARGS.distribution else '') +
-    f"\n| {'DATASET:':<17}{ARGS.dataset:>17} | {'BATCH SIZE:':<17}{ARGS.batch_size:>17} |" +
+    f"\n| {'MODEL:':<14}{ARGS.model:>15} | {'LR:':<14}{ARGS.learning_rate:>14} |" +
+    (f"\n| {'DISTRO:':<14}{ARGS.distribution:>15} | {'KERNEL TYPE:':<14}{ARGS.kernel_type:>14} |" if ARGS.distribution else '') +
+    f"\n| {'DATASET:':<14}{ARGS.dataset:>15} | {'BATCH SIZE:':<14}{ARGS.batch_size:>14} |" +
      "\n+=========================================================================+"
 )

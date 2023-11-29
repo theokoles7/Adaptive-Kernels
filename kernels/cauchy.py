@@ -54,8 +54,8 @@ class CauchyKernel(nn.Conv2d):
         cauchy_kernel = (
             1. / (
                 (math.pi * scale) * (1. + (
-                    (torch.sum(xy_grid, dim=-1) - location) / (scale)**2
-                ))
+                    (torch.sum(xy_grid, dim=-1) - location) / (scale)
+                )**2)
             )
         )
 

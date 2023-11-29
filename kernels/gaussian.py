@@ -60,6 +60,10 @@ class GaussianKernel(nn.Conv2d):
             )
         )
 
+        # If NAN or INF detected, raise error
+        if torch.isinf(gaussian_kernel).any():
+            raise ValueError(f"NAN or INF detected in kernel:\n{gaussian_kernel}")
+
         # Ensure sum of distribution is 1
         gaussian_kernel /= torch.sum(gaussian_kernel)
 

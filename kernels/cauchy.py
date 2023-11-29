@@ -59,6 +59,10 @@ class CauchyKernel(nn.Conv2d):
             )
         )
 
+        # If NAN or INF detected, raise error
+        if torch.isinf(cauchy_kernel).any():
+            raise ValueError(f"NAN or INF detected in kernel:\n{cauchy_kernel}")
+
         # Ensure sum of distribution is 1
         cauchy_kernel /= torch.sum(cauchy_kernel)
 

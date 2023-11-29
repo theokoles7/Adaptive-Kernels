@@ -59,6 +59,10 @@ class GumbelKernel(nn.Conv2d):
             )
         )
 
+        # If NAN or INF detected, raise error
+        if torch.isinf(gumbel_kernel).any():
+            raise ValueError(f"NAN or INF detected in kernel:\n{gumbel_kernel}")
+
         # Ensure sum of distribution is 1
         gumbel_kernel /= torch.sum(gumbel_kernel)
 

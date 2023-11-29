@@ -59,6 +59,10 @@ class LaplaceKernel(nn.Conv2d):
             )
         )
 
+        # If NAN or INF detected, raise error
+        if torch.isinf(laplace_kernel).any():
+            raise ValueError(f"NAN or INF detected in kernel:\n{laplace_kernel}")
+
         # Ensure sum of distribution is 1
         laplace_kernel /= torch.sum(laplace_kernel)
 

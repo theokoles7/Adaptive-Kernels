@@ -52,12 +52,10 @@ class PoissonKernel(nn.Conv2d):
         # This will be the PRODUCT of two Poisson distributions
         # based on vairables defined in x_grid and y_grid
         poisson_kernel = ((rate**torch.sum(xy_grid, dim=-1)) * (math.e**(-rate))) / (special.factorial(torch.sum(xy_grid, dim=-1)))
-        
-        # (
-        #     (rate**torch.sum(xy_grid, dim=-1)) / (
-        #         (special.factorial(torch.sum(xy_grid, dim=-1)) * (math.e**(rate)))
-        #     )
-        # )
+
+        # If NAN or INF detected, raise error
+        if torch.isinf(poisson_kernel).any():
+            raise ValueError(f"NAN or INF detected in kernel:\n{poisson_kernel}")
 
         # Ensure sum of distribution is 1
         poisson_kernel /= torch.sum(poisson_kernel)

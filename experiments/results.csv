@@ -12,7 +12,7 @@ normal,cifar10,cauchy,9,92.19,73,79.25999999999999
 normal,cifar10,cauchy,10,92.19,67,82.59
 normal,cifar10,cauchy,11,93.75,103,79.13
 normal,cifar10,cauchy,12,95.31,98,81.81
-normal,cifar10,cauchy,13,--,--,--
+normal,cifar10,cauchy,13,93.75,149,82.92
 normal,cifar10,cauchy,14,--,--,--
 normal,cifar10,gaussian,1,--,--,--
 normal,cifar10,gaussian,2,--,--,--

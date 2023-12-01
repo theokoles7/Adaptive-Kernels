@@ -1,6 +1,6 @@
-MODEL,DATASET,DISTRIBUTION,KERNEL TYPE,BEST ACCURACY,@ EPOCH,TEST ACCURACY
+MODEL,DATASET,DISTRIBUTION,KERNEL TYPE,BEST ACCURACY,EPOCH,TEST ACCURACY
 normal,cifar10,none,--,--,--,--
-normal,cifar10,cauchy,1,--,--,--
+normal,cifar10,cauchy,1,92.19,108,82.57
 normal,cifar10,cauchy,2,--,--,--
 normal,cifar10,cauchy,3,--,--,--
 normal,cifar10,cauchy,4,--,--,--

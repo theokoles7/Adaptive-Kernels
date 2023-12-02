@@ -36,7 +36,7 @@ normal,cifar10,gumbel,5,95.31,138,82.63000000000001
 normal,cifar10,gumbel,6,93.75,146,83.22
 normal,cifar10,gumbel,7,93.75,84,83.15
 normal,cifar10,gumbel,8,95.31,187,83.67999999999999
-normal,cifar10,gumbel,9,--,--,--
+normal,cifar10,gumbel,9,92.19,184,81.26
 normal,cifar10,gumbel,10,--,--,--
 normal,cifar10,gumbel,11,--,--,--
 normal,cifar10,gumbel,12,--,--,--

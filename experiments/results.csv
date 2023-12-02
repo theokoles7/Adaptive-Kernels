@@ -39,7 +39,7 @@ normal,cifar10,gumbel,8,95.31,187,83.67999999999999
 normal,cifar10,gumbel,9,92.19,184,81.26
 normal,cifar10,gumbel,10,96.88,63,84.72
 normal,cifar10,gumbel,11,93.75,110,82.05
-normal,cifar10,gumbel,12,--,--,--
+normal,cifar10,gumbel,12,92.19,58,84.00999999999999
 normal,cifar10,gumbel,13,--,--,--
 normal,cifar10,gumbel,14,--,--,--
 normal,cifar10,laplace,1,--,--,--

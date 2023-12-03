@@ -87,7 +87,7 @@ normal,cifar100,cauchy,13,89.06,105,79.94
 normal,cifar100,cauchy,14,90.62,107,80.47999999999999
 normal,cifar100,gaussian,1,90.62,68,80.21000000000001
 normal,cifar100,gaussian,2,90.62,78,80.12
-normal,cifar100,gaussian,3,--,--,--
+normal,cifar100,gaussian,3,18.75,20,10.0
 normal,cifar100,gaussian,4,--,--,--
 normal,cifar100,gaussian,5,--,--,--
 normal,cifar100,gaussian,6,--,--,--

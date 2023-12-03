@@ -101,7 +101,7 @@ normal,cifar100,gaussian,13,18.75,5,10.0
 normal,cifar100,gaussian,14,23.44,197,10.0
 normal,cifar100,gumbel,1,18.75,51,10.0
 normal,cifar100,gumbel,2,93.75,176,80.14
-normal,cifar100,gumbel,3,--,--,--
+normal,cifar100,gumbel,3,90.62,95,79.4
 normal,cifar100,gumbel,4,--,--,--
 normal,cifar100,gumbel,5,--,--,--
 normal,cifar100,gumbel,6,--,--,--

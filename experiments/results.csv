@@ -75,7 +75,7 @@ normal,cifar100,cauchy,1,92.19,57,79.59
 normal,cifar100,cauchy,2,92.19,110,80.44
 normal,cifar100,cauchy,3,92.19,199,77.72
 normal,cifar100,cauchy,4,93.75,134,79.21000000000001
-normal,cifar100,cauchy,5,--,--,--
+normal,cifar100,cauchy,5,92.19,192,78.94
 normal,cifar100,cauchy,6,--,--,--
 normal,cifar100,cauchy,7,--,--,--
 normal,cifar100,cauchy,8,--,--,--

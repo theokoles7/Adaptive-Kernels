@@ -69,7 +69,7 @@ normal,cifar10,poisson,10,48.96,1,10.0
 normal,cifar10,poisson,11,46.56,1,10.0
 normal,cifar10,poisson,12,51.56,1,10.0
 normal,cifar10,poisson,13,46.51,1,10.0
-normal,cifar10,poisson,14,--,--,--
+normal,cifar10,poisson,14,54.69,1,10.0
 normal,cifar100,none,--,--,--,--
 normal,cifar100,cauchy,1,--,--,--
 normal,cifar100,cauchy,2,--,--,--

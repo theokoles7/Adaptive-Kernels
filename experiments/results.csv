@@ -90,7 +90,7 @@ normal,cifar100,gaussian,2,90.62,78,80.12
 normal,cifar100,gaussian,3,18.75,20,10.0
 normal,cifar100,gaussian,4,92.19,67,81.47
 normal,cifar100,gaussian,5,92.19,142,80.60000000000001
-normal,cifar100,gaussian,6,--,--,--
+normal,cifar100,gaussian,6,91.41,79,78.75999999999999
 normal,cifar100,gaussian,7,--,--,--
 normal,cifar100,gaussian,8,--,--,--
 normal,cifar100,gaussian,9,--,--,--

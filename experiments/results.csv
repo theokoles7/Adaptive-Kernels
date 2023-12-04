@@ -116,7 +116,7 @@ normal,cifar100,gumbel,14,26.56,113,10.0
 normal,cifar100,laplace,1,89.06,116,80.42
 normal,cifar100,laplace,2,89.06,124,76.23
 normal,cifar100,laplace,3,21.88,9,10.0
-normal,cifar100,laplace,4,--,--,--
+normal,cifar100,laplace,4,89.06,57,77.12
 normal,cifar100,laplace,5,--,--,--
 normal,cifar100,laplace,6,--,--,--
 normal,cifar100,laplace,7,--,--,--

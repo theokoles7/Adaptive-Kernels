@@ -110,7 +110,7 @@ normal,cifar100,gumbel,8,92.19,97,83.17999999999999
 normal,cifar100,gumbel,9,18.75,103,10.0
 normal,cifar100,gumbel,10,21.88,80,10.0
 normal,cifar100,gumbel,11,92.19,94,80.60000000000001
-normal,cifar100,gumbel,12,--,--,--
+normal,cifar100,gumbel,12,93.75,64,83.39
 normal,cifar100,gumbel,13,--,--,--
 normal,cifar100,gumbel,14,--,--,--
 normal,cifar100,laplace,1,--,--,--

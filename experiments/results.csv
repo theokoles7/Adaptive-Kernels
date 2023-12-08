@@ -142,7 +142,7 @@ normal,cifar100,poisson,12,50.0,1,10.0
 normal,cifar100,poisson,13,42.81,1,10.0
 normal,cifar100,poisson,14,20.31,153,10.0
 normal,mnist,none,--,--,--,--
-normal,mnist,cauchy,1,--,--,--
+normal,mnist,cauchy,1,21.88,77,11.35
 normal,mnist,cauchy,2,--,--,--
 normal,mnist,cauchy,3,--,--,--
 normal,mnist,cauchy,4,--,--,--

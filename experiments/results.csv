@@ -163,7 +163,7 @@ normal,mnist,gaussian,4,100.0,3,99.51
 normal,mnist,gaussian,5,100.0,6,99.3
 normal,mnist,gaussian,6,100.0,7,99.42999999999999
 normal,mnist,gaussian,7,25.0,141,11.35
-normal,mnist,gaussian,8,--,--,--
+normal,mnist,gaussian,8,100.0,2,11.35
 normal,mnist,gaussian,9,--,--,--
 normal,mnist,gaussian,10,--,--,--
 normal,mnist,gaussian,11,--,--,--

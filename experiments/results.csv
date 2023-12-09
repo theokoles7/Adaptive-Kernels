@@ -144,7 +144,7 @@ normal,cifar100,poisson,14,20.31,153,10.0
 normal,mnist,none,--,--,--,--
 normal,mnist,cauchy,1,21.88,77,11.35
 normal,mnist,cauchy,2,100.0,5,99.33999999999999
-normal,mnist,cauchy,3,--,--,--
+normal,mnist,cauchy,3,100.0,1,99.0
 normal,mnist,cauchy,4,--,--,--
 normal,mnist,cauchy,5,--,--,--
 normal,mnist,cauchy,6,--,--,--

@@ -170,7 +170,7 @@ normal,mnist,gaussian,11,100.0,2,99.35000000000001
 normal,mnist,gaussian,12,100.0,9,99.3
 normal,mnist,gaussian,13,100.0,6,99.07000000000001
 normal,mnist,gaussian,14,100.0,5,98.59
-normal,mnist,gumbel,1,--,--,--
+normal,mnist,gumbel,1,100.0,6,9.8
 normal,mnist,gumbel,2,--,--,--
 normal,mnist,gumbel,3,--,--,--
 normal,mnist,gumbel,4,--,--,--

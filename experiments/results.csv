@@ -159,7 +159,7 @@ normal,mnist,cauchy,14,100.0,5,99.31
 normal,mnist,gaussian,1,100.0,4,99.42
 normal,mnist,gaussian,2,100.0,7,11.35
 normal,mnist,gaussian,3,100.0,7,99.33
-normal,mnist,gaussian,4,--,--,--
+normal,mnist,gaussian,4,100.0,3,99.51
 normal,mnist,gaussian,5,--,--,--
 normal,mnist,gaussian,6,--,--,--
 normal,mnist,gaussian,7,--,--,--

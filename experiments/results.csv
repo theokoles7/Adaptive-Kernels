@@ -187,7 +187,7 @@ normal,mnist,gumbel,14,100.0,4,96.00999999999999
 normal,mnist,laplace,1,100.0,2,11.35
 normal,mnist,laplace,2,100.0,5,98.95
 normal,mnist,laplace,3,100.0,6,98.77
-normal,mnist,laplace,4,--,--,--
+normal,mnist,laplace,4,100.0,3,99.36
 normal,mnist,laplace,5,--,--,--
 normal,mnist,laplace,6,--,--,--
 normal,mnist,laplace,7,--,--,--

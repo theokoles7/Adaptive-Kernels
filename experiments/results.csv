@@ -191,7 +191,7 @@ normal,mnist,laplace,4,100.0,3,99.36
 normal,mnist,laplace,5,100.0,6,99.35000000000001
 normal,mnist,laplace,6,100.0,5,99.35000000000001
 normal,mnist,laplace,7,100.0,7,99.38
-normal,mnist,laplace,8,--,--,--
+normal,mnist,laplace,8,100.0,9,98.79
 normal,mnist,laplace,9,--,--,--
 normal,mnist,laplace,10,--,--,--
 normal,mnist,laplace,11,--,--,--

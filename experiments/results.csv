@@ -205,7 +205,7 @@ normal,mnist,poisson,4,97.17,1,9.8
 normal,mnist,poisson,5,90.75,1,9.8
 normal,mnist,poisson,6,94.55,1,9.8
 normal,mnist,poisson,7,99.61,1,9.8
-normal,mnist,poisson,8,--,--,--
+normal,mnist,poisson,8,99.33,1,9.8
 normal,mnist,poisson,9,--,--,--
 normal,mnist,poisson,10,--,--,--
 normal,mnist,poisson,11,--,--,--

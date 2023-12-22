@@ -1,7 +1,0 @@
-# BUILD FILES
-build/
-__pycache__/
-*.egg-info
-
-# DATASETS (TOO LARGE TO BE WORTH SOURCING)
-data/*

@@ -141,6 +141,14 @@ logging.add_argument(
     help =      'specify log output path (defaults to ./logs/)'
 )
 
+logging.add_argument(
+    '--logging_level',
+    type =      str,
+    choices =   ['DEBUG', 'INFO', 'WARNING', 'ERROR', 'CRITICAL'],
+    default =   'INFO',
+    help =      'Minimum logging level (DEBUG < INFO < WARNING < ERROR < CRITICAL). Defaults to INFO.'
+)
+
 # Output --------------------------------
 output = parser.add_argument_group('Output')
 

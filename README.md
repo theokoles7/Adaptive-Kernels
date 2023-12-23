@@ -1,9 +1,14 @@
 # Efficacy of Probability Distribution Against High/Low Resolution Images
 Work based on *Adaptive Kernel Selection* (Dr. Sahan Ahmad)
 
+## Table of Contents
+* [Prerequisites](#prerequisites)
+* [Operating Application](#operating-application)
+* [Modules/Components](#modulescomponents)
+
 ## Prerequisites
 
-### Python (3.10 or higher)
+### Python
 If you do not already have Python 3.10 or higher installed, do so [here](https://www.python.org/downloads/).
 
 ### Anaconda
@@ -71,7 +76,7 @@ Experiment can be run using the `run-experiment` command, using one of the follo
 #### Output
 * `output_path`: Directory at which output/results files will be written. Defaults to `./output/`
 
-<!-- ## Modules/Components
+## Modules/Components
 
 ### Probability Distributions
 
@@ -101,4 +106,4 @@ Experiment can be run using the `run-experiment` command, using one of the follo
 
 #### ResNet 18
 
-#### VGG 16 -->
+#### VGG 16

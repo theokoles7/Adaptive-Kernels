@@ -14,7 +14,7 @@ def init_results() -> None:
         writer = csv.writer(file_out)
 
         # Write header row
-        writer.writerow(["MODEL", "DATASET", "DISTRIBUTION", "KERNEL TYPE", "BEST ACCURACY", "EPOCH", "TEST ACCURACY"])
+        writer.writerow(["MODEL", "DATASET", "DISTRIBUTION", "KERNEL TYPE", "BEST TRAIN ACCURACY", "AT EPOCH", "TEST ACCURACY"])
 
         # Write rows
         for model in ["normal", "resnet", "vgg"]:

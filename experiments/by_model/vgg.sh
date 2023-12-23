@@ -22,7 +22,7 @@ do
             clear
 
             # Run an experiment with the VGG 16 model
-            python main.py vgg \
+            python main.py run-job vgg \
                 $dataset \
                 --kernel_type $kernel_type \
                 $distribution

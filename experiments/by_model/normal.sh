@@ -22,7 +22,7 @@ do
             clear
 
             # Run an experiment with the Normal CNN
-            python main.py normal \
+            python main.py run-job normal \
                 $dataset \
                 --kernel_type $kernel_type \
                 $distribution

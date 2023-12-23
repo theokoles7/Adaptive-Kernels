@@ -19,7 +19,7 @@ do
         clear
 
         # Run an experiment with no kernel
-        python main.py $model $dataset
+        python main.py run-job $model $dataset
 
         # Push logs and output to repository
         git add ./logs/*

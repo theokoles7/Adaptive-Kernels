@@ -22,7 +22,7 @@ do
             clear
 
             # Run an experiment with the ImageNet dataset
-            python main.py $model \
+            python main.py run-job $model \
                 imagenet \
                 --kernel_type $kernel_type \
                 $distribution

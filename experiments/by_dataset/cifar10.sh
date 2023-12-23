@@ -22,7 +22,7 @@ do
             clear
 
             # Run an experiment with the Cifar10 dataset
-            python main.py $model \
+            python main.py run-job $model \
                 cifar10 \
                 --kernel_type $kernel_type \
                 $distribution

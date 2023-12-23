@@ -22,7 +22,7 @@ do
             clear
 
             # Run an experiment with the Poisson kernel
-            python main.py $model \
+            python main.py run-job $model \
                 $dataset \
                 --kernel_type $kernel_type
                 poisson

@@ -22,7 +22,7 @@ do
             clear
 
             # Run an experiment with the Resnet 18 model
-            python main.py resnet \
+            python main.py run-job resnet \
                 $dataset \
                 --kernel_type $kernel_type \
                 $distribution

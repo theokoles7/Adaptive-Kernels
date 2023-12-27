@@ -1,0 +1,24 @@
+2023-12-27 17:53:26,593 | INFO | hilo : 
++==============================================================+
+|                                                              |
+| ██████╗  █████╗ ██████╗ ██╗         ██╗      █████╗ ██████╗  |
+| ██╔══██╗██╔══██╗██╔══██╗██║         ██║     ██╔══██╗██╔══██╗ |
+| ██║  ██║███████║██║  ██║██║         ██║     ███████║██████╔╝ |
+| ██║  ██║██╔══██║██║  ██║██║         ██║     ██╔══██║██╔══██╗ |
+| ██████╔╝██║  ██║██████╔╝███████╗    ███████╗██║  ██║██████╔╝ |
+| ╚═════╝ ╚═╝  ╚═╝╚═════╝ ╚══════╝    ╚══════╝╚═╝  ╚═╝╚═════╝  |
++==============================================================+
+|             Hi-Lo Resolution Image Classification            |
+|             -------------------------------------            |
+|                       Gabriel C. Trahan                      |
+|                          Sahan Ahmad                         |
+|                       MD  Aminual Islam                      |
++==============================================================+
+2023-12-27 17:53:28,188 | INFO | hilo.dataset-accessor : Fetching dataset: mnist
+2023-12-27 17:53:28,188 | INFO | hilo.mnist-dataset : Initializing transform.
+2023-12-27 17:53:28,188 | INFO | hilo.mnist-dataset : Verifying/downloading train data.
+2023-12-27 17:53:28,224 | INFO | hilo.mnist-dataset : Verifying/downloading test data.
+2023-12-27 17:53:28,232 | INFO | hilo.mnist-dataset : Creating train data loader.
+2023-12-27 17:53:28,233 | INFO | hilo.mnist-dataset : Creating test data loader.
+2023-12-27 17:53:28,234 | ERROR | hilo : An error occured: 'Resnet' object has no attribute '_make_layer'
+2023-12-27 17:53:28,237 | INFO | hilo : Exiting...

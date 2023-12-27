@@ -1,11 +1,14 @@
 """Initialize results CSV file."""
 
-import csv
+import csv, os
 
 from utils  import ARGS
 
 def init_results() -> None:
     """Initialize results CSV file."""
+
+    # Ensure output directory exists
+    os.makedirs(ARGS.output_path, exist_ok=True)
 
     # Create/open CSV file
     with open(f"{ARGS.output_path}/results.csv", 'w', newline='') as file_out:

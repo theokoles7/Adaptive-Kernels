@@ -31,7 +31,7 @@ class Cifar10():
 
         # Verify train data
         self._logger.info("Verifying/downloading train data")
-        train_data = datasets.Cifar10(
+        train_data = datasets.CIFAR10(
             root =          path,
             download =      True,
             train =         True,
@@ -40,7 +40,7 @@ class Cifar10():
 
         # Verify test data
         self._logger.info("Verifying/downloading test data")
-        test_data = datasets.Cifar10(
+        test_data = datasets.CIFAR10(
             root =          path,
             download =      True,
             train =         False,
@@ -48,7 +48,7 @@ class Cifar10():
         )
 
         # Create training loader
-        self.logger.info("Creating train data loader.")
+        self._logger.info("Creating train data loader.")
         self.train_loader = data.DataLoader(
             train_data,
             batch_size =    batch_size,
@@ -59,7 +59,7 @@ class Cifar10():
         )
 
         # Create testing loader
-        self.logger.info("Creating test data loader.")
+        self._logger.info("Creating test data loader.")
         self.test_loader = data.DataLoader(
             test_data,
             batch_size =    batch_size,

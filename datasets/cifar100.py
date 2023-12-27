@@ -35,7 +35,7 @@ class Cifar100():
 
         # Verify train data
         self._logger.info("Verifying/downloading train data")
-        train_data = datasets.Cifar10(
+        train_data = datasets.CIFAR100(
             root =          path,
             download =      True,
             train =         True,
@@ -44,7 +44,7 @@ class Cifar100():
 
         # Verify test data
         self._logger.info("Verifying/downloading test data")
-        test_data = datasets.Cifar10(
+        test_data = datasets.CIFAR100(
             root =          path,
             download =      True,
             train =         False,

@@ -2,7 +2,6 @@
 
 import os, traceback
 
-from commands   import init_results, run_experiment, Job
 from utils      import ARGS, BANNER, LOGGER
 
 if __name__ == '__main__':
@@ -15,13 +14,19 @@ if __name__ == '__main__':
         match ARGS.cmd:
 
             # Initialize results file
-            case "init-results":    init_results()
+            case "init-results":    
+                from commands       import init_results
+                init_results()
 
             # Run experiment
-            case "run-experiment":  run_experiment()
+            case "run-experiment":  
+                from commands       import run_experiment
+                run_experiment()
 
             # Run job
-            case "run-job":         Job().run()
+            case "run-job":
+                from commands.job   import Job
+                Job().run()
 
     except KeyboardInterrupt:
         LOGGER.critical("Keyboard interrupt detected. Aborting operations.")

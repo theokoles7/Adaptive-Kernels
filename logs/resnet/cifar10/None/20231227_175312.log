@@ -1,4 +1,4 @@
-2023-12-27 14:31:19,449 | INFO | hilo : 
+2023-12-27 17:53:12,563 | INFO | hilo : 
 +==============================================================+
 |                                                              |
 | ██████╗  █████╗ ██████╗ ██╗         ██╗      █████╗ ██████╗  |
@@ -14,5 +14,11 @@
 |                          Sahan Ahmad                         |
 |                       MD  Aminual Islam                      |
 +==============================================================+
-2023-12-27 14:31:20,450 | CRITICAL | hilo : Keyboard interrupt detected. Aborting operations.
-2023-12-27 14:31:20,451 | INFO | hilo : Exiting...
+2023-12-27 17:53:14,137 | INFO | hilo.dataset-accessor : Fetching dataset: cifar10
+2023-12-27 17:53:14,137 | INFO | hilo.cifar10-dataset : Initializing transform
+2023-12-27 17:53:14,137 | INFO | hilo.cifar10-dataset : Verifying/downloading train data
+2023-12-27 17:53:14,799 | INFO | hilo.cifar10-dataset : Verifying/downloading test data
+2023-12-27 17:53:15,281 | INFO | hilo.cifar10-dataset : Creating train data loader.
+2023-12-27 17:53:15,281 | INFO | hilo.cifar10-dataset : Creating test data loader.
+2023-12-27 17:53:15,301 | ERROR | hilo : An error occured: 'Resnet' object has no attribute '_make_layer'
+2023-12-27 17:53:15,305 | INFO | hilo : Exiting...

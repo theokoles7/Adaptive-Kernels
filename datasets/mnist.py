@@ -24,7 +24,7 @@ class MNIST():
             batch_size (int, optional): Dataset batch size. Defaults to ARGS.batch_size.
         """
         # Create transform for loaders
-        self.logger.info("Initializing transform.")
+        self._logger.info("Initializing transform.")
         transform = transforms.Compose([
             transforms.ToTensor(),
             transforms.Normalize((0.5,), (0.5,))

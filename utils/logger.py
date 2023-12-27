@@ -12,7 +12,8 @@ LOGGER.setLevel(ARGS.logging_level)
 
 # Ensure that logging_path exists
 os.makedirs(
-    f"{ARGS.logging_path}",
+    ARGS.logging_path if ARGS.cmd != "run-job"
+    else f"{ARGS.logging_path}/{ARGS.model}/{ARGS.dataset}/{ARGS.distribution}{f'/{ARGS.kernel_type}' if ARGS.distribution else ''}/{datetime.datetime.now().strftime('%Y%m%d_%H%M%S')}",
     exist_ok =  True
 )
 
@@ -25,7 +26,7 @@ LOGGER.addHandler(stdout_handler)
 # Define file handler
 file_handler =      logging.FileHandler(
     f"{ARGS.logging_path}/{ARGS.cmd}.log" if ARGS.cmd != "run-job"
-    else f"{ARGS.logging_path}/{ARGS.model}/{ARGS.datset}/{ARGS.distribution}{f'/{ARGS.kernel_type}' if ARGS.distribution else ''}/{datetime.datetime.now().strftime('%Y%m%d_%H%M%S')}.log"
+    else f"{ARGS.logging_path}/{ARGS.model}/{ARGS.dataset}/{ARGS.distribution}{f'/{ARGS.kernel_type}' if ARGS.distribution else ''}/{datetime.datetime.now().strftime('%Y%m%d_%H%M%S')}.log"
 )
 file_handler.setLevel(ARGS.logging_level)
 file_handler.setFormatter(logging.Formatter('%(asctime)s | %(levelname)s | %(name)s : %(message)s'))

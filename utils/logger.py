@@ -13,7 +13,7 @@ LOGGER.setLevel(ARGS.logging_level)
 # Ensure that logging_path exists
 os.makedirs(
     ARGS.logging_path if ARGS.cmd != "run-job"
-    else f"{ARGS.logging_path}/{ARGS.model}/{ARGS.dataset}/{ARGS.distribution}{f'/{ARGS.kernel_type}' if ARGS.distribution else ''}/{datetime.datetime.now().strftime('%Y%m%d_%H%M%S')}",
+    else f"{ARGS.logging_path}/{ARGS.model}/{ARGS.dataset}/{ARGS.distribution}{f'/{ARGS.kernel_type}' if ARGS.distribution else ''}",
     exist_ok =  True
 )
 

@@ -82,7 +82,7 @@ class Job():
             (file_out['DATASET']==str(ARGS.dataset)) & 
             (file_out['DISTRIBUTION']==str(ARGS.distribution).lower()) & 
             (file_out['KERNEL TYPE']==(str(ARGS.kernel_type) if ARGS.distribution else '--')), 
-            ['BEST ACCURACY', 'EPOCH', 'TEST ACCURACY']] = self._best_acc, self._best_epoch, self._test_acc
+            ["BEST TRAIN ACCURACY", "AT EPOCH", "TEST ACCURACY"]] = self._best_acc, self._best_epoch, self._test_acc
         
         # Write back
         file_out.to_csv(f"{ARGS.output_path}/results.csv", index=False)

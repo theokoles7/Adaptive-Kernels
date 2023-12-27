@@ -85,7 +85,7 @@ class Job():
             ['BEST ACCURACY', 'EPOCH', 'TEST ACCURACY']] = self._best_acc, self._best_epoch, self._test_acc
         
         # Write back
-        file_out.to_csv(f"{ARGS.output_path}/results.csv")
+        file_out.to_csv(f"{ARGS.output_path}/results.csv", index=False)
 
     def _save_graph(self) -> None:
         """Save accuracy graph."""

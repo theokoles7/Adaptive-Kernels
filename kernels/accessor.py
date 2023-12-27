@@ -6,13 +6,16 @@ from utils      import ARGS, LOGGER
 
 logger = LOGGER.getChild('kernel-accessor')
 
-def get_kernel(distribution: str = ARGS.distribution, size: int = ARGS.kernel_size, channels: int = ARGS.channels) -> CauchyKernel | GaussianKernel | GumbelKernel | LaplaceKernel | PoissonKernel:
+def get_kernel(distribution: str, size: int, channels: int, location: float, scale: float, rate: float) -> CauchyKernel | GaussianKernel | GumbelKernel | LaplaceKernel | PoissonKernel:
     """Provide appropriate distribution kernel.
 
     Args:
-        distribution (str, optional): Distribution selection. Defaults to ARGS.distribution.
-        size (int, optional): Kernel size (square). Defaults to ARGS.kernel_size.
-        channels (int, optional): Input channels. Defaults to ARGS.channels.
+        distribution (str, optional): Distribution selection
+        size (int, optional): Kernel size (square)
+        channels (int, optional): Input channels
+        location (float, optional): Distribution location parameter
+        scale (float, optional): Distribution scale parameter
+        rate (float, optional): Distirbution rate parameter
 
     Returns:
         CauchyKernel | GaussianKernel | GumbelKernel | LaplaceKernel | PoissonKernel: Selected distribution kernel
@@ -21,11 +24,11 @@ def get_kernel(distribution: str = ARGS.distribution, size: int = ARGS.kernel_si
 
     match distribution:
 
-        case 'cauchy':      return CauchyKernel(    ARGS.location, ARGS.scale, channels, size)
-        case 'gaussian':    return GaussianKernel(  ARGS.location, ARGS.scale, channels, size)
-        case 'gumbel':      return GumbelKernel(    ARGS.location, ARGS.scale, channels, size)
-        case 'laplace':     return LaplaceKernel(   ARGS.location, ARGS.scale, channels, size)
-        case 'poisson':     return PoissonKernel(   ARGS.rate,                 channels, size)
+        case 'cauchy':      return CauchyKernel(    location, scale, channels, size)
+        case 'gaussian':    return GaussianKernel(  location, scale, channels, size)
+        case 'gumbel':      return GumbelKernel(    location, scale, channels, size)
+        case 'laplace':     return LaplaceKernel(   location, scale, channels, size)
+        case 'poisson':     return PoissonKernel(   rate,            channels, size)
 
         case _:
             raise NotImplementedError(

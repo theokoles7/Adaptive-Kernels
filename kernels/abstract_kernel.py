@@ -56,7 +56,7 @@ class AbstractKernel(nn.Conv2d):
         xy_grid =       torch.stack([x_grid, y_grid], dim=-1).float()
 
         # Calculate kernel
-        kernel = self.pdf()
+        kernel = self.pdf(xy_grid)
 
         # Ensure kernel does not contain NAN or INF
         assert not torch.isinf(kernel).any(), f"NAN or INF detected in kernel:\n{kernel}"

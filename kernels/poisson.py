@@ -11,15 +11,27 @@ class PoissonKernel(AbstractKernel):
 
     _logger = LOGGER.getChild('poisson-kernel')
 
-    def pdf(self, rate: float = ARGS.rate) -> torch.Tensor:
+    def __init__(self, rate: float, channels: int = 3, size: int = ARGS.kernel_size):
+        """Initialize Poisson kernel.
+
+        Args:
+            rate (float): Poisson distribution rate parameter (Lambda)
+            channels (int, optional): Input channels. Defaults to 3.
+            size (int, optional): Kernel size (square). Defaults to ARGS.kernel_size.
+        """
+        self._rate =    rate
+
+        super().__init__(channels, size)
+
+    def pdf(self, xy_grid: torch.Tensor) -> torch.Tensor:
         """Calculate Poisson distribution kernel.
 
         Args:
-            rate (float, optional): Poisson distribution rate parameter (Lambda). Defaults to ARGS.rate.
+            xy_grid (torch.Tensor): XY coordinate grid made from convoluted data
 
         Returns:
             torch.Tensor: Poisson distribution kernel
         """
-        self._logger(f"Calculating Poisson distribution (rate: {rate})")
+        self._logger.info(f"Calculating Poisson distribution (rate: {self._rate})")
 
-        return ((rate**torch.sum(self.xy_grid, dim=-1)) * (math.e**(-rate))) / (special.factorial(torch.sum(self.xy_grid, dim=-1)))
+        return ((self._rate**torch.sum(xy_grid, dim=-1)) * (math.e**(-self._rate))) / (special.factorial(torch.sum(xy_grid, dim=-1)))

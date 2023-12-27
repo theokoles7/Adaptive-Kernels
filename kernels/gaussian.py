@@ -10,23 +10,36 @@ class GaussianKernel(AbstractKernel):
 
     _logger = LOGGER.getChild('gaussian-kernel')
 
-    def pdf(self, location: float = ARGS.location, scale: float = ARGS.scale) -> torch.Tensor:
+    def __init__(self, location: float, scale: float, channels: int = 3, size: int = ARGS.kernel_size):
+        """Initialize Gaussian kernel.
+
+        Args:
+            location (float): Gaussian distribution location parameter (Mu)
+            scale (float): Gaussian distribution scale parameter (Sigma)
+            channels (int, optional): Input channels. Defaults to 3.
+            size (int, optional): Kernel size (square). Defaults to ARGS.kernel_size.
+        """
+        self._location =    location
+        self._scale =       scale
+
+        super().__init__(channels, size)
+
+    def pdf(self, xy_grid: torch.Tensor) -> torch.Tensor:
         """Calculate Gaussian distribution kernel.
 
         Args:
-            location (float, optional): Gaussian distribution location parameter (Mu). Defaults to ARGS.location.
-            scale (float, optional): Gaussian distribution scale parameter (Sigma). Defaults to ARGS.scale.
+            xy_grid (torch.Tensor): XY coordinate grid made from convoluted data
 
         Returns:
             torch.Tensor: Gaussian distribution kernel
         """
-        self._logger(f"Calculating Gaussian distribution (location: {location}, scale {scale})")
+        self._logger.info(f"Calculating Gaussian distribution (location: {self._location}, scale {self._scale})")
 
         return (
-            (1. / (2. * math.pi * (scale)**2)) * torch.exp(
+            (1. / (2. * math.pi * (self._scale)**2)) * torch.exp(
                 -torch.sum(
-                    (self.xy_grid - location)**2., dim=-1
+                    (xy_grid - self._location)**2., dim=-1
                 ) /\
-                (2 * (scale)**2)
+                (2 * (self._scale)**2)
             )
         )

@@ -1,6 +1,6 @@
 MODEL,DATASET,DISTRIBUTION,KERNEL TYPE,BEST TRAIN ACCURACY,AT EPOCH,TEST ACCURACY
 normal,cifar10,none,--,89.0625,125,78.64
-normal,cifar10,cauchy,1,--,--,--
+normal,cifar10,cauchy,1,93.75,93,83.16
 normal,cifar10,cauchy,2,--,--,--
 normal,cifar10,cauchy,3,--,--,--
 normal,cifar10,cauchy,4,--,--,--

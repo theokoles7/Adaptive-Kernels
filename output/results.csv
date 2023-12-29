@@ -29,7 +29,7 @@ normal,cifar10,gaussian,12,96.875,156,82.28
 normal,cifar10,gaussian,13,95.3125,166,84.37
 normal,cifar10,gaussian,14,93.75,94,82.95
 normal,cifar10,gumbel,1,93.75,187,83.39
-normal,cifar10,gumbel,2,--,--,--
+normal,cifar10,gumbel,2,93.75,47,83.75
 normal,cifar10,gumbel,3,--,--,--
 normal,cifar10,gumbel,4,--,--,--
 normal,cifar10,gumbel,5,--,--,--

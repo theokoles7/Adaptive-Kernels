@@ -1,0 +1,24 @@
+2023-12-29 16:10:37,635 | INFO | hilo : 
++==============================================================+
+|                                                              |
+| ██████╗  █████╗ ██████╗ ██╗         ██╗      █████╗ ██████╗  |
+| ██╔══██╗██╔══██╗██╔══██╗██║         ██║     ██╔══██╗██╔══██╗ |
+| ██║  ██║███████║██║  ██║██║         ██║     ███████║██████╔╝ |
+| ██║  ██║██╔══██║██║  ██║██║         ██║     ██╔══██║██╔══██╗ |
+| ██████╔╝██║  ██║██████╔╝███████╗    ███████╗██║  ██║██████╔╝ |
+| ╚═════╝ ╚═╝  ╚═╝╚═════╝ ╚══════╝    ╚══════╝╚═╝  ╚═╝╚═════╝  |
++==============================================================+
+|             Hi-Lo Resolution Image Classification            |
+|             -------------------------------------            |
+|                       Gabriel C. Trahan                      |
+|                          Sahan Ahmad                         |
+|                       MD  Aminual Islam                      |
++==============================================================+
+2023-12-29 16:10:39,253 | INFO | hilo.dataset-accessor : Fetching dataset: cifar10
+2023-12-29 16:10:39,253 | INFO | hilo.cifar10-dataset : Initializing transform
+2023-12-29 16:10:39,253 | INFO | hilo.cifar10-dataset : Verifying/downloading train data
+2023-12-29 16:10:39,865 | INFO | hilo.cifar10-dataset : Verifying/downloading test data
+2023-12-29 16:10:40,355 | INFO | hilo.cifar10-dataset : Creating train data loader.
+2023-12-29 16:10:40,355 | INFO | hilo.cifar10-dataset : Creating test data loader.
+2023-12-29 16:10:40,355 | ERROR | hilo : An error occured: 'Namespace' object has no attribute 'scale'
+2023-12-29 16:10:40,363 | INFO | hilo : Exiting...

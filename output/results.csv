@@ -44,7 +44,7 @@ normal,cifar10,gumbel,13,96.875,178,84.75
 normal,cifar10,gumbel,14,93.75,134,84.42
 normal,cifar10,laplace,1,95.3125,67,81.51
 normal,cifar10,laplace,2,95.3125,152,82.05
-normal,cifar10,laplace,3,--,--,--
+normal,cifar10,laplace,3,92.1875,84,81.5
 normal,cifar10,laplace,4,--,--,--
 normal,cifar10,laplace,5,--,--,--
 normal,cifar10,laplace,6,--,--,--

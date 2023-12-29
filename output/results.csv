@@ -54,7 +54,7 @@ normal,cifar10,laplace,9,93.75,154,83.23
 normal,cifar10,laplace,10,92.1875,68,83.0
 normal,cifar10,laplace,11,92.1875,126,82.58
 normal,cifar10,laplace,12,93.75,149,83.14
-normal,cifar10,laplace,13,--,--,--
+normal,cifar10,laplace,13,93.75,69,83.16
 normal,cifar10,laplace,14,--,--,--
 normal,cifar10,poisson,1,--,--,--
 normal,cifar10,poisson,2,--,--,--

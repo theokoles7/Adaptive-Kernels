@@ -49,7 +49,7 @@ normal,cifar10,laplace,4,93.75,118,82.85
 normal,cifar10,laplace,5,93.75,129,82.9
 normal,cifar10,laplace,6,93.75,70,82.64
 normal,cifar10,laplace,7,92.1875,116,83.2
-normal,cifar10,laplace,8,--,--,--
+normal,cifar10,laplace,8,92.1875,64,83.02
 normal,cifar10,laplace,9,--,--,--
 normal,cifar10,laplace,10,--,--,--
 normal,cifar10,laplace,11,--,--,--

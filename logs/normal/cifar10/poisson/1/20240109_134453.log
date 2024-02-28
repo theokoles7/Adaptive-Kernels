@@ -1,4 +1,4 @@
-2023-12-27 17:53:21,031 | INFO | hilo : 
+2024-01-09 13:44:53,515 | INFO | hilo : 
 +==============================================================+
 |                                                              |
 | ██████╗  █████╗ ██████╗ ██╗         ██╗      █████╗ ██████╗  |
@@ -14,11 +14,5 @@
 |                          Sahan Ahmad                         |
 |                       MD  Aminual Islam                      |
 +==============================================================+
-2023-12-27 17:53:22,612 | INFO | hilo.dataset-accessor : Fetching dataset: imagenet
-2023-12-27 17:53:22,612 | INFO | hilo.imagenet-dataset : Initializing transform.
-2023-12-27 17:53:22,612 | INFO | hilo.imagenet-dataset : Verifying/downloading train data.
-2023-12-27 17:53:25,170 | INFO | hilo.imagenet-dataset : Verifying/downloading test data.
-2023-12-27 17:53:25,191 | INFO | hilo.imagenet-dataset : Creating train data loader.
-2023-12-27 17:53:25,191 | INFO | hilo.imagenet-dataset : Creating test data loader.
-2023-12-27 17:53:25,209 | ERROR | hilo : An error occured: 'Resnet' object has no attribute '_make_layer'
-2023-12-27 17:53:25,213 | INFO | hilo : Exiting...
+2024-01-09 13:44:53,518 | ERROR | hilo : An error occured: No module named 'pandas'
+2024-01-09 13:44:53,519 | INFO | hilo : Exiting...

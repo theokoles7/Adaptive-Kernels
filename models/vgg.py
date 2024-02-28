@@ -31,8 +31,8 @@ class VGG(nn.Module):
         super(VGG, self).__init__()
 
         # Initialize distribution parameters
-        self.location =     [(ARGS.location if ARGS.distribtion != "poisson" else ARGS.rate) if ARGS.distribution else 0.0]*5
-        self.scale =        [ARGS.scale if ARGS.distribution else 1.0]*5
+        self.location =     [(ARGS.location if ARGS.distribution != "poisson" else ARGS.rate) if ARGS.distribution else 0.0]*6
+        self.scale =        [ARGS.scale if ARGS.distribution else 1.0]*6
 
         # Convolving layers
         self.conv1 =        nn.Sequential(nn.Conv2d(channels_in,  64, 3, padding=1), nn.ReLU(), nn.Conv2d(  64,  64, 3, padding=1))
@@ -93,7 +93,7 @@ class VGG(nn.Module):
             self.location[2], self.scale[2] = torch.mean(y).item(), torch.std(y).item()
 
         # LAYER 3 =================================================================================
-        x3 = self.conv2(self.pool2(self.kernel1(x2) if ARGS.distribution else x2))
+        x3 = self.conv3(self.pool2(self.kernel1(x2) if ARGS.distribution else x2))
 
         self._logger.debug(f"Layer 3 shape: {x3.shape}")
 
@@ -102,7 +102,7 @@ class VGG(nn.Module):
             self.location[3], self.scale[3] = torch.mean(y).item(), torch.std(y).item()
 
         # LAYER 4 =================================================================================
-        x4 = self.conv2(self.pool3(self.kernel1(x3) if ARGS.distribution else x3))
+        x4 = self.conv4(self.pool3(self.kernel1(x3) if ARGS.distribution else x3))
 
         self._logger.debug(f"Layer 4 shape: {x4.shape}")
 
@@ -111,7 +111,7 @@ class VGG(nn.Module):
             self.location[4], self.scale[4] = torch.mean(y).item(), torch.std(y).item()
 
         # LAYER 5 =================================================================================
-        x5 = self.conv2(self.pool4(self.kernel1(x4) if ARGS.distribution else x4))
+        x5 = self.conv5(self.pool4(self.kernel1(x4) if ARGS.distribution else x4))
 
         self._logger.debug(f"Layer 5 shape: {x5.shape}")
 

@@ -272,6 +272,13 @@ poisson.add_argument(
     help =          "Poisson distribution rate parameter (Lambda)"
 )
 
+poisson.add_argument(
+    "--scale",
+    type =          float,
+    default =       1.0,
+    help =          "Not used; Ignore this option"
+)
+
 ###################################################################################################
 # END ARGUMENTS                                                                                   #
 ###################################################################################################

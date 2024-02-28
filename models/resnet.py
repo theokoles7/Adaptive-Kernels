@@ -32,10 +32,10 @@ class Resnet(nn.Module):
         super(Resnet, self).__init__()
 
         # Initialize planes in
-        self.__planes_in =  64
+        self._planes_in =  64
 
         # Initialize distribution parameters
-        self.location =     [(ARGS.location if ARGS.distribtion != "poisson" else ARGS.rate) if ARGS.distribution else 0.0]*6
+        self.location =     [(ARGS.location if ARGS.distribution != "poisson" else ARGS.rate) if ARGS.distribution else 0.0]*6
         self.scale =        [ARGS.scale if ARGS.distribution else 1.0]*6
 
         # Batch normalization layer
@@ -51,7 +51,7 @@ class Resnet(nn.Module):
         self.layer4 =       self._make_layer(512, 2, stride=2)
 
         # Linear layer
-        self.linear =       nn.Linear(512*ResnetBlock.expansion, channels_out)
+        self.linear =       nn.Linear(512, channels_out)
 
         self._initialize_weights()
 
@@ -83,7 +83,7 @@ class Resnet(nn.Module):
         # LAYER 2 =================================================================================
         x2 = self.layer1(F.relu(self.bn(self.kernel1(x1) if ARGS.distribution else x1)))
 
-        self._logger.debug(f"Layer 1 shape: {x2.shape}")
+        self._logger.debug(f"Layer 2 shape: {x2.shape}")
 
         with torch.no_grad(): 
             y = x2.float()
@@ -92,7 +92,7 @@ class Resnet(nn.Module):
         # LAYER 3 =================================================================================
         x3 = self.layer2(x2)
 
-        self._logger.debug(f"Layer 1 shape: {x3.shape}")
+        self._logger.debug(f"Layer 3 shape: {x3.shape}")
 
         with torch.no_grad(): 
             y = x3.float()
@@ -101,7 +101,7 @@ class Resnet(nn.Module):
         # LAYER 4 =================================================================================
         x4 = self.layer3(x3)
 
-        self._logger.debug(f"Layer 1 shape: {x4.shape}")
+        self._logger.debug(f"Layer 4 shape: {x4.shape}")
 
         with torch.no_grad(): 
             y = x4.float()
@@ -160,7 +160,7 @@ class Resnet(nn.Module):
                 nn.init.normal_(m.weight, 0, 0.01)
                 nn.init.constant_(m.bias, 0)
 
-    def _make_layers(self, planes_out: int, num_blocks: int, stride: int) -> nn.Sequential:
+    def _make_layer(self, planes_out: int, num_blocks: int, stride: int) -> nn.Sequential:
         """Create ResNet block layer.
 
         Args:
@@ -175,8 +175,8 @@ class Resnet(nn.Module):
         layers = []
 
         for stride in strides:
-            layers.append(ResnetBlock(self.planes_in, planes_out, stride))
-            self.planes_in = planes_out * ResnetBlock.expansion
+            layers.append(ResnetBlock(self._planes_in, planes_out, stride))
+            self._planes_in = planes_out
 
         return nn.Sequential(*layers)
     

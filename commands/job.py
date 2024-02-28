@@ -39,10 +39,10 @@ class Job():
         # Ensure output directory exists
         os.makedirs(self._output_dir, exist_ok=True)
         LOGGER.info(f"Output directory: {self._output_dir}")
-        LOGGER.info(f"Using device: {torch.cuda.get_device_name()}")
 
         # Run model from CUDA if available
         if torch.cuda.is_available(): self._model = self._model.cuda()
+        LOGGER.info(f"Using device: {torch.cuda.get_device_name()}")
 
         LOGGER.debug(f"DATASET:\n{self._dataset}\nTRAIN LOADER:\n{vars(self._train)}\nTEST LOADER:\n{vars(self._test)}")
         LOGGER.debug(f"MODEL:\n{self._model}")

@@ -291,7 +291,7 @@ resnet,cifar10,cauchy,4,96.875,75,86.94
 resnet,cifar10,cauchy,5,98.4375,82,86.26
 resnet,cifar10,cauchy,6,95.3125,116,86.79
 resnet,cifar10,cauchy,7,96.875,64,88.96
-resnet,cifar10,cauchy,8,--,--,--
+resnet,cifar10,cauchy,8,98.4375,187,86.44
 resnet,cifar10,cauchy,9,--,--,--
 resnet,cifar10,cauchy,10,--,--,--
 resnet,cifar10,cauchy,11,--,--,--

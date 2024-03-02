@@ -299,7 +299,7 @@ resnet,cifar10,cauchy,12,96.875,71,88.95
 resnet,cifar10,cauchy,13,100.0,175,89.45
 resnet,cifar10,cauchy,14,96.875,62,89.19
 resnet,cifar10,gaussian,1,98.4375,133,89.61
-resnet,cifar10,gaussian,2,--,--,--
+resnet,cifar10,gaussian,2,96.875,75,86.77
 resnet,cifar10,gaussian,3,--,--,--
 resnet,cifar10,gaussian,4,--,--,--
 resnet,cifar10,gaussian,5,--,--,--

@@ -307,7 +307,7 @@ resnet,cifar10,gaussian,6,95.3125,144,84.72
 resnet,cifar10,gaussian,7,96.0938,112,89.62
 resnet,cifar10,gaussian,8,98.4375,95,89.5
 resnet,cifar10,gaussian,9,92.1875,97,79.67
-resnet,cifar10,gaussian,10,--,--,--
+resnet,cifar10,gaussian,10,96.875,75,87.71
 resnet,cifar10,gaussian,11,--,--,--
 resnet,cifar10,gaussian,12,--,--,--
 resnet,cifar10,gaussian,13,--,--,--

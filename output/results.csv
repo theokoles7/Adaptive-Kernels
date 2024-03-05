@@ -321,7 +321,7 @@ resnet,cifar10,gumbel,6,92.9688,86,82.89
 resnet,cifar10,gumbel,7,98.4375,128,87.19
 resnet,cifar10,gumbel,8,98.4375,178,88.51
 resnet,cifar10,gumbel,9,90.625,117,80.22
-resnet,cifar10,gumbel,10,--,--,--
+resnet,cifar10,gumbel,10,95.3125,72,89.59
 resnet,cifar10,gumbel,11,--,--,--
 resnet,cifar10,gumbel,12,--,--,--
 resnet,cifar10,gumbel,13,--,--,--

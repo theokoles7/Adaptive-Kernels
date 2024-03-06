@@ -326,7 +326,7 @@ resnet,cifar10,gumbel,11,92.1875,58,79.01
 resnet,cifar10,gumbel,12,96.875,67,88.67
 resnet,cifar10,gumbel,13,96.875,66,87.98
 resnet,cifar10,gumbel,14,96.875,72,89.29
-resnet,cifar10,laplace,1,--,--,--
+resnet,cifar10,laplace,1,96.875,90,88.93
 resnet,cifar10,laplace,2,--,--,--
 resnet,cifar10,laplace,3,--,--,--
 resnet,cifar10,laplace,4,--,--,--

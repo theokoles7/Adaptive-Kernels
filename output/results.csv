@@ -330,7 +330,7 @@ resnet,cifar10,laplace,1,96.875,90,88.93
 resnet,cifar10,laplace,2,96.875,83,88.56
 resnet,cifar10,laplace,3,93.75,107,80.34
 resnet,cifar10,laplace,4,96.875,177,82.52
-resnet,cifar10,laplace,5,--,--,--
+resnet,cifar10,laplace,5,96.875,88,87.08
 resnet,cifar10,laplace,6,--,--,--
 resnet,cifar10,laplace,7,--,--,--
 resnet,cifar10,laplace,8,--,--,--

@@ -212,7 +212,7 @@ normal,imagenet,poisson,11,--,--,--
 normal,imagenet,poisson,12,--,--,--
 normal,imagenet,poisson,13,--,--,--
 normal,imagenet,poisson,14,--,--,--
-normal,mnist,none,--,100.0,2,99.43
+normal,mnist,none,--,100.0,4,99.51
 normal,mnist,cauchy,1,--,--,--
 normal,mnist,cauchy,2,--,--,--
 normal,mnist,cauchy,3,--,--,--

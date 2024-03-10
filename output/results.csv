@@ -1,5 +1,5 @@
 MODEL,DATASET,DISTRIBUTION,KERNEL TYPE,BEST TRAIN ACCURACY,AT EPOCH,TEST ACCURACY
-normal,cifar10,none,--,89.0625,125,78.64
+normal,cifar10,none,--,92.1875,131,80.28
 normal,cifar10,cauchy,1,93.75,93,83.16
 normal,cifar10,cauchy,2,95.3125,140,82.5
 normal,cifar10,cauchy,3,92.1875,130,81.0
@@ -337,9 +337,9 @@ resnet,cifar10,laplace,8,96.875,91,87.92
 resnet,cifar10,laplace,9,95.3125,122,80.94
 resnet,cifar10,laplace,10,96.875,68,87.94
 resnet,cifar10,laplace,11,96.875,128,85.45
-resnet,cifar10,laplace,12,--,--,--
-resnet,cifar10,laplace,13,--,--,--
-resnet,cifar10,laplace,14,--,--,--
+resnet,cifar10,laplace,12,96.875,95,88.54
+resnet,cifar10,laplace,13,98.4375,158,89.41
+resnet,cifar10,laplace,14,95.3125,92,86.83
 resnet,cifar10,poisson,1,--,--,--
 resnet,cifar10,poisson,2,--,--,--
 resnet,cifar10,poisson,3,--,--,--

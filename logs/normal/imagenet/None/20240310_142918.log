@@ -1,0 +1,235 @@
+2024-03-10 14:29:18,228 | INFO | hilo : 
++==============================================================+
+|                                                              |
+| ██████╗  █████╗ ██████╗ ██╗         ██╗      █████╗ ██████╗  |
+| ██╔══██╗██╔══██╗██╔══██╗██║         ██║     ██╔══██╗██╔══██╗ |
+| ██║  ██║███████║██║  ██║██║         ██║     ███████║██████╔╝ |
+| ██║  ██║██╔══██║██║  ██║██║         ██║     ██╔══██║██╔══██╗ |
+| ██████╔╝██║  ██║██████╔╝███████╗    ███████╗██║  ██║██████╔╝ |
+| ╚═════╝ ╚═╝  ╚═╝╚═════╝ ╚══════╝    ╚══════╝╚═╝  ╚═╝╚═════╝  |
++==============================================================+
+|             Hi-Lo Resolution Image Classification            |
+|             -------------------------------------            |
+|                       Gabriel C. Trahan                      |
+|                          Sahan Ahmad                         |
+|                       MD  Aminual Islam                      |
++==============================================================+
+2024-03-10 14:29:19,823 | INFO | hilo.dataset-accessor : Fetching dataset: imagenet
+2024-03-10 14:29:19,823 | INFO | hilo.imagenet-dataset : Initializing transform.
+2024-03-10 14:29:19,823 | INFO | hilo.imagenet-dataset : Verifying/downloading train data.
+2024-03-10 14:29:22,445 | INFO | hilo.imagenet-dataset : Verifying/downloading test data.
+2024-03-10 14:29:22,466 | INFO | hilo.imagenet-dataset : Creating train data loader.
+2024-03-10 14:29:22,466 | INFO | hilo.imagenet-dataset : Creating test data loader.
+2024-03-10 14:29:22,496 | INFO | hilo : Output directory: output/normal/imagenet/None/20240310_142919/
+2024-03-10 14:29:23,474 | INFO | hilo : Using device: NVIDIA GeForce GTX 1060 6GB
+2024-03-10 14:29:23,474 | INFO | hilo : Exeucting job: MODEL normal | DATASET imagenet | KERNEL none
+2024-03-10 14:29:23,474 | INFO | hilo : Commencing training phase...
+2024-03-10 14:29:59,556 | INFO | hilo : Epoch   1/200 | Accuracy:   1.1719 | Loss:   4.5109
+2024-03-10 14:30:23,384 | INFO | hilo : Epoch   2/200 | Accuracy:   0.9277 | Loss:   4.5202
+2024-03-10 14:30:47,199 | INFO | hilo : Epoch   3/200 | Accuracy:   0.4688 | Loss:   4.2901
+2024-03-10 14:31:10,950 | INFO | hilo : Epoch   4/200 | Accuracy:   0.0977 | Loss:   4.1540
+2024-03-10 14:31:34,787 | INFO | hilo : Epoch   5/200 | Accuracy:   1.0110 | Loss:   4.2624
+2024-03-10 14:31:58,625 | INFO | hilo : Epoch   6/200 | Accuracy:   0.3906 | Loss:   4.2952
+2024-03-10 14:32:22,515 | INFO | hilo : Epoch   7/200 | Accuracy:   0.5208 | Loss:   4.1577
+2024-03-10 14:32:46,352 | INFO | hilo : Epoch   8/200 | Accuracy:   0.0647 | Loss:   4.2613
+2024-03-10 14:33:10,247 | INFO | hilo : Epoch   9/200 | Accuracy:   1.5625 | Loss:   4.5658
+2024-03-10 14:33:34,055 | INFO | hilo : Epoch  10/200 | Accuracy:   0.3906 | Loss:   4.0693
+2024-03-10 14:33:57,805 | INFO | hilo : Epoch  11/200 | Accuracy:   0.1953 | Loss:   3.9007
+2024-03-10 14:34:21,623 | INFO | hilo : Epoch  12/200 | Accuracy:   0.4215 | Loss:   4.1621
+2024-03-10 14:34:45,533 | INFO | hilo : Epoch  13/200 | Accuracy:   1.5625 | Loss:   4.1323
+2024-03-10 14:35:09,357 | INFO | hilo : Epoch  14/200 | Accuracy:   0.2728 | Loss:   3.9045
+2024-03-10 14:35:33,191 | INFO | hilo : Epoch  15/200 | Accuracy:   1.5625 | Loss:   4.1716
+2024-03-10 14:35:57,049 | INFO | hilo : Epoch  16/200 | Accuracy:   0.1420 | Loss:   4.3019
+2024-03-10 14:36:20,893 | INFO | hilo : Epoch  17/200 | Accuracy:   0.2604 | Loss:   3.9721
+2024-03-10 14:36:44,752 | INFO | hilo : Epoch  18/200 | Accuracy:   3.4180 | Loss:   3.9306
+2024-03-10 14:37:08,597 | INFO | hilo : Epoch  19/200 | Accuracy:   3.1250 | Loss:   4.0218
+2024-03-10 14:37:32,329 | INFO | hilo : Epoch  20/200 | Accuracy:   0.1237 | Loss:   3.9968
+2024-03-10 14:37:56,171 | INFO | hilo : Epoch  21/200 | Accuracy:   1.2500 | Loss:   4.1818
+2024-03-10 14:38:20,224 | INFO | hilo : Epoch  22/200 | Accuracy:   1.0417 | Loss:   4.1821
+2024-03-10 14:38:44,054 | INFO | hilo : Epoch  23/200 | Accuracy:   6.2500 | Loss:   4.5953
+2024-03-10 14:39:07,859 | INFO | hilo : Epoch  24/200 | Accuracy:   0.9115 | Loss:   4.5961
+2024-03-10 14:39:31,711 | INFO | hilo : Epoch  25/200 | Accuracy:   0.7812 | Loss:   3.9040
+2024-03-10 14:39:55,510 | INFO | hilo : Epoch  26/200 | Accuracy:   0.3606 | Loss:   4.0133
+2024-03-10 14:40:19,363 | INFO | hilo : Epoch  27/200 | Accuracy:   0.7812 | Loss:   4.1695
+2024-03-10 14:40:43,182 | INFO | hilo : Epoch  28/200 | Accuracy:   1.5625 | Loss:   4.2958
+2024-03-10 14:41:06,935 | INFO | hilo : Epoch  29/200 | Accuracy:   0.8832 | Loss:   4.0206
+2024-03-10 14:41:30,707 | INFO | hilo : Epoch  30/200 | Accuracy:   0.7812 | Loss:   2.8826
+2024-03-10 14:41:54,754 | INFO | hilo : Epoch  31/200 | Accuracy:   1.5625 | Loss:   2.5572
+2024-03-10 14:42:18,599 | INFO | hilo : Epoch  32/200 | Accuracy:   0.7812 | Loss:   2.9117
+2024-03-10 14:42:42,451 | INFO | hilo : Epoch  33/200 | Accuracy:   0.6696 | Loss:   2.8882
+2024-03-10 14:43:06,281 | INFO | hilo : Epoch  34/200 | Accuracy:   1.1719 | Loss:   2.9528
+2024-03-10 14:43:30,177 | INFO | hilo : Epoch  35/200 | Accuracy:   1.1719 | Loss:   2.1981
+2024-03-10 14:43:54,004 | INFO | hilo : Epoch  36/200 | Accuracy:   0.6510 | Loss:   2.3480
+2024-03-10 14:44:17,847 | INFO | hilo : Epoch  37/200 | Accuracy:   1.5625 | Loss:   2.0906
+2024-03-10 14:44:41,719 | INFO | hilo : Epoch  38/200 | Accuracy:   0.9079 | Loss:   1.5467
+2024-03-10 14:45:05,550 | INFO | hilo : Epoch  39/200 | Accuracy:   1.5625 | Loss:   1.4349
+2024-03-10 14:45:29,409 | INFO | hilo : Epoch  40/200 | Accuracy:   0.7812 | Loss:   1.4651
+2024-03-10 14:45:53,301 | INFO | hilo : Epoch  41/200 | Accuracy:   0.7812 | Loss:   1.4903
+2024-03-10 14:46:17,169 | INFO | hilo : Epoch  42/200 | Accuracy:   0.5208 | Loss:   1.3259
+2024-03-10 14:46:41,028 | INFO | hilo : Epoch  43/200 | Accuracy:   0.8569 | Loss:   1.1268
+2024-03-10 14:47:04,914 | INFO | hilo : Epoch  44/200 | Accuracy:   0.6632 | Loss:   0.7192
+2024-03-10 14:47:28,749 | INFO | hilo : Epoch  45/200 | Accuracy:   1.5625 | Loss:   1.0987
+2024-03-10 14:47:52,516 | INFO | hilo : Epoch  46/200 | Accuracy:   3.1250 | Loss:   0.8874
+2024-03-10 14:48:16,291 | INFO | hilo : Epoch  47/200 | Accuracy:   0.6911 | Loss:   0.7762
+2024-03-10 14:48:40,120 | INFO | hilo : Epoch  48/200 | Accuracy:   0.5208 | Loss:   1.0860
+2024-03-10 14:49:03,898 | INFO | hilo : Epoch  49/200 | Accuracy:   0.7812 | Loss:   0.8303
+2024-03-10 14:49:27,698 | INFO | hilo : Epoch  50/200 | Accuracy:   0.6048 | Loss:   0.8334
+2024-03-10 14:49:51,613 | INFO | hilo : Epoch  51/200 | Accuracy:   1.5625 | Loss:   1.0901
+2024-03-10 14:50:15,460 | INFO | hilo : Epoch  52/200 | Accuracy:   1.5625 | Loss:   0.7562
+2024-03-10 14:50:39,356 | INFO | hilo : Epoch  53/200 | Accuracy:   0.3057 | Loss:   0.6805
+2024-03-10 14:51:03,223 | INFO | hilo : Epoch  54/200 | Accuracy:   1.5625 | Loss:   0.9727
+2024-03-10 14:51:27,088 | INFO | hilo : Epoch  55/200 | Accuracy:   0.5544 | Loss:   0.8135
+2024-03-10 14:51:51,072 | INFO | hilo : Epoch  56/200 | Accuracy:   0.7812 | Loss:   0.4766
+2024-03-10 14:52:14,946 | INFO | hilo : Epoch  57/200 | Accuracy:   0.4890 | Loss:   0.4930
+2024-03-10 14:52:38,830 | INFO | hilo : Epoch  58/200 | Accuracy:   0.7994 | Loss:   1.4077
+2024-03-10 14:53:02,752 | INFO | hilo : Epoch  59/200 | Accuracy:   1.5625 | Loss:   0.4178
+2024-03-10 14:53:26,611 | INFO | hilo : Epoch  60/200 | Accuracy:   0.7812 | Loss:   0.0248
+2024-03-10 14:53:50,373 | INFO | hilo : Epoch  61/200 | Accuracy:   1.0417 | Loss:   0.0801
+2024-03-10 14:54:14,254 | INFO | hilo : Epoch  62/200 | Accuracy:   0.8635 | Loss:   0.0158
+2024-03-10 14:54:38,111 | INFO | hilo : Epoch  63/200 | Accuracy:   1.5625 | Loss:   0.0194
+2024-03-10 14:55:01,921 | INFO | hilo : Epoch  64/200 | Accuracy:   0.9191 | Loss:   0.0116
+2024-03-10 14:55:25,734 | INFO | hilo : Epoch  65/200 | Accuracy:   1.5625 | Loss:   0.0098
+2024-03-10 14:55:49,537 | INFO | hilo : Epoch  66/200 | Accuracy:   1.0417 | Loss:   0.0107
+2024-03-10 14:56:13,400 | INFO | hilo : Epoch  67/200 | Accuracy:   1.5625 | Loss:   0.0105
+2024-03-10 14:56:37,218 | INFO | hilo : Epoch  68/200 | Accuracy:   0.7063 | Loss:   0.0188
+2024-03-10 14:57:01,175 | INFO | hilo : Epoch  69/200 | Accuracy:   0.7668 | Loss:   0.0143
+2024-03-10 14:57:25,085 | INFO | hilo : Epoch  70/200 | Accuracy:   1.5625 | Loss:   0.0130
+2024-03-10 14:57:49,050 | INFO | hilo : Epoch  71/200 | Accuracy:   0.7523 | Loss:   0.0117
+2024-03-10 14:58:12,955 | INFO | hilo : Epoch  72/200 | Accuracy:   0.7042 | Loss:   0.0122
+2024-03-10 14:58:36,816 | INFO | hilo : Epoch  73/200 | Accuracy:   0.7972 | Loss:   0.0135
+2024-03-10 14:59:00,669 | INFO | hilo : Epoch  74/200 | Accuracy:   1.5625 | Loss:   0.0133
+2024-03-10 14:59:24,565 | INFO | hilo : Epoch  75/200 | Accuracy:   1.5625 | Loss:   0.0118
+2024-03-10 14:59:48,472 | INFO | hilo : Epoch  76/200 | Accuracy:   0.6502 | Loss:   0.0200
+2024-03-10 15:00:12,265 | INFO | hilo : Epoch  77/200 | Accuracy:   0.7812 | Loss:   0.0214
+2024-03-10 15:00:36,165 | INFO | hilo : Epoch  78/200 | Accuracy:   1.7361 | Loss:   0.0188
+2024-03-10 15:01:00,045 | INFO | hilo : Epoch  79/200 | Accuracy:   1.2500 | Loss:   0.0183
+2024-03-10 15:01:23,903 | INFO | hilo : Epoch  80/200 | Accuracy:   1.1719 | Loss:   0.0155
+2024-03-10 15:01:47,886 | INFO | hilo : Epoch  81/200 | Accuracy:   1.2277 | Loss:   0.0198
+2024-03-10 15:02:11,806 | INFO | hilo : Epoch  82/200 | Accuracy:   1.1458 | Loss:   0.0155
+2024-03-10 15:02:35,667 | INFO | hilo : Epoch  83/200 | Accuracy:   0.9943 | Loss:   0.0217
+2024-03-10 15:02:59,650 | INFO | hilo : Epoch  84/200 | Accuracy:   1.5625 | Loss:   0.0161
+2024-03-10 15:03:23,514 | INFO | hilo : Epoch  85/200 | Accuracy:   1.5625 | Loss:   0.0109
+2024-03-10 15:03:47,417 | INFO | hilo : Epoch  86/200 | Accuracy:   1.0417 | Loss:   0.0142
+2024-03-10 15:04:11,268 | INFO | hilo : Epoch  87/200 | Accuracy:   0.6194 | Loss:   0.0164
+2024-03-10 15:04:35,177 | INFO | hilo : Epoch  88/200 | Accuracy:   1.0417 | Loss:   0.0217
+2024-03-10 15:04:59,003 | INFO | hilo : Epoch  89/200 | Accuracy:   3.1250 | Loss:   0.0199
+2024-03-10 15:05:22,974 | INFO | hilo : Epoch  90/200 | Accuracy:   1.5625 | Loss:   0.0158
+2024-03-10 15:05:46,842 | INFO | hilo : Epoch  91/200 | Accuracy:   1.5625 | Loss:   0.0246
+2024-03-10 15:06:10,759 | INFO | hilo : Epoch  92/200 | Accuracy:   1.5625 | Loss:   0.0184
+2024-03-10 15:06:34,605 | INFO | hilo : Epoch  93/200 | Accuracy:   0.7812 | Loss:   0.0158
+2024-03-10 15:06:58,414 | INFO | hilo : Epoch  94/200 | Accuracy:   0.8333 | Loss:   0.0203
+2024-03-10 15:07:22,423 | INFO | hilo : Epoch  95/200 | Accuracy:   0.7812 | Loss:   0.0190
+2024-03-10 15:07:46,307 | INFO | hilo : Epoch  96/200 | Accuracy:   0.7812 | Loss:   0.0203
+2024-03-10 15:08:10,224 | INFO | hilo : Epoch  97/200 | Accuracy:   3.1250 | Loss:   0.0189
+2024-03-10 15:08:34,150 | INFO | hilo : Epoch  98/200 | Accuracy:   0.7812 | Loss:   0.0171
+2024-03-10 15:08:58,101 | INFO | hilo : Epoch  99/200 | Accuracy:   1.5625 | Loss:   0.0197
+2024-03-10 15:09:22,036 | INFO | hilo : Epoch 100/200 | Accuracy:   0.7812 | Loss:   0.0198
+2024-03-10 15:09:45,940 | INFO | hilo : Epoch 101/200 | Accuracy:   0.7102 | Loss:   0.0204
+2024-03-10 15:10:09,799 | INFO | hilo : Epoch 102/200 | Accuracy:   1.1719 | Loss:   0.0245
+2024-03-10 15:10:33,722 | INFO | hilo : Epoch 103/200 | Accuracy:   0.7812 | Loss:   0.0232
+2024-03-10 15:10:57,556 | INFO | hilo : Epoch 104/200 | Accuracy:   1.5625 | Loss:   0.0260
+2024-03-10 15:11:21,483 | INFO | hilo : Epoch 105/200 | Accuracy:   1.5625 | Loss:   0.0189
+2024-03-10 15:11:45,431 | INFO | hilo : Epoch 106/200 | Accuracy:   0.6076 | Loss:   0.0229
+2024-03-10 15:12:09,309 | INFO | hilo : Epoch 107/200 | Accuracy:   0.7812 | Loss:   0.0193
+2024-03-10 15:12:33,194 | INFO | hilo : Epoch 108/200 | Accuracy:   1.0417 | Loss:   0.0168
+2024-03-10 15:12:57,287 | INFO | hilo : Epoch 109/200 | Accuracy:   0.9115 | Loss:   0.0186
+2024-03-10 15:13:21,200 | INFO | hilo : Epoch 110/200 | Accuracy:   1.2500 | Loss:   0.0210
+2024-03-10 15:13:45,148 | INFO | hilo : Epoch 111/200 | Accuracy:   1.5625 | Loss:   0.0237
+2024-03-10 15:14:09,073 | INFO | hilo : Epoch 112/200 | Accuracy:   1.5625 | Loss:   0.0429
+2024-03-10 15:14:33,029 | INFO | hilo : Epoch 113/200 | Accuracy:   1.5625 | Loss:   0.0145
+2024-03-10 15:14:57,240 | INFO | hilo : Epoch 114/200 | Accuracy:   0.9115 | Loss:   0.0204
+2024-03-10 15:15:21,195 | INFO | hilo : Epoch 115/200 | Accuracy:   0.6183 | Loss:   0.0197
+2024-03-10 15:15:45,130 | INFO | hilo : Epoch 116/200 | Accuracy:   1.5625 | Loss:   0.0204
+2024-03-10 15:16:09,330 | INFO | hilo : Epoch 117/200 | Accuracy:   0.9470 | Loss:   0.0230
+2024-03-10 15:16:33,167 | INFO | hilo : Epoch 118/200 | Accuracy:   0.6250 | Loss:   0.0157
+2024-03-10 15:16:57,116 | INFO | hilo : Epoch 119/200 | Accuracy:   1.5625 | Loss:   0.0166
+2024-03-10 15:17:21,021 | INFO | hilo : Epoch 120/200 | Accuracy:   1.0417 | Loss:   0.0140
+2024-03-10 15:17:44,955 | INFO | hilo : Epoch 121/200 | Accuracy:   1.5625 | Loss:   0.0224
+2024-03-10 15:18:08,854 | INFO | hilo : Epoch 122/200 | Accuracy:   0.6836 | Loss:   0.0207
+2024-03-10 15:18:32,791 | INFO | hilo : Epoch 123/200 | Accuracy:   1.5625 | Loss:   0.0165
+2024-03-10 15:18:56,879 | INFO | hilo : Epoch 124/200 | Accuracy:   1.1719 | Loss:   0.0192
+2024-03-10 15:19:21,134 | INFO | hilo : Epoch 125/200 | Accuracy:   0.7812 | Loss:   0.0186
+2024-03-10 15:19:45,106 | INFO | hilo : Epoch 126/200 | Accuracy:   0.5809 | Loss:   0.0212
+2024-03-10 15:20:09,065 | INFO | hilo : Epoch 127/200 | Accuracy:   0.5981 | Loss:   0.0274
+2024-03-10 15:20:33,073 | INFO | hilo : Epoch 128/200 | Accuracy:   1.5625 | Loss:   0.0158
+2024-03-10 15:20:57,044 | INFO | hilo : Epoch 129/200 | Accuracy:   0.6557 | Loss:   0.0215
+2024-03-10 15:21:21,085 | INFO | hilo : Epoch 130/200 | Accuracy:   0.5896 | Loss:   0.0171
+2024-03-10 15:21:45,120 | INFO | hilo : Epoch 131/200 | Accuracy:   1.5625 | Loss:   0.0170
+2024-03-10 15:22:09,359 | INFO | hilo : Epoch 132/200 | Accuracy:   1.5625 | Loss:   0.0276
+2024-03-10 15:22:33,310 | INFO | hilo : Epoch 133/200 | Accuracy:   0.7102 | Loss:   0.0204
+2024-03-10 15:22:57,249 | INFO | hilo : Epoch 134/200 | Accuracy:   2.0833 | Loss:   0.0288
+2024-03-10 15:23:21,204 | INFO | hilo : Epoch 135/200 | Accuracy:   0.7812 | Loss:   0.0168
+2024-03-10 15:23:45,288 | INFO | hilo : Epoch 136/200 | Accuracy:   1.0417 | Loss:   0.0183
+2024-03-10 15:24:09,177 | INFO | hilo : Epoch 137/200 | Accuracy:   0.7812 | Loss:   0.0197
+2024-03-10 15:24:33,117 | INFO | hilo : Epoch 138/200 | Accuracy:   0.5942 | Loss:   0.0261
+2024-03-10 15:24:57,089 | INFO | hilo : Epoch 139/200 | Accuracy:   0.7812 | Loss:   0.0248
+2024-03-10 15:25:21,081 | INFO | hilo : Epoch 140/200 | Accuracy:   0.8224 | Loss:   0.0220
+2024-03-10 15:25:44,938 | INFO | hilo : Epoch 141/200 | Accuracy:   1.0417 | Loss:   0.0230
+2024-03-10 15:26:08,845 | INFO | hilo : Epoch 142/200 | Accuracy:   0.7812 | Loss:   0.0191
+2024-03-10 15:26:32,826 | INFO | hilo : Epoch 143/200 | Accuracy:   0.7812 | Loss:   0.0166
+2024-03-10 15:26:56,810 | INFO | hilo : Epoch 144/200 | Accuracy:   1.1719 | Loss:   0.0309
+2024-03-10 15:27:20,744 | INFO | hilo : Epoch 145/200 | Accuracy:   0.7292 | Loss:   0.0228
+2024-03-10 15:27:44,704 | INFO | hilo : Epoch 146/200 | Accuracy:   1.5625 | Loss:   0.0277
+2024-03-10 15:28:08,686 | INFO | hilo : Epoch 147/200 | Accuracy:   0.6985 | Loss:   0.0220
+2024-03-10 15:28:32,653 | INFO | hilo : Epoch 148/200 | Accuracy:   1.2153 | Loss:   0.0231
+2024-03-10 15:28:56,646 | INFO | hilo : Epoch 149/200 | Accuracy:   1.5625 | Loss:   0.0249
+2024-03-10 15:29:20,646 | INFO | hilo : Epoch 150/200 | Accuracy:   0.6250 | Loss:   0.0217
+2024-03-10 15:29:45,175 | INFO | hilo : Epoch 151/200 | Accuracy:   1.5625 | Loss:   0.0187
+2024-03-10 15:30:09,213 | INFO | hilo : Epoch 152/200 | Accuracy:   1.5625 | Loss:   0.0235
+2024-03-10 15:30:33,096 | INFO | hilo : Epoch 153/200 | Accuracy:   0.6366 | Loss:   0.0210
+2024-03-10 15:30:57,011 | INFO | hilo : Epoch 154/200 | Accuracy:   0.8125 | Loss:   0.0207
+2024-03-10 15:31:20,990 | INFO | hilo : Epoch 155/200 | Accuracy:   0.7812 | Loss:   0.0210
+2024-03-10 15:31:44,866 | INFO | hilo : Epoch 156/200 | Accuracy:   1.0417 | Loss:   0.0210
+2024-03-10 15:32:08,841 | INFO | hilo : Epoch 157/200 | Accuracy:   0.6392 | Loss:   0.0223
+2024-03-10 15:32:32,775 | INFO | hilo : Epoch 158/200 | Accuracy:   0.5682 | Loss:   0.0286
+2024-03-10 15:32:56,817 | INFO | hilo : Epoch 159/200 | Accuracy:   1.5625 | Loss:   0.0232
+2024-03-10 15:33:20,976 | INFO | hilo : Epoch 160/200 | Accuracy:   0.9375 | Loss:   0.0215
+2024-03-10 15:33:44,962 | INFO | hilo : Epoch 161/200 | Accuracy:   0.9615 | Loss:   0.0200
+2024-03-10 15:34:08,914 | INFO | hilo : Epoch 162/200 | Accuracy:   0.8413 | Loss:   0.0224
+2024-03-10 15:34:32,930 | INFO | hilo : Epoch 163/200 | Accuracy:   0.8125 | Loss:   0.0237
+2024-03-10 15:34:56,922 | INFO | hilo : Epoch 164/200 | Accuracy:   1.5625 | Loss:   0.0221
+2024-03-10 15:35:21,101 | INFO | hilo : Epoch 165/200 | Accuracy:   0.7812 | Loss:   0.0187
+2024-03-10 15:35:45,188 | INFO | hilo : Epoch 166/200 | Accuracy:   1.5625 | Loss:   0.0150
+2024-03-10 15:36:09,252 | INFO | hilo : Epoch 167/200 | Accuracy:   0.7161 | Loss:   0.0232
+2024-03-10 15:36:33,353 | INFO | hilo : Epoch 168/200 | Accuracy:   1.0417 | Loss:   0.0198
+2024-03-10 15:36:57,361 | INFO | hilo : Epoch 169/200 | Accuracy:   1.0417 | Loss:   0.0237
+2024-03-10 15:37:21,395 | INFO | hilo : Epoch 170/200 | Accuracy:   0.8272 | Loss:   0.0204
+2024-03-10 15:37:45,370 | INFO | hilo : Epoch 171/200 | Accuracy:   0.7031 | Loss:   0.0206
+2024-03-10 15:38:09,368 | INFO | hilo : Epoch 172/200 | Accuracy:   1.5625 | Loss:   0.0249
+2024-03-10 15:38:33,368 | INFO | hilo : Epoch 173/200 | Accuracy:   1.9531 | Loss:   0.0201
+2024-03-10 15:38:57,381 | INFO | hilo : Epoch 174/200 | Accuracy:   0.8185 | Loss:   0.0261
+2024-03-10 15:39:21,376 | INFO | hilo : Epoch 175/200 | Accuracy:   1.5625 | Loss:   0.0219
+2024-03-10 15:39:45,375 | INFO | hilo : Epoch 176/200 | Accuracy:   1.5625 | Loss:   0.0274
+2024-03-10 15:40:09,440 | INFO | hilo : Epoch 177/200 | Accuracy:   0.6250 | Loss:   0.0237
+2024-03-10 15:40:33,416 | INFO | hilo : Epoch 178/200 | Accuracy:   1.5625 | Loss:   0.0210
+2024-03-10 15:40:57,430 | INFO | hilo : Epoch 179/200 | Accuracy:   0.5993 | Loss:   0.0216
+2024-03-10 15:41:21,434 | INFO | hilo : Epoch 180/200 | Accuracy:   1.5625 | Loss:   0.0284
+2024-03-10 15:41:45,561 | INFO | hilo : Epoch 181/200 | Accuracy:   1.5625 | Loss:   0.0189
+2024-03-10 15:42:09,590 | INFO | hilo : Epoch 182/200 | Accuracy:   1.5625 | Loss:   0.0341
+2024-03-10 15:42:33,615 | INFO | hilo : Epoch 183/200 | Accuracy:   1.5625 | Loss:   0.0212
+2024-03-10 15:42:57,651 | INFO | hilo : Epoch 184/200 | Accuracy:   0.7143 | Loss:   0.0249
+2024-03-10 15:43:22,090 | INFO | hilo : Epoch 185/200 | Accuracy:   0.6031 | Loss:   0.0251
+2024-03-10 15:43:46,203 | INFO | hilo : Epoch 186/200 | Accuracy:   0.7812 | Loss:   0.0255
+2024-03-10 15:44:10,262 | INFO | hilo : Epoch 187/200 | Accuracy:   1.5625 | Loss:   0.0262
+2024-03-10 15:44:34,328 | INFO | hilo : Epoch 188/200 | Accuracy:   1.5625 | Loss:   0.0269
+2024-03-10 15:44:58,440 | INFO | hilo : Epoch 189/200 | Accuracy:   1.5625 | Loss:   0.0203
+2024-03-10 15:45:22,632 | INFO | hilo : Epoch 190/200 | Accuracy:   0.8681 | Loss:   0.0280
+2024-03-10 15:45:46,807 | INFO | hilo : Epoch 191/200 | Accuracy:   1.5625 | Loss:   0.0208
+2024-03-10 15:46:11,262 | INFO | hilo : Epoch 192/200 | Accuracy:   1.0417 | Loss:   0.0259
+2024-03-10 15:46:35,708 | INFO | hilo : Epoch 193/200 | Accuracy:   1.5625 | Loss:   0.0244
+2024-03-10 15:47:00,053 | INFO | hilo : Epoch 194/200 | Accuracy:   3.1250 | Loss:   0.0244
+2024-03-10 15:47:24,775 | INFO | hilo : Epoch 195/200 | Accuracy:   0.6457 | Loss:   0.0250
+2024-03-10 15:47:49,722 | INFO | hilo : Epoch 196/200 | Accuracy:   3.1250 | Loss:   0.0175
+2024-03-10 15:48:14,424 | INFO | hilo : Epoch 197/200 | Accuracy:   0.6793 | Loss:   0.0231
+2024-03-10 15:48:39,175 | INFO | hilo : Epoch 198/200 | Accuracy:   0.5899 | Loss:   0.0276
+2024-03-10 15:49:04,119 | INFO | hilo : Epoch 199/200 | Accuracy:   0.6510 | Loss:   0.0189
+2024-03-10 15:49:29,033 | INFO | hilo : Epoch 200/200 | Accuracy:   0.7812 | Loss:   0.0188
+2024-03-10 15:49:29,033 | INFO | hilo : Commencing testing phase...
+2024-03-10 15:49:31,403 | INFO | hilo : Test Accuracy: 0.56
+2024-03-10 15:49:31,404 | INFO | hilo : Best accuracy of 6.25% @ epoch 23
+2024-03-10 15:49:31,404 | INFO | hilo : Recording job results in output/results.csv
+2024-03-10 15:49:31,413 | INFO | hilo : Saving training report to output/normal/imagenet/None/20240310_142919//training_report.csv
+2024-03-10 15:49:31,414 | INFO | hilo : Saving accuracy graph to output/normal/imagenet/None/20240310_142919//training_graph.jpg
+2024-03-10 15:49:31,587 | INFO | hilo.normal-cnn : Saving model layer data to output/normal/imagenet/None/20240310_142919//model_layers.csv
+2024-03-10 15:49:34,107 | INFO | hilo : Job complete: MODEL normal | DATASET imagenet | KERNEL none
+2024-03-10 15:49:34,107 | INFO | hilo : Exiting...

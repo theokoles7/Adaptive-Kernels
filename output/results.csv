@@ -425,7 +425,7 @@ resnet,cifar100,poisson,11,--,--,--
 resnet,cifar100,poisson,12,--,--,--
 resnet,cifar100,poisson,13,--,--,--
 resnet,cifar100,poisson,14,--,--,--
-resnet,imagenet,none,--,--,--,--
+resnet,imagenet,none,--,4.6875,3,0.57
 resnet,imagenet,cauchy,1,--,--,--
 resnet,imagenet,cauchy,2,--,--,--
 resnet,imagenet,cauchy,3,--,--,--

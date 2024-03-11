@@ -567,7 +567,7 @@ resnet,mnist,poisson,11,--,--,--
 resnet,mnist,poisson,12,--,--,--
 resnet,mnist,poisson,13,--,--,--
 resnet,mnist,poisson,14,--,--,--
-vgg,cifar10,none,--,--,--,--
+vgg,cifar10,none,--,92.1875,111,81.39
 vgg,cifar10,cauchy,1,--,--,--
 vgg,cifar10,cauchy,2,--,--,--
 vgg,cifar10,cauchy,3,--,--,--

@@ -638,7 +638,7 @@ vgg,cifar10,poisson,11,--,--,--
 vgg,cifar10,poisson,12,--,--,--
 vgg,cifar10,poisson,13,--,--,--
 vgg,cifar10,poisson,14,--,--,--
-vgg,cifar100,none,--,--,--,--
+vgg,cifar100,none,--,6.25,173,1.0
 vgg,cifar100,cauchy,1,--,--,--
 vgg,cifar100,cauchy,2,--,--,--
 vgg,cifar100,cauchy,3,--,--,--

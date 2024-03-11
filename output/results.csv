@@ -496,7 +496,7 @@ resnet,imagenet,poisson,11,--,--,--
 resnet,imagenet,poisson,12,--,--,--
 resnet,imagenet,poisson,13,--,--,--
 resnet,imagenet,poisson,14,--,--,--
-resnet,mnist,none,--,--,--,--
+resnet,mnist,none,--,100.0,1,99.68
 resnet,mnist,cauchy,1,--,--,--
 resnet,mnist,cauchy,2,--,--,--
 resnet,mnist,cauchy,3,--,--,--

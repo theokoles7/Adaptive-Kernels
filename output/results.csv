@@ -354,7 +354,7 @@ resnet,cifar10,poisson,11,--,--,--
 resnet,cifar10,poisson,12,--,--,--
 resnet,cifar10,poisson,13,--,--,--
 resnet,cifar10,poisson,14,--,--,--
-resnet,cifar100,none,--,--,--,--
+resnet,cifar100,none,--,82.8125,71,63.09
 resnet,cifar100,cauchy,1,--,--,--
 resnet,cifar100,cauchy,2,--,--,--
 resnet,cifar100,cauchy,3,--,--,--

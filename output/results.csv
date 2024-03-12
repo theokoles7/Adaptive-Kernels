@@ -709,7 +709,7 @@ vgg,cifar100,poisson,11,--,--,--
 vgg,cifar100,poisson,12,--,--,--
 vgg,cifar100,poisson,13,--,--,--
 vgg,cifar100,poisson,14,--,--,--
-vgg,imagenet,none,--,--,--,--
+vgg,imagenet,none,--,100.0,6,0.0
 vgg,imagenet,cauchy,1,--,--,--
 vgg,imagenet,cauchy,2,--,--,--
 vgg,imagenet,cauchy,3,--,--,--

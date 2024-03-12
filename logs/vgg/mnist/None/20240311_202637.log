@@ -1,0 +1,28 @@
+2024-03-11 20:26:37,300 | INFO | hilo : 
++==============================================================+
+|                                                              |
+| ██████╗  █████╗ ██████╗ ██╗         ██╗      █████╗ ██████╗  |
+| ██╔══██╗██╔══██╗██╔══██╗██║         ██║     ██╔══██╗██╔══██╗ |
+| ██║  ██║███████║██║  ██║██║         ██║     ███████║██████╔╝ |
+| ██║  ██║██╔══██║██║  ██║██║         ██║     ██╔══██║██╔══██╗ |
+| ██████╔╝██║  ██║██████╔╝███████╗    ███████╗██║  ██║██████╔╝ |
+| ╚═════╝ ╚═╝  ╚═╝╚═════╝ ╚══════╝    ╚══════╝╚═╝  ╚═╝╚═════╝  |
++==============================================================+
+|             Hi-Lo Resolution Image Classification            |
+|             -------------------------------------            |
+|                       Gabriel C. Trahan                      |
+|                          Sahan Ahmad                         |
+|                       MD  Aminual Islam                      |
++==============================================================+
+2024-03-11 20:26:38,880 | INFO | hilo.dataset-accessor : Fetching dataset: mnist
+2024-03-11 20:26:38,880 | INFO | hilo.mnist-dataset : Initializing transform.
+2024-03-11 20:26:38,880 | INFO | hilo.mnist-dataset : Verifying/downloading train data.
+2024-03-11 20:26:38,936 | INFO | hilo.mnist-dataset : Verifying/downloading test data.
+2024-03-11 20:26:38,941 | INFO | hilo.mnist-dataset : Creating train data loader.
+2024-03-11 20:26:38,942 | INFO | hilo.mnist-dataset : Creating test data loader.
+2024-03-11 20:26:39,188 | INFO | hilo : Output directory: output/vgg/mnist/None/20240311_202638/
+2024-03-11 20:26:40,216 | INFO | hilo : Using device: NVIDIA GeForce GTX 1060 6GB
+2024-03-11 20:26:40,217 | INFO | hilo : Exeucting job: MODEL vgg | DATASET mnist | KERNEL none
+2024-03-11 20:26:40,217 | INFO | hilo : Commencing training phase...
+2024-03-11 20:26:41,250 | ERROR | hilo : An error occured: Given input size: (512x1x1). Calculated output size: (512x0x0). Output size is too small
+2024-03-11 20:26:41,252 | INFO | hilo : Exiting...

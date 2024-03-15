@@ -33,6 +33,6 @@ A clear and concise description of what the bug is.
 
 ### Occurred on Epoch:
 
-# Stack Trace (if available):
-
 # Additional Notes/Context:
+
+**Please upload log file or provide stacktrace.**

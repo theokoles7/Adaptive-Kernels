@@ -5,3 +5,6 @@ __pycache__
 
 # DATASETS (TOO LARGE TO BE WORTH SOURCING)
 data/*
+
+# Scratch files
+*scratch*

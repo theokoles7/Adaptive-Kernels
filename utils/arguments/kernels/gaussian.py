@@ -39,7 +39,7 @@ def add_gaussian_parser(
     )
     
     _parser_.add_argument(
-        "--type",
+        "--kernel-group",
         type =      int,
         default =   13,
         help =      """Kernel configuration type. Defaults to 13."""

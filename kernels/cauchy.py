@@ -1,47 +1,35 @@
 """Cauchy distribution utilities."""
 
-import math, torch
+from math       import pi
+from typing     import override
 
-from kernels    import AbstractKernel
-from utils      import ARGS, LOGGER
+from torch      import sum, Tensor
 
-class CauchyKernel(AbstractKernel):
-    """Cauchy distribution kernel."""
+from kernels    import Kernel
 
-    _logger = LOGGER.getChild('cauchy-kernel')
+class CauchyKernel(Kernel):
+    """# Cauchy distribution kernel."""
 
-    _location:  float
-    _scale:     float
+    @override
+    def pdf(self,
+        xy_grid:    Tensor
+    ) -> Tensor:
+        """# Calculate Cauchy distribution kernel.
 
-    def __init__(self, location: float, scale: float, channels: int = 3, size: int = ARGS.kernel_size):
-        """Initialize Cauchy kernel.
+        ## Args:
+            * xy_grid   (Tensor):   XY coordinate grid made from convoluted data.
 
-        Args:
-            location (float): Cauchy distribution location parameter (Chi)
-            scale (float): Cauchy distirbution scale parameter (Gamma)
-            channels (int, optional): Input channels. Defaults to 3.
-            size (int, optional): Kernel size (square). Defaults to ARGS.kernel_size.
+        ## Returns:
+            * Tensor:   Cauchy distribution kernel.
         """
-        self._location =    location
-        self._scale =       scale
-
-        super(CauchyKernel, self).__init__(channels, size)
-
-    def pdf(self, xy_grid: torch.Tensor) -> torch.Tensor:
-        """Calculate Cauchy distribution kernel.
-
-        Args:
-            xy_grid (torch.Tensor): XY coordinate grid made from convoluted data
-
-        Returns:
-            torch.Tensor: Cauchy distribution kernel
-        """
-        self._logger.info(f"Calculating Cauchy distribution (location: {self._location}, scale {self._scale})")
+        # Log for debugging
+        self.__logger__.debug(f"Calculating Cauchy distribution (location: {self._location_}, scale {self._scale_})")
         
+        # Calculate Cauchy kernel
         return (
             1. / (
-                (math.pi * self._scale) * (1. + (
-                    (torch.sum(xy_grid, dim=-1) - self._location) / (self._scale)
+                (pi * self._scale_) * (1. + (
+                    (sum(xy_grid, dim=-1) - self._location_) / (self._scale_)
                 )**2)
             )
         )

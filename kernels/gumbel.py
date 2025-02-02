@@ -1,45 +1,35 @@
 """Gumbel kernel utilities."""
 
-import torch
+from typing     import override
 
-from kernels    import AbstractKernel
-from utils      import ARGS, LOGGER
+from torch      import exp, sum, Tensor
 
-class GumbelKernel(AbstractKernel):
-    """Gumbel distribution kernel."""
+from kernels    import Kernel
 
-    _logger = LOGGER.getChild('gumbel-kernel')
+class GumbelKernel(Kernel):
+    """# Gumbel distribution kernel."""
 
-    def __init__(self, location: float, scale: float, channels: int = 3, size: int = ARGS.kernel_size):
-        """Initialize Gumbel kernel.
+    @override
+    def pdf(self,
+        xy_grid:    Tensor
+    ) -> Tensor:
+        """# Calculate Gumbel distribution kernel.
 
-        Args:
-            location (float): Gumbel distribution location parameter (Mu)
-            scale (float): Gumbel distribution scale parameter (Beta)
-            channels (int, optional): Input channels. Defaults to 3.
-            size (int, optional): Kernel size (square). Defaults to ARGS.kernel_size.
+        ## Args:
+            * xy_grid   (Tensor):   XY coordinate grid made from convoluted data.
+
+        ## Returns:
+            * Tensor:   Gumbel distribution kernel.
         """
-        self._location =    location
-        self._scale =       scale
+        # Log for debugging
+        self.__logger__.info(f"Calculating Gumbel distribution (location: {self._location_}, scale {self._scale_})")
 
-        super().__init__(channels, size)
-
-    def pdf(self, xy_grid: torch.Tensor) -> torch.Tensor:
-        """Calculate Gumbel distribution kernel.
-
-        Args:
-            xy_grid (torch.Tensor): XY coordinate grid made from convoluted data
-
-        Returns:
-            torch.Tensor: Gumbel distribution kernel
-        """
-        self._logger.info(f"Calculating Gumbel distribution (location: {self._location}, scale {self._scale})")
-
+        # Calculate Gumbel kernel
         return (
-            (1 / self._scale) * torch.exp(
+            (1 / self._scale_) * exp(
                 -(
-                    ((torch.sum(xy_grid - self._location, dim=-1)) / self._scale) +\
-                        (torch.exp(((torch.sum(xy_grid - self._location, dim=-1)) / self._scale)))
+                    ((sum(xy_grid - self._location_, dim=-1)) / self._scale_) +\
+                        (exp(((sum(xy_grid - self._location_, dim=-1)) / self._scale_)))
                 )
             )
         )

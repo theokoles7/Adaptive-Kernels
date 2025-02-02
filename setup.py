@@ -1,21 +1,37 @@
-"""Hi-Lo setup utility."""
+"""Adaptive Kernel setup utility."""
 
-import os
 from setuptools import find_packages, setup
 
 setup(
-    name =              "hi-lo",
+    name =              "adaptive-kernel",
     version =           "1.0.0",
-    author =            "Gabriel C. Trahan, Sahan Ahmad",
-    author_email =      "gabriel.trahan1@louisiana.edu, sahan.ahmad1@louisiana.edu",
+    author =            (
+                            "Gabriel C. Trahan, "
+                            "Mithun Ranjan Kar, "
+                            "Sahan Ahmad"
+                        ),
+    author_email =      (
+                            "gabriel.trahan1@louisiana.edu, "
+                            "mithun-ranjan.kar1@louisiana.edu, "
+                            "sahan.ahmad1@louisiana.edu"
+                        ),
     description =       (
-                        "Code package used to determine the efficacy of probability "
-                        "distributions on convolution of high and low resolution images. "
-                        "The code for this project is adapted from KernelSet (Sahan Ahmad), "
-                        "adapted from CBS (samarth Sihnha)."
+                            "Research and experimentation focused on exploring the intrinsic "
+                            "properties and effects of convolution neural network kernels on image "
+                            "processing tasks."
                         ),
     license =           "MIT",
-    url =               "https://github.com/theokoles7/HiLo-Resolution",
-    long_description =  open(os.path.join(os.path.dirname(__file__), "README.md")).read(),
-    packages =          find_packages()
+    url =               "https://github.com/theokoles7/Adaptive-Kernels",
+    packages =          find_packages(),
+    python_requires =   ">=3.10",
+    install_requires =  [
+        "matplotlib",
+        "numpy",
+        "pandas",
+        "scikit-learn",
+        "termcolor",
+        "torch",
+        "torchvision",
+        "tqdm"
+    ]
 )

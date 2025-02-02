@@ -1,95 +1,102 @@
 """Cifar 10 dataset and utilities."""
 
-import torch.utils.data as data, typing
-from torchvision    import datasets, transforms
+from logging                import Logger
+from typing                 import override
 
-from utils          import ARGS, LOGGER
+from torch.utils.data       import DataLoader
+from torchvision.datasets   import CIFAR10
+from torchvision.transforms import Compose, Normalize, Resize, ToTensor
 
-class Cifar10():
-    """The CIFAR-10 dataset (https://www.cs.toronto.edu/~kriz/cifar.html) consists 
-    of 60000 32x32 colour images in 10 classes, with 6000 images 
-    per class. There are 50000 training images and 10000 test images.
+from datasets.__base__      import Dataset
+from utils                  import LOGGER
+
+class Cifar10(Dataset):
+    """The CIFAR-10 dataset (https://www.cs.toronto.edu/~kriz/cifar.html) consists of 60000 32x32 
+    colour images in 10 classes, with 6000 images per class. There are 50000 training images and 
+    10000 test images.
     """
 
-    # Initialize logger
-    _logger =   LOGGER.getChild('cifar10-dataset')
+    @override
+    def __init__(self, 
+        batch_size: int,
+        data_path:  str =   "data",
+        **kwargs
+    ):
+        """# Initialize Cifar10 dataset loaders.
 
-    def __init__(self, path: str = ARGS.dataset_path, batch_size: int = ARGS.batch_size):
-        """Initialize Cifar10 dataset loaders.
-
-        Args:
-            path (str, optional): Path at which dataset is located/can be downloaded. Defaults to ARGS.dataset_path.
-            batch_size (int, optional): Dataset batch size. Defaults to ARGS.batch_size.
+        ## Args:
+            * batch_size    (int):              Dataset batch size.
+            * data_path     (str, optional):    Path at which dataset is located/can be downloaded. 
+                                                Defaults to "./data/".
         """
+        # Initialize parent class
+        super(Cifar10, self).__init__()
+        
+        # Initialize logger
+        self.__logger__:        Logger =        LOGGER.getChild('cifar10-dataset')
+        
         # Create transform
-        self._logger.info("Initializing transform")
-        transform = transforms.Compose([
-            transforms.Resize(32),
-            transforms.ToTensor(),
-            transforms.Normalize((0.5, 0.5, 0.5,), (0.5, 0.5, 0.5,))
-        ])
+        transform:              Compose =       Compose([
+                                                    # Resize images to 32x32 pixels
+                                                    Resize(32),
+                                                    
+                                                    # Convert images to PyTorch tensors
+                                                    ToTensor(),
+                                                    
+                                                    # Normalize pixel values
+                                                    Normalize((0.5, 0.5, 0.5,), (0.5, 0.5, 0.5,))
+                                                ])
 
-        # Verify train data
-        self._logger.info("Verifying/downloading train data")
-        train_data = datasets.CIFAR10(
-            root =          path,
-            download =      True,
-            train =         True,
-            transform =     transform
-        )
+        # Download/verify train data
+        train_data:             CIFAR10 =       CIFAR10(
+                                                    root =      data_path,
+                                                    download =  True,
+                                                    train =     True,
+                                                    transform = transform
+                                                )
 
-        # Verify test data
-        self._logger.info("Verifying/downloading test data")
-        test_data = datasets.CIFAR10(
-            root =          path,
-            download =      True,
-            train =         False,
-            transform =     transform
-        )
+        # Download/verify test data
+        test_data:              CIFAR10 =       CIFAR10(
+                                                    root =      data_path,
+                                                    download =  True,
+                                                    train =     False,
+                                                    transform = transform
+                                                )
 
         # Create training loader
-        self._logger.info("Creating train data loader.")
-        self.train_loader = data.DataLoader(
-            train_data,
-            batch_size =    batch_size,
-            pin_memory =    True,
-            num_workers =   4,
-            shuffle =       True,
-            drop_last =     True
-        )
+        self._train_loader_:    DataLoader =    DataLoader(
+                                                    dataset =       train_data,
+                                                    batch_size =    batch_size,
+                                                    pin_memory =    True,
+                                                    num_workers =   4,
+                                                    shuffle =       True,
+                                                    drop_last =     True
+                                                )
 
         # Create testing loader
-        self._logger.info("Creating test data loader.")
-        self.test_loader = data.DataLoader(
-            test_data,
-            batch_size =    batch_size,
-            pin_memory =    True,
-            num_workers =   4,
-            shuffle =       True,
-            drop_last =     False
-        )
+        self._test_loader_:     DataLoader =    DataLoader(
+                                                    dataset =       test_data,
+                                                    batch_size =    batch_size,
+                                                    pin_memory =    True,
+                                                    num_workers =   4,
+                                                    shuffle =       True,
+                                                    drop_last =     False
+                                                )
 
-        # Define parameters
-        self.num_classes =  10
-        self.channels_in =   3
-        self.dim =          32
+        # Define parameters (passed to model during initialization for layer dimensions)
+        self._num_classes_:     int =           10
+        self._channels_in_:     int =           3
+        self._dim_:             int =           32
 
-        self._logger.debug(f"DATASET: {self} | CLASSES: {self.num_classes} | CHANNELS: {self.channels_in} | DIM: {self.dim}")
-        self._logger.debug(f"TRAIN LOADER:\n{vars(self.train_loader)}")
-        self._logger.debug(f"TEST LOADER:\n{vars(self.test_loader)}")
-
-    def get_loaders(self) -> typing.Tuple[data.DataLoader, data.DataLoader]:
-        """Fetch data loaders.
-
-        Returns:
-            typing.Tuple[data.DataLoader, data.DataLoader]: Cifar10 train & test loaders
-        """
-        return self.train_loader, self.test_loader
+        # Log for debugging
+        self._logger.debug(f"DATASET: {self} | CLASSES: {self._num_classes_} | CHANNELS: {self._channels_in_} | DIM: {self._dim_}")
+        self._logger.debug(f"TRAIN LOADER:\n{vars(self._train_loader_)}")
+        self._logger.debug(f"TEST LOADER:\n{vars(self._test_loader_)}")
     
     def __str__(self) -> str:
-        """Provide string format of Cifar10 dataset object.
+        """# Provide string format of Cifar10 dataset object.
 
-        Returns:
-            str: String format of Cifar10 dataset
+        ## Returns:
+            * str:  String format of Cifar10 dataset
         """
-        return f"Cifar10 dataset ({self.num_classes} classes)"
+        return f"Cifar10 dataset ({self._num_classes_} classes)"

@@ -1,96 +1,100 @@
 """MNIST dataset and utilities."""
 
-import torch.utils.data as data, typing
-from torchvision    import datasets, transforms
+from logging                import Logger
+from typing                 import override
 
-from utils          import ARGS, LOGGER
+from torch.utils.data       import DataLoader
+from torchvision.datasets   import MNIST
+from torchvision.transforms import Compose, Normalize, ToTensor
 
-class MNIST():
-    """The MNIST (http://yann.lecun.com/exdb/mnist/) database of 
-    handwritten digits, available from this page, has a training set of 
-    60,000 examples, and a test set of 10,000 examples. It is a 
-    subset of a larger set available from NIST. The digits have been 
-    size-normalized and centered in a fixed-size image.
+from datasets.__base__      import Dataset
+from utils                  import LOGGER
+
+class MNIST(Dataset):
+    """The MNIST (http://yann.lecun.com/exdb/mnist/) database of handwritten digits, available from 
+    this page, has a training set of 60,000 examples, and a test set of 10,000 examples. It is a 
+    subset of a larger set available from NIST. The digits have been size-normalized and centered 
+    in a fixed-size image.
     """
 
-    # Initialize logger
-    _logger = LOGGER.getChild('mnist-dataset')
+    @override
+    def __init__(self, 
+        batch_size: int,
+        data_path:  str =   "data",
+        **kwargs
+    ):
+        """# Initialize MNIST dataset loaders.
 
-    def __init__(self, path: str = ARGS.dataset_path, batch_size: int = ARGS.batch_size):
-        """Initialize MNIST dataset loaders.
-
-        Args:
-            path (str, optional): Path at which dataset is located/can be downloaded. Defaults to ARGS.dataset_path.
-            batch_size (int, optional): Dataset batch size. Defaults to ARGS.batch_size.
+        ## Args:
+            * batch_size    (int):              Dataset batch size.
+            * data_path     (str, optional):    Path at which dataset is located/can be downloaded. 
+                                                Defaults to "./data/".
         """
-        # Create transform for loaders
-        self._logger.info("Initializing transform.")
-        transform = transforms.Compose([
-            transforms.ToTensor(),
-            transforms.Normalize((0.5,), (0.5,))
-        ])
+        # Initialize parent class
+        super(MNIST, self).__init__()
+        
+        # Initialize logger
+        self.__logger__:        Logger =        LOGGER.getChild("mnist-dataset")
+        
+        # Create transform
+        transform:              Compose =       Compose([
+                                                    # Convert images to PyTorch tensors
+                                                    ToTensor(),
+                                                    
+                                                    # Normalize pixel values
+                                                    Normalize((0.5,), (0.5,))
+                                                ])
 
-        # Verify train data
-        self._logger.info("Verifying/downloading train data.")
-        train_data = datasets.MNIST(
-            root =          path,
-            download =      True,
-            train =         True,
-            transform =     transform
-        )
+        # Download/verify train data
+        train_data:             MNIST =         MNIST(
+                                                    root =      data_path,
+                                                    download =  True,
+                                                    train =     True,
+                                                    transform = transform
+                                                )
 
-        # Verify test data
-        self._logger.info("Verifying/downloading test data.")
-        test_data = datasets.MNIST(
-            root =          path,
-            download =      True,
-            train =         False,
-            transform =     transform
-        )
+        # Download/verify test data
+        test_data:              MNIST =         MNIST(
+                                                    root =      data_path,
+                                                    download =  True,
+                                                    train =     False,
+                                                    transform = transform
+                                                )
 
         # Create training loader
-        self._logger.info("Creating train data loader.")
-        self.train_loader = data.DataLoader(
-            train_data,
-            batch_size =    batch_size,
-            pin_memory =    True,
-            num_workers =   4,
-            shuffle =       True,
-            drop_last =     True
-        )
+        self._train_loader_:    DataLoader =    DataLoader(
+                                                    dataset =       train_data,
+                                                    batch_size =    batch_size,
+                                                    pin_memory =    True,
+                                                    num_workers =   4,
+                                                    shuffle =       True,
+                                                    drop_last =     True
+                                                )
 
         # Create testing loader
-        self._logger.info("Creating test data loader.")
-        self.test_loader = data.DataLoader(
-            test_data,
-            batch_size =    batch_size,
-            pin_memory =    True,
-            num_workers =   4,
-            shuffle =       True,
-            drop_last =     False
-        )
+        self._test_loader_:     DataLoader =    DataLoader(
+                                                    dataset =       test_data,
+                                                    batch_size =    batch_size,
+                                                    pin_memory =    True,
+                                                    num_workers =   4,
+                                                    shuffle =       True,
+                                                    drop_last =     False
+                                                )
 
-        # Define parameters
-        self.num_classes =  10
-        self.channels_in =   1
-        self.dim =          16
+        # Define parameters (passed to model during initialization for layer dimensions)
+        self._num_classes_:     int =           10
+        self._channels_in_:     int =           1
+        self._dim_:             int =           16
 
-        self._logger.debug(f"DATASET: {self} | CLASSES: {self.num_classes} | CHANNELS: {self.channels_in} | DIM: {self.dim}")
-        self._logger.debug(f"TRAIN LOADER:\n{vars(self.train_loader)}")
-        self._logger.debug(f"TEST LOADER:\n{vars(self.test_loader)}")
-
-    def get_loaders(self) -> typing.Tuple[data.DataLoader, data.DataLoader]:
-        """Fetch data loaders.
-
-        Returns:
-            typing.Tuple[data.DataLoader, data.DataLoader]: MNIST train & test loaders
-        """
-        return self.train_loader, self.test_loader
+        # Log for debugging
+        self._logger.debug(f"DATASET: {self} | CLASSES: {self._num_classes_} | CHANNELS: {self._channels_in_} | DIM: {self._dim_}")
+        self._logger.debug(f"TRAIN LOADER:\n{vars(self._train_loader_)}")
+        self._logger.debug(f"TEST LOADER:\n{vars(self._test_loader_)}")
     
     def __str__(self) -> str:
-        """Provide string format of MNIST dataset object.
+        """# Provide string format of MNIST dataset object.
 
-        Returns:
-            str: String format of MNIST dataset
+        ## Returns:
+            * str:  String format of MNIST dataset
         """
-        return f"MNIST dataset ({self.num_classes} classes)"
+        return f"MNIST dataset ({self._num_classes_} classes)"

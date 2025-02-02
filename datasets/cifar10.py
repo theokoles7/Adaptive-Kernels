@@ -1,5 +1,6 @@
 """Cifar 10 dataset and utilities."""
 
+from json                   import dumps
 from logging                import Logger
 from typing                 import override
 
@@ -30,7 +31,7 @@ class Cifar10(Dataset):
                                                 Defaults to "./data/".
         """
         # Initialize parent class
-        super(Cifar10, self).__init__()
+        super(Cifar10, self)
         
         # Initialize logger
         self.__logger__:        Logger =        LOGGER.getChild('cifar10-dataset')
@@ -46,6 +47,7 @@ class Cifar10(Dataset):
                                                     # Normalize pixel values
                                                     Normalize((0.5, 0.5, 0.5,), (0.5, 0.5, 0.5,))
                                                 ])
+        self.__logger__.debug(f"Initialized data transform:\n{dumps(vars(transform), indent = 2, default = str)}")
 
         # Download/verify train data
         train_data:             CIFAR10 =       CIFAR10(
@@ -54,6 +56,7 @@ class Cifar10(Dataset):
                                                     train =     True,
                                                     transform = transform
                                                 )
+        self.__logger__.debug(f"Initialized training data:\n{dumps(vars(train_data), indent = 2, default = str)}")
 
         # Download/verify test data
         test_data:              CIFAR10 =       CIFAR10(
@@ -62,6 +65,7 @@ class Cifar10(Dataset):
                                                     train =     False,
                                                     transform = transform
                                                 )
+        self.__logger__.debug(f"Initialized testing data:\n{dumps(vars(test_data), indent = 2, default = str)}")
 
         # Create training loader
         self._train_loader_:    DataLoader =    DataLoader(
@@ -72,6 +76,7 @@ class Cifar10(Dataset):
                                                     shuffle =       True,
                                                     drop_last =     True
                                                 )
+        self.__logger__.debug(f"Initialized training data loader:\n{dumps(vars(self._train_loader_), indent = 2, default = str)}")
 
         # Create testing loader
         self._test_loader_:     DataLoader =    DataLoader(
@@ -82,16 +87,13 @@ class Cifar10(Dataset):
                                                     shuffle =       True,
                                                     drop_last =     False
                                                 )
+        self.__logger__.debug(f"Initialized testing data loader:\n{dumps(vars(self._test_loader_), indent = 2, default = str)}")
 
         # Define parameters (passed to model during initialization for layer dimensions)
         self._num_classes_:     int =           10
         self._channels_in_:     int =           3
         self._dim_:             int =           32
-
-        # Log for debugging
-        self._logger.debug(f"DATASET: {self} | CLASSES: {self._num_classes_} | CHANNELS: {self._channels_in_} | DIM: {self._dim_}")
-        self._logger.debug(f"TRAIN LOADER:\n{vars(self._train_loader_)}")
-        self._logger.debug(f"TEST LOADER:\n{vars(self._test_loader_)}")
+        self.__logger__.debug(f"Attributes defined: _num_classes_ = {self._num_classes_}, _channels_in_ = {self._channels_in_}, _dim_ = {self._dim_}")
     
     def __str__(self) -> str:
         """# Provide string format of Cifar10 dataset object.

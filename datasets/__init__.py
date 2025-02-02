@@ -9,12 +9,17 @@ from datasets.mnist     import MNIST
 
 def load_dataset(
     dataset:    str,
+    batch_size: int =   64,
+    data_path:  str =   "data",
     **kwargs
 ) -> Dataset:
     """# Load specified dataset.
 
     ## Args:
-        * dataset   (str):  Dataset selection.
+        * dataset       (str):              Dataset selection.
+        * batch_size    (int, optional):    Dataset batch size. Defaults to 64.
+        * data_path     (str, optional):    Path at which dataset will be downloaded/loaded. 
+                                            Defaults to "./data/".
 
     ## Returns:
         * Dataset:  Selected dataset, initialized and ready for training.
@@ -23,16 +28,16 @@ def load_dataset(
     match dataset:
         
         # Cifar-10
-        case "cifar10":     return Cifar10(**kwargs)
+        case "cifar10":     return Cifar10(**locals())
         
         # Cifar-100
-        case "cifar100":    return Cifar100(**kwargs)
+        case "cifar100":    return Cifar100(**locals())
         
         # ImageNet
-        case "imagenet":    return ImageNet(**kwargs)
+        case "imagenet":    return ImageNet(**locals())
         
         # MNIST
-        case "mnist":       return MNIST(**kwargs)
+        case "mnist":       return MNIST(**locals())
         
         # Invalid selection
         case _:             raise NotImplementedError(f"Invalid dataset selection: {dataset}")

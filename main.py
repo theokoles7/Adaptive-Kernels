@@ -1,39 +1,28 @@
 """Drive application."""
 
-import os, traceback
-
+from commands   import run_experiment, run_job
 from utils      import ARGS, BANNER, LOGGER
 
 if __name__ == '__main__':
+    """Execute application command."""
 
-    try:
-        # Print lab banner
+    try:# Print lab banner
         LOGGER.info(BANNER)
 
         # Match command
         match ARGS.cmd:
 
-            # Initialize results file
-            case "init-results":    
-                from commands       import init_results
-                init_results()
-
             # Run experiment
-            case "run-experiment":  
-                from commands       import run_experiment
-                run_experiment()
+            case "run-experiment":  run_experiment(**vars(ARGS))
 
             # Run job
-            case "run-job":
-                from commands.job   import Job
-                Job().run()
+            case "run-job":         run_job(**vars(ARGS))
 
-    except KeyboardInterrupt:
-        LOGGER.critical("Keyboard interrupt detected. Aborting operations.")
+    # Exit gracefully on keyboard interruptions
+    except KeyboardInterrupt:   LOGGER.critical("Keyboard interrupt detected. Aborting operations.")
 
-    except Exception as e:
-        LOGGER.error(f"An error occured: {e}")
-        traceback.print_exc()
+    # Log errors that are not accounted for
+    except Exception as e:      LOGGER.error(f"An error occured: {e}", exc_info = True)
 
-    finally:
-        LOGGER.info("Exiting...")
+    # Exit gracefully
+    finally:                    LOGGER.info("Exiting...")

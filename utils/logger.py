@@ -1,33 +1,29 @@
 """Logging utilities."""
 
-import datetime, logging, os, sys
+__all__ = ["LOGGER"]
 
-from utils  import ARGS
+from logging            import getLogger, Formatter, Logger, StreamHandler
+from logging.handlers   import RotatingFileHandler
+from os                 import makedirs
+from sys                import stdout
+
+from utils.arguments    import ARGS
+
+# Ensure that logging path exists
+makedirs(f"{ARGS.logging_path}/{ARGS.model}/{ARGS.dataset}", exist_ok = True)
 
 # Initialize logger
-LOGGER =        logging.getLogger("hilo")
+LOGGER:         Logger =                getLogger("adaptive-kernel")
 
 # Set logging level
 LOGGER.setLevel(ARGS.logging_level)
 
-# Ensure that logging_path exists
-os.makedirs(
-    ARGS.logging_path if ARGS.cmd != "run-job"
-    else f"{ARGS.logging_path}/{ARGS.model}/{ARGS.dataset}/{ARGS.distribution}{f'/{ARGS.kernel_type}' if ARGS.distribution else ''}",
-    exist_ok =  True
-)
-
 # Define console handler
-stdout_handler =    logging.StreamHandler(sys.stdout)
-stdout_handler.setLevel(ARGS.logging_level)
-stdout_handler.setFormatter(logging.Formatter('%(asctime)s | %(levelname)s | %(name)s : %(message)s'))
+stdout_handler: StreamHandler =         StreamHandler(stdout)
+stdout_handler.setFormatter(Formatter("%(levelname)s | %(name)s | %(message)s"))
 LOGGER.addHandler(stdout_handler)
 
 # Define file handler
-file_handler =      logging.FileHandler(
-    f"{ARGS.logging_path}/{ARGS.cmd}.log" if ARGS.cmd != "run-job"
-    else f"{ARGS.logging_path}/{ARGS.model}/{ARGS.dataset}/{ARGS.distribution}{f'/{ARGS.kernel_type}' if ARGS.distribution else ''}/{datetime.datetime.now().strftime('%Y%m%d_%H%M%S')}.log"
-)
-file_handler.setLevel(ARGS.logging_level)
-file_handler.setFormatter(logging.Formatter('%(asctime)s | %(levelname)s | %(name)s : %(message)s'))
+file_handler:   RotatingFileHandler =   RotatingFileHandler(f"{ARGS.logging_path}/{ARGS.model}/{ARGS.dataset}/{ARGS.kernel if ARGS.kernel else 'control'}.log", maxBytes = 1048576, backupCount = 3)
+file_handler.setFormatter(Formatter("%(asctime)s | %(levelname)s | %(name)s | %(message)s"))
 LOGGER.addHandler(file_handler)

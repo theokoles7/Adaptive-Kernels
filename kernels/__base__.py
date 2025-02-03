@@ -9,7 +9,7 @@ from torch.nn   import Conv2d
 from utils      import LOGGER
 
 class Kernel(Conv2d):
-    """Base Kernel class."""
+    """# Base Kernel class."""
     
     __kernel_groups__:  dict =  {
         1:  ['top-left',    'bottom-right'],

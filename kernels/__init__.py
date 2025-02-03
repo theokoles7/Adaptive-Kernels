@@ -14,7 +14,7 @@ def load_kernel(
     """# Load specified kernel.
 
     ## Args:
-        * kernel    (str):  Kernel selection.
+        * kernel    (str):              Kernel selection.
 
     ## Returns:
         * Kernel:   Selected kernel, initialized and ready for convolving.

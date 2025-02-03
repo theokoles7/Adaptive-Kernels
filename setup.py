@@ -28,10 +28,10 @@ setup(
                             "matplotlib",
                             "numpy",
                             "pandas",
-                            "rich",
                             "scikit-learn",
                             "termcolor",
                             "torch",
-                            "torchvision"
+                            "torchvision",
+                            "tqdm"
                         ]
 )

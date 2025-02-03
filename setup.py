@@ -25,13 +25,13 @@ setup(
     packages =          find_packages(),
     python_requires =   ">=3.10",
     install_requires =  [
-        "matplotlib",
-        "numpy",
-        "pandas",
-        "scikit-learn",
-        "termcolor",
-        "torch",
-        "torchvision",
-        "tqdm"
-    ]
+                            "enlighten",
+                            "matplotlib",
+                            "numpy",
+                            "pandas",
+                            "scikit-learn",
+                            "termcolor",
+                            "torch",
+                            "torchvision"
+                        ]
 )

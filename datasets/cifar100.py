@@ -92,10 +92,10 @@ class Cifar100(Dataset):
         self.__logger__.debug(f"Initialized testing data loader:\n{dumps(vars(self._test_loader_), indent = 2, default = str)}")
 
         # Define parameters (passed to model during initialization for layer dimensions)
-        self._num_classes_:     int =           100
-        self._channels_in_:     int =           3
-        self._dim_:             int =           32
-        self.__logger__.debug(f"Attributes defined: _num_classes_ = {self._num_classes_}, _channels_in_ = {self._channels_in_}, _dim_ = {self._dim_}")
+        self._classes_:     int =           100
+        self._channels_:    int =           3
+        self._dimension_:   int =           32
+        self.__logger__.debug(f"Attributes defined: _num_classes_ = {self._classes_}, _channels_in_ = {self._channels_}, _dim_ = {self._dimension_}")
     
     def __str__(self) -> str:
         """# Provide string format of Cifar100 dataset object.
@@ -103,4 +103,4 @@ class Cifar100(Dataset):
         ## Returns:
             * str:  String format of Cifar100 dataset
         """
-        return f"Cifar100 dataset ({self._num_classes_} classes)"
+        return f"Cifar100 dataset ({self._classes_} classes)"

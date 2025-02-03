@@ -88,10 +88,10 @@ class MNIST(Dataset):
         self.__logger__.debug(f"Initialized testing data loader:\n{dumps(vars(self._test_loader_), indent = 2, default = str)}")
 
         # Define parameters (passed to model during initialization for layer dimensions)
-        self._num_classes_:     int =           10
-        self._channels_in_:     int =           1
-        self._dim_:             int =           16
-        self.__logger__.debug(f"Attributes defined: _num_classes_ = {self._num_classes_}, _channels_in_ = {self._channels_in_}, _dim_ = {self._dim_}")
+        self._classes_:     int =           10
+        self._channels_:    int =           1
+        self._dimension_:   int =           16
+        self.__logger__.debug(f"Attributes defined: _num_classes_ = {self._classes_}, _channels_in_ = {self._channels_}, _dim_ = {self._dimension_}")
     
     def __str__(self) -> str:
         """# Provide string format of MNIST dataset object.
@@ -99,4 +99,4 @@ class MNIST(Dataset):
         ## Returns:
             * str:  String format of MNIST dataset
         """
-        return f"MNIST dataset ({self._num_classes_} classes)"
+        return f"MNIST dataset ({self._classes_} classes)"

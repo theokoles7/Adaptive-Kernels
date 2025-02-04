@@ -13,7 +13,7 @@
 for dataset in cifar10 cifar100 imagenet mnist
 do
     # kernel...
-    for distribution in cauchy gaussian gumbel laplace poisson
+    for distribution in cauchy gaussian gumbel laplace
     do
         # and kernel type...
         for kernel_type in $(seq 1 14);

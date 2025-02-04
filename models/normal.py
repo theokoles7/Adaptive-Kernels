@@ -1,131 +1,198 @@
 """Basic CNN model."""
 
-import pandas as pd, torch, torch.nn as nn, torch.nn.functional as F
+from logging                import Logger
 
-from kernels    import get_kernel
-from utils      import ARGS, LOGGER
+from pandas                 import DataFrame
+from torch                  import mean, no_grad, std, Tensor
+from torch.nn               import Conv2d, Linear, MaxPool2d, Module
+from torch.nn.functional    import relu
 
-class NormalCNN(nn.Module):
+from kernels                import load_kernel
+from utils                  import LOGGER
+
+class NormalCNN(Module):
     """Basic CNN model."""
 
-    # Initialize logger
-    _logger =       LOGGER.getChild('normal-cnn')
-
     # Initialize layer-data file
-    _model_data =   pd.DataFrame(columns = [
+    _model_data =   DataFrame(columns = [
         'Data-STD',  'Layer 1-STD',  'Layer 2-STD',  'Layer 3-STD',  'Layer 4-STD',
         'Data-Mean', 'Layer 1-MEAN', 'Layer 2-MEAN', 'Layer 3-MEAN', 'Layer 4-MEAN'
     ])
 
-    def __init__(self, channels_in: int, channels_out: int, dim: int):
-        """Initialize Normal CNN model.
+    def __init__(self,
+        channels_in:    int, 
+        channels_out:   int, 
+        dim:            int,
+        kernel:         str =   None,
+        location:       float = 0.0,
+        scale:          float = 1.0,
+        **kwargs
+    ):
+        """# Initialize Normal CNN model.
 
-        Args:
-            channels_in (int): Input channels
-            channels_out (int): Output channels
-            dim (int): Dimension of image (relevant for reshaping, post-convolution)
+        ## Args:
+            * channels_in   (int):              Input channels.
+            * channels_out  (int):              Output channels.
+            * dim           (int):              Dimension of image (relevant for reshaping, post-convolution).
+            * kernel        (str, optional):    Kernel with which model will be set.
+            * location      (float, optional):  Distribution location parameter. Defaults to 0.0.
+            * scale         (float, optional):  Distribution scale parameter. Defaults to 1.0.
         """
+        # Initialize parent class
         super(NormalCNN, self).__init__()
+        
+        # Initialize logger
+        self.__logger__:    Logger =    LOGGER.getChild('normal-cnn')
 
         # Initialize distribution parameters
-        self.location =     [(ARGS.location if ARGS.distribution != "poisson" else ARGS.rate) if ARGS.distribution else 0.0]*5
-        self.scale =        [ARGS.scale if ARGS.distribution else 1.0]*5
+        self._kernel_:      str =           kernel
+        self._locations_:   list[float] =   [location]*5
+        self._scales_:      list[float] =   [scale]*5
 
         # Convolving layers
-        self.conv1 =        nn.Conv2d(  channels_in,  32, kernel_size=3, padding=1)
-        self.conv2 =        nn.Conv2d(           32,  64, kernel_size=3, padding=1)
-        self.conv3 =        nn.Conv2d(           64, 128, kernel_size=3, padding=1)
-        self.conv4 =        nn.Conv2d(          128, 256, kernel_size=3, padding=1)
+        self._conv1_:       Conv2d =        Conv2d(channels_in,  32, kernel_size=3, padding=1)
+        self._conv2_:       Conv2d =        Conv2d(         32,  64, kernel_size=3, padding=1)
+        self._conv3_:       Conv2d =        Conv2d(         64, 128, kernel_size=3, padding=1)
+        self._conv4_:       Conv2d =        Conv2d(        128, 256, kernel_size=3, padding=1)
 
         # Max pooling layers
-        self.pool1 =        nn.MaxPool2d(kernel_size=2, stride=2)
-        self.pool2 =        nn.MaxPool2d(kernel_size=2, stride=2)
-        self.pool3 =        nn.MaxPool2d(kernel_size=2, stride=2)
-        self.pool4 =        nn.MaxPool2d(kernel_size=2, stride=2)
+        self._pool1_:       MaxPool2d =     MaxPool2d(kernel_size=2, stride=2)
+        self._pool2_:       MaxPool2d =     MaxPool2d(kernel_size=2, stride=2)
+        self._pool3_:       MaxPool2d =     MaxPool2d(kernel_size=2, stride=2)
+        self._pool4_:       MaxPool2d =     MaxPool2d(kernel_size=2, stride=2)
 
         # FC layer
-        self.fc =           nn.Linear(dim**2, 1024)
+        self._fc_:          Linear =        Linear(dim**2, 1024)
 
         # Classifier
-        self.classifier =   nn.Linear(1024, channels_out)
+        self._classifier_:  Linear =        Linear(1024, channels_out)
 
-    def forward(self, X: torch.Tensor) -> torch.Tensor:
-        """Feed input through network and produce output.
+    def forward(self,
+        X:  Tensor
+    ) -> Tensor:
+        """# Feed input through network and produce output.
 
-        Args:
-            X (torch.Tensor): Input tensor
+        ## Args:
+            * X (Tensor):   Input tensor.
 
-        Returns:
-            torch.Tensor: Output tensor
+        ## Returns:
+            * Tensor:   Output tensor.
         """
         # INPUT LAYER =============================================================================
-        self._logger.debug(f"Input shape: {X.shape}")
+        # Log input tensor shape for debugging
+        self.__logger__.debug(f"Input shape: {X.shape}")
 
-        with torch.no_grad(): 
+        # Without taking gradients...
+        with no_grad():
+            
+            # Convert tensor to float values
             y = X.float()
-            self.location[0], self.scale[0] = torch.mean(y).item(), torch.std(y).item()
+            
+            # Calculate mean & standard deviation of layer output
+            self._locations_[0], self._scales_[0] = mean(y).item(), std(y).item()
 
         # LAYER 1 =================================================================================
-        x1 =    self.conv1(X)
+        # Pass through first convolving layer
+        x1:     Tensor =    self._conv1_(X)
 
-        self._logger.debug(f"Layer 1 shape: {x1.shape}")
+        # Log first layer output for debugging
+        self.__logger__.debug(f"Layer 1 output shape: {x1.shape}")
 
-        with torch.no_grad(): 
-            y = x1.float()
-            self.location[1], self.scale[1] = torch.mean(y).item(), torch.std(y).item()
+        # Without taking gradients...
+        with no_grad(): 
+            
+            # Convert tensor to float values
+            y:  Tensor =    x1.float()
+            
+            # Calculate mean & standard deviation of layer output
+            self._locations_[1], self._scales_[1] = mean(y).item(), std(y).item()
 
         # LAYER 2 =================================================================================
-        x2 =    self.conv2(F.relu(self.pool1(self.kernel1(x1) if ARGS.distribution else x1)))
+        # Pass through second convolving layer
+        x2:     Tensor =    self._conv2_(relu(self._pool1_(self._kernel1_(x1) if self._kernel_ is not None else x1)))
 
-        self._logger.debug(f"Layer 2 shape: {x2.shape}")
+        # Log second layer output for debugging
+        self.__logger__.debug(f"Layer 2 output shape: {x2.shape}")
 
-        with torch.no_grad(): 
-            y = x2.float()
-            self.location[2], self.scale[2] = torch.mean(y).item(), torch.std(y).item()
+        # Without taking gradients...
+        with no_grad(): 
+            
+            # Convert tensor to float values
+            y:  Tensor =    x2.float()
+            
+            # Calculate mean & standard deviation of layer output
+            self._locations_[2], self._scales_[2] = mean(y).item(), std(y).item()
 
         # LAYER 3 =================================================================================
-        x3 =    self.conv3(F.relu(self.pool2(self.kernel2(x2) if ARGS.distribution else x2)))
+        # Pass through third convolving layer
+        x3:     Tensor =    self._conv3_(relu(self._pool2_(self._kernel2_(x2) if self._kernel_ is not None else x2)))
 
-        self._logger.debug(f"Layer 3 shape: {x3.shape}")
+        # Log third layer output for debugging
+        self.__logger__.debug(f"Layer 3 output shape: {x3.shape}")
 
-        with torch.no_grad(): 
-            y = x3.float()
-            self.location[3], self.scale[3] = torch.mean(y).item(), torch.std(y).item()
+        # Without taking gradients...
+        with no_grad(): 
+            
+            # Convert tensor to float values
+            y:  Tensor =    x3.float()
+            
+            # Calculate mean & standard deviation of layer output
+            self._locations_[3], self._scales_[3] = mean(y).item(), std(y).item()
 
         # LAYER 4 =================================================================================
-        x4 =    self.conv4(F.relu(self.pool3(self.kernel3(x3) if ARGS.distribution else x3)))
+        # Pass through third convolving layer
+        x4:     Tensor =    self._conv4_(relu(self._pool3_(self._kernel3_(x3) if self._kernel_ is not None else x3)))
 
-        self._logger.debug(f"Layer 4 shape: {x4.shape}")
+        # Log third layer output for debugging
+        self.__logger__.debug(f"Layer 4 shape: {x4.shape}")
 
-        with torch.no_grad(): 
-            y = x4.float()
-            self.location[4], self.scale[4] = torch.mean(y).item(), torch.std(y).item()
+        # Without taking gradients...
+        with no_grad(): 
+            
+            # Convert tensor to float values
+            y:  Tensor =    x4.float()
+            
+            # Calculate mean & standard deviation of layer output
+            self._locations_[4], self._scales_[4] = mean(y).item(), std(y).item()
 
         # OUTPUT LAYER ============================================================================
-        output =    F.relu(self.pool4(self.kernel4(x4) if ARGS.distribution else x4))
+        output: Tensor =    relu(self._pool4_(self._kernel4_(x4) if self._kernel_ is not None else x4))
 
-        self._logger.debug(f"Output shape: {output.shape}")
+        self.__logger__.debug(f"Output shape: {output.shape}")
 
-        # Record parameters in data file if training
-        if self.training: self.record_params()
+        # # Record parameters in data file if training
+        # if self.training: self.record_params()
 
         # Return classified output
-        return self.classifier(F.relu(self.fc(output.view(output.size(0), -1))))
+        return self._classifier_(relu(self._fc_(output.view(output.size(0), -1))))
     
-    def set_kernels(self, epoch: int) -> None:
-        """Create/update kernels.
+    def set_kernels(self,
+        epoch:      int,
+        size:       int
+    ) -> None:
+        """# Create/update kernels.
 
-        Args:
-            epoch (int): Current epoch number
+        ## Args:
+            * epoch (int):  Epoch during which kernels are being set.
+            * size  (int):  Size with which kernels will be created.
         """
-        self._logger.debug(f"EPOCH {epoch} locations: {self.location}")
-        self._logger.debug(f"EPOCH {epoch} scales:    {self.scale}")
+        # Log for debugging
+        self.__logger__.debug(f"EPOCH {epoch} locations: {self._locations_}, scales: {self._scales_}")
 
         # Set kernels
-        self.kernel1 = get_kernel(ARGS.distribution, ARGS.kernel_size,  32, location=self.location[0], scale=self.scale[0], rate=self.location[0])
-        self.kernel2 = get_kernel(ARGS.distribution, ARGS.kernel_size,  64, location=self.location[1], scale=self.scale[1], rate=self.location[1])
-        self.kernel3 = get_kernel(ARGS.distribution, ARGS.kernel_size, 128, location=self.location[2], scale=self.scale[2], rate=self.location[2])
-        self.kernel4 = get_kernel(ARGS.distribution, ARGS.kernel_size, 256, location=self.location[3], scale=self.scale[3], rate=self.location[3])
+        for kernel, channel_size, location, scale in zip(
+            ["_kernel1_", "_kernel2_", "_kernel3_", "_kernel4_"],
+            [32, 64, 128, 256],
+            self._locations_,
+            self._scales_
+        ):
+            self.__setattr__(name = kernel, value = load_kernel(
+                kernel =    self._kernel_,
+                size =      size,
+                channels =  channel_size,
+                location =  location,
+                scale =     scale
+            ))
 
     def record_params(self) -> None:
         """Record mean & standard deviation of layers in model data file."""
@@ -140,5 +207,5 @@ class NormalCNN(nn.Module):
         Args:
             file_path (str): Path at which data file (CSV) will be written
         """
-        self._logger.info(f"Saving model layer data to {file_path}")
+        self.__logger__.info(f"Saving model layer data to {file_path}")
         self._model_data.to_csv(file_path)

@@ -82,6 +82,8 @@ def run_job(
     # Extract data loaders
     _train_, _test_ =                   _dataset_.get_loaders()
     
+    print(f"Initializing model with kernel: {locals()}")
+    
     # Load model
     _model_:                Module =    load_model(
                                             channels_in =   _dataset_.channels(),
@@ -122,6 +124,9 @@ def run_job(
     
     # For each epoch prescribed
     for epoch in range(1, epochs + 1):
+        
+        # Set new kernels if using distribution kernel
+        if kernel is not None: _model_.set_kernels(epoch = epoch, size = size)
         
         # Initialize progress bar
         with tqdm(

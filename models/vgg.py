@@ -2,7 +2,7 @@
 
 import pandas as pd, torch, torch.nn as nn, torch.nn.functional as F
 
-from kernels    import get_kernel
+from kernels                import load_kernel
 from utils      import ARGS, LOGGER
 
 class VGG(nn.Module):

@@ -1,4 +1,4 @@
-# Efficacy of Probability Distribution Against High/Low Resolution Images
+# Adaptive Kernel
 Work based on *Adaptive Kernel Selection* (Dr. Sahan Ahmad)
 
 ## Table of Contents
@@ -38,12 +38,11 @@ python main.py run-job {MODEL} {DATASET} [--kernel_type {KERNEL_TYPE}] [OPTIONS]
 ```
 * Model choices: `normal`, `resnet`, or `vgg`
 * Dataset choices: `cifar10`, `cifar100`, `imagenet`, `mnist`
-* Kernel distribution choices: `cauchy`, `gaussian`, `gumbel`, `laplace`, `poisson`
+* Kernel distribution choices: `cauchy`, `gaussian`, `gumbel`, `laplace`
     * Jobs can be run with no kernel
     * For each kernel, there are additional options:
         * `--location`: Distribution location parameter (Cauchy, Gaussian, Gumbel, & Laplace)
         * `--scale`: Distribution scale parameter (Cauchy, Gaussian, Gumbel, & Laplace)
-        * `--rate`: Poisson rate parameter
 * Job options:
     * Model:
         * `--learning_rate`, `-lr`: Optimizer learning rate. Defaults to 0.1.
@@ -65,7 +64,7 @@ Experiment can be run using the `run-experiment` command, using one of the follo
 * `--control`: Runs control experiments (no argument required, as this is a simple flag)
 * `--by_model`: Runs experiments with choice of model (choices are `normal`, `resnet`, or `vgg`)
 * `--by_dataset`: Runs experiments with choice of dataset (choices are `cifar10`, `cifar100`, `imagenet`, `mnist`)
-* `--by_kernel`: Runs experiments with choice of kernel distribution (choices are `cauchy`, `gaussian`, `gumbel`, `laplace`, `poisson`)
+* `--by_kernel`: Runs experiments with choice of kernel distribution (choices are `cauchy`, `gaussian`, `gumbel`, `laplace`)
 
 ### Universal Options
 
@@ -87,8 +86,6 @@ Experiment can be run using the `run-experiment` command, using one of the follo
 #### Gumbel
 
 #### Laplace
-
-#### Poisson
 
 ### Datasets
 

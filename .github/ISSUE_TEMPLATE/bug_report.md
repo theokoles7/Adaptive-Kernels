@@ -27,7 +27,6 @@ A clear and concise description of what the bug is.
 - [ ] Gaussian
 - [ ] Gumbel
 - [ ] Laplace
-- [ ] Poisson
 
 ### Kernel Type (1-14):
 

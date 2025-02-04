@@ -2,9 +2,9 @@
 
 import pandas as pd, torch, torch.nn as nn, torch.nn.functional as F
 
-from kernels    import get_kernel
+from kernels                import load_kernel
 from utils      import ARGS, LOGGER
-from models     import ResnetBlock
+from models.resnet_block     import ResnetBlock
 
 class Resnet(nn.Module):
     """Resnet 18 model."""

@@ -70,7 +70,7 @@ def run_job(
             * test_loss:                        Loss incured during testing phase.
     """
     # Initialize logger
-    __logger__:             Logger =    LOGGER.getChild("job-process")
+    __logger__:             Logger =    LOGGER.getChild(suffix = "job-process")
     
     # Ensure output path exists
     makedirs(name = f"{output_path}/{model}/{dataset}/{kernel if kernel else 'control'}", exist_ok = True)

@@ -1,92 +1,150 @@
 """Resnet model block."""
 
-import torch, torch.nn as nn, torch.nn.functional as F
+from logging                import Logger
+
+from torch                  import mean, no_grad, std, Tensor
+from torch.nn               import BatchNorm2d, Conv2d, Module, Sequential
+from torch.nn.functional    import relu
 
 from kernels                import load_kernel
-from utils      import ARGS, LOGGER
+from utils                  import ARGS, LOGGER
 
-class ResnetBlock(nn.Module):
+class ResnetBlock(Module):
     """Block component for Resnet Model."""
 
-    # Initialize logger
-    _logger =       LOGGER.getChild('resnet-block')
+    def __init__(self, 
+        channels_in:    int, 
+        channels_out:   int, 
+        stride:         int,
+        kernel:         str =   None,
+        location:       float = 0.0,
+        scale:          float = 1.0,
+    ):
+        """# Initialize Resnet block.
 
-    def __init__(self, channels_in: int, channels_out: int, stride: int):
-        """Initialize Resnet block.
-
-        Args:
-            channels_in (int): Input channels
-            channels_out (int): Output channels
-            stride (int): Convolution stride
+        ## Args:
+            * channels_in   (int):              Input channels.
+            * channels_out  (int):              Output channels.
+            * stride        (int):              Convolution stride.
+            * kernel        (str, optional):    Kernel with which model will be set.
+            * location      (float, optional):  Distribution location parameter. Defaults to 0.0.
+            * scale         (float, optional):  Distribution scale parameter. Defaults to 1.0.
         """
         super(ResnetBlock, self).__init__()
 
-        # Initialize distribution parameters
-        self.location =     [(ARGS.location if ARGS.distribution != "poisson" else ARGS.rate) if ARGS.distribution else 0.0]*2
-        self.scale =        [ARGS.scale if ARGS.distribution else 1.0]*2
+        # Initialize logger
+        self.__logger__:            Logger =        LOGGER.getChild(suffix = 'resnet-block')
 
-        self.channels_out = channels_out
+        # Initialize distribution parameters
+        self._kernel_:              str =           kernel
+        self._locations_:           list[float] =   [location]*5
+        self._scales_:              list[float] =   [scale]*5
 
         # Batch normalization layers
-        self.bn1 =          nn.BatchNorm2d(channels_out)
-        self.bn2 =          nn.BatchNorm2d(channels_out)
+        self._bn1_:                 BatchNorm2d =   BatchNorm2d(num_features = channels_out)
+        self._bn2_:                 BatchNorm2d =   BatchNorm2d(num_features = channels_out)
 
         # Convolving layers
-        self.conv1 =        nn.Conv2d(channels_in,  channels_out, kernel_size=3, stride=stride, padding=1, bias=False)
-        self.conv2 =        nn.Conv2d(channels_out, channels_out, kernel_size=3, stride=1,      padding=1, bias=False)
+        self._conv1_:               Conv2d =        Conv2d(in_channels = channels_in,  out_channels = channels_out, kernel_size = 3, stride = stride, padding = 1, bias = False)
+        self._conv2_:               Conv2d =        Conv2d(in_channels = channels_out, out_channels = channels_out, kernel_size = 3, stride = 1,      padding = 1, bias = False)
 
         # Shortcut layer
-        self.shortcut =     nn.Sequential()
+        self._shortcut_:            Sequential =    Sequential()
 
-        if stride != 1 or channels_in != (channels_out):
-            self.shortcut_kernel = True
-            self.shortcut = nn.Sequential(
-                nn.Conv2d(channels_in, channels_out, kernel_size=1, stride=stride, bias=False),
-                nn.BatchNorm2d(channels_out)
-            )
+        # If stride is not 1 or input channels is not the same as output channels...
+        if stride != 1 or channels_in != channels_out:
+            
+            # Set shortcut to True
+            self._shortcut_kernel_: bool =          True
+            
+            # Define shortcut
+            self._shortcut_:        Sequential =    Sequential(
+                                                        Conv2d(in_channels = channels_in, out_channels = channels_out, kernel_size = 1, stride = stride, bias = False),
+                                                        BatchNorm2d(num_features = channels_out)
+                                                    )
 
-    def forward(self, X: torch.Tensor) -> torch.Tensor:
-        """Feed input through network and provide output.
+    def forward(self, 
+        X:  Tensor
+    ) -> Tensor:
+        """# Feed input through network and provide output.
 
-        Args:
-            X (torch.Tensor): Input tensor
+        ## Args:
+            * X (Tensor):   Input tensor
 
-        Returns:
-            torch.Tensor: Output tensor
+        ## Returns:
+            * Tensor:   Output tensor
         """
         # INPUT LAYER =========================================================================
-        self._logger.debug(f"Input shape: {X.shape}")
+        # Log input shape for debugging
+        self.__logger__.debug(f"Input shape: {X.shape}")
 
         # LAYER 1 =============================================================================
-        x1 = self.conv1(X)
+        # Pass through first convolving layer
+        x1: Tensor =        self._conv1_(X)
 
-        self._logger.debug(f"Layer 1 shape: {x1.shape}")
+        # Log output shape of first layer for debugging
+        self.__logger__.debug(f"Layer 1 shape: {x1.shape}")
 
-        with torch.no_grad(): 
-            y = x1.float()
-            self.location[0], self.scale[0] = torch.mean(y).item(), torch.std(y).item()
+        # Without taking gradients...
+        with no_grad(): 
+            
+            # Convert tensor to float values
+            y:  Tensor =    x1.float()
+            
+            # Calculate mean & standard deviation of layer output
+            self.__locations__[0], self.__scales__[0] = mean(y).item(), std(y).item()
 
         # LAYER 2 =============================================================================
-        x2 = self.conv2(F.relu(self.bn1(self.kernel1(x1) if ARGS.distribution else x1)))
+        # Pass through second convolving layer
+        x2: Tensor =        self._conv2_(relu(self.bn1(self.kernel1(x1) if ARGS.distribution else x1)))
 
-        self._logger.debug(f"Layer 2 shape: {x2.shape}")
+        # Log output shape of first second for debugging
+        self.__logger__.debug(f"Layer 2 shape: {x2.shape}")
 
-        with torch.no_grad(): 
-            y = x2.float()
-            self.location[1], self.scale[1] = torch.mean(y).item(), torch.std(y).item()
+        # Without taking gradients...
+        with no_grad(): 
+            
+            # Convert tensor to float values
+            y:  Tensor =    x2.float()
+            
+            # Calculate mean & standard deviation of layer output
+            self.__locations__[1], self.__scales__[1] = mean(y).item(), std(y).item()
 
         # OUTPUT LAYER ========================================================================
-        output = self.bn2(self.kernel2(x2) if ARGS.distribution else x2)
+        # Pass through batch normalization layer
+        output: Tensor =    self.bn2(self.kernel2(x2) if ARGS.distribution else x2)
 
-        self._logger.debug(f"Output layer shape: {output.shape}")
+        # Log output shape of output layer for debugging
+        self.__logger__.debug(f"Output layer shape: {output.shape}")
 
         # SHORTCUT LAYER ======================================================================
-        # output += self.shortcut(output)
+        # output += self._shortcut_(output)
 
         # Return output
-        return F.relu(output)
+        return relu(output)
     
-    def set_kernels(self) -> None:
-        """Create/update kernels."""
-        self.kernel1 = get_kernel(ARGS.distribution, ARGS.kernel_size, self.channels_out, location=self.location[0], scale=self.scale[0], rate=self.location[0])
-        self.kernel2 = get_kernel(ARGS.distribution, ARGS.kernel_size, self.channels_out, location=self.location[1], scale=self.scale[1], rate=self.location[1])
+    def set_kernels(self,
+            size:   int    
+        ) -> None:
+        """# Create/update kernels.
+
+        ## Args:
+            * size  (int):  Size with which kernels will be created.
+        """
+        # Log for debugging
+        self.__logger__.debug(f"Locations: {self._locations_}, Scales: {self._scales_}")
+
+        # Set kernels
+        for kernel, channel_size, location, scale in zip(
+            ["_kernel1_", "_kernel2_"],
+            [self._channels_out_]*2,
+            self._locations_,
+            self._scales_
+        ):
+            self.__setattr__(name = kernel, value = load_kernel(
+                kernel =    self._kernel_,
+                size =      size,
+                channels =  channel_size,
+                location =  location,
+                scale =     scale
+            ))

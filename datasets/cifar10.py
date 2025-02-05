@@ -34,7 +34,7 @@ class Cifar10(Dataset):
         super(Cifar10, self)
         
         # Initialize logger
-        self.__logger__:        Logger =        LOGGER.getChild('cifar10-dataset')
+        self.__logger__:        Logger =        LOGGER.getChild(suffix = 'cifar10-dataset')
         
         # Create transform
         transform:              Compose =       Compose([

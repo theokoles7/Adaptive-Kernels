@@ -61,7 +61,7 @@ class Kernel(Conv2d):
         self._scale_:       float =     scale
         
         # Initialize logger
-        self.__logger__:    Logger =    LOGGER.getChild(self.__class__.__name__.lower())
+        self.__logger__:    Logger =    LOGGER.getChild(suffix = self.__class__.__name__.lower())
         
         # Randomly select kernel type from config group & log for debugging
         kernel_type:        str =       choice(self.__kernel_groups__[kernel_group])

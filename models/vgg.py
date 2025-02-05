@@ -9,7 +9,7 @@ class VGG(nn.Module):
     """VGG 16 model."""
 
     # Initialize logger
-    _logger = LOGGER.getChild('vgg')
+    _logger = LOGGER.getChild(suffix = 'vgg')
 
     # Initializemodel data file
     _model_data = pd.DataFrame(columns=[

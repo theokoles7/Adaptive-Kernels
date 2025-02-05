@@ -1,9 +1,11 @@
 """Basic CNN model."""
 
+from json                   import dump
 from logging                import Logger
 
 from pandas                 import DataFrame
 from torch                  import mean, no_grad, std, Tensor
+from torch.cuda             import is_available
 from torch.nn               import Conv2d, Linear, MaxPool2d, Module
 from torch.nn.functional    import relu
 
@@ -13,11 +15,11 @@ from utils                  import LOGGER
 class NormalCNN(Module):
     """Basic CNN model."""
 
-    # Initialize layer-data file
-    _model_data =   DataFrame(columns = [
-        'Data-STD',  'Layer 1-STD',  'Layer 2-STD',  'Layer 3-STD',  'Layer 4-STD',
-        'Data-Mean', 'Layer 1-MEAN', 'Layer 2-MEAN', 'Layer 3-MEAN', 'Layer 4-MEAN'
-    ])
+    # # Initialize layer-data file
+    # _model_data =   DataFrame(columns = [
+    #     'Data-STD',  'Layer 1-STD',  'Layer 2-STD',  'Layer 3-STD',  'Layer 4-STD',
+    #     'Data-Mean', 'Layer 1-MEAN', 'Layer 2-MEAN', 'Layer 3-MEAN', 'Layer 4-MEAN'
+    # ])
 
     def __init__(self,
         channels_in:    int, 
@@ -40,9 +42,12 @@ class NormalCNN(Module):
         """
         # Initialize parent class
         super(NormalCNN, self).__init__()
+    
+        # Initialie model data record
+        self._model_data_:  dict =  {}
         
         # Initialize logger
-        self.__logger__:    Logger =    LOGGER.getChild('normal-cnn')
+        self.__logger__:    Logger =    LOGGER.getChild(suffix = 'normal-cnn')
 
         # Initialize distribution parameters
         self._kernel_:      str =           kernel
@@ -86,7 +91,7 @@ class NormalCNN(Module):
         with no_grad():
             
             # Convert tensor to float values
-            y = X.float()
+            y:  Tensor =    X.float()
             
             # Calculate mean & standard deviation of layer output
             self._locations_[0], self._scales_[0] = mean(y).item(), std(y).item()
@@ -178,6 +183,9 @@ class NormalCNN(Module):
         """
         # Log for debugging
         self.__logger__.debug(f"EPOCH {epoch} locations: {self._locations_}, scales: {self._scales_}")
+        
+        # Set current epoch
+        self._epoch_:   int =   epoch
 
         # Set kernels
         for kernel, channel_size, location, scale in zip(
@@ -193,19 +201,35 @@ class NormalCNN(Module):
                 location =  location,
                 scale =     scale
             ))
+            
+        # Set model on GPU if available
+        if is_available():  self = self.cuda()
 
-    def record_params(self) -> None:
-        """Record mean & standard deviation of layers in model data file."""
-        self._model_data.loc[len(self._model_data)] = [
-            self.location[0], self.location[1], self.location[2], self.location[3], self.location[4],
-            self.scale[0],    self.scale[1],    self.scale[2],    self.scale[3],    self.scale[4]
-        ]
+    def record_parameters(self) -> None:
+        """# Record mean & standard deviation of layers in model data file."""
+        # Record epoch parameters
+        self._model_data_.update({
+            self._epoch_:   {
+                "location": self._locations_,
+                "scale":    self._scales_
+            }
+        })
 
-    def to_csv(self, file_path: str) -> None:
-        """Dump model layer data to CSV file.
+    def save_parameters(self, 
+        file_path:  str
+    ) -> None:
+        """# Dump model layer data to CSV file.
 
-        Args:
-            file_path (str): Path at which data file (CSV) will be written
+        ## Args:
+            * file_path (str):  Path at which data file (CSV) will be written
         """
+        # Log action
         self.__logger__.info(f"Saving model layer data to {file_path}")
-        self._model_data.to_csv(file_path)
+        
+        # Save model data to file
+        dump(
+            obj =       self._model_data_,
+            fp =        open(file = file_path, mode = "w"),
+            indent =    2,
+            default =   str
+        )

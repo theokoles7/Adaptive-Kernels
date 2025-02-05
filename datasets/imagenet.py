@@ -35,7 +35,7 @@ class ImageNet(Dataset):
         super(ImageNet, self)
         
         # Initialize logger
-        self.__logger__:        Logger =        LOGGER.getChild("imagenet-dataset")
+        self.__logger__:        Logger =        LOGGER.getChild(suffix = "imagenet-dataset")
         
         # Create transform
         transform:              Compose =       Compose([

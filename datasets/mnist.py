@@ -35,7 +35,7 @@ class MNIST(Dataset):
         super(MNIST, self)
         
         # Initialize logger
-        self.__logger__:        Logger =        LOGGER.getChild("mnist-dataset")
+        self.__logger__:        Logger =        LOGGER.getChild(suffix = "mnist-dataset")
         
         # Create transform
         transform:              Compose =       Compose([

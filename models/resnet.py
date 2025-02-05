@@ -1,19 +1,23 @@
-"""Resnet 18 model."""
+"""Resnet-18 model."""
 
-import pandas as pd, torch, torch.nn as nn, torch.nn.functional as F
+from logging                import Logger
+
+from pandas                 import DataFrame
+from torch                  import mean, no_grad, std, Tensor
+from torch.cuda             import is_available
+from torch.nn               import BatchNorm2d, Conv2d, Linear, Module, Sequential
+from torch.nn.functional    import avg_pool2d, relu
+from torch.nn.init          import constant_, kaiming_normal_, normal_
 
 from kernels                import load_kernel
-from utils      import ARGS, LOGGER
-from models.resnet_block     import ResnetBlock
+from models.resnet_block    import ResnetBlock
+from utils                  import LOGGER
 
-class Resnet(nn.Module):
+class Resnet(Module):
     """Resnet 18 model."""
 
-    # Initialize logger
-    _logger = LOGGER.getChild('resnet')
-
     # Initialize lyer-data file
-    _model_data = pd.DataFrame(columns = [
+    _model_data = DataFrame(columns = [
         'Data-STD',     'Data-Mean',
         'Layer 1-STD',  'Layer 1-MEAN',
         'Layer 5-STD',  'Layer 5-MEAN',
@@ -22,163 +26,266 @@ class Resnet(nn.Module):
         'Layer 18-STD', 'Layer 18-MEAN'
     ])
 
-    def __init__(self, channels_in: int, channels_out: int):
-        """Initialize Resnet 18 model.
+    def __init__(self, 
+        channels_in:    int, 
+        channels_out:   int,
+        kernel:         str =   None,
+        location:       float = 0.0,
+        scale:          float = 1.0,
+    ):
+        """# Initialize Resnet 18 model.
 
-        Args:
-            channels_in (int): Input channels
-            channels_out (int): Output channels
+        # Args:
+            * channels_in   (int):              Input channels.
+            * channels_out  (int):              Output channels.
+            * kernel        (str, optional):    Kernel with which model will be set.
+            * location      (float, optional):  Distribution location parameter. Defaults to 0.0.
+            * scale         (float, optional):  Distribution scale parameter. Defaults to 1.0.
         """
+        # Initialize Module object
         super(Resnet, self).__init__()
 
+        # Initialize logger
+        self.__logger__:    Logger =        LOGGER.getChild(suffix = 'resnet')
+
         # Initialize planes in
-        self._planes_in =  64
+        self._planes_in_:   int =           64
 
         # Initialize distribution parameters
-        self.location =     [(ARGS.location if ARGS.distribution != "poisson" else ARGS.rate) if ARGS.distribution else 0.0]*6
-        self.scale =        [ARGS.scale if ARGS.distribution else 1.0]*6
+        self._kernel_:      str =           kernel
+        self._locations_:   list[float] =   [location]*5
+        self._scales_:      list[float] =   [scale]*5
 
         # Batch normalization layer
-        self.bn =           nn.BatchNorm2d(64)
+        self._bn:           BatchNorm2d =   BatchNorm2d(64)
 
         # Convolving layer
-        self.conv =         nn.Conv2d(channels_in, 64, kernel_size=3, stride=1, padding=1, bias=False)
+        self._conv_:        Conv2d =        Conv2d(channels_in, 64, kernel_size=3, stride=1, padding=1, bias=False)
 
         # Block layers
-        self.layer1 =       self._make_layer( 64, 2, stride=1)
-        self.layer2 =       self._make_layer(128, 2, stride=2)
-        self.layer3 =       self._make_layer(256, 2, stride=2)
-        self.layer4 =       self._make_layer(512, 2, stride=2)
+        self._layer1_:      Sequential =    self._make_layer_( 64, 2, stride=1)
+        self._layer2_:      Sequential =    self._make_layer_(128, 2, stride=2)
+        self._layer3_:      Sequential =    self._make_layer_(256, 2, stride=2)
+        self._layer4_:      Sequential =    self._make_layer_(512, 2, stride=2)
 
         # Linear layer
-        self.linear =       nn.Linear(512, channels_out)
+        self._linear_:      Linear =        Linear(512, channels_out)
 
-        self._initialize_weights()
+        # initialize layer weights
+        self._initialize_weights_()
 
-    def forward(self, X: torch.Tensor) -> torch.Tensor:
-        """Feed input through network and produce output.
+    def forward(self, 
+        X:  Tensor
+    ) -> Tensor:
+        """# Feed input through network and produce output.
 
-        Args:
-            X (torch.Tensor): Input tensor
+        ## Args:
+            * X (Tensor):   Input tensor
 
-        Returns:
-            torch.Tensor: Output tensor
+        ## Returns:
+            * Tensor:   Output tensor
         """
         # INPUT LAYER =============================================================================
-        self._logger.debug(f"Input layer shape: {X.shape}")
+        # Log input tensor shape for debugging
+        self.__logger__.debug(f"Input layer shape: {X.shape}")
 
-        with torch.no_grad(): 
+        # Without taking gradients...
+        with no_grad(): 
+            
+            # Convert tensor to float values
             y = X.float()
-            self.location[0], self.scale[0] = torch.mean(y).item(), torch.std(y).item()
+            
+            # Calculate mean & standard deviation of layer output
+            self._locations_[0], self._scales_[0] = mean(y).item(), std(y).item()
 
         # LAYER 1 =================================================================================
-        x1 = self.conv(X)
+        # Pass through convolving layer
+        x1:     Tensor =    self._conv_(X)
 
-        self._logger.debug(f"Layer 1 shape: {x1.shape}")
+        # Log first layer output for debugging
+        self.__logger__.debug(f"Layer 1 shape: {x1.shape}")
 
-        with torch.no_grad(): 
-            y = x1.float()
-            self.location[1], self.scale[1] = torch.mean(y).item(), torch.std(y).item()
+        # Without taking gradients...
+        with no_grad(): 
+            
+            # Convert tensor to float values
+            y:  Tensor =    x1.float()
+            
+            # Calculate mean & standard deviation of layer output
+            self._locations_[1], self._scales_[1] = mean(y).item(), std(y).item()
 
         # LAYER 2 =================================================================================
-        x2 = self.layer1(F.relu(self.bn(self.kernel1(x1) if ARGS.distribution else x1)))
+        # Pass through first block layer
+        x2:     Tensor =    self._layer1_(relu(self._bn_(self._kernel1_(x1) if self._kernel_ else x1)))
 
-        self._logger.debug(f"Layer 2 shape: {x2.shape}")
+        # Log second layer output for debugging
+        self.__logger__.debug(f"Layer 2 shape: {x2.shape}")
 
-        with torch.no_grad(): 
-            y = x2.float()
-            self.location[2], self.scale[2] = torch.mean(y).item(), torch.std(y).item()
+        # Without taking gradients...
+        with no_grad(): 
+            
+            # Convert tensor to float values
+            y:  Tensor =    x2.float()
+            
+            # Calculate mean & standard deviation of layer output
+            self._locations_[2], self._scales_[2] = mean(y).item(), std(y).item()
 
         # LAYER 3 =================================================================================
-        x3 = self.layer2(x2)
+        # Pass through second block layer
+        x3:     Tensor =    self._layer2_(x2)
 
-        self._logger.debug(f"Layer 3 shape: {x3.shape}")
+        # Log third layer output for debugging
+        self.__logger__.debug(f"Layer 3 shape: {x3.shape}")
 
-        with torch.no_grad(): 
-            y = x3.float()
-            self.location[3], self.scale[3] = torch.mean(y).item(), torch.std(y).item()
+        # Without taking gradients...
+        with no_grad(): 
+            
+            # Convert tensor to float values
+            y:  Tensor =    x3.float()
+            
+            # Calculate mean & standard deviation of layer output
+            self._locations_[3], self._scales_[3] = mean(y).item(), std(y).item()
 
         # LAYER 4 =================================================================================
-        x4 = self.layer3(x3)
+        # Pass through third block layer
+        x4:     Tensor =    self._layer3_(x3)
 
-        self._logger.debug(f"Layer 4 shape: {x4.shape}")
+        # Log fourth layer output for debugging
+        self.__logger__.debug(f"Layer 4 shape: {x4.shape}")
 
-        with torch.no_grad(): 
-            y = x4.float()
-            self.location[4], self.scale[4] = torch.mean(y).item(), torch.std(y).item()
+        # Without taking gradients...
+        with no_grad(): 
+            
+            # Convert tensor to float values
+            y:  Tensor =    x4.float()
+            
+            # Calculate mean & standard deviation of layer output
+            self._locations_[4], self._scales_[4] = mean(y).item(), std(y).item()
 
         # OUTPUT LAYER ============================================================================
-        output = F.avg_pool2d(self.layer4(x4), 4)
+        # Pass through fourth block layer
+        output: Tensor =    avg_pool2d(self._layer4_(x4), 4)
 
-        self._logger.debug(f"Output layer shape: {output.shape}")
+        # Log output layer output for debugging
+        self.__logger__.debug(f"Output layer shape: {output.shape}")
 
-        with torch.no_grad(): 
-            y = output.float()
-            self.location[5], self.scale[5] = torch.mean(y).item(), torch.std(y).item()
+        # Without taking gradients...
+        with no_grad(): 
+            
+            # Convert tensor to float values
+            y:  Tensor =    output.float()
+            
+            # Calculate mean & standard deviation of layer output
+            self._locations_[5], self._scales_[5] = mean(y).item(), std(y).item()
 
-        return self.linear(output.view(output.size(0), -1))
+        # Return classification of sample
+        return self._linear_(output.view(output.size(0), -1))
     
-    def set_kernels(self, epoch: int) -> None:
-        """Create/update kernels.
+    def set_kernels(self,
+        epoch:      int,
+        size:       int
+    ) -> None:
+        """# Create/update kernels.
 
-        Args:
-            epoch (int): Current epoch number
+        ## Args:
+            * epoch (int):  Epoch during which kernels are being set.
+            * size  (int):  Size with which kernels will be created.
         """
-        self.kernel1 = get_kernel(ARGS.distribution, ARGS.kernel_size, 64, self.location[1], self.scale[1], self.location[1])
+        # Log for debugging
+        self.__logger__.debug(f"EPOCH {epoch} locations: {self._locations_}, scales: {self._scales_}")
 
-        for layer in [self.layer1, self.layer2, self.layer3, self.layer4]:
+        # Set kernel
+        self._kernel1_ = load_kernel(
+                            kernel =    self._kernel_, 
+                            size =      size, 
+                            channels =  64, 
+                            location =  self._locations_[1], 
+                            scale =     self._scales_[1]
+                        )
+
+        # For each block layer...
+        for layer in [self._layer1_, self._layer2_, self._layer3_, self._layer4_]:
+            
+            # For each block in block layer...
             for child in layer:
-                child.set_kernels()
+                
+                # Set kernel(s) for block
+                child.set_kernels(size = size)
+            
+        # Set model on GPU if available
+        if is_available():  self = self.cuda()
     
     def record_params(self) -> None:
         """Record model distribution parameters."""
         self._model_data[len(self._model_data)] = [
-            self.location[0], self.rate[0],
-            self.location[1], self.rate[1],
-            self.location[2], self.rate[2],
-            self.location[3], self.rate[3],
-            self.location[4], self.rate[4],
-            self.location[5], self.rate[5],
+            self._locations_[0], self.rate[0],
+            self._locations_[1], self.rate[1],
+            self._locations_[2], self.rate[2],
+            self._locations_[3], self.rate[3],
+            self._locations_[4], self.rate[4],
+            self._locations_[5], self.rate[5],
         ]
 
-    def _initialize_weights(self) -> None:
+    def _initialize_weights_(self) -> None:
         """Initialize weights in all layers."""
-        for m in self.modules():
+        # For each module...
+        for module in self.modules():
 
-            # Convolving
-            if isinstance(m, nn.Conv2d):
-                nn.init.kaiming_normal_(m.weight, mode='fan_in', nonlinearity='relu')
-                if m.bias is not None: nn.init.constant_(m.bias, 0)
+            # For convolving layer(s)...
+            if isinstance(obj =     module, class_or_tuple =    Conv2d):
+                
+                # Fill the input Tensor with values using a Kaiming normal distribution
+                kaiming_normal_(tensor = module.weight, mode='fan_in', nonlinearity='relu')
+                if module.bias is not None: constant_(module.bias, 0)
 
-            # Batch normalization
-            elif isinstance(m, nn.BatchNorm2d):
-                nn.init.constant_(m.weight, 1)
-                nn.init.constant_(m.bias,   0)
+            # For batch normalization
+            elif isinstance(obj =   module, class_or_tuple =    BatchNorm2d):
+                
+                # Fill the input Tensor with the value
+                constant_(tensor =  module.weight,  val =   1)
+                constant_(tensor =  module.bias,    val =   0)
 
             # Linear
-            elif isinstance(m, nn.Linear):
-                nn.init.normal_(m.weight, 0, 0.01)
-                nn.init.constant_(m.bias, 0)
+            elif isinstance(obj =   module, class_or_tuple =    Linear):
+                
+                # Fill the input Tensor with values drawn from the normal distribution
+                normal_(tensor = module.weight, mean = 0, std = 0.01)
+                
+                # Fill the input Tensor with the value
+                constant_(tensor = module.bias, val = 0)
 
-    def _make_layer(self, planes_out: int, num_blocks: int, stride: int) -> nn.Sequential:
-        """Create ResNet block layer.
+    def _make_layer_(self,
+        planes_out: int,
+        num_blocks: int,
+        stride:     int
+    ) -> Sequential:
+        """# Create ResNet block layer.
 
-        Args:
-            planes_out (int): Number of output planes
-            num_blocks (int): Number of blocks within layer
-            stride (int): Kernel convolution stride
+        ## Args:
+            * planes_out    (int):  Number of output planes
+            * num_blocks    (int):  Number of blocks within layer
+            * stride        (int):  Kernel convolution stride
 
-        Returns:
-            nn.Sequential: ResNetBlock layer
+        ## Returns:
+            * Sequential:   ResNetBlock layer
         """
-        strides = [stride] + [1]*(num_blocks - 1)
-        layers = []
+        # Calculate number of strides needed
+        strides:                int =       [stride] + [1]*(num_blocks - 1)
+        
+        # Initialize list of layers
+        layers:                 list[] =    []
 
+        # For each stride amount needed...
         for stride in strides:
-            layers.append(ResnetBlock(self._planes_in, planes_out, stride))
-            self._planes_in = planes_out
+            
+            # Append block layer
+            layers.append(ResnetBlock(self._planes_in_, planes_out, stride))
+            
+            # "redefine" planes in
+            self._planes_in_:   int =       planes_out
 
-        return nn.Sequential(*layers)
+        # Return block layer
+        return Sequential(*layers)
     
     def to_csv(self, file_path: str) -> None:
         """Dump model layer data to CSV file.
@@ -186,5 +293,5 @@ class Resnet(nn.Module):
         Args:
             file_path (str): Path at which data file (CSV) will be written
         """
-        self._logger.info(f"Saving model layer data to {file_path}")
+        self.__logger__.info(f"Saving model layer data to {file_path}")
         self._model_data.to_csv(file_path)
